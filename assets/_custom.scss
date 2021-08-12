@@ -1,0 +1,106 @@
+/* Theme */
+
+@mixin theme-light {
+    --header-border-bottom: #ddd;
+}
+
+@mixin theme-dark {
+    --header-border-bottom: #ddd;
+}
+
+
+.markdown {
+    /* header */
+    @include theme-light;
+    h2 {
+        border-bottom: 3px double var(--header-border-bottom);
+        padding-bottom: 0.4em;
+    }
+    h3 {
+        border-bottom: 1px solid var(--header-border-bottom);
+        padding-bottom: 0.4em;
+    }
+    h4, h5 {
+        font-weight: 100;
+    }
+}
+
+/* Multilingual Mode */
+.book-languages {
+    .book-languages-list {
+        bottom: 74%;
+    }
+    .book-languages-list a {
+        padding: .3rem 1rem;
+    }
+}
+
+.book-menu-content {
+    .book-languages {
+        img {
+            height: 1em;
+            width: 1em;
+            margin-inline-end: .5rem;
+        }
+        .book-languages-list {
+            padding: 0;
+            bottom: 68%;
+        }
+        .book-languages-list a {
+            padding: 0 1rem;
+        }
+    }
+}
+/* Nav */
+.book-menu-content {
+    nav {
+        .anchor {
+            color: transparent;
+        }
+        .anchor:hover {
+            color: var(--color-link);
+        }
+        .anchor:visited {
+            color: var(--color-visited-link);
+        }
+    }
+}
+/* Table of Contents */
+.book-toc-content {
+    ul.tags {
+        padding-inline-start: 0;
+        li {
+            line-height: 2;
+            list-style: none;
+        }
+    }
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: var(--gray-100);
+    border-radius: 4px;
+    ol {
+        display: block;
+        list-style-type: decimal;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+    }
+    li {
+        display: inline-block;
+    }
+    li+li:before {
+        padding: 0 5px;
+        color: #ccc;
+        content: "/\00a0";
+    }
+    a {
+        color: var(--color-link);
+    }
+}
