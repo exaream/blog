@@ -95,9 +95,11 @@ if len(sys.argv) != 2:
     print("Please input an image file name in the first argument.")
     exit()
 
+img_dir = os.path.dirname(__file__) + '/img/'
 img_file_name = os.path.basename(sys.argv[1])
-img_path = '/opt/img/' + img_file_name
+img_path = img_dir + img_file_name
 img_obj = Image.open(img_path)
+
 builder = pyocr.builders.TextBuilder(tesseract_layout = 6)
 ocr_engine = pyocr.get_available_tools()[0]
 langs = ocr_engine.get_available_languages()
