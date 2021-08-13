@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.e085254e30369b0d70ae60e4646c08ae987304ed872d070c2a0b2666603a9623.js integrity="sha256-4IUlTjA2mw1wrmDkZGwIrphzBO2HLQcMKgsmZmA6liM=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.437b7329998668ba74c6d7db422a605436082073d286975995931ba0743b8dd7.js integrity="sha256-Q3tzKZmGaLp0xtfbQipgVDYIIHPShpdZlZMboHQ7jdc=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -229,9 +229,11 @@ Source
     print(<span style=color:#e6db74>&#34;Please input an image file name in the first argument.&#34;</span>)
     exit()
 
+img_dir <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>dirname(__file__) <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;/img/&#39;</span>
 img_file_name <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>basename(sys<span style=color:#f92672>.</span>argv[<span style=color:#ae81ff>1</span>])
-img_path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;/opt/img/&#39;</span> <span style=color:#f92672>+</span> img_file_name
+img_path <span style=color:#f92672>=</span> img_dir <span style=color:#f92672>+</span> img_file_name
 img_obj <span style=color:#f92672>=</span> Image<span style=color:#f92672>.</span>open(img_path)
+
 builder <span style=color:#f92672>=</span> pyocr<span style=color:#f92672>.</span>builders<span style=color:#f92672>.</span>TextBuilder(tesseract_layout <span style=color:#f92672>=</span> <span style=color:#ae81ff>6</span>)
 ocr_engine <span style=color:#f92672>=</span> pyocr<span style=color:#f92672>.</span>get_available_tools()[<span style=color:#ae81ff>0</span>]
 langs <span style=color:#f92672>=</span> ocr_engine<span style=color:#f92672>.</span>get_available_languages()
