@@ -28,12 +28,14 @@ How to get text from an image using **Tesseract which is an OCR (Optical Charact
 ### Directory structure
 ```text
 python-ocr/
-├── Dockerfile
-├── docker-compose.yml
-├── img/
+├── README.md
+├── img
+│   ├── .gitkeep
 │   └── sample.jpg
-└── sample/
-    └── simple.py
+├── setup
+│   ├── Dockerfile
+│   └── docker-compose.yml
+└── simple.py
 ```
 
 ### Source
@@ -73,10 +75,12 @@ version: '3'
 
 services:
   python-ocr:
-    build: .
+    build:
+      context: ../
+      dockerfile: setup/Dockerfile
     container_name: python-ocr
     volumes:
-      - .:/opt
+      - ../:/opt
 
 ```
 
@@ -108,7 +112,7 @@ print(text)
 
 ```pytyon-ocr``` directory on your host machine
 ```bash
-docker-compose up -d --build
+docker-compose -f setup/docker-compose.yml up -d --build
 docker exec -it python-ocr bash
 ```
 
@@ -116,7 +120,7 @@ docker exec -it python-ocr bash
 
 ```docker container```
 ```bash
-cd /opt/sample/
+cd /opt/
 python simple.py sample.jpg
 ```
 
@@ -131,17 +135,19 @@ python simple.py sample.jpg
 ### Directory structure
 ```text {hl_lines=["7-11"]}
 python-ocr/
-├── Dockerfile
-├── docker-compose.yml
-├── img/
-│   └── sample.jpg # Please put an image here
-└── sample/
-    ├── library/
-    │   ├── base.py
-    │   ├── cv.py
-    │   └── ocr.py
-    ├── main.py
-    └── simple.py
+├── README.md
+├── img
+│   ├── .gitkeep
+│   └── sample.jpg
+├── library
+│   ├── base.py
+│   ├── cv.py
+│   └── ocr.py
+├── main.py
+├── setup
+│   ├── Dockerfile
+│   └── docker-compose.yml
+└── simple.py
 ```
 
 ### Source
@@ -176,7 +182,7 @@ class Base:
         if img_dir != '':
             self.img_dir = img_dir
         else:
-            dir = os.path.dirname(os.path.abspath(__file__)) + '/../../img/'
+            dir = os.path.dirname(os.path.abspath(__file__)) + '/../img/'
             self.img_dir = os.path.abspath(dir)
 
     def get_img_dir(self) -> str:
@@ -210,7 +216,6 @@ class ComputerVision:
 
 ```ocr.py```
 ```python
-import os
 import pyocr
 
 from PIL import Image
@@ -297,13 +302,13 @@ print(text)
 Run below if the docker container is stopped.  
 ```pytyon-ocr``` directory on your host machine
 ```bash
-docker-compose up -d
+docker-compose -f setup/docker-compose.yml up -d
 docker exec -it python-ocr bash
 ```
 
 ```docker container```
 ```bash
-cd /opt/sample/
+cd /opt/
 python main.py --img sample.jp
 ```
 
