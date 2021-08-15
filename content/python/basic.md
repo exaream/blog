@@ -1,12 +1,12 @@
 ---
 date: 2021-07-31
 lastmod: ["lastmod"]
-title: Python
+title: Python Basic
 description: "H"
 tags: ["Python", "Basic"]
 ---
 
-# Python
+# Python Basic
 
 ## Argument
 
