@@ -1,12 +1,12 @@
 ---
 date: 2021-07-31
 lastmod: ["lastmod"]
-title: Python Basic
+title: Python
 description: "H"
 tags: ["Python", "Basic"]
 ---
 
-# Basic
+# Python
 
 ## Argument
 
@@ -108,6 +108,53 @@ True
 False
 ```
 
+## File
+
+### Get an absolute path
+```python
+import os
+absolute_path = os.path.dirname(relative_path)
+```
+
+
+### Get a file's directory
+
+```python
+import os
+dir_name = os.path.dirname(file_path)
+```
+
+### Get a file name
+```python
+import os
+file_name = os.path.basename(file_path)
+```
+
+### Get a file's stem
+```python
+import os
+file_stem = os.path.splitext(file_name)[0] # sample.png -> sample
+```
+
+### Check if a file or a directory exists
+
+```python
+import os
+path = "/foo/bar/sample.png"
+os.path.exists(path)
+```
+
+```python
+import os
+path = "/foo/bar/sample.png"
+os.path.isfile(path)
+```
+
+```python
+import os
+path = "/foo/bar/"
+os.path.isdir(path)
+```
 
 ## References
 * https://docs.python.org/ja/3.9/library/argparse.html
