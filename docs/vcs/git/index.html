@@ -2,10 +2,10 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Git #  References #   https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0 https://qiita.com/jesus_isao/items/63557eba36819faa4ad9 https://backlog.com/ja/git-tutorial/reference/ https://qiita.com/harukasan/items/9149542584385e8dea75 https://qiita.com/kawasaki_dev/items/41afaafe477b877b5b73  実用的なコマンド #  指定したフォーマットでコミット・ログを表示 #  $ git log --graph --date=iso --pretty=format:&#34;[%ad] %h %an : %s&#34; 特定の注釈を含むコミットを検索 #  $ git log --oneline --grep &#34;<pattern>&#34; コミット間の変更ファイル一覧を表示 #  $ git diff --stat <Commit A> <Commit B> ファイル名のみ表示する場合
+<meta name=description content="Git #  実用的なコマンド #  指定したフォーマットでコミット・ログを表示 #  $ git log --graph --date=iso --pretty=format:&#34;[%ad] %h %an : %s&#34; 特定の注釈を含むコミットを検索 #  $ git log --oneline --grep &#34;<pattern>&#34; コミット間の変更ファイル一覧を表示 #  $ git diff --stat <Commit A> <Commit B> ファイル名のみ表示する場合
 $ git diff --stat --name-only <Commit A> <Commit B> タグの一覧を表示 #  $ git tag -n Git 設定 #  バージョンを確認 #  $ git --version 設定の一覧を表示 #  設定適用範囲">
 <meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Git">
-<meta property="og:description" content="Git #  References #   https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0 https://qiita.com/jesus_isao/items/63557eba36819faa4ad9 https://backlog.com/ja/git-tutorial/reference/ https://qiita.com/harukasan/items/9149542584385e8dea75 https://qiita.com/kawasaki_dev/items/41afaafe477b877b5b73  実用的なコマンド #  指定したフォーマットでコミット・ログを表示 #  $ git log --graph --date=iso --pretty=format:&#34;[%ad] %h %an : %s&#34; 特定の注釈を含むコミットを検索 #  $ git log --oneline --grep &#34;<pattern>&#34; コミット間の変更ファイル一覧を表示 #  $ git diff --stat <Commit A> <Commit B> ファイル名のみ表示する場合
+<meta property="og:description" content="Git #  実用的なコマンド #  指定したフォーマットでコミット・ログを表示 #  $ git log --graph --date=iso --pretty=format:&#34;[%ad] %h %an : %s&#34; 特定の注釈を含むコミットを検索 #  $ git log --oneline --grep &#34;<pattern>&#34; コミット間の変更ファイル一覧を表示 #  $ git diff --stat <Commit A> <Commit B> ファイル名のみ表示する場合
 $ git diff --stat --name-only <Commit A> <Commit B> タグの一覧を表示 #  $ git tag -n Git 設定 #  バージョンを確認 #  $ git --version 設定の一覧を表示 #  設定適用範囲">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://exaream.github.io/tech-blog/vcs/git/"><meta property="article:section" content="vcs">
@@ -16,7 +16,7 @@ $ git diff --stat --name-only <Commit A> <Commit B> タグの一覧を表示 #  
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.437b7329998668ba74c6d7db422a605436082073d286975995931ba0743b8dd7.js integrity="sha256-Q3tzKZmGaLp0xtfbQipgVDYIIHPShpdZlZMboHQ7jdc=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.fe38c59861008bf9713720c31028de4bc51cb45717c8016a740b2284c4855e63.js integrity="sha256-/jjFmGEAi/lxNyDDECjeS8UctFcXyAFqdAsihMSFXmM=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -89,7 +89,6 @@ Menu
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#references>References</a></li>
 <li><a href=#実用的なコマンド>実用的なコマンド</a>
 <ul>
 <li><a href=#指定したフォーマットでコミットログを表示>指定したフォーマットでコミット・ログを表示</a></li>
@@ -149,10 +148,13 @@ Menu
 <li><a href=#ブランチ操作>ブランチ操作</a>
 <ul>
 <li><a href=#ローカルブランチの一覧を表示>ローカル・ブランチの一覧を表示</a></li>
-<li><a href=#リモートブランチも含めた一覧を表示>リモート・ブランチも含めた一覧を表示</a></li>
+<li><a href=#特定の文字列を含むブランチをローカルブランチから検索>特定の文字列を含むブランチをローカル・ブランチから検索</a></li>
+<li><a href=#ローカルブランチとリモートブランチの一覧を表示>ローカル・ブランチとリモート・ブランチの一覧を表示</a></li>
+<li><a href=#特定の文字列を含むブランチをローカルブランチとリモートブランチから検索>特定の文字列を含むブランチをローカル・ブランチとリモート・ブランチから検索</a></li>
 <li><a href=#ブランチを作成>ブランチを作成</a></li>
 <li><a href=#ブランチ名を変更>ブランチ名を変更</a></li>
 <li><a href=#ブランチを削除>ブランチを削除</a></li>
+<li><a href=#ブランチを強制的に削除>ブランチを強制的に削除</a></li>
 <li><a href=#ブランチを切り替え>ブランチを切り替え</a></li>
 <li><a href=#ブランチをマージ>ブランチをマージ</a></li>
 </ul>
@@ -165,6 +167,7 @@ Menu
 <li><a href=#リモートリポジトリのブランチからローカルリポジトリのブランチを作成>リモートリポジトリのブランチからローカルリポジトリのブランチを作成</a></li>
 <li><a href=#リモートリポジトリにブランチを作成--ブランチに変更内容を反映>リモートリポジトリにブランチを作成 / ブランチに変更内容を反映</a></li>
 <li><a href=#リモートリポジトリのブランチの変更内容を確認>リモートリポジトリのブランチの変更内容を確認</a></li>
+<li><a href=#リモートリポジトリから削除されたブランチをローカルリポジトリでも削除>リモートリポジトリから削除されたブランチをローカルリポジトリでも削除</a></li>
 <li><a href=#リモートリポジトリのブランチの変更内容をローカルリポジトリのブランチに反映>リモートリポジトリのブランチの変更内容をローカルリポジトリのブランチに反映</a></li>
 <li><a href=#リモートリポジトリのブランチを削除>リモートリポジトリのブランチを削除</a></li>
 <li><a href=#リモートリポジトリにタグを作成>リモートリポジトリにタグを作成</a></li>
@@ -197,6 +200,7 @@ Menu
 <li><a href=#head-と-head-の違い>HEAD~ と HEAD^ の違い</a></li>
 </ul>
 </li>
+<li><a href=#references>References</a></li>
 </ul>
 </nav>
 </aside>
@@ -216,17 +220,6 @@ Menu
 Git
 <a class=anchor href=#git>#</a>
 </h1>
-<h2 id=references>
-References
-<a class=anchor href=#references>#</a>
-</h2>
-<ul>
-<li><a href=https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0>https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0</a></li>
-<li><a href=https://qiita.com/jesus_isao/items/63557eba36819faa4ad9>https://qiita.com/jesus_isao/items/63557eba36819faa4ad9</a></li>
-<li><a href=https://backlog.com/ja/git-tutorial/reference/>https://backlog.com/ja/git-tutorial/reference/</a></li>
-<li><a href=https://qiita.com/harukasan/items/9149542584385e8dea75>https://qiita.com/harukasan/items/9149542584385e8dea75</a></li>
-<li><a href=https://qiita.com/kawasaki_dev/items/41afaafe477b877b5b73>https://qiita.com/kawasaki_dev/items/41afaafe477b877b5b73</a></li>
-</ul>
 <h2 id=実用的なコマンド>
 実用的なコマンド
 <a class=anchor href=#%e5%ae%9f%e7%94%a8%e7%9a%84%e3%81%aa%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89>#</a>
@@ -705,11 +698,27 @@ HEADの移動履歴を表示
 <a class=anchor href=#%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%81%ae%e4%b8%80%e8%a6%a7%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch
-</code></pre></div><h3 id=リモートブランチも含めた一覧を表示>
-リモート・ブランチも含めた一覧を表示
-<a class=anchor href=#%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%82%82%e5%90%ab%e3%82%81%e3%81%9f%e4%b8%80%e8%a6%a7%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</code></pre></div><h3 id=特定の文字列を含むブランチをローカルブランチから検索>
+特定の文字列を含むブランチをローカル・ブランチから検索
+<a class=anchor href=#%e7%89%b9%e5%ae%9a%e3%81%ae%e6%96%87%e5%ad%97%e5%88%97%e3%82%92%e5%90%ab%e3%82%80%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%81%8b%e3%82%89%e6%a4%9c%e7%b4%a2>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git -a branch
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch --list <span style=color:#e6db74>&#39;sample-*&#39;</span>
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -l <span style=color:#e6db74>&#39;sample-*&#39;</span>
+</code></pre></div><h3 id=ローカルブランチとリモートブランチの一覧を表示>
+ローカル・ブランチとリモート・ブランチの一覧を表示
+<a class=anchor href=#%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%81%a8%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%81%ae%e4%b8%80%e8%a6%a7%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch --all
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -a
+</code></pre></div><h3 id=特定の文字列を含むブランチをローカルブランチとリモートブランチから検索>
+特定の文字列を含むブランチをローカル・ブランチとリモート・ブランチから検索
+<a class=anchor href=#%e7%89%b9%e5%ae%9a%e3%81%ae%e6%96%87%e5%ad%97%e5%88%97%e3%82%92%e5%90%ab%e3%82%80%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%81%a8%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%81%8b%e3%82%89%e6%a4%9c%e7%b4%a2>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch --all --list <span style=color:#e6db74>&#39;sample-*&#39;</span>
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -a -l <span style=color:#e6db74>&#39;sample-*&#39;</span>
 </code></pre></div><h3 id=ブランチを作成>
 ブランチを作成
 <a class=anchor href=#%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%82%92%e4%bd%9c%e6%88%90>#</a>
@@ -725,8 +734,12 @@ HEADの移動履歴を表示
 <a class=anchor href=#%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%82%92%e5%89%8a%e9%99%a4>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -d &lt;branch name&gt;
-</code></pre></div><p><code>HEAD</code> にマージされていないコミットがあるブランチを強制的に削除</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -D -d &lt;branch name&gt;
+</code></pre></div><h3 id=ブランチを強制的に削除>
+ブランチを強制的に削除
+<a class=anchor href=#%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%82%92%e5%bc%b7%e5%88%b6%e7%9a%84%e3%81%ab%e5%89%8a%e9%99%a4>#</a>
+</h3>
+<p><code>HEAD</code> にマージされていないコミットがあるブランチを強制的に削除</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -D &lt;branch name&gt;
 </code></pre></div><h3 id=ブランチを切り替え>
 ブランチを切り替え
 <a class=anchor href=#%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%82%92%e5%88%87%e3%82%8a%e6%9b%bf%e3%81%88>#</a>
@@ -791,6 +804,13 @@ HEADの移動履歴を表示
 <li><code>refspec</code> を省略した場合, デフォルトではすべてのブランチが対象</li>
 </ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git fetch &lt;repository&gt; &lt;refspec&gt;
+</code></pre></div><h3 id=リモートリポジトリから削除されたブランチをローカルリポジトリでも削除>
+リモートリポジトリから削除されたブランチをローカルリポジトリでも削除
+<a class=anchor href=#%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%81%8b%e3%82%89%e5%89%8a%e9%99%a4%e3%81%95%e3%82%8c%e3%81%9f%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%81%a7%e3%82%82%e5%89%8a%e9%99%a4>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git fetch --prune
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git remote prune &lt;repository&gt;
 </code></pre></div><h3 id=リモートリポジトリのブランチの変更内容をローカルリポジトリのブランチに反映>
 リモートリポジトリのブランチの変更内容をローカルリポジトリのブランチに反映
 <a class=anchor href=#%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%81%ae%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%81%ae%e5%a4%89%e6%9b%b4%e5%86%85%e5%ae%b9%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%81%ae%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%81%ab%e5%8f%8d%e6%98%a0>#</a>
@@ -975,7 +995,18 @@ G = A^^^ = A^1^1^1 = A~3
 H = D^2  = B^^2    = A^^^2  = A~2^2
 I = F^   = B^3^    = A^^3^
 J = F^2  = B^3^2   = A^^3^2
-</code></pre></article>
+</code></pre><h2 id=references>
+References
+<a class=anchor href=#references>#</a>
+</h2>
+<ul>
+<li><a href=https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0>https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0</a></li>
+<li><a href=https://qiita.com/jesus_isao/items/63557eba36819faa4ad9>https://qiita.com/jesus_isao/items/63557eba36819faa4ad9</a></li>
+<li><a href=https://backlog.com/ja/git-tutorial/reference/>https://backlog.com/ja/git-tutorial/reference/</a></li>
+<li><a href=https://qiita.com/harukasan/items/9149542584385e8dea75>https://qiita.com/harukasan/items/9149542584385e8dea75</a></li>
+<li><a href=https://qiita.com/kawasaki_dev/items/41afaafe477b877b5b73>https://qiita.com/kawasaki_dev/items/41afaafe477b877b5b73</a></li>
+</ul>
+</article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 <div class=book-languages tabindex=0 aria-haspopup=true>
@@ -1008,7 +1039,6 @@ English
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#references>References</a></li>
 <li><a href=#実用的なコマンド>実用的なコマンド</a>
 <ul>
 <li><a href=#指定したフォーマットでコミットログを表示>指定したフォーマットでコミット・ログを表示</a></li>
@@ -1068,10 +1098,13 @@ English
 <li><a href=#ブランチ操作>ブランチ操作</a>
 <ul>
 <li><a href=#ローカルブランチの一覧を表示>ローカル・ブランチの一覧を表示</a></li>
-<li><a href=#リモートブランチも含めた一覧を表示>リモート・ブランチも含めた一覧を表示</a></li>
+<li><a href=#特定の文字列を含むブランチをローカルブランチから検索>特定の文字列を含むブランチをローカル・ブランチから検索</a></li>
+<li><a href=#ローカルブランチとリモートブランチの一覧を表示>ローカル・ブランチとリモート・ブランチの一覧を表示</a></li>
+<li><a href=#特定の文字列を含むブランチをローカルブランチとリモートブランチから検索>特定の文字列を含むブランチをローカル・ブランチとリモート・ブランチから検索</a></li>
 <li><a href=#ブランチを作成>ブランチを作成</a></li>
 <li><a href=#ブランチ名を変更>ブランチ名を変更</a></li>
 <li><a href=#ブランチを削除>ブランチを削除</a></li>
+<li><a href=#ブランチを強制的に削除>ブランチを強制的に削除</a></li>
 <li><a href=#ブランチを切り替え>ブランチを切り替え</a></li>
 <li><a href=#ブランチをマージ>ブランチをマージ</a></li>
 </ul>
@@ -1084,6 +1117,7 @@ English
 <li><a href=#リモートリポジトリのブランチからローカルリポジトリのブランチを作成>リモートリポジトリのブランチからローカルリポジトリのブランチを作成</a></li>
 <li><a href=#リモートリポジトリにブランチを作成--ブランチに変更内容を反映>リモートリポジトリにブランチを作成 / ブランチに変更内容を反映</a></li>
 <li><a href=#リモートリポジトリのブランチの変更内容を確認>リモートリポジトリのブランチの変更内容を確認</a></li>
+<li><a href=#リモートリポジトリから削除されたブランチをローカルリポジトリでも削除>リモートリポジトリから削除されたブランチをローカルリポジトリでも削除</a></li>
 <li><a href=#リモートリポジトリのブランチの変更内容をローカルリポジトリのブランチに反映>リモートリポジトリのブランチの変更内容をローカルリポジトリのブランチに反映</a></li>
 <li><a href=#リモートリポジトリのブランチを削除>リモートリポジトリのブランチを削除</a></li>
 <li><a href=#リモートリポジトリにタグを作成>リモートリポジトリにタグを作成</a></li>
@@ -1116,6 +1150,7 @@ English
 <li><a href=#head-と-head-の違い>HEAD~ と HEAD^ の違い</a></li>
 </ul>
 </li>
+<li><a href=#references>References</a></li>
 </ul>
 </nav>
 </div>
