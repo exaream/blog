@@ -108,12 +108,18 @@ True
 False
 ```
 
-## File
+## File/Directory
+
+### Move to current directory
+```python
+import os
+os.getcwd()
+```
 
 ### Get an absolute path
 ```python
 import os
-absolute_path = os.path.dirname(relative_path)
+absolute_path = os.path.abspath(relative_path)
 ```
 
 
