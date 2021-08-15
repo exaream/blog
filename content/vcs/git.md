@@ -428,12 +428,35 @@ $ git log --grep "<pattern>"
 $ git branch
 ```
 
-### リモート・ブランチも含めた一覧を表示
+### 特定の文字列を含むブランチをローカル・ブランチから検索
 
 ```bash
-$ git -a branch
+$ git branch --list 'sample-*'
+```
+or
+```bash
+$ git branch -l 'sample-*'
 ```
 
+### ローカル・ブランチとリモート・ブランチの一覧を表示
+
+```bash
+$ git branch --all
+```
+or
+```bash
+$ git branch -a
+```
+
+### 特定の文字列を含むブランチをローカル・ブランチとリモート・ブランチから検索
+
+```bash
+$ git branch --all --list 'sample-*'
+```
+or
+```bash
+$ git branch -a -l 'sample-*'
+```
 
 ### ブランチを作成
 
@@ -453,10 +476,12 @@ $ git branch -m <old branch> <new branch>
 $ git branch -d <branch name>
 ```
 
+### ブランチを強制的に削除
+
 ```HEAD``` にマージされていないコミットがあるブランチを強制的に削除
 
 ```bash
-$ git branch -D -d <branch name>
+$ git branch -D <branch name>
 ```
 
 
@@ -535,6 +560,17 @@ $ git push <repository> <refspec>
 ```bash
 $ git fetch <repository> <refspec>
 ```
+
+### リモートリポジトリから削除されたブランチをローカルリポジトリでも削除
+
+```bash
+$ git fetch --prune
+```
+or
+```bash
+$ git remote prune <repository>
+```
+
 
 ### リモートリポジトリのブランチの変更内容をローカルリポジトリのブランチに反映
 
