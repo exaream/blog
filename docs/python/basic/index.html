@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.4b233b9d37f026bc8ef307b2bb0455ac5885c46bc20841875754355bdd7b734d.js integrity="sha256-SyM7nTfwJryO8weyuwRVrFiFxGvCCEGHV1Q1W917c00=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.7c78866abba720d67cfb7e8d4a1648827263d466bae0f0df1578608abf399e0a.js integrity="sha256-fHiGarunINZ8+36NShZIgnJj1Ga64PDfFXhgir85ngo=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -93,8 +93,9 @@ Menu
 <li><a href=#argparse><code>argparse</code></a></li>
 </ul>
 </li>
-<li><a href=#file>File</a>
+<li><a href=#filedirectory>File/Directory</a>
 <ul>
+<li><a href=#move-to-current-directory>Move to current directory</a></li>
 <li><a href=#get-an-absolute-path>Get an absolute path</a></li>
 <li><a href=#get-a-files-directory>Get a file&rsquo;s directory</a></li>
 <li><a href=#get-a-file-name>Get a file name</a></li>
@@ -216,16 +217,22 @@ aaa
 <span style=color:#ae81ff>123</span>
 True
 False
-</code></pre></div><h2 id=file>
-File
-<a class=anchor href=#file>#</a>
+</code></pre></div><h2 id=filedirectory>
+File/Directory
+<a class=anchor href=#filedirectory>#</a>
 </h2>
-<h3 id=get-an-absolute-path>
+<h3 id=move-to-current-directory>
+Move to current directory
+<a class=anchor href=#move-to-current-directory>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> os
+os<span style=color:#f92672>.</span>getcwd()
+</code></pre></div><h3 id=get-an-absolute-path>
 Get an absolute path
 <a class=anchor href=#get-an-absolute-path>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> os
-absolute_path <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>dirname(relative_path)
+absolute_path <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>abspath(relative_path)
 </code></pre></div><h3 id=get-a-files-directory>
 Get a file&rsquo;s directory
 <a class=anchor href=#get-a-files-directory>#</a>
@@ -306,8 +313,9 @@ English
 <li><a href=#argparse><code>argparse</code></a></li>
 </ul>
 </li>
-<li><a href=#file>File</a>
+<li><a href=#filedirectory>File/Directory</a>
 <ul>
+<li><a href=#move-to-current-directory>Move to current directory</a></li>
 <li><a href=#get-an-absolute-path>Get an absolute path</a></li>
 <li><a href=#get-a-files-directory>Get a file&rsquo;s directory</a></li>
 <li><a href=#get-a-file-name>Get a file name</a></li>
