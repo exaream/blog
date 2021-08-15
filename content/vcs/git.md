@@ -7,13 +7,6 @@ tags: ["Git","Log", "Configuration"]
 
 # Git
 
-## References
-* https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0
-* https://qiita.com/jesus_isao/items/63557eba36819faa4ad9
-* https://backlog.com/ja/git-tutorial/reference/
-* https://qiita.com/harukasan/items/9149542584385e8dea75
-* https://qiita.com/kawasaki_dev/items/41afaafe477b877b5b73
-
 ## 実用的なコマンド
 
 ### 指定したフォーマットでコミット・ログを表示
@@ -781,3 +774,10 @@ H = D^2  = B^^2    = A^^^2  = A~2^2
 I = F^   = B^3^    = A^^3^
 J = F^2  = B^3^2   = A^^3^2
 ```
+
+## References
+* https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0
+* https://qiita.com/jesus_isao/items/63557eba36819faa4ad9
+* https://backlog.com/ja/git-tutorial/reference/
+* https://qiita.com/harukasan/items/9149542584385e8dea75
+* https://qiita.com/kawasaki_dev/items/41afaafe477b877b5b73
