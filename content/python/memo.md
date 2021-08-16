@@ -1,12 +1,106 @@
 ---
 date: 2021-07-31
 lastmod: ["lastmod"]
-title: Python Basic
+title: Python Memo
 description: "H"
-tags: ["Python", "Basic"]
+tags: ["Python", "Memo"]
 ---
 
-# Python Basic
+# Python Memo
+
+## Version
+
+### Terminal
+```bash
+$ python --version
+Python 3.9.6
+```
+Short option of ```--version```
+```bash
+$ python -V
+Python 3.9.6
+```
+
+More detailed information
+```bash
+$ python -VV
+Python 3.9.6 (default, Jul 22 2021, 15:16:20) 
+[GCC 8.3.0]
+```
+
+### Source code
+
+#### ```sys```
+```python
+import sys
+
+print(sys.version)
+# 3.9.6 (default, Jul 22 2021, 15:16:20) 
+# [GCC 8.3.0]
+print(type(sys.version))
+# <class 'str'>
+
+print(sys.version_info)
+# sys.version_info(major=3, minor=9, micro=6, releaselevel='final', serial=0)
+print(type(sys.version_info))
+# <class 'sys.version_info'>
+
+print(sys.version_info[0])
+# 3
+print(sys.version_info[1])
+# 9
+print(sys.version_info[2])
+# 6
+
+print(sys.version_info.major)
+# 3
+print(sys.version_info.minor)
+# 9
+print(sys.version_info.micro)
+# 6
+```
+
+#### ```platform```
+
+```python
+import platform
+
+print(platform.python_version())
+# 3.9.6
+print(type(platform.python_version()))
+# <class 'str'>
+print(platform.python_version_tuple())
+# ('3', '9', '6')
+print(type(platform.python_version_tuple()))
+# <class 'tuple'>
+```
+
+## Package
+
+```bash
+$ pip list
+```
+|option|option|description|
+|---|---|---|
+|`-o`|`--outdated`|List outdated packages.|
+|`-u`|`--uptodate`|List update packages.|
+|`-e`|`--editable`|List editable projects.|
+||`--format <list_format>`|Select the output format among: columns (default), freeze, or json.|
+||`--not-required`|List packages that are not dependencies of installed packages.|
+
+```bash
+$ pip freeze
+```
+
+```pip list --format freeze``` equals ```pip freeze --all```
+
+```bash
+$ pip show <installed package>
+```
+e.g.)
+```bash
+$ pip show numpy
+```
 
 ## Argument
 
@@ -119,9 +213,20 @@ os.getcwd()
 ### Get an absolute path
 ```python
 import os
-absolute_path = os.path.abspath(relative_path)
+absolute_path = os.path.abspath(path)
 ```
 
+### Check if it is an absolute path
+```python
+import os
+os.path.isabs(path)
+```
+
+### Get a relative path
+```python
+import os
+relative_path = os.path.relpath(path)
+```
 
 ### Get a file's directory
 
@@ -167,3 +272,5 @@ os.path.isdir(path)
 * https://qiita.com/kzkadc/items/e4fc7bc9c003de1eb6d0
 * https://www.delftstack.com/ja/howto/python/python-get-filename-without-extension-from-path/
 * https://note.nkmk.me/python-os-basename-dirname-split-splitext/
+* https://note.nkmk.me/python-sys-platform-version-info/
+* https://pip.pypa.io/en/stable/cli/pip_list/
