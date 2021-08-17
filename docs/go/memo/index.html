@@ -2,18 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content>
-<meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Php">
-<meta property="og:description" content>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://exaream.github.io/tech-blog/php/">
-<title>Php | Tech Blog</title>
+<meta name=description content="H">
+<meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Go Memo">
+<meta property="og:description" content="H">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://exaream.github.io/tech-blog/go/memo/"><meta property="article:section" content="go">
+<meta property="article:published_time" content="2021-07-31T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-07-31T00:00:00+00:00">
+<title>Go Memo | Tech Blog</title>
 <link rel=manifest href=/tech-blog/manifest.json>
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
 <script defer src=/tech-blog/en.search.min.ba7c07e02eed9a602173152fe4cc8704943227209ac640024973f20f064389d6.js integrity="sha256-unwH4C7tmmAhcxUv5MyHBJQyJyCaxkACSXPyDwZDidY=" crossorigin=anonymous></script>
-<link rel=alternate type=application/rss+xml href=https://exaream.github.io/tech-blog/php/index.xml title="Tech Blog">
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -75,25 +76,66 @@ Menu
 <label for=menu-control>
 <img src=/tech-blog/svg/menu.svg class=book-icon alt=Menu>
 </label>
-<strong>Php</strong>
+<strong>Go Memo</strong>
 <label for=toc-control>
 <img src=/tech-blog/svg/toc.svg class=book-icon alt="Table of Contents">
 </label>
 </div>
 <aside class="hidden clearfix">
 <h2>Tags</h2>
+<ul class=tags><li><a href=/tech-blog/tags/go>Go</a><li><a href=/tech-blog/tags/golang>Golang</a><li><a href=/tech-blog/tags/memo>Memo</a></ul>
 <h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#file>File</a>
+<ul>
+<li><a href=#拡張子を除外したファイル名を取得>拡張子を除外したファイル名を取得</a></li>
+</ul>
+</li>
+<li><a href=#error>Error</a>
+<ul>
+<li><a href=#エラーチェック漏れを確認>エラーチェック漏れを確認</a></li>
+</ul>
+</li>
+</ul>
+</nav>
 </aside>
 </header>
 <ol class=breadcrumb>
 <li>
 <a href=https://exaream.github.io/tech-blog/>Tech Blog</a>
 </li>
+<li>
+<a href=https://exaream.github.io/tech-blog/go/>Go</a>
+</li>
 <li class=active>
-<a href=https://exaream.github.io/tech-blog/php/>Php</a>
+<a href=https://exaream.github.io/tech-blog/go/memo/>Go Memo</a>
 </li>
 </ol>
-<article class=markdown></article>
+<article class=markdown><h1 id=go-memo>
+Go Memo
+<a class=anchor href=#go-memo>#</a>
+</h1>
+<h2 id=file>
+File
+<a class=anchor href=#file>#</a>
+</h2>
+<h3 id=拡張子を除外したファイル名を取得>
+拡張子を除外したファイル名を取得
+<a class=anchor href=#%e6%8b%a1%e5%bc%b5%e5%ad%90%e3%82%92%e9%99%a4%e5%a4%96%e3%81%97%e3%81%9f%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>path</span>[:len(<span style=color:#a6e22e>path</span>)<span style=color:#f92672>-</span>len(<span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Ext</span>(<span style=color:#a6e22e>path</span>))])
+</code></pre></div><h2 id=error>
+Error
+<a class=anchor href=#error>#</a>
+</h2>
+<h3 id=エラーチェック漏れを確認>
+エラーチェック漏れを確認
+<a class=anchor href=#%e3%82%a8%e3%83%a9%e3%83%bc%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e6%bc%8f%e3%82%8c%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>go get github.com/kisielk/errcheck
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>errcheck ./...
+</code></pre></div></article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 <div class=book-languages tabindex=0 aria-haspopup=true>
@@ -115,12 +157,29 @@ English
 </div>
 <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 </footer>
+<div class=book-comments>
+</div>
 <label for=menu-control class="hidden book-menu-overlay"></label>
 </div>
 <aside class=book-toc>
 <div class=book-toc-content>
 <h2>Tags</h2>
+<ul class=tags><li><a href=/tech-blog/tags/go>Go</a><li><a href=/tech-blog/tags/golang>Golang</a><li><a href=/tech-blog/tags/memo>Memo</a></ul>
 <h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#file>File</a>
+<ul>
+<li><a href=#拡張子を除外したファイル名を取得>拡張子を除外したファイル名を取得</a></li>
+</ul>
+</li>
+<li><a href=#error>Error</a>
+<ul>
+<li><a href=#エラーチェック漏れを確認>エラーチェック漏れを確認</a></li>
+</ul>
+</li>
+</ul>
+</nav>
 </div>
 </aside>
 </main>
