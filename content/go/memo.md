@@ -125,19 +125,47 @@ https://www.yoheim.net/blog.php?q=20170902
 
 ## Go Modules
 
-https://qiita.com/hnishi/items/a9217249d7832ed2c035
-https://qiita.com/fetaro/items/31b02b940ce9ec579baf
-
-## Comment
-
-### コメントが機能しない例
-コメント内で ```--``` で始まる行を含む場合
-```go
-/*
--- foo bar --
-*/
+### ローカル・パッケージのインポート
+```text
+sample/
+├── foo/
+│   └── bar.go
+├── go.mod
+├── go.sum
+├── main.go
 ```
 
-## References
+```go.mod```
+```text
+module sample
 
+go 1.16
+```
+
+```foo/bar.go```
+```go
+package sample
+
+import "fmt"
+
+func IsAvailable() {
+  fmt.Println("The local package is available.")
+}
+```
+
+```main.go```
+```go
+package main
+
+import "sample"
+
+func main() {
+  sample.IsAvailable()
+}
+```
+
+
+## References
 * https://docs.google.com/presentation/d/1RVx8oeIMAWxbB7ZP2IcgZXnbZokjCmTUca-AbIpORGk/edit#slide=id.g4f417182ce_0_0
+* https://qiita.com/hnishi/items/a9217249d7832ed2c035
+* https://qiita.com/fetaro/items/31b02b940ce9ec579baf
