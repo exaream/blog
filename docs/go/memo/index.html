@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.ba7c07e02eed9a602173152fe4cc8704943227209ac640024973f20f064389d6.js integrity="sha256-unwH4C7tmmAhcxUv5MyHBJQyJyCaxkACSXPyDwZDidY=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.5663b599411723acbdd4889a53733c9c608ecdc252ec5b0f35ddc855855c1629.js integrity="sha256-VmO1mUEXI6y91IiaU3M8nGCOzcJS7FsPNd3IVYVcFik=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -87,16 +87,46 @@ Menu
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#変数>変数</a>
+<ul>
+<li><a href=#ゼロ値型ごとの初期値>ゼロ値(型ごとの初期値)</a></li>
+</ul>
+</li>
+<li><a href=#コンパイルしてバイナリを生成>コンパイルしてバイナリを生成</a></li>
+<li><a href=#コンパイル-バイナリ>コンパイル, バイナリ</a>
+<ul>
+<li><a href=#コンパイルして実行>コンパイルして実行</a></li>
+<li><a href=#コードのフォーマット書式を整形>コードのフォーマット（書式）を整形</a></li>
+</ul>
+</li>
+<li><a href=#静的解析によるミスの検出>静的解析によるミスの検出</a>
+<ul>
+<li><a href=#バグと思われるミスを検出>バグと思われるミスを検出</a></li>
+<li><a href=#エラー処理のミスを検出>エラー処理のミスを検出</a></li>
+</ul>
+</li>
+<li><a href=#linterのセットを使ってチェック>Linterのセットを使ってチェック</a>
+<ul>
+<li><a href=#staticcheck>Staticcheck</a></li>
+<li><a href=#golangci-lint>GolangCI-Lint</a></li>
+<li><a href=#reviewdog>reviewdog</a></li>
+</ul>
+</li>
+<li><a href=#リファクタリング>リファクタリング</a></li>
+<li><a href=#debug>Debug</a></li>
 <li><a href=#file>File</a>
 <ul>
 <li><a href=#拡張子を除外したファイル名を取得>拡張子を除外したファイル名を取得</a></li>
 </ul>
 </li>
-<li><a href=#error>Error</a>
+<li><a href=#struct>Struct</a></li>
+<li><a href=#go-modules>Go Modules</a></li>
+<li><a href=#comment>Comment</a>
 <ul>
-<li><a href=#エラーチェック漏れを確認>エラーチェック漏れを確認</a></li>
+<li><a href=#コメントが機能しない例>コメントが機能しない例</a></li>
 </ul>
 </li>
+<li><a href=#references>References</a></li>
 </ul>
 </nav>
 </aside>
@@ -116,6 +146,151 @@ Menu
 Go Memo
 <a class=anchor href=#go-memo>#</a>
 </h1>
+<h2 id=変数>
+変数
+<a class=anchor href=#%e5%a4%89%e6%95%b0>#</a>
+</h2>
+<h3 id=ゼロ値型ごとの初期値>
+ゼロ値(型ごとの初期値)
+<a class=anchor href=#%e3%82%bc%e3%83%ad%e5%80%a4%e5%9e%8b%e3%81%94%e3%81%a8%e3%81%ae%e5%88%9d%e6%9c%9f%e5%80%a4>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>型</th>
+<th>ゼロ値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数値(int や float65など)</td>
+<td>0</td>
+</tr>
+<tr>
+<td>string</td>
+<td>""</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>false</td>
+</tr>
+<tr>
+<td>error</td>
+<td>nil</td>
+</tr>
+</tbody>
+</table>
+<h2 id=コンパイルしてバイナリを生成>
+コンパイルしてバイナリを生成
+<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%81%97%e3%81%a6%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa%e3%82%92%e7%94%9f%e6%88%90>#</a>
+</h2>
+<p>バイナリ（実行可能ファイル）の生成あり</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go build main.go
+$ go build .
+$ go build pkgname
+</code></pre></div><h2 id=コンパイル-バイナリ>
+コンパイル, バイナリ
+<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab-%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa>#</a>
+</h2>
+<h3 id=コンパイルして実行>
+コンパイルして実行
+<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%81%97%e3%81%a6%e5%ae%9f%e8%a1%8c>#</a>
+</h3>
+<p>バイナリ（実行可能ファイル）の生成なし</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go run main.go
+$ go run .
+$ go run pkgname
+</code></pre></div><h3 id=コードのフォーマット書式を整形>
+コードのフォーマット（書式）を整形
+<a class=anchor href=#%e3%82%b3%e3%83%bc%e3%83%89%e3%81%ae%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%83%e3%83%88%e6%9b%b8%e5%bc%8f%e3%82%92%e6%95%b4%e5%bd%a2>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go fmt main.go
+$ go fmt .
+$ go fmt pkgname
+</code></pre></div><h2 id=静的解析によるミスの検出>
+静的解析によるミスの検出
+<a class=anchor href=#%e9%9d%99%e7%9a%84%e8%a7%a3%e6%9e%90%e3%81%ab%e3%82%88%e3%82%8b%e3%83%9f%e3%82%b9%e3%81%ae%e6%a4%9c%e5%87%ba>#</a>
+</h2>
+<h3 id=バグと思われるミスを検出>
+バグと思われるミスを検出
+<a class=anchor href=#%e3%83%90%e3%82%b0%e3%81%a8%e6%80%9d%e3%82%8f%e3%82%8c%e3%82%8b%e3%83%9f%e3%82%b9%e3%82%92%e6%a4%9c%e5%87%ba>#</a>
+</h3>
+<p><code>go test</code> 実行時に自動で実行される
+The Go Playground でも実行される</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go vet main.go
+$ go vet .
+$ go vet pkgname
+</code></pre></div><h3 id=エラー処理のミスを検出>
+エラー処理のミスを検出
+<a class=anchor href=#%e3%82%a8%e3%83%a9%e3%83%bc%e5%87%a6%e7%90%86%e3%81%ae%e3%83%9f%e3%82%b9%e3%82%92%e6%a4%9c%e5%87%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go get github.com/kisielk/errcheck
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ errcheck ./...
+</code></pre></div><h2 id=linterのセットを使ってチェック>
+Linterのセットを使ってチェック
+<a class=anchor href=#linter%e3%81%ae%e3%82%bb%e3%83%83%e3%83%88%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%81%e3%82%a7%e3%83%83%e3%82%af>#</a>
+</h2>
+<h3 id=staticcheck>
+Staticcheck
+<a class=anchor href=#staticcheck>#</a>
+</h3>
+<p><a href=https://staticcheck.io/docs/>https://staticcheck.io/docs/</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go install honnef.co/go/tools/cmd/staticcheck@latest
+$ staticcheck ./...
+</code></pre></div><h3 id=golangci-lint>
+GolangCI-Lint
+<a class=anchor href=#golangci-lint>#</a>
+</h3>
+<p><a href=https://golangci-lint.run/>https://golangci-lint.run/</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install golangci-lint
+$ brew upgrade golangci-lint
+or
+$ go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.0
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ golangci-lint run ./...
+$ golangci-lint run dir1 dir2/... dir3/file1.go
+</code></pre></div><h3 id=reviewdog>
+reviewdog
+<a class=anchor href=#reviewdog>#</a>
+</h3>
+<p>PRレビューで静的解析ツールを使用</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install reviewdog/tap/reviewdog
+$ brew upgrade reviewdog/tap/reviewdog
+or
+go install github.com/reviewdog/reviewdog/cmd/reviewdog@latest
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>golint ./...
+</code></pre></div><h2 id=リファクタリング>
+リファクタリング
+<a class=anchor href=#%e3%83%aa%e3%83%95%e3%82%a1%e3%82%af%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0>#</a>
+</h2>
+<ul>
+<li>gomvpkg パッケージ名の変更ができるツール
+<ul>
+<li><a href=https://golang.org/x/tools/cmd/gomvpkg>https://golang.org/x/tools/cmd/gomvpkg</a></li>
+</ul>
+</li>
+<li>gorename 識別子の名前を変更するツール
+<ul>
+<li><a href=https://golang.org/x/tools/cmd/gorename>https://golang.org/x/tools/cmd/gorename</a></li>
+</ul>
+</li>
+<li>eg exampleベースのリファクタリングツール
+<ul>
+<li><a href=https://golang.org/x/tools/cmd/eg>https://golang.org/x/tools/cmd/eg</a></li>
+<li><a href=https://rakyll.org/eg/>https://rakyll.org/eg/</a></li>
+</ul>
+</li>
+</ul>
+<h2 id=debug>
+Debug
+<a class=anchor href=#debug>#</a>
+</h2>
+<ul>
+<li>Delve Go専用のデバッガ, goroutine や channelにも対応
+<ul>
+<li><a href=https://github.com/derekparker/delve>https://github.com/derekparker/delve</a></li>
+</ul>
+</li>
+</ul>
 <h2 id=file>
 File
 <a class=anchor href=#file>#</a>
@@ -125,17 +300,38 @@ File
 <a class=anchor href=#%e6%8b%a1%e5%bc%b5%e5%ad%90%e3%82%92%e9%99%a4%e5%a4%96%e3%81%97%e3%81%9f%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>path</span>[:len(<span style=color:#a6e22e>path</span>)<span style=color:#f92672>-</span>len(<span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Ext</span>(<span style=color:#a6e22e>path</span>))])
-</code></pre></div><h2 id=error>
-Error
-<a class=anchor href=#error>#</a>
+</code></pre></div><h2 id=struct>
+Struct
+<a class=anchor href=#struct>#</a>
 </h2>
-<h3 id=エラーチェック漏れを確認>
-エラーチェック漏れを確認
-<a class=anchor href=#%e3%82%a8%e3%83%a9%e3%83%bc%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e6%bc%8f%e3%82%8c%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+<p><a href="https://www.yoheim.net/blog.php?q=20170902">https://www.yoheim.net/blog.php?q=20170902</a><br>
+構造体で、値メソッドとポインタメソッドを使い分ける</p>
+<h2 id=go-modules>
+Go Modules
+<a class=anchor href=#go-modules>#</a>
+</h2>
+<p><a href=https://qiita.com/hnishi/items/a9217249d7832ed2c035>https://qiita.com/hnishi/items/a9217249d7832ed2c035</a>
+<a href=https://qiita.com/fetaro/items/31b02b940ce9ec579baf>https://qiita.com/fetaro/items/31b02b940ce9ec579baf</a></p>
+<h2 id=comment>
+Comment
+<a class=anchor href=#comment>#</a>
+</h2>
+<h3 id=コメントが機能しない例>
+コメントが機能しない例
+<a class=anchor href=#%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88%e3%81%8c%e6%a9%9f%e8%83%bd%e3%81%97%e3%81%aa%e3%81%84%e4%be%8b>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>go get github.com/kisielk/errcheck
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>errcheck ./...
-</code></pre></div></article>
+<p>コメント内で <code>--</code> で始まる行を含む場合</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>/*
+</span><span style=color:#75715e>-- foo bar --
+</span><span style=color:#75715e>*/</span>
+</code></pre></div><h2 id=references>
+References
+<a class=anchor href=#references>#</a>
+</h2>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1RVx8oeIMAWxbB7ZP2IcgZXnbZokjCmTUca-AbIpORGk/edit#slide=id.g4f417182ce_0_0">https://docs.google.com/presentation/d/1RVx8oeIMAWxbB7ZP2IcgZXnbZokjCmTUca-AbIpORGk/edit#slide=id.g4f417182ce_0_0</a></li>
+</ul>
+</article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 <div class=book-languages tabindex=0 aria-haspopup=true>
@@ -168,16 +364,46 @@ English
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#変数>変数</a>
+<ul>
+<li><a href=#ゼロ値型ごとの初期値>ゼロ値(型ごとの初期値)</a></li>
+</ul>
+</li>
+<li><a href=#コンパイルしてバイナリを生成>コンパイルしてバイナリを生成</a></li>
+<li><a href=#コンパイル-バイナリ>コンパイル, バイナリ</a>
+<ul>
+<li><a href=#コンパイルして実行>コンパイルして実行</a></li>
+<li><a href=#コードのフォーマット書式を整形>コードのフォーマット（書式）を整形</a></li>
+</ul>
+</li>
+<li><a href=#静的解析によるミスの検出>静的解析によるミスの検出</a>
+<ul>
+<li><a href=#バグと思われるミスを検出>バグと思われるミスを検出</a></li>
+<li><a href=#エラー処理のミスを検出>エラー処理のミスを検出</a></li>
+</ul>
+</li>
+<li><a href=#linterのセットを使ってチェック>Linterのセットを使ってチェック</a>
+<ul>
+<li><a href=#staticcheck>Staticcheck</a></li>
+<li><a href=#golangci-lint>GolangCI-Lint</a></li>
+<li><a href=#reviewdog>reviewdog</a></li>
+</ul>
+</li>
+<li><a href=#リファクタリング>リファクタリング</a></li>
+<li><a href=#debug>Debug</a></li>
 <li><a href=#file>File</a>
 <ul>
 <li><a href=#拡張子を除外したファイル名を取得>拡張子を除外したファイル名を取得</a></li>
 </ul>
 </li>
-<li><a href=#error>Error</a>
+<li><a href=#struct>Struct</a></li>
+<li><a href=#go-modules>Go Modules</a></li>
+<li><a href=#comment>Comment</a>
 <ul>
-<li><a href=#エラーチェック漏れを確認>エラーチェック漏れを確認</a></li>
+<li><a href=#コメントが機能しない例>コメントが機能しない例</a></li>
 </ul>
 </li>
+<li><a href=#references>References</a></li>
 </ul>
 </nav>
 </div>
