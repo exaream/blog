@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.5663b599411723acbdd4889a53733c9c608ecdc252ec5b0f35ddc855855c1629.js integrity="sha256-VmO1mUEXI6y91IiaU3M8nGCOzcJS7FsPNd3IVYVcFik=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.4270a6b429c8189e28b6912eb698c2e7906656671d29c9fda71f117c91f6e102.js integrity="sha256-QnCmtCnIGJ4otpEutpjC55BmVmcdKcn9px8RfJH24QI=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -120,10 +120,9 @@ Menu
 </ul>
 </li>
 <li><a href=#struct>Struct</a></li>
-<li><a href=#go-modules>Go Modules</a></li>
-<li><a href=#comment>Comment</a>
+<li><a href=#go-modules>Go Modules</a>
 <ul>
-<li><a href=#コメントが機能しない例>コメントが機能しない例</a></li>
+<li><a href=#ローカルパッケージのインポート>ローカル・パッケージのインポート</a></li>
 </ul>
 </li>
 <li><a href=#references>References</a></li>
@@ -310,26 +309,44 @@ Struct
 Go Modules
 <a class=anchor href=#go-modules>#</a>
 </h2>
-<p><a href=https://qiita.com/hnishi/items/a9217249d7832ed2c035>https://qiita.com/hnishi/items/a9217249d7832ed2c035</a>
-<a href=https://qiita.com/fetaro/items/31b02b940ce9ec579baf>https://qiita.com/fetaro/items/31b02b940ce9ec579baf</a></p>
-<h2 id=comment>
-Comment
-<a class=anchor href=#comment>#</a>
-</h2>
-<h3 id=コメントが機能しない例>
-コメントが機能しない例
-<a class=anchor href=#%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88%e3%81%8c%e6%a9%9f%e8%83%bd%e3%81%97%e3%81%aa%e3%81%84%e4%be%8b>#</a>
+<h3 id=ローカルパッケージのインポート>
+ローカル・パッケージのインポート
+<a class=anchor href=#%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e3%81%ae%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88>#</a>
 </h3>
-<p>コメント内で <code>--</code> で始まる行を含む場合</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>/*
-</span><span style=color:#75715e>-- foo bar --
-</span><span style=color:#75715e>*/</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>sample/
+├── foo/
+│   └── bar.go
+├── go.mod
+├── go.sum
+├── main.go
+</code></pre></div><p><code>go.mod</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>module sample
+
+go 1.16
+</code></pre></div><p><code>foo/bar.go</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>sample</span>
+
+<span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;fmt&#34;</span>
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>IsAvailable</span>() {
+  <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;The local package is available.&#34;</span>)
+}
+</code></pre></div><p><code>main.go</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;sample&#34;</span>
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+  <span style=color:#a6e22e>sample</span>.<span style=color:#a6e22e>IsAvailable</span>()
+}
 </code></pre></div><h2 id=references>
 References
 <a class=anchor href=#references>#</a>
 </h2>
 <ul>
 <li><a href="https://docs.google.com/presentation/d/1RVx8oeIMAWxbB7ZP2IcgZXnbZokjCmTUca-AbIpORGk/edit#slide=id.g4f417182ce_0_0">https://docs.google.com/presentation/d/1RVx8oeIMAWxbB7ZP2IcgZXnbZokjCmTUca-AbIpORGk/edit#slide=id.g4f417182ce_0_0</a></li>
+<li><a href=https://qiita.com/hnishi/items/a9217249d7832ed2c035>https://qiita.com/hnishi/items/a9217249d7832ed2c035</a></li>
+<li><a href=https://qiita.com/fetaro/items/31b02b940ce9ec579baf>https://qiita.com/fetaro/items/31b02b940ce9ec579baf</a></li>
 </ul>
 </article>
 <footer class=book-footer>
@@ -397,10 +414,9 @@ English
 </ul>
 </li>
 <li><a href=#struct>Struct</a></li>
-<li><a href=#go-modules>Go Modules</a></li>
-<li><a href=#comment>Comment</a>
+<li><a href=#go-modules>Go Modules</a>
 <ul>
-<li><a href=#コメントが機能しない例>コメントが機能しない例</a></li>
+<li><a href=#ローカルパッケージのインポート>ローカル・パッケージのインポート</a></li>
 </ul>
 </li>
 <li><a href=#references>References</a></li>
