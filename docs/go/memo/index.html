@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.9b9eca01c31a633a9a941ee8dd59d4d24720bdf791b5bb163370bd4c8aaff0db.js integrity="sha256-m57KAcMaYzqalB7o3VnU0kcgvfeRtbsWM3C9TIqv8Ns=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.95dec475790dfbc421df6672be2ede175c5c3a6ed39c02f85ee78fda77289821.js integrity="sha256-ld7EdXkN+8Qh32Zyvi7eF1xcOm7TnAL4XueP2ncomCE=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -87,9 +87,9 @@ Menu
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li>
+<li><a href=#組み込み型>組み込み型</a>
 <ul>
-<li><a href=#ゼロ値型ごとの初期値>ゼロ値(型ごとの初期値)</a></li>
+<li><a href=#ゼロ値があるため初期化が不要な例>ゼロ値があるため初期化が不要な例</a></li>
 </ul>
 </li>
 <li><a href=#コンポジット型>コンポジット型</a>
@@ -112,6 +112,12 @@ Menu
 <li><a href=#無名関数>無名関数</a></li>
 <li><a href=#関数型>関数型</a></li>
 <li><a href=#無名関数のよくあるバグ>無名関数のよくあるバグ</a></li>
+</ul>
+</li>
+<li><a href=#値のコピー>値のコピー</a></li>
+<li><a href=#ポインタ>ポインタ</a>
+<ul>
+<li><a href=#内部でポインタを用いられているデータ型>内部でポインタを用いられているデータ型</a></li>
 </ul>
 </li>
 <li><a href=#コンパイルしてバイナリを生成>コンパイルしてバイナリを生成</a></li>
@@ -167,41 +173,97 @@ Menu
 Go Memo
 <a class=anchor href=#go-memo>#</a>
 </h1>
-<h3 id=ゼロ値型ごとの初期値>
-ゼロ値(型ごとの初期値)
-<a class=anchor href=#%e3%82%bc%e3%83%ad%e5%80%a4%e5%9e%8b%e3%81%94%e3%81%a8%e3%81%ae%e5%88%9d%e6%9c%9f%e5%80%a4>#</a>
-</h3>
+<h2 id=組み込み型>
+組み込み型
+<a class=anchor href=#%e7%b5%84%e3%81%bf%e8%be%bc%e3%81%bf%e5%9e%8b>#</a>
+</h2>
 <table>
 <thead>
 <tr>
 <th>型</th>
-<th>ゼロ値</th>
+<th>概要</th>
+<th>ゼロ値(初期値)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>数値(int や float65など)</td>
-<td>0</td>
-</tr>
-<tr>
-<td>string</td>
-<td>""</td>
-</tr>
-<tr>
 <td>bool</td>
+<td>真偽値</td>
 <td>false</td>
 </tr>
 <tr>
+<td>string</td>
+<td>文字列</td>
+<td>""</td>
+</tr>
+<tr>
+<td>int8/int16/int32/int64</td>
+<td>符号あり整数</td>
+<td>0</td>
+</tr>
+<tr>
+<td>uint8/uint16/uint32/uint64</td>
+<td>符号なし整数(unsigned)</td>
+<td>0</td>
+</tr>
+<tr>
+<td>int</td>
+<td>32bit委譲の整数, 符号あり</td>
+<td>0</td>
+</tr>
+<tr>
+<td>uint</td>
+<td>32bit委譲の整数, 符号なし</td>
+<td>0</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>uint8 の別名</td>
+<td>0</td>
+</tr>
+<tr>
+<td>rune</td>
+<td>int32 の別名, unicode のコードポイントを表す</td>
+<td>0</td>
+</tr>
+<tr>
+<td>uintptr</td>
+<td>ポインタの値を格納する大きさの符号なし整数</td>
+<td>0</td>
+</tr>
+<tr>
+<td>float32/float64</td>
+<td>浮動小数点数</td>
+<td>0</td>
+</tr>
+<tr>
+<td>complex64</td>
+<td>float32の実数部と虚数部を持つ複素数</td>
+<td>(0+0i)</td>
+</tr>
+<tr>
+<td>complex64</td>
+<td>float64の実数部と虚数部を持つ複素数</td>
+<td>(0+0i)</td>
+</tr>
+<tr>
 <td>error</td>
+<td>エラー</td>
 <td>nil</td>
 </tr>
 </tbody>
 </table>
+<h3 id=ゼロ値があるため初期化が不要な例>
+ゼロ値があるため初期化が不要な例
+<a class=anchor href=#%e3%82%bc%e3%83%ad%e5%80%a4%e3%81%8c%e3%81%82%e3%82%8b%e3%81%9f%e3%82%81%e5%88%9d%e6%9c%9f%e5%8c%96%e3%81%8c%e4%b8%8d%e8%a6%81%e3%81%aa%e4%be%8b>#</a>
+</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
 <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>sum</span> <span style=color:#66d9ef>int</span> <span style=color:#75715e>// ゼロ値 0 のため初期値の記述は不要
-</span><span style=color:#75715e></span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>10</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+	<span style=color:#75715e>// ゼロ値 0 のため初期値の設定は不要
+</span><span style=color:#75715e></span>	<span style=color:#75715e>// var sum int = 0
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>sum</span> <span style=color:#66d9ef>int</span>
+	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>10</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
 		<span style=color:#a6e22e>sum</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
 	}
 	println(<span style=color:#a6e22e>sum</span>)
@@ -214,13 +276,14 @@ Go Memo
 )
 
 <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#a6e22e>words</span> <span style=color:#f92672>:=</span> []<span style=color:#66d9ef>string</span>{<span style=color:#e6db74>&#34;dog&#34;</span>, <span style=color:#e6db74>&#34;cat&#34;</span>, <span style=color:#e6db74>&#34;dog&#34;</span>, <span style=color:#e6db74>&#34;fish&#34;</span>, <span style=color:#e6db74>&#34;cat&#34;</span>}
 	<span style=color:#a6e22e>counts</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>{}
-	<span style=color:#a6e22e>str</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;dog dog dog cat dog&#34;</span>
-	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>s</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Split</span>(<span style=color:#a6e22e>str</span>, <span style=color:#e6db74>&#34; &#34;</span>) {
-		<span style=color:#a6e22e>counts</span>[<span style=color:#a6e22e>s</span>]<span style=color:#f92672>++</span> <span style=color:#75715e>// ゼロ値 0 のため初期値の記述は不要
-</span><span style=color:#75715e></span>	}
-	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>counts</span>)
-}
+	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>word</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>words</span> {
+		<span style=color:#75715e>// ゼロ値 0 のため初期値の設定は不要
+</span><span style=color:#75715e></span>		<span style=color:#a6e22e>counts</span>[<span style=color:#a6e22e>word</span>]<span style=color:#f92672>++</span>
+	}
+	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>counts</span>) <span style=color:#75715e>// map[dog:2 cat:2 fish:1]
+</span><span style=color:#75715e></span>}
 </code></pre></div><h2 id=コンポジット型>
 コンポジット型
 <a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%9d%e3%82%b8%e3%83%83%e3%83%88%e5%9e%8b>#</a>
@@ -549,7 +612,69 @@ Go Memo
 </span><span style=color:#75715e>// 0
 </span><span style=color:#75715e>// 1
 </span><span style=color:#75715e>// 2
-</span></code></pre></div><h2 id=コンパイルしてバイナリを生成>
+</span></code></pre></div><h2 id=値のコピー>
+値のコピー
+<a class=anchor href=#%e5%80%a4%e3%81%ae%e3%82%b3%e3%83%94%e3%83%bc>#</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>p1</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>struct</span> {
+	<span style=color:#a6e22e>age</span>  <span style=color:#66d9ef>int</span>
+	<span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>
+}{<span style=color:#a6e22e>age</span>: <span style=color:#ae81ff>10</span>, <span style=color:#a6e22e>name</span>: <span style=color:#e6db74>&#34;Gopher&#34;</span>}
+<span style=color:#a6e22e>p2</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>p1</span> <span style=color:#75715e>// コピー（変数への代入は実際にはコピー）
+</span><span style=color:#75715e></span><span style=color:#a6e22e>p2</span>.<span style=color:#a6e22e>age</span> = <span style=color:#ae81ff>20</span>
+println(<span style=color:#a6e22e>p1</span>.<span style=color:#a6e22e>age</span>, <span style=color:#a6e22e>p1</span>.<span style=color:#a6e22e>name</span>) <span style=color:#75715e>// 10 Gopher
+</span><span style=color:#75715e></span>println(<span style=color:#a6e22e>p2</span>.<span style=color:#a6e22e>age</span>, <span style=color:#a6e22e>p2</span>.<span style=color:#a6e22e>name</span>) <span style=color:#75715e>// 20 Gopher
+</span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;fmt&#34;</span>
+
+<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Person</span> <span style=color:#66d9ef>struct</span> {
+	<span style=color:#a6e22e>Age</span>  <span style=color:#66d9ef>int</span>
+	<span style=color:#a6e22e>Name</span> <span style=color:#66d9ef>string</span>
+}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#a6e22e>p</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>Person</span>{<span style=color:#a6e22e>Age</span>: <span style=color:#ae81ff>10</span>, <span style=color:#a6e22e>Name</span>: <span style=color:#e6db74>&#34;Gopher&#34;</span>}
+	<span style=color:#a6e22e>f</span>(<span style=color:#a6e22e>p</span>) <span style=color:#75715e>// p　をコピーして関数に渡している
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>p</span>) <span style=color:#75715e>// main関数内の p には影響なし
+</span><span style=color:#75715e></span>}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>f</span>(<span style=color:#a6e22e>p2</span> <span style=color:#a6e22e>Person</span>) {
+	<span style=color:#a6e22e>p2</span>.<span style=color:#a6e22e>Age</span> = <span style=color:#ae81ff>100</span>
+}
+</code></pre></div><h2 id=ポインタ>
+ポインタ
+<a class=anchor href=#%e3%83%9d%e3%82%a4%e3%83%b3%e3%82%bf>#</a>
+</h2>
+<ul>
+<li>変数の格納先を表す値（メモリ上の番地のようなもの）</li>
+<li>値で渡される型の値に対して破壊的な操作を加える際に利用
+（破壊的な操作 = 関数を出てもその影響が残ること）</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>f</span>(<span style=color:#a6e22e>xp</span> <span style=color:#f92672>*</span><span style=color:#66d9ef>int</span>) { <span style=color:#75715e>// int のポインタ型
+</span><span style=color:#75715e></span>	<span style=color:#f92672>*</span><span style=color:#a6e22e>xp</span> = <span style=color:#ae81ff>100</span> <span style=color:#75715e>// * でポインタの指す先に値を入れる
+</span><span style=color:#75715e></span>}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>x</span> <span style=color:#66d9ef>int</span> <span style=color:#75715e>// 0
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>f</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>x</span>) <span style=color:#75715e>// &amp; でポインタを取得し引き数として渡す
+</span><span style=color:#75715e></span>	println(<span style=color:#a6e22e>x</span>) <span style=color:#75715e>// 100
+</span><span style=color:#75715e></span>}
+</code></pre></div><h3 id=内部でポインタを用いられているデータ型>
+内部でポインタを用いられているデータ型
+<a class=anchor href=#%e5%86%85%e9%83%a8%e3%81%a7%e3%83%9d%e3%82%a4%e3%83%b3%e3%82%bf%e3%82%92%e7%94%a8%e3%81%84%e3%82%89%e3%82%8c%e3%81%a6%e3%81%84%e3%82%8b%e3%83%87%e3%83%bc%e3%82%bf%e5%9e%8b>#</a>
+</h3>
+<p>以下の型はポインタを用いる必要がない場合が多い</p>
+<ul>
+<li>コンポジット型の一部
+<ul>
+<li>スライス</li>
+<li>マップ</li>
+<li>チャネル</li>
+</ul>
+</li>
+</ul>
+<h2 id=コンパイルしてバイナリを生成>
 コンパイルしてバイナリを生成
 <a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%81%97%e3%81%a6%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa%e3%82%92%e7%94%9f%e6%88%90>#</a>
 </h2>
@@ -789,9 +914,9 @@ English
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li>
+<li><a href=#組み込み型>組み込み型</a>
 <ul>
-<li><a href=#ゼロ値型ごとの初期値>ゼロ値(型ごとの初期値)</a></li>
+<li><a href=#ゼロ値があるため初期化が不要な例>ゼロ値があるため初期化が不要な例</a></li>
 </ul>
 </li>
 <li><a href=#コンポジット型>コンポジット型</a>
@@ -814,6 +939,12 @@ English
 <li><a href=#無名関数>無名関数</a></li>
 <li><a href=#関数型>関数型</a></li>
 <li><a href=#無名関数のよくあるバグ>無名関数のよくあるバグ</a></li>
+</ul>
+</li>
+<li><a href=#値のコピー>値のコピー</a></li>
+<li><a href=#ポインタ>ポインタ</a>
+<ul>
+<li><a href=#内部でポインタを用いられているデータ型>内部でポインタを用いられているデータ型</a></li>
 </ul>
 </li>
 <li><a href=#コンパイルしてバイナリを生成>コンパイルしてバイナリを生成</a></li>
