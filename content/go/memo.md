@@ -303,6 +303,64 @@ for i := 0; i < len(fs); i++ {
 // 2
 ```
 
+## 値のコピー
+
+```go
+p1 := struct {
+	age  int
+	name string
+}{age: 10, name: "Gopher"}
+p2 := p1 // コピー（変数への代入は実際にはコピー）
+p2.age = 20
+println(p1.age, p1.name) // 10 Gopher
+println(p2.age, p2.name) // 20 Gopher
+```
+
+```go
+package main
+
+import "fmt"
+
+type Person struct {
+	Age  int
+	Name string
+}
+
+func main() {
+	p := Person{Age: 10, Name: "Gopher"}
+	f(p) // p　をコピーして関数に渡している
+	fmt.Println(p) // main関数内の p には影響なし
+}
+
+func f(p2 Person) {
+	p2.Age = 100
+}
+```
+
+## ポインタ
+* 変数の格納先を表す値（メモリ上の番地のようなもの）
+* 値で渡される型の値に対して破壊的な操作を加える際に利用
+（破壊的な操作 = 関数を出てもその影響が残ること）
+
+```go
+func f(xp *int) { // int のポインタ型
+	*xp = 100 // * でポインタの指す先に値を入れる
+}
+
+func main() {
+	var x int // 0
+	f(&x) // & でポインタを取得し引き数として渡す
+	println(x) // 100
+}
+```
+
+### 内部でポインタを用いられているデータ型
+以下の型はポインタを用いる必要がない場合が多い
+* コンポジット型の一部
+  * スライス
+  * マップ
+  * チャネル
+
 ## コンパイルしてバイナリを生成
 バイナリ（実行可能ファイル）の生成あり
 ```bash
