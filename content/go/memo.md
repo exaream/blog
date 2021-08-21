@@ -8,21 +8,33 @@ tags: ["Go", "Golang", "Memo"]
 
 # Go Memo
 
-### ゼロ値(型ごとの初期値)
+## 組み込み型
 
-|型|ゼロ値|
-|---|---|
-|数値(int や float65など)|0|
-|string|""|
-|bool|false|
-|error|nil|
+|型|概要|ゼロ値(初期値)|
+|---|---|---|
+|bool|真偽値|false|
+|string|文字列|""|
+|int8/int16/int32/int64|符号あり整数|0|
+|uint8/uint16/uint32/uint64|符号なし整数(unsigned)|0|
+|int|32bit委譲の整数, 符号あり|0|
+|uint|32bit委譲の整数, 符号なし|0|
+|byte|uint8 の別名|0|
+|rune|int32 の別名, unicode のコードポイントを表す|0|
+|uintptr|ポインタの値を格納する大きさの符号なし整数|0|
+|float32/float64|浮動小数点数|0|
+|complex64|float32の実数部と虚数部を持つ複素数|(0+0i)|
+|complex64|float64の実数部と虚数部を持つ複素数|(0+0i)|
+|error|エラー|nil|
 
+### ゼロ値があるため初期化が不要な例
 
 ```go
 package main
 
 func main() {
-	var sum int // ゼロ値 0 のため初期値の記述は不要
+	// ゼロ値 0 のため初期値の設定は不要
+	// var sum int = 0
+	var sum int
 	for i := 1; i <= 10; i++ {
 		sum += 1
 	}
@@ -38,12 +50,13 @@ import (
 )
 
 func main() {
+	words := []string{"dog", "cat", "dog", "fish", "cat"}
 	counts := map[string]int{}
-	str := "dog dog dog cat dog"
-	for _, s := range strings.Split(str, " ") {
-		counts[s]++ // ゼロ値 0 のため初期値の記述は不要
+	for _, word := range words {
+		// ゼロ値 0 のため初期値の設定は不要
+		counts[word]++
 	}
-	fmt.Println(counts)
+	fmt.Println(counts) // map[dog:2 cat:2 fish:1]
 }
 ```
 
