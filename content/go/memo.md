@@ -155,6 +155,7 @@ type Person struct {
 ```
 
 ### 基底型とユーザ定義型の相互キャストが可能
+キャストなしの演算は不可
 ```go
 type MyInt int
 var n int = 100
@@ -168,6 +169,140 @@ n = int(m)
 // 10秒を表す（time.Duration型）
 d := 10 * time.Second
 ```
+
+```go
+type Duration int64
+```
+
+## 組み込み関数
+
+|function|description|
+|---|---|
+|```print```|表示|
+|```println```|表示(末尾の改行付き)|
+|```make```|コンポジット型の初期化|
+|```new```|指定した型のメモリの確保|
+|```len```|スライスなどの長さを返却|
+|```cap```|スライスなどの容量を返却|
+|```copy```|スライスをコピー|
+|```delete```|マップから指定したキーのエントリーを削除|
+|```complex```|複素数型を作成|
+|```imag```|複素数の虚部を取得|
+|```real```|複素数の実数部を取得|
+|```panic```|パニックを実行|
+|```recover```|パニックから回復|
+
+## 関数
+
+### 関数の定義
+
+```go
+func add(x int, y int) int {
+	return x + y
+}
+
+func swap(x, y int) (int, int) {
+	return y, x
+}
+
+x, y := swap(10, 20)
+
+// 戻り値の格納を省略したい場合は _ (ブランク変数)を使用
+x, _ := swap(10, 20)
+```
+
+### 名前付き戻り値
+* 名前付き戻り値は返却する値がわかりにくくなるため, あまり使わないこと
+```go
+func swap(x, y int) (x2, y2 int) {
+	y2, x2 = x, y
+	return
+}
+```
+
+### 無名関数
+* 無名関数を変数に格納したり戻り値として使用することも可能
+* 無名関数と同じスコープ内の変数を無名関数内で使用可能（バグを生みやすいため要注意）
+```go
+package main
+
+func main() {
+	msg := "Hello, world"
+	func() {
+		println(mst) // 無名関数の外の変数を参照可能
+	}() // 無名関数を定義し即呼び出し
+}
+```
+
+### 関数型
+* 変数への代入
+* 引数に渡して使用
+* 戻り値として返却
+
+```go
+fs := make([]func() string, 2) // string 型を返却する関数
+// 関数を作成
+fs[0] = func() string { return "hoge" }
+fs[1] = func() string { return "fuga" }
+for _, f := range fs {
+	// 関数を実行
+	fmt.Println(f())
+}
+```
+
+### 無名関数のよくあるバグ
+
+```go
+fs := make([]func(), 3)
+for i := range fs {
+	fs[i] = func() { fmt.Println(i) }
+}
+// 上記のループを抜けた時点での i の値は 2 のため
+// 以下のループで毎回 2 が出力される
+for _, f := range fs {
+	f()
+}
+
+// 期待値
+// 0
+// 1
+// 2
+
+// 実行結果
+// 2
+// 2
+// 2
+```
+修正方法1
+```go
+fs := make([]func(), 3)
+for i := range fs {
+	i := i // ここを修正 ループのスコープの変数を格納
+	fs[i] = func() { fmt.Println(i) }
+}
+for _, f := range fs {
+	f()
+}
+
+// 実行結果
+// 0
+// 1
+// 2
+```
+
+修正方法2
+```go
+fs := make([]func(), 3)
+for i := 0; i < len(fs); i++ {
+	func(i int) { fmt.Println(i) }(i)
+}
+
+// 実行結果
+// 0
+// 1
+// 2
+```
+
 ## コンパイルしてバイナリを生成
 バイナリ（実行可能ファイル）の生成あり
 ```bash
@@ -352,6 +487,7 @@ func main() {
 
 
 ## References
-* https://docs.google.com/presentation/d/1RVx8oeIMAWxbB7ZP2IcgZXnbZokjCmTUca-AbIpORGk/edit#slide=id.g4f417182ce_0_0
+* [プログラミング言語Go完全入門](https://docs.google.com/presentation/d/1RVx8oeIMAWxbB7ZP2IcgZXnbZokjCmTUca-AbIpORGk/edit#slide=id.g4f417182ce_0_0)
+* [Slice Tricks](https://i-beam.org/2019/12/09/go-slice-tricks/)
 * https://qiita.com/hnishi/items/a9217249d7832ed2c035
 * https://qiita.com/fetaro/items/31b02b940ce9ec579baf
