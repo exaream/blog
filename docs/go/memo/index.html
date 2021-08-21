@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.4270a6b429c8189e28b6912eb698c2e7906656671d29c9fda71f117c91f6e102.js integrity="sha256-QnCmtCnIGJ4otpEutpjC55BmVmcdKcn9px8RfJH24QI=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.d69954a89c253fb0672715a3ea836797eba87eb3a18c8f89ae93cdbf5bb36c10.js integrity="sha256-1plUqJwlP7BnJxWj6oNnl+uofrOhjI+JrpPNv1uzbBA=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -87,9 +87,21 @@ Menu
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#変数>変数</a>
+<li>
 <ul>
 <li><a href=#ゼロ値型ごとの初期値>ゼロ値(型ごとの初期値)</a></li>
+</ul>
+</li>
+<li><a href=#コンポジット型>コンポジット型</a>
+<ul>
+<li><a href=#コンポジット型を要素としてもつコンポジット型>コンポジット型を要素としてもつコンポジット型</a></li>
+</ul>
+</li>
+<li><a href=#ユーザ定義型>ユーザ定義型</a>
+<ul>
+<li><a href=#ユーザ定義型の定義の方法>ユーザ定義型の定義の方法</a></li>
+<li><a href=#基底型とユーザ定義型の相互キャストが可能>基底型とユーザ定義型の相互キャストが可能</a></li>
+<li><a href=#型なし定数から明示的なキャストは不要>型なし定数から明示的なキャストは不要</a></li>
 </ul>
 </li>
 <li><a href=#コンパイルしてバイナリを生成>コンパイルしてバイナリを生成</a></li>
@@ -145,10 +157,6 @@ Menu
 Go Memo
 <a class=anchor href=#go-memo>#</a>
 </h1>
-<h2 id=変数>
-変数
-<a class=anchor href=#%e5%a4%89%e6%95%b0>#</a>
-</h2>
 <h3 id=ゼロ値型ごとの初期値>
 ゼロ値(型ごとの初期値)
 <a class=anchor href=#%e3%82%bc%e3%83%ad%e5%80%a4%e5%9e%8b%e3%81%94%e3%81%a8%e3%81%ae%e5%88%9d%e6%9c%9f%e5%80%a4>#</a>
@@ -179,7 +187,180 @@ Go Memo
 </tr>
 </tbody>
 </table>
-<h2 id=コンパイルしてバイナリを生成>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>sum</span> <span style=color:#66d9ef>int</span> <span style=color:#75715e>// ゼロ値 0 のため初期値の記述は不要
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>10</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+		<span style=color:#a6e22e>sum</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+	}
+	println(<span style=color:#a6e22e>sum</span>)
+}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#f92672>import</span> (
+	<span style=color:#e6db74>&#34;fmt&#34;</span>
+	<span style=color:#e6db74>&#34;strings&#34;</span>
+)
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#a6e22e>counts</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>{}
+	<span style=color:#a6e22e>str</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;dog dog dog cat dog&#34;</span>
+	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>s</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Split</span>(<span style=color:#a6e22e>str</span>, <span style=color:#e6db74>&#34; &#34;</span>) {
+		<span style=color:#a6e22e>counts</span>[<span style=color:#a6e22e>s</span>]<span style=color:#f92672>++</span> <span style=color:#75715e>// ゼロ値 0 のため初期値の記述は不要
+</span><span style=color:#75715e></span>	}
+	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>counts</span>)
+}
+</code></pre></div><h2 id=コンポジット型>
+コンポジット型
+<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%9d%e3%82%b8%e3%83%83%e3%83%88%e5%9e%8b>#</a>
+</h2>
+<p>複数のデータ型が集まって1つのデータ型になっているもの</p>
+<table>
+<thead>
+<tr>
+<th>型の種類</th>
+<th>説明</th>
+<th>ゼロ値</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>構造体</td>
+<td>型の異なるデータ型を集めたデータ型</td>
+<td>フィールドがすべてゼロ値</td>
+<td></td>
+</tr>
+<tr>
+<td>配列</td>
+<td>同じ型のデータを集めて並べたデータ型</td>
+<td>要素がすべてゼロ値</td>
+<td></td>
+</tr>
+<tr>
+<td>スライス</td>
+<td>配列の一部を切り出したデータ型</td>
+<td>nil</td>
+<td></td>
+</tr>
+<tr>
+<td>マップ</td>
+<td>キーと値をマッピングさせたデータ型</td>
+<td>nil</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>構造体の例</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>person</span> <span style=color:#66d9ef>struct</span> {
+  <span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>
+  <span style=color:#a6e22e>age</span>  <span style=color:#66d9ef>int</span>
+}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>person</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>struct</span> {
+	<span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>
+	<span style=color:#a6e22e>age</span>  <span style=color:#66d9ef>int</span>
+}{
+	<span style=color:#a6e22e>name</span>: <span style=color:#e6db74>&#34;Gopher&#34;</span>,
+	<span style=color:#a6e22e>age</span>:  <span style=color:#ae81ff>20</span>,
+}
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>person</span>.<span style=color:#a6e22e>name</span>)
+</code></pre></div><p>配列の特徴と例</p>
+<ul>
+<li>要素の型はすべて同じ</li>
+<li>要素数が違えば別の型として扱われる</li>
+<li>要素数は変更できない（要素数は固定長）</li>
+<li>型は型リテラルで記述することが多い</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// ゼロ値で初期化
+</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>ns1</span> [<span style=color:#ae81ff>5</span>]<span style=color:#66d9ef>int</span>
+<span style=color:#75715e>// 配列リテラルで初期化
+</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>ns2</span> [<span style=color:#ae81ff>5</span>]{<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>40</span>, <span style=color:#ae81ff>50</span>}
+<span style=color:#75715e>// 要素数を値から推論
+</span><span style=color:#75715e></span><span style=color:#a6e22e>ns3</span> <span style=color:#f92672>:=</span> [<span style=color:#f92672>...</span>]<span style=color:#66d9ef>int</span>{<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>40</span>, <span style=color:#ae81ff>50</span>}
+<span style=color:#75715e>// 要素の 5番目 50, 10番目 100, それ以外が0の要素数11の配列
+</span><span style=color:#75715e></span><span style=color:#a6e22e>ns4</span> <span style=color:#f92672>:=</span> [<span style=color:#f92672>...</span>]<span style=color:#66d9ef>int</span>{<span style=color:#ae81ff>5</span>: <span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>10</span>: <span style=color:#ae81ff>100</span>}
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>ns4</span>[<span style=color:#ae81ff>5</span>]) <span style=color:#75715e>// 5番目の値 50
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(len(<span style=color:#a6e22e>ns4</span>)) <span style=color:#75715e>// 要素数 11
+</span></code></pre></div><p>スライスの例</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// ゼロ値は nil
+</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>ns1</span> []<span style=color:#66d9ef>int</span>
+<span style=color:#75715e>// 長さと要素を指定
+</span><span style=color:#75715e></span><span style=color:#a6e22e>ns1</span> = make([]<span style=color:#66d9ef>int</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>10</span>) <span style=color:#75715e>// type, length, capacity
+</span><span style=color:#75715e>// スライス・リテラルで初期化
+</span><span style=color:#75715e>// 要素数は指定しなくてOK
+</span><span style=color:#75715e>// 自動で配列は作成される
+</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>ns2</span> = []<span style=color:#66d9ef>int</span>{<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>40</span>, <span style=color:#ae81ff>50</span>}
+<span style=color:#75715e>// 要素の 5番目 50, 10番目 100, それ以外が0の要素数11のスライス
+</span><span style=color:#75715e></span><span style=color:#a6e22e>ns3</span> <span style=color:#f92672>:=</span> []<span style=color:#66d9ef>int</span>{<span style=color:#ae81ff>5</span>: <span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>10</span>: <span style=color:#ae81ff>100</span>}
+
+
+<span style=color:#a6e22e>ns</span> <span style=color:#f92672>:=</span> []<span style=color:#66d9ef>int</span>{<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>40</span>, <span style=color:#ae81ff>50</span>}
+<span style=color:#75715e>// 要素にアクセス
+</span><span style=color:#75715e></span>println(<span style=color:#a6e22e>ns</span>[<span style=color:#ae81ff>3</span>]) <span style=color:#75715e>// 40
+</span><span style=color:#75715e>// 長さ
+</span><span style=color:#75715e></span>println(len(<span style=color:#a6e22e>ns</span>))
+<span style=color:#75715e>// 容量
+</span><span style=color:#75715e></span>println(cap(<span style=color:#a6e22e>ns</span>))
+<span style=color:#75715e>// 要素の追加
+</span><span style=color:#75715e>// 要素が足りない場合は背後の配列が確保される
+</span><span style=color:#75715e></span><span style=color:#a6e22e>ns</span> = append(<span style=color:#a6e22e>ns</span>, <span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>70</span>)
+</code></pre></div><h3 id=コンポジット型を要素としてもつコンポジット型>
+コンポジット型を要素としてもつコンポジット型
+<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%9d%e3%82%b8%e3%83%83%e3%83%88%e5%9e%8b%e3%82%92%e8%a6%81%e7%b4%a0%e3%81%a8%e3%81%97%e3%81%a6%e3%82%82%e3%81%a4%e3%82%b3%e3%83%b3%e3%83%9d%e3%82%b8%e3%83%83%e3%83%88%e5%9e%8b>#</a>
+</h3>
+<ul>
+<li>スライスの要素がスライスの場合（多次元スライス）
+<ul>
+<li>例：<code>[][]int</code></li>
+</ul>
+</li>
+<li>マップの値がスライスの場合
+<ul>
+<li>例：<code>map[string][]int</code></li>
+</ul>
+</li>
+<li>構造体のフィールドの型が構造体</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>struct</span> {
+  <span style=color:#a6e22e>A</span> <span style=color:#66d9ef>struct</span> {
+    <span style=color:#a6e22e>N</span> <span style=color:#66d9ef>int</span>
+  }
+}
+</code></pre></div><h2 id=ユーザ定義型>
+ユーザ定義型
+<a class=anchor href=#%e3%83%a6%e3%83%bc%e3%82%b6%e5%ae%9a%e7%be%a9%e5%9e%8b>#</a>
+</h2>
+<h3 id=ユーザ定義型の定義の方法>
+ユーザ定義型の定義の方法
+<a class=anchor href=#%e3%83%a6%e3%83%bc%e3%82%b6%e5%ae%9a%e7%be%a9%e5%9e%8b%e3%81%ae%e5%ae%9a%e7%be%a9%e3%81%ae%e6%96%b9%e6%b3%95>#</a>
+</h3>
+<p>type で名前をつけて新しい型を定義する<br>
+<code>type</code> <code>型名</code> <code>基底型</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// 組み込み型を基にする
+</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>MyInt</span> <span style=color:#66d9ef>int</span>
+<span style=color:#75715e>// 他パッケージの型を基にする
+</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>MyWriter</span> <span style=color:#a6e22e>io</span>.<span style=color:#a6e22e>Writer</span>
+<span style=color:#75715e>// 型リテラルを基にする
+</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Person</span> <span style=color:#66d9ef>struct</span> {
+  <span style=color:#a6e22e>Name</span> <span style=color:#66d9ef>string</span>
+}
+</code></pre></div><h3 id=基底型とユーザ定義型の相互キャストが可能>
+基底型とユーザ定義型の相互キャストが可能
+<a class=anchor href=#%e5%9f%ba%e5%ba%95%e5%9e%8b%e3%81%a8%e3%83%a6%e3%83%bc%e3%82%b6%e5%ae%9a%e7%be%a9%e5%9e%8b%e3%81%ae%e7%9b%b8%e4%ba%92%e3%82%ad%e3%83%a3%e3%82%b9%e3%83%88%e3%81%8c%e5%8f%af%e8%83%bd>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>MyInt</span> <span style=color:#66d9ef>int</span>
+<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>n</span> <span style=color:#66d9ef>int</span> = <span style=color:#ae81ff>100</span>
+<span style=color:#a6e22e>m</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>MyInt</span>(<span style=color:#a6e22e>n</span>)
+<span style=color:#a6e22e>n</span> = int(<span style=color:#a6e22e>m</span>)
+</code></pre></div><h3 id=型なし定数から明示的なキャストは不要>
+型なし定数から明示的なキャストは不要
+<a class=anchor href=#%e5%9e%8b%e3%81%aa%e3%81%97%e5%ae%9a%e6%95%b0%e3%81%8b%e3%82%89%e6%98%8e%e7%a4%ba%e7%9a%84%e3%81%aa%e3%82%ad%e3%83%a3%e3%82%b9%e3%83%88%e3%81%af%e4%b8%8d%e8%a6%81>#</a>
+</h3>
+<p>デフォルトの型からユーザ定義型へキャストできる場合</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// 10秒を表す（time.Duration型）
+</span><span style=color:#75715e></span><span style=color:#a6e22e>d</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>10</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Second</span>
+</code></pre></div><h2 id=コンパイルしてバイナリを生成>
 コンパイルしてバイナリを生成
 <a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%81%97%e3%81%a6%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa%e3%82%92%e7%94%9f%e6%88%90>#</a>
 </h2>
@@ -187,7 +368,44 @@ Go Memo
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go build main.go
 $ go build .
 $ go build pkgname
-</code></pre></div><h2 id=コンパイル-バイナリ>
+</code></pre></div><p>スライスの例</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>ns</span> []<span style=color:#66d9ef>int</span>
+</code></pre></div><p>マップの例</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>m</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>
+<span style=color:#75715e>// make で初期化
+</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> = make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>)
+<span style=color:#75715e>// 容量を指定可
+</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> = make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>, <span style=color:#ae81ff>10</span>)
+<span style=color:#75715e>// リテラルで初期化
+</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> <span style=color:#f92672>:=</span> make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>{<span style=color:#e6db74>&#34;x&#34;</span>: <span style=color:#ae81ff>10</span>, <span style=color:#e6db74>&#34;y&#34;</span>: <span style=color:#ae81ff>20</span>})
+
+<span style=color:#75715e>// 空の場合
+</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>{}
+<span style=color:#75715e>// キーをしていしてアクセス
+</span><span style=color:#75715e></span>println(<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;x&#34;</span>])
+<span style=color:#75715e>// キーを指定して入力
+</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;x&#34;</span>] = <span style=color:#ae81ff>30</span>
+
+<span style=color:#75715e>// 存在を確認
+</span><span style=color:#75715e></span><span style=color:#a6e22e>n</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;z&#34;</span>]
+println(<span style=color:#a6e22e>z</span>, <span style=color:#a6e22e>ok</span>)
+
+<span style=color:#75715e>// キーを指定して削除
+</span><span style=color:#75715e></span>delete(<span style=color:#a6e22e>m</span>, <span style=color:#e6db74>&#34;z&#34;</span>)
+
+<span style=color:#75715e>// 削除されていることを確認
+</span><span style=color:#75715e></span><span style=color:#a6e22e>n</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;z&#34;</span>]
+println(<span style=color:#a6e22e>n</span>, <span style=color:#a6e22e>ok</span>) <span style=color:#75715e>// ゼロ値と false を返却
+</span><span style=color:#75715e></span>
+</code></pre></div><ul>
+<li>キーと値の型を指定</li>
+<li>キーには <code>==</code> で比較できる型以外はNG。（スライスは不可。たぶん長さが異なる等があるため。）
+<ul>
+<li>キーとして構造体やポインタも指定可。構造体の要素がスライスの場合はNG。</li>
+</ul>
+</li>
+</ul>
+<h2 id=コンパイル-バイナリ>
 コンパイル, バイナリ
 <a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab-%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa>#</a>
 </h2>
@@ -381,9 +599,21 @@ English
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#変数>変数</a>
+<li>
 <ul>
 <li><a href=#ゼロ値型ごとの初期値>ゼロ値(型ごとの初期値)</a></li>
+</ul>
+</li>
+<li><a href=#コンポジット型>コンポジット型</a>
+<ul>
+<li><a href=#コンポジット型を要素としてもつコンポジット型>コンポジット型を要素としてもつコンポジット型</a></li>
+</ul>
+</li>
+<li><a href=#ユーザ定義型>ユーザ定義型</a>
+<ul>
+<li><a href=#ユーザ定義型の定義の方法>ユーザ定義型の定義の方法</a></li>
+<li><a href=#基底型とユーザ定義型の相互キャストが可能>基底型とユーザ定義型の相互キャストが可能</a></li>
+<li><a href=#型なし定数から明示的なキャストは不要>型なし定数から明示的なキャストは不要</a></li>
 </ul>
 </li>
 <li><a href=#コンパイルしてバイナリを生成>コンパイルしてバイナリを生成</a></li>
