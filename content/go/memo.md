@@ -969,9 +969,39 @@ func main() {
 
 ## File
 
+### パスを結合
+```go
+path := filepath.Join("dir", "main.go")
+```
+
+### ディレクトリ名を取得
+```go
+dir_name := filepath.Dir(path)
+```
+
+### ファイル名を取得
+```go
+file_name := filepath.Base(path)
+```
+
+### 拡張子を取得
+```go
+file_ext := filepath.Ext(path)
+```
+
 ### 拡張子を除外したファイル名を取得
 ```go
-filepath.Base(path[:len(path)-len(filepath.Ext(path))])
+file_stem := filepath.Base(path[:len(path)-len(filepath.Ext(path))])
+```
+
+### 相対パスを取得
+```go
+relative_path := filepath.Rel(base_path, target_path)
+```
+
+### 相対パスから絶対パスを取得
+```go
+absolute_path := filepath.Abs(relative_path)
 ```
 
 ## Struct
