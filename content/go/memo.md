@@ -721,6 +721,42 @@ func main() {
 * 内部にポインタを持つ型(マップやスライスなど)
 
 * レシーバに対して append する場合はレシーバとしてポインタを渡すこと
+
+### メソッド値
+
+```go
+type Hex int
+func (h Hex) String() string {
+	return fmt.Sprintf("%x", int(h))
+}
+
+func main() {
+	var h Hex = 100
+
+	// String() を実行するのではなく Stringメソッドを
+	// f に格納するため String の後に () がついていない
+	f := h.String // 変数.メソッド名  型は「func() string」
+	fmt.Println(f()) // String() を実行
+}
+```
+
+### メソッド式
+* メソッドを表す式
+* レシーバを第1引き数とした関数になる
+
+```go
+type Hex int
+func (h Hex) String() string {
+	return fmt.Sprintf("%x", int(h))
+}
+
+func main() {
+	var h Hex = 100
+	f := Hex.String // 変数の型.メソッド名  レシーバの値を決定していない状態でメソッドを参照
+	fmt.Printf("%T\n%s\n", f, f(h)) // レシーバを第1引き数とした関数
+}
+```
+
 ## File
 
 ### 拡張子を除外したファイル名を取得
