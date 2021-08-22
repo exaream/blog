@@ -8,6 +8,99 @@ tags: ["Go", "Golang", "Memo"]
 
 # Go Memo
 
+## コンパイル, バイナリ
+### コンパイルして実行
+バイナリ（実行可能ファイル）の生成なし
+
+```bash
+$ go run main.go
+$ go run .
+$ go run pkgname
+```
+
+### コンパイルしてバイナリを生成
+バイナリ（実行可能ファイル）の生成あり
+```bash
+$ go build main.go
+$ go build .
+$ go build pkgname
+```
+
+## 静的解析によるミスの検出
+### バグと思われるミスを検出
+```go test``` 実行時に自動で実行される
+The Go Playground でも実行される
+```bash
+$ go vet main.go
+$ go vet .
+$ go vet pkgname
+```
+### エラー処理のミスを検出
+
+```bash
+$ go get github.com/kisielk/errcheck
+```
+
+```bash
+$ errcheck ./...
+```
+
+## Linterのセットを使ってチェック
+### Staticcheck
+https://staticcheck.io/docs/  
+
+```bash
+$ go install honnef.co/go/tools/cmd/staticcheck@latest
+$ staticcheck ./...
+```
+
+### GolangCI-Lint
+https://golangci-lint.run/
+```bash
+$ brew install golangci-lint
+$ brew upgrade golangci-lint
+or
+$ go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.0
+```
+```bash
+$ golangci-lint run ./...
+$ golangci-lint run dir1 dir2/... dir3/file1.go
+```
+
+### reviewdog
+PRレビューで静的解析ツールを使用
+
+```bash
+$ brew install reviewdog/tap/reviewdog
+$ brew upgrade reviewdog/tap/reviewdog
+or
+go install github.com/reviewdog/reviewdog/cmd/reviewdog@latest
+```
+```bash
+golint ./...
+```
+
+## リファクタリング
+
+* gomvpkg パッケージ名の変更ができるツール
+  * https://golang.org/x/tools/cmd/gomvpkg
+* gorename 識別子の名前を変更するツール
+  * https://golang.org/x/tools/cmd/gorename
+* eg exampleベースのリファクタリングツール
+  * https://golang.org/x/tools/cmd/eg
+  * https://rakyll.org/eg/
+
+## Debug
+* Delve Go専用のデバッガ, goroutine や channelにも対応
+  * https://github.com/derekparker/delve
+
+## コードのフォーマット
+* コードの書式を整形
+```bash
+$ go fmt main.go
+$ go fmt .
+$ go fmt pkgname
+```
 ## 組み込み型
 言語に備わっているため最初から型のこと
 |型|概要|ゼロ値(初期値)|
@@ -521,136 +614,113 @@ func main() {
   * マップ
   * チャネル
 
-## コンパイルしてバイナリを生成
-バイナリ（実行可能ファイル）の生成あり
-```bash
-$ go build main.go
-$ go build .
-$ go build pkgname
-```
+## メソッド
+* レシーバと紐付けられた関数
+  * データとそれに対する操作を紐付けるために使用
+  * ドットでメソッドにアクセス
 
-スライスの例
 ```go
-var ns []int
+type Hex int
+func (h Hex) String() string {
+	return fmt.Sprintf("%x", int(h))
+}
 ```
-
-マップの例
 ```go
-var m map[string]int
-// make で初期化
-m = make(map[string]int)
-// 容量を指定可
-m = make(map[string]int, 10)
-// リテラルで初期化
-m := make(map[string]int{"x": 10, "y": 20})
-
-// 空の場合
-m := map[string]int{}
-// キーをしていしてアクセス
-println(m["x"])
-// キーを指定して入力
-m["x"] = 30
-
-// 存在を確認
-n, ok := m["z"]
-println(z, ok)
-
-// キーを指定して削除
-delete(m, "z")
-
-// 削除されていることを確認
-n, ok := m["z"]
-println(n, ok) // ゼロ値と false を返却
-
-```
-* キーと値の型を指定
-* キーには ```==``` で比較できる型以外はNG。（スライスは不可。たぶん長さが異なる等があるため。）
-  * キーとして構造体やポインタも指定可。構造体の要素がスライスの場合はNG。
-## コンパイル, バイナリ
-### コンパイルして実行
-バイナリ（実行可能ファイル）の生成なし
-
-```bash
-$ go run main.go
-$ go run .
-$ go run pkgname
+var hex Hex = 100
+fmt.Println(hex.String()) // 64
 ```
 
-### コードのフォーマット（書式）を整形
+### レシーバ
+* メソッドに関連付けられた変数
+  * メソッド呼び出し時は通常の引き数と同様の扱いとなり, コピーが発生
+  * ポインタを用いることでレシーバへの変更を呼び出し元に伝えることが可能
+  　　* レシーバが構造体の場合
 
-```bash
-$ go fmt main.go
-$ go fmt .
-$ go fmt pkgname
+```go
+type T int
+func (t *T) f() { println("hi") }
+
+func main() {
+	var v T = 1
+
+	// 以下の2行は同じ意味
+	// (型Tがメソッドを持っているわけではない)
+	(&v).f() // ポインタをレシーバとして渡し v に対するメソッド f の振る舞いを実行
+	v.f() // 上の行のシンタックスシュガー(簡略化した記述方法)
+}
 ```
 
-## 静的解析によるミスの検出
-### バグと思われるミスを検出
-```go test``` 実行時に自動で実行される
-The Go Playground でも実行される
-```bash
-$ go vet main.go
-$ go vet .
-$ go vet pkgname
-```
-### エラー処理のミスを検出
+```go
+package main
 
-```bash
-$ go get github.com/kisielk/errcheck
-```
+import "fmt"
 
-```bash
-$ errcheck ./...
-```
+type person struct {
+	name string
+	age  int
+}
 
-## Linterのセットを使ってチェック
-### Staticcheck
-https://staticcheck.io/docs/  
+// レシーバとして構造体のポインタを渡し
+// 構造体に対して破壊的変更をおこなう
+func (p *person) rename(name string) {
+	p.name = name
+}
 
-```bash
-$ go install honnef.co/go/tools/cmd/staticcheck@latest
-$ staticcheck ./...
+func main() {
+	var p = person{name: "Foo", age: 20}
+	fmt.Println(p.name) // Foo
+	p.rename("Bar")
+	fmt.Println(p.name) // Bar
+}
+
 ```
 
-### GolangCI-Lint
-https://golangci-lint.run/
-```bash
-$ brew install golangci-lint
-$ brew upgrade golangci-lint
-or
-$ go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.0
-```
-```bash
-$ golangci-lint run ./...
-$ golangci-lint run dir1 dir2/... dir3/file1.go
-```
+```go
+package main
 
-### reviewdog
-PRレビューで静的解析ツールを使用
+type MyInt int
 
-```bash
-$ brew install reviewdog/tap/reviewdog
-$ brew upgrade reviewdog/tap/reviewdog
-or
-go install github.com/reviewdog/reviewdog/cmd/reviewdog@latest
-```
-```bash
-golint ./...
+// レシーバとして構造体のポインタを渡し
+// 構造体に対して破壊的変更をおこなう
+func (n *MyInt) Inc() { *n++ }
+
+func main() {
+	var n MyInt
+	println(n) // 0
+	n.Inc()
+	println(n) // 1
+}
 ```
 
-## リファクタリング
+### ポインタ型のメソッドリスト
 
-* gomvpkg パッケージ名の変更ができるツール
-  * https://golang.org/x/tools/cmd/gomvpkg
-* gorename 識別子の名前を変更するツール
-  * https://golang.org/x/tools/cmd/gorename
-* eg exampleベースのリファクタリングツール
-  * https://golang.org/x/tools/cmd/eg
-  * https://rakyll.org/eg/
+```go
+type T struct{}
+func (t T) f() {}
+func main() {
+	(T{}).f()   // T
+	(&T{}).f()  // *T
+	(*&T{}).f() // T
+}
+```
+```go
+type T struct{}
+func (t *T) g() {}
+func main() {
+	(T{}).g() // 実行不可
+	(&T{}).g()
+	(*&T{}).g()
+}
 
-## Debug
-* Delve Go専用のデバッガ, goroutine や channelにも対応
-  * https://github.com/derekparker/delve
+```
+
+### レシーバとして使うことができる型
+
+* type で定義した型(ユーザ定義の型)
+* ポインタ型(レシーバに変更を与えたい場合)
+* 内部にポインタを持つ型(マップやスライスなど)
+
+* レシーバに対して append する場合はレシーバとしてポインタを渡すこと
 ## File
 
 ### 拡張子を除外したファイル名を取得
@@ -702,6 +772,46 @@ func main() {
   sample.IsAvailable()
 }
 ```
+
+## メモ
+
+スライスの例
+```go
+var ns []int
+```
+
+マップの例
+```go
+var m map[string]int
+// make で初期化
+m = make(map[string]int)
+// 容量を指定可
+m = make(map[string]int, 10)
+// リテラルで初期化
+m := make(map[string]int{"x": 10, "y": 20})
+
+// 空の場合
+m := map[string]int{}
+// キーをしていしてアクセス
+println(m["x"])
+// キーを指定して入力
+m["x"] = 30
+
+// 存在を確認
+n, ok := m["z"]
+println(z, ok)
+
+// キーを指定して削除
+delete(m, "z")
+
+// 削除されていることを確認
+n, ok := m["z"]
+println(n, ok) // ゼロ値と false を返却
+
+```
+* キーと値の型を指定
+* キーには ```==``` で比較できる型以外はNG。（スライスは不可。たぶん長さが異なる等があるため。）
+  * キーとして構造体やポインタも指定可。構造体の要素がスライスの場合はNG。
 
 
 ## References
