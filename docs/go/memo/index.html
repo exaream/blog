@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.21fc5ad5995b84ee94ed9e1caddc5e7a3c123a2adbf86197a2086034f877f996.js integrity="sha256-Ifxa1ZlbhO6U7Z4crdxeejwSOirb+GGXoghgNPh3+ZY=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.c795364b01dbd79392b5ae8bc228253ef2c927a5091a7bb86db9304dc82d8f96.js integrity="sha256-x5U2SwHb15OSta6LwiglPvLJJ6UJGnu4bbkwTcgtj5Y=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -87,6 +87,28 @@ Menu
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#コンパイル-バイナリ>コンパイル, バイナリ</a>
+<ul>
+<li><a href=#コンパイルして実行>コンパイルして実行</a></li>
+<li><a href=#コンパイルしてバイナリを生成>コンパイルしてバイナリを生成</a></li>
+</ul>
+</li>
+<li><a href=#静的解析によるミスの検出>静的解析によるミスの検出</a>
+<ul>
+<li><a href=#バグと思われるミスを検出>バグと思われるミスを検出</a></li>
+<li><a href=#エラー処理のミスを検出>エラー処理のミスを検出</a></li>
+</ul>
+</li>
+<li><a href=#linterのセットを使ってチェック>Linterのセットを使ってチェック</a>
+<ul>
+<li><a href=#staticcheck>Staticcheck</a></li>
+<li><a href=#golangci-lint>GolangCI-Lint</a></li>
+<li><a href=#reviewdog>reviewdog</a></li>
+</ul>
+</li>
+<li><a href=#リファクタリング>リファクタリング</a></li>
+<li><a href=#debug>Debug</a></li>
+<li><a href=#コードのフォーマット>コードのフォーマット</a></li>
 <li><a href=#組み込み型>組み込み型</a></li>
 <li><a href=#変数定義>変数定義</a></li>
 <li><a href=#ゼロ値>ゼロ値</a>
@@ -104,6 +126,25 @@ Menu
 <li><a href=#定数のデフォルトの型>定数のデフォルトの型</a></li>
 <li><a href=#型定義の右辺の省略>型定義の右辺の省略</a></li>
 <li><a href=#iota>iota</a></li>
+</ul>
+</li>
+<li><a href=#演算子>演算子</a>
+<ul>
+<li><a href=#算術演算>算術演算</a></li>
+<li><a href=#代入演算>代入演算</a></li>
+<li><a href=#ビット演算>ビット演算</a></li>
+<li><a href=#論理演算>論理演算</a></li>
+<li><a href=#比較演算>比較演算</a></li>
+<li><a href=#アドレス演算>アドレス演算</a></li>
+<li><a href=#チャネル演算>チャネル演算</a></li>
+</ul>
+</li>
+<li><a href=#制御構文>制御構文</a>
+<ul>
+<li><a href=#条件分岐-if>条件分岐 <code>if</code></a></li>
+<li><a href=#条件分岐-switch>条件分岐 <code>switch</code></a></li>
+<li><a href=#繰り返しループ-for>繰り返し(ループ) <code>for</code></a></li>
+<li><a href=#break-によるループの抜け出し><code>break</code> によるループの抜け出し</a></li>
 </ul>
 </li>
 <li><a href=#コンポジット型>コンポジット型</a>
@@ -134,28 +175,15 @@ Menu
 <li><a href=#内部でポインタを用いられているデータ型>内部でポインタを用いられているデータ型</a></li>
 </ul>
 </li>
-<li><a href=#コンパイルしてバイナリを生成>コンパイルしてバイナリを生成</a></li>
-<li><a href=#コンパイル-バイナリ>コンパイル, バイナリ</a>
+<li><a href=#メソッド>メソッド</a>
 <ul>
-<li><a href=#コンパイルして実行>コンパイルして実行</a></li>
-<li><a href=#コードのフォーマット書式を整形>コードのフォーマット（書式）を整形</a></li>
+<li><a href=#レシーバ>レシーバ</a></li>
+<li><a href=#ポインタ型のメソッドリスト>ポインタ型のメソッドリスト</a></li>
+<li><a href=#レシーバとして使うことができる型>レシーバとして使うことができる型</a></li>
+<li><a href=#メソッド値>メソッド値</a></li>
+<li><a href=#メソッド式>メソッド式</a></li>
 </ul>
 </li>
-<li><a href=#静的解析によるミスの検出>静的解析によるミスの検出</a>
-<ul>
-<li><a href=#バグと思われるミスを検出>バグと思われるミスを検出</a></li>
-<li><a href=#エラー処理のミスを検出>エラー処理のミスを検出</a></li>
-</ul>
-</li>
-<li><a href=#linterのセットを使ってチェック>Linterのセットを使ってチェック</a>
-<ul>
-<li><a href=#staticcheck>Staticcheck</a></li>
-<li><a href=#golangci-lint>GolangCI-Lint</a></li>
-<li><a href=#reviewdog>reviewdog</a></li>
-</ul>
-</li>
-<li><a href=#リファクタリング>リファクタリング</a></li>
-<li><a href=#debug>Debug</a></li>
 <li><a href=#file>File</a>
 <ul>
 <li><a href=#拡張子を除外したファイル名を取得>拡張子を除外したファイル名を取得</a></li>
@@ -167,6 +195,7 @@ Menu
 <li><a href=#ローカルパッケージのインポート>ローカル・パッケージのインポート</a></li>
 </ul>
 </li>
+<li><a href=#メモ>メモ</a></li>
 <li><a href=#references>References</a></li>
 </ul>
 </nav>
@@ -187,7 +216,121 @@ Menu
 Go Memo
 <a class=anchor href=#go-memo>#</a>
 </h1>
-<h2 id=組み込み型>
+<h2 id=コンパイル-バイナリ>
+コンパイル, バイナリ
+<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab-%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa>#</a>
+</h2>
+<h3 id=コンパイルして実行>
+コンパイルして実行
+<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%81%97%e3%81%a6%e5%ae%9f%e8%a1%8c>#</a>
+</h3>
+<p>バイナリ（実行可能ファイル）の生成なし</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go run main.go
+$ go run .
+$ go run pkgname
+</code></pre></div><h3 id=コンパイルしてバイナリを生成>
+コンパイルしてバイナリを生成
+<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%81%97%e3%81%a6%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa%e3%82%92%e7%94%9f%e6%88%90>#</a>
+</h3>
+<p>バイナリ（実行可能ファイル）の生成あり</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go build main.go
+$ go build .
+$ go build pkgname
+</code></pre></div><h2 id=静的解析によるミスの検出>
+静的解析によるミスの検出
+<a class=anchor href=#%e9%9d%99%e7%9a%84%e8%a7%a3%e6%9e%90%e3%81%ab%e3%82%88%e3%82%8b%e3%83%9f%e3%82%b9%e3%81%ae%e6%a4%9c%e5%87%ba>#</a>
+</h2>
+<h3 id=バグと思われるミスを検出>
+バグと思われるミスを検出
+<a class=anchor href=#%e3%83%90%e3%82%b0%e3%81%a8%e6%80%9d%e3%82%8f%e3%82%8c%e3%82%8b%e3%83%9f%e3%82%b9%e3%82%92%e6%a4%9c%e5%87%ba>#</a>
+</h3>
+<p><code>go test</code> 実行時に自動で実行される
+The Go Playground でも実行される</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go vet main.go
+$ go vet .
+$ go vet pkgname
+</code></pre></div><h3 id=エラー処理のミスを検出>
+エラー処理のミスを検出
+<a class=anchor href=#%e3%82%a8%e3%83%a9%e3%83%bc%e5%87%a6%e7%90%86%e3%81%ae%e3%83%9f%e3%82%b9%e3%82%92%e6%a4%9c%e5%87%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go get github.com/kisielk/errcheck
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ errcheck ./...
+</code></pre></div><h2 id=linterのセットを使ってチェック>
+Linterのセットを使ってチェック
+<a class=anchor href=#linter%e3%81%ae%e3%82%bb%e3%83%83%e3%83%88%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%81%e3%82%a7%e3%83%83%e3%82%af>#</a>
+</h2>
+<h3 id=staticcheck>
+Staticcheck
+<a class=anchor href=#staticcheck>#</a>
+</h3>
+<p><a href=https://staticcheck.io/docs/>https://staticcheck.io/docs/</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go install honnef.co/go/tools/cmd/staticcheck@latest
+$ staticcheck ./...
+</code></pre></div><h3 id=golangci-lint>
+GolangCI-Lint
+<a class=anchor href=#golangci-lint>#</a>
+</h3>
+<p><a href=https://golangci-lint.run/>https://golangci-lint.run/</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install golangci-lint
+$ brew upgrade golangci-lint
+or
+$ go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.0
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ golangci-lint run ./...
+$ golangci-lint run dir1 dir2/... dir3/file1.go
+</code></pre></div><h3 id=reviewdog>
+reviewdog
+<a class=anchor href=#reviewdog>#</a>
+</h3>
+<p>PRレビューで静的解析ツールを使用</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install reviewdog/tap/reviewdog
+$ brew upgrade reviewdog/tap/reviewdog
+or
+go install github.com/reviewdog/reviewdog/cmd/reviewdog@latest
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>golint ./...
+</code></pre></div><h2 id=リファクタリング>
+リファクタリング
+<a class=anchor href=#%e3%83%aa%e3%83%95%e3%82%a1%e3%82%af%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0>#</a>
+</h2>
+<ul>
+<li>gomvpkg パッケージ名の変更ができるツール
+<ul>
+<li><a href=https://golang.org/x/tools/cmd/gomvpkg>https://golang.org/x/tools/cmd/gomvpkg</a></li>
+</ul>
+</li>
+<li>gorename 識別子の名前を変更するツール
+<ul>
+<li><a href=https://golang.org/x/tools/cmd/gorename>https://golang.org/x/tools/cmd/gorename</a></li>
+</ul>
+</li>
+<li>eg exampleベースのリファクタリングツール
+<ul>
+<li><a href=https://golang.org/x/tools/cmd/eg>https://golang.org/x/tools/cmd/eg</a></li>
+<li><a href=https://rakyll.org/eg/>https://rakyll.org/eg/</a></li>
+</ul>
+</li>
+</ul>
+<h2 id=debug>
+Debug
+<a class=anchor href=#debug>#</a>
+</h2>
+<ul>
+<li>Delve Go専用のデバッガ, goroutine や channelにも対応
+<ul>
+<li><a href=https://github.com/derekparker/delve>https://github.com/derekparker/delve</a></li>
+</ul>
+</li>
+</ul>
+<h2 id=コードのフォーマット>
+コードのフォーマット
+<a class=anchor href=#%e3%82%b3%e3%83%bc%e3%83%89%e3%81%ae%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%83%e3%83%88>#</a>
+</h2>
+<ul>
+<li>コードの書式を整形</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go fmt main.go
+$ go fmt .
+$ go fmt pkgname
+</code></pre></div><h2 id=組み込み型>
 組み込み型
 <a class=anchor href=#%e7%b5%84%e3%81%bf%e8%be%bc%e3%81%bf%e5%9e%8b>#</a>
 </h2>
@@ -566,6 +709,402 @@ iota
 	)
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>a</span>, <span style=color:#a6e22e>b</span>, <span style=color:#a6e22e>c</span>, <span style=color:#a6e22e>d</span>) <span style=color:#75715e>// 1 2 4 8
 </span><span style=color:#75715e></span>}
+</code></pre></div><h2 id=演算子>
+演算子
+<a class=anchor href=#%e6%bc%94%e7%ae%97%e5%ad%90>#</a>
+</h2>
+<h3 id=算術演算>
+算術演算
+<a class=anchor href=#%e7%ae%97%e8%a1%93%e6%bc%94%e7%ae%97>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code>, <code>-</code></td>
+<td>符号</td>
+<td>+100, -100</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>加算</td>
+<td>2+1</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>減算</td>
+<td>2-1</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>割り算</td>
+<td>4/2</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>掛け算</td>
+<td>5*3</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>余り</td>
+<td>5%2</td>
+</tr>
+</tbody>
+</table>
+<h3 id=代入演算>
+代入演算
+<a class=anchor href=#%e4%bb%a3%e5%85%a5%e6%bc%94%e7%ae%97>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=</code></td>
+<td>変数への代入</td>
+<td>a = 100</td>
+</tr>
+<tr>
+<td><code>:=</code></td>
+<td>変数の初期化と代入</td>
+<td>a := 100</td>
+</tr>
+<tr>
+<td><code>+=</code>, <code>-=</code> 等</td>
+<td>演算と代入</td>
+<td>i += 2</td>
+</tr>
+<tr>
+<td><code>++</code></td>
+<td>i += 1 と同じ</td>
+<td>i++</td>
+</tr>
+<tr>
+<td><code>--</code></td>
+<td>i -= 1 と同じ</td>
+<td>i&ndash;</td>
+</tr>
+</tbody>
+</table>
+<h3 id=ビット演算>
+ビット演算
+<a class=anchor href=#%e3%83%93%e3%83%83%e3%83%88%e6%bc%94%e7%ae%97>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>|</code></td>
+<td>論理和</td>
+<td>0x10</td>
+</tr>
+<tr>
+<td><code>&</code></td>
+<td>論理積</td>
+<td>0x1&0xf</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>否定</td>
+<td>^0x3</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>排他的論理和</td>
+<td>0xc^0x3</td>
+</tr>
+<tr>
+<td><code>&^</code></td>
+<td>論理積の否定</td>
+<td>0xc&^0x3</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;</code></td>
+<td>左に算術シフト</td>
+<td>0x1&#171;4</td>
+</tr>
+<tr>
+<td><code>>></code></td>
+<td>右に算術シフト</td>
+<td>0x1&#187;4</td>
+</tr>
+</tbody>
+</table>
+<h3 id=論理演算>
+論理演算
+<a class=anchor href=#%e8%ab%96%e7%90%86%e6%bc%94%e7%ae%97>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>||</code></td>
+<td>または</td>
+<td>a || b</td>
+</tr>
+<tr>
+<td><code>&&</code></td>
+<td>かつ</td>
+<td>a && a</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>否定</td>
+<td>!a</td>
+</tr>
+</tbody>
+</table>
+<h3 id=比較演算>
+比較演算
+<a class=anchor href=#%e6%af%94%e8%bc%83%e6%bc%94%e7%ae%97>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>等しいかどうか</td>
+<td>a == b</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>等しくないか</td>
+<td>a != b</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>a は b より小さい</td>
+<td>a &lt; b</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>a は b 以下</td>
+<td>a &lt;= b</td>
+</tr>
+<tr>
+<td><code>></code></td>
+<td>a は b より大きい</td>
+<td>a > b</td>
+</tr>
+<tr>
+<td><code>>=</code></td>
+<td>a は b 以下</td>
+<td>a >= b</td>
+</tr>
+</tbody>
+</table>
+<h3 id=アドレス演算>
+アドレス演算
+<a class=anchor href=#%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e6%bc%94%e7%ae%97>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&</td>
+<td>ポインタを取得</td>
+<td>&a</td>
+</tr>
+<tr>
+<td>*</td>
+<td>ポインタが指す値を取得</td>
+<td>*a</td>
+</tr>
+</tbody>
+</table>
+<h3 id=チャネル演算>
+チャネル演算
+<a class=anchor href=#%e3%83%81%e3%83%a3%e3%83%8d%e3%83%ab%e6%bc%94%e7%ae%97>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;-</code></td>
+<td>チャネルへの送受信</td>
+<td><code>ch&lt;-100</code>, <code>&lt;-ch</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id=制御構文>
+制御構文
+<a class=anchor href=#%e5%88%b6%e5%be%a1%e6%a7%8b%e6%96%87>#</a>
+</h2>
+<h3 id=条件分岐-if>
+条件分岐 <code>if</code>
+<a class=anchor href=#%e6%9d%a1%e4%bb%b6%e5%88%86%e5%b2%90-if>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>x</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span> {
+	println(<span style=color:#e6db74>&#34;x は 1&#34;</span>)
+} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>x</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>2</span> {
+	println(<span style=color:#e6db74>&#34;x は 2&#34;</span>)
+} <span style=color:#66d9ef>else</span> {
+	println(<span style=color:#e6db74>&#34;x は 1 でも 2 でもない&#34;</span>)
+}
+</code></pre></div><p>go の if 文の特徴</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// () は不要
+</span><span style=color:#75715e></span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>a</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> {
+}
+<span style=color:#75715e>// エラー (式の後に { なしの改行は不可)
+</span><span style=color:#75715e></span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>a</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>
+{
+}
+<span style=color:#75715e>// エラー (1行での記述は不可)
+</span><span style=color:#75715e></span><span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>a</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) println(<span style=color:#a6e22e>a</span>)
+</code></pre></div><h3 id=条件分岐-switch>
+条件分岐 <code>switch</code>
+<a class=anchor href=#%e6%9d%a1%e4%bb%b6%e5%88%86%e5%b2%90-switch>#</a>
+</h3>
+<ul>
+<li><code>break</code> は不要</li>
+<li><code>case</code> に式を使用可能</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>switch</span> <span style=color:#a6e22e>age</span> {
+<span style=color:#66d9ef>case</span> <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>: <span style=color:#75715e>// 0 または 1 または 2 の場合
+</span><span style=color:#75715e></span>	println(<span style=color:#e6db74>&#34;baby&#34;</span>)
+	<span style=color:#75715e>// 何もしなければ break
+</span><span style=color:#75715e></span>	<span style=color:#75715e>// 次のケースに進みたい場合のみ fallthrough を記述
+</span><span style=color:#75715e></span><span style=color:#66d9ef>case</span> <span style=color:#a6e22e>a</span> <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>3</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>a</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>12</span>: <span style=color:#75715e>// 式を使用する場合
+</span><span style=color:#75715e></span>	println(<span style=color:#e6db74>&#34;child&#34;</span>)
+<span style=color:#66d9ef>case</span> <span style=color:#a6e22e>a</span> <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>13</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>a</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>19</span>: <span style=color:#75715e>// 式を使用する場合
+</span><span style=color:#75715e></span>	println(<span style=color:#e6db74>&#34;teenager&#34;</span>)
+<span style=color:#66d9ef>case</span> <span style=color:#a6e22e>a</span> &gt; <span style=color:#ae81ff>20</span>: <span style=color:#75715e>// 式を使用する場合
+</span><span style=color:#75715e></span>	println(<span style=color:#e6db74>&#34;adult&#34;</span>)
+<span style=color:#66d9ef>default</span>:
+	println(<span style=color:#e6db74>&#34;default&#34;</span>)
+}
+</code></pre></div><h3 id=繰り返しループ-for>
+繰り返し(ループ) <code>for</code>
+<a class=anchor href=#%e7%b9%b0%e3%82%8a%e8%bf%94%e3%81%97%e3%83%ab%e3%83%bc%e3%83%97-for>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// 初期値; 継続条件; 更新文
+</span><span style=color:#75715e></span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> &lt; <span style=color:#ae81ff>100</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+}
+<span style=color:#75715e>// 継続条件のみ
+</span><span style=color:#75715e></span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>100</span> {
+}
+<span style=color:#75715e>// 無限ループ
+</span><span style=color:#75715e></span><span style=color:#66d9ef>for</span> {
+}
+<span style=color:#75715e>// range を使用した繰り返し
+</span><span style=color:#75715e></span><span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>v</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> []<span style=color:#66d9ef>int</span>{<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>} {
+}
+</code></pre></div><h3 id=break-によるループの抜け出し>
+<code>break</code> によるループの抜け出し
+<a class=anchor href=#break-%e3%81%ab%e3%82%88%e3%82%8b%e3%83%ab%e3%83%bc%e3%83%97%e3%81%ae%e6%8a%9c%e3%81%91%e5%87%ba%e3%81%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>i</span> <span style=color:#66d9ef>int</span>
+	<span style=color:#66d9ef>for</span> {
+		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>i</span><span style=color:#f92672>%</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span> {
+			<span style=color:#66d9ef>break</span>
+		}
+		<span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>
+	}
+}
+</code></pre></div><p>ラベル指定の <code>break</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>i</span> <span style=color:#66d9ef>int</span>
+<span style=color:#a6e22e>LOOP</span>:
+	<span style=color:#66d9ef>for</span> {
+		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>i</span><span style=color:#f92672>%</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span> {
+			<span style=color:#66d9ef>break</span> <span style=color:#a6e22e>LOOP</span>
+		}
+		<span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>
+	}
+}
+</code></pre></div><p>奇数と偶数</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#f92672>import</span> (
+	<span style=color:#e6db74>&#34;fmt&#34;</span>
+)
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>100</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>i</span><span style=color:#f92672>%</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> {
+			<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%d even\n&#34;</span>, <span style=color:#a6e22e>i</span>)
+		} <span style=color:#66d9ef>else</span> {
+			<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%d odd\n&#34;</span>, <span style=color:#a6e22e>i</span>)
+		}
+	}
+
+	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>100</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+		<span style=color:#66d9ef>switch</span> {
+		<span style=color:#66d9ef>case</span> <span style=color:#a6e22e>i</span><span style=color:#f92672>%</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+			<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%d even\n&#34;</span>, <span style=color:#a6e22e>i</span>)
+		<span style=color:#66d9ef>default</span>:
+			<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%d odd\n&#34;</span>, <span style=color:#a6e22e>i</span>)
+		}
+	}
+}
+</code></pre></div><p>おみくじ</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#f92672>import</span> (
+	<span style=color:#e6db74>&#34;fmt&#34;</span>
+	<span style=color:#e6db74>&#34;math/rand&#34;</span>
+	<span style=color:#e6db74>&#34;time&#34;</span>
+)
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#a6e22e>t</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>().<span style=color:#a6e22e>UnixNano</span>() <span style=color:#75715e>// current time
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>rand</span>.<span style=color:#a6e22e>Seed</span>(<span style=color:#a6e22e>t</span>)
+	<span style=color:#a6e22e>n</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>rand</span>.<span style=color:#a6e22e>Intn</span>(<span style=color:#ae81ff>6</span>) <span style=color:#75715e>// 0〜5
+</span><span style=color:#75715e></span>
+	<span style=color:#66d9ef>switch</span> <span style=color:#a6e22e>n</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span> {
+	<span style=color:#66d9ef>case</span> <span style=color:#ae81ff>6</span>:
+		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;大吉&#34;</span>)
+	<span style=color:#66d9ef>case</span> <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>4</span>:
+		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;中吉&#34;</span>)
+	<span style=color:#66d9ef>case</span> <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>2</span>:
+		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;小吉&#34;</span>)
+	<span style=color:#66d9ef>default</span>:
+		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;凶&#34;</span>)
+	}
+}
 </code></pre></div><h2 id=コンポジット型>
 コンポジット型
 <a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%9d%e3%82%b8%e3%83%83%e3%83%88%e5%9e%8b>#</a>
@@ -956,155 +1495,157 @@ println(<span style=color:#a6e22e>p1</span>.<span style=color:#a6e22e>age</span>
 </ul>
 </li>
 </ul>
-<h2 id=コンパイルしてバイナリを生成>
-コンパイルしてバイナリを生成
-<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%81%97%e3%81%a6%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa%e3%82%92%e7%94%9f%e6%88%90>#</a>
+<h2 id=メソッド>
+メソッド
+<a class=anchor href=#%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89>#</a>
 </h2>
-<p>バイナリ（実行可能ファイル）の生成あり</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go build main.go
-$ go build .
-$ go build pkgname
-</code></pre></div><p>スライスの例</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>ns</span> []<span style=color:#66d9ef>int</span>
-</code></pre></div><p>マップの例</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>m</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>
-<span style=color:#75715e>// make で初期化
-</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> = make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>)
-<span style=color:#75715e>// 容量を指定可
-</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> = make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>, <span style=color:#ae81ff>10</span>)
-<span style=color:#75715e>// リテラルで初期化
-</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> <span style=color:#f92672>:=</span> make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>{<span style=color:#e6db74>&#34;x&#34;</span>: <span style=color:#ae81ff>10</span>, <span style=color:#e6db74>&#34;y&#34;</span>: <span style=color:#ae81ff>20</span>})
+<ul>
+<li>レシーバと紐付けられた関数
+<ul>
+<li>データとそれに対する操作を紐付けるために使用</li>
+<li>ドットでメソッドにアクセス</li>
+</ul>
+</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Hex</span> <span style=color:#66d9ef>int</span>
+<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>h</span> <span style=color:#a6e22e>Hex</span>) <span style=color:#a6e22e>String</span>() <span style=color:#66d9ef>string</span> {
+	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;%x&#34;</span>, int(<span style=color:#a6e22e>h</span>))
+}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>hex</span> <span style=color:#a6e22e>Hex</span> = <span style=color:#ae81ff>100</span>
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>hex</span>.<span style=color:#a6e22e>String</span>()) <span style=color:#75715e>// 64
+</span></code></pre></div><h3 id=レシーバ>
+レシーバ
+<a class=anchor href=#%e3%83%ac%e3%82%b7%e3%83%bc%e3%83%90>#</a>
+</h3>
+<ul>
+<li>メソッドに関連付けられた変数
+<ul>
+<li>メソッド呼び出し時は通常の引き数と同様の扱いとなり, コピーが発生</li>
+<li>ポインタを用いることでレシーバへの変更を呼び出し元に伝えることが可能
+　　* レシーバが構造体の場合</li>
+</ul>
+</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>T</span> <span style=color:#66d9ef>int</span>
+<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>t</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>T</span>) <span style=color:#a6e22e>f</span>() { println(<span style=color:#e6db74>&#34;hi&#34;</span>) }
 
-<span style=color:#75715e>// 空の場合
-</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>{}
-<span style=color:#75715e>// キーをしていしてアクセス
-</span><span style=color:#75715e></span>println(<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;x&#34;</span>])
-<span style=color:#75715e>// キーを指定して入力
-</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;x&#34;</span>] = <span style=color:#ae81ff>30</span>
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>v</span> <span style=color:#a6e22e>T</span> = <span style=color:#ae81ff>1</span>
 
-<span style=color:#75715e>// 存在を確認
-</span><span style=color:#75715e></span><span style=color:#a6e22e>n</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;z&#34;</span>]
-println(<span style=color:#a6e22e>z</span>, <span style=color:#a6e22e>ok</span>)
+	<span style=color:#75715e>// 以下の2行は同じ意味
+</span><span style=color:#75715e></span>	<span style=color:#75715e>// (型Tがメソッドを持っているわけではない)
+</span><span style=color:#75715e></span>	(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>v</span>).<span style=color:#a6e22e>f</span>() <span style=color:#75715e>// ポインタをレシーバとして渡し v に対するメソッド f の振る舞いを実行
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>f</span>() <span style=color:#75715e>// 上の行のシンタックスシュガー(簡略化した記述方法)
+</span><span style=color:#75715e></span>}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
-<span style=color:#75715e>// キーを指定して削除
-</span><span style=color:#75715e></span>delete(<span style=color:#a6e22e>m</span>, <span style=color:#e6db74>&#34;z&#34;</span>)
+<span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;fmt&#34;</span>
 
-<span style=color:#75715e>// 削除されていることを確認
-</span><span style=color:#75715e></span><span style=color:#a6e22e>n</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;z&#34;</span>]
-println(<span style=color:#a6e22e>n</span>, <span style=color:#a6e22e>ok</span>) <span style=color:#75715e>// ゼロ値と false を返却
-</span><span style=color:#75715e></span>
-</code></pre></div><ul>
-<li>キーと値の型を指定</li>
-<li>キーには <code>==</code> で比較できる型以外はNG。（スライスは不可。たぶん長さが異なる等があるため。）
+<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>person</span> <span style=color:#66d9ef>struct</span> {
+	<span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>
+	<span style=color:#a6e22e>age</span>  <span style=color:#66d9ef>int</span>
+}
+
+<span style=color:#75715e>// レシーバとして構造体のポインタを渡し
+</span><span style=color:#75715e>// 構造体に対して破壊的変更をおこなう
+</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>p</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>person</span>) <span style=color:#a6e22e>rename</span>(<span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>) {
+	<span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>name</span> = <span style=color:#a6e22e>name</span>
+}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>p</span> = <span style=color:#a6e22e>person</span>{<span style=color:#a6e22e>name</span>: <span style=color:#e6db74>&#34;Foo&#34;</span>, <span style=color:#a6e22e>age</span>: <span style=color:#ae81ff>20</span>}
+	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>name</span>) <span style=color:#75715e>// Foo
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>rename</span>(<span style=color:#e6db74>&#34;Bar&#34;</span>)
+	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>name</span>) <span style=color:#75715e>// Bar
+</span><span style=color:#75715e></span>}
+
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>MyInt</span> <span style=color:#66d9ef>int</span>
+
+<span style=color:#75715e>// レシーバとして構造体のポインタを渡し
+</span><span style=color:#75715e>// 構造体に対して破壊的変更をおこなう
+</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>n</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>MyInt</span>) <span style=color:#a6e22e>Inc</span>() { <span style=color:#f92672>*</span><span style=color:#a6e22e>n</span><span style=color:#f92672>++</span> }
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>n</span> <span style=color:#a6e22e>MyInt</span>
+	println(<span style=color:#a6e22e>n</span>) <span style=color:#75715e>// 0
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>n</span>.<span style=color:#a6e22e>Inc</span>()
+	println(<span style=color:#a6e22e>n</span>) <span style=color:#75715e>// 1
+</span><span style=color:#75715e></span>}
+</code></pre></div><h3 id=ポインタ型のメソッドリスト>
+ポインタ型のメソッドリスト
+<a class=anchor href=#%e3%83%9d%e3%82%a4%e3%83%b3%e3%82%bf%e5%9e%8b%e3%81%ae%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%83%aa%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>T</span> <span style=color:#66d9ef>struct</span>{}
+<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>t</span> <span style=color:#a6e22e>T</span>) <span style=color:#a6e22e>f</span>() {}
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	(<span style=color:#a6e22e>T</span>{}).<span style=color:#a6e22e>f</span>()   <span style=color:#75715e>// T
+</span><span style=color:#75715e></span>	(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>T</span>{}).<span style=color:#a6e22e>f</span>()  <span style=color:#75715e>// *T
+</span><span style=color:#75715e></span>	(<span style=color:#f92672>*&amp;</span><span style=color:#a6e22e>T</span>{}).<span style=color:#a6e22e>f</span>() <span style=color:#75715e>// T
+</span><span style=color:#75715e></span>}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>T</span> <span style=color:#66d9ef>struct</span>{}
+<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>t</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>T</span>) <span style=color:#a6e22e>g</span>() {}
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	(<span style=color:#a6e22e>T</span>{}).<span style=color:#a6e22e>g</span>() <span style=color:#75715e>// 実行不可
+</span><span style=color:#75715e></span>	(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>T</span>{}).<span style=color:#a6e22e>g</span>()
+	(<span style=color:#f92672>*&amp;</span><span style=color:#a6e22e>T</span>{}).<span style=color:#a6e22e>g</span>()
+}
+
+</code></pre></div><h3 id=レシーバとして使うことができる型>
+レシーバとして使うことができる型
+<a class=anchor href=#%e3%83%ac%e3%82%b7%e3%83%bc%e3%83%90%e3%81%a8%e3%81%97%e3%81%a6%e4%bd%bf%e3%81%86%e3%81%93%e3%81%a8%e3%81%8c%e3%81%a7%e3%81%8d%e3%82%8b%e5%9e%8b>#</a>
+</h3>
 <ul>
-<li>キーとして構造体やポインタも指定可。構造体の要素がスライスの場合はNG。</li>
-</ul>
+<li>
+<p>type で定義した型(ユーザ定義の型)</p>
+</li>
+<li>
+<p>ポインタ型(レシーバに変更を与えたい場合)</p>
+</li>
+<li>
+<p>内部にポインタを持つ型(マップやスライスなど)</p>
+</li>
+<li>
+<p>レシーバに対して append する場合はレシーバとしてポインタを渡すこと</p>
 </li>
 </ul>
-<h2 id=コンパイル-バイナリ>
-コンパイル, バイナリ
-<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab-%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa>#</a>
-</h2>
-<h3 id=コンパイルして実行>
-コンパイルして実行
-<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%81%97%e3%81%a6%e5%ae%9f%e8%a1%8c>#</a>
+<h3 id=メソッド値>
+メソッド値
+<a class=anchor href=#%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e5%80%a4>#</a>
 </h3>
-<p>バイナリ（実行可能ファイル）の生成なし</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go run main.go
-$ go run .
-$ go run pkgname
-</code></pre></div><h3 id=コードのフォーマット書式を整形>
-コードのフォーマット（書式）を整形
-<a class=anchor href=#%e3%82%b3%e3%83%bc%e3%83%89%e3%81%ae%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%83%e3%83%88%e6%9b%b8%e5%bc%8f%e3%82%92%e6%95%b4%e5%bd%a2>#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Hex</span> <span style=color:#66d9ef>int</span>
+<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>h</span> <span style=color:#a6e22e>Hex</span>) <span style=color:#a6e22e>String</span>() <span style=color:#66d9ef>string</span> {
+	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;%x&#34;</span>, int(<span style=color:#a6e22e>h</span>))
+}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>h</span> <span style=color:#a6e22e>Hex</span> = <span style=color:#ae81ff>100</span>
+
+	<span style=color:#75715e>// String() を実行するのではなく Stringメソッドを
+</span><span style=color:#75715e></span>	<span style=color:#75715e>// f に格納するため String の後に () がついていない
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>f</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>h</span>.<span style=color:#a6e22e>String</span> <span style=color:#75715e>// 変数.メソッド名  型は「func() string」
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>f</span>()) <span style=color:#75715e>// String() を実行
+</span><span style=color:#75715e></span>}
+</code></pre></div><h3 id=メソッド式>
+メソッド式
+<a class=anchor href=#%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e5%bc%8f>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go fmt main.go
-$ go fmt .
-$ go fmt pkgname
-</code></pre></div><h2 id=静的解析によるミスの検出>
-静的解析によるミスの検出
-<a class=anchor href=#%e9%9d%99%e7%9a%84%e8%a7%a3%e6%9e%90%e3%81%ab%e3%82%88%e3%82%8b%e3%83%9f%e3%82%b9%e3%81%ae%e6%a4%9c%e5%87%ba>#</a>
-</h2>
-<h3 id=バグと思われるミスを検出>
-バグと思われるミスを検出
-<a class=anchor href=#%e3%83%90%e3%82%b0%e3%81%a8%e6%80%9d%e3%82%8f%e3%82%8c%e3%82%8b%e3%83%9f%e3%82%b9%e3%82%92%e6%a4%9c%e5%87%ba>#</a>
-</h3>
-<p><code>go test</code> 実行時に自動で実行される
-The Go Playground でも実行される</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go vet main.go
-$ go vet .
-$ go vet pkgname
-</code></pre></div><h3 id=エラー処理のミスを検出>
-エラー処理のミスを検出
-<a class=anchor href=#%e3%82%a8%e3%83%a9%e3%83%bc%e5%87%a6%e7%90%86%e3%81%ae%e3%83%9f%e3%82%b9%e3%82%92%e6%a4%9c%e5%87%ba>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go get github.com/kisielk/errcheck
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ errcheck ./...
-</code></pre></div><h2 id=linterのセットを使ってチェック>
-Linterのセットを使ってチェック
-<a class=anchor href=#linter%e3%81%ae%e3%82%bb%e3%83%83%e3%83%88%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%81%e3%82%a7%e3%83%83%e3%82%af>#</a>
-</h2>
-<h3 id=staticcheck>
-Staticcheck
-<a class=anchor href=#staticcheck>#</a>
-</h3>
-<p><a href=https://staticcheck.io/docs/>https://staticcheck.io/docs/</a></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go install honnef.co/go/tools/cmd/staticcheck@latest
-$ staticcheck ./...
-</code></pre></div><h3 id=golangci-lint>
-GolangCI-Lint
-<a class=anchor href=#golangci-lint>#</a>
-</h3>
-<p><a href=https://golangci-lint.run/>https://golangci-lint.run/</a></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install golangci-lint
-$ brew upgrade golangci-lint
-or
-$ go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.0
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ golangci-lint run ./...
-$ golangci-lint run dir1 dir2/... dir3/file1.go
-</code></pre></div><h3 id=reviewdog>
-reviewdog
-<a class=anchor href=#reviewdog>#</a>
-</h3>
-<p>PRレビューで静的解析ツールを使用</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install reviewdog/tap/reviewdog
-$ brew upgrade reviewdog/tap/reviewdog
-or
-go install github.com/reviewdog/reviewdog/cmd/reviewdog@latest
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>golint ./...
-</code></pre></div><h2 id=リファクタリング>
-リファクタリング
-<a class=anchor href=#%e3%83%aa%e3%83%95%e3%82%a1%e3%82%af%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0>#</a>
-</h2>
 <ul>
-<li>gomvpkg パッケージ名の変更ができるツール
-<ul>
-<li><a href=https://golang.org/x/tools/cmd/gomvpkg>https://golang.org/x/tools/cmd/gomvpkg</a></li>
+<li>メソッドを表す式</li>
+<li>レシーバを第1引き数とした関数になる</li>
 </ul>
-</li>
-<li>gorename 識別子の名前を変更するツール
-<ul>
-<li><a href=https://golang.org/x/tools/cmd/gorename>https://golang.org/x/tools/cmd/gorename</a></li>
-</ul>
-</li>
-<li>eg exampleベースのリファクタリングツール
-<ul>
-<li><a href=https://golang.org/x/tools/cmd/eg>https://golang.org/x/tools/cmd/eg</a></li>
-<li><a href=https://rakyll.org/eg/>https://rakyll.org/eg/</a></li>
-</ul>
-</li>
-</ul>
-<h2 id=debug>
-Debug
-<a class=anchor href=#debug>#</a>
-</h2>
-<ul>
-<li>Delve Go専用のデバッガ, goroutine や channelにも対応
-<ul>
-<li><a href=https://github.com/derekparker/delve>https://github.com/derekparker/delve</a></li>
-</ul>
-</li>
-</ul>
-<h2 id=file>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Hex</span> <span style=color:#66d9ef>int</span>
+<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>h</span> <span style=color:#a6e22e>Hex</span>) <span style=color:#a6e22e>String</span>() <span style=color:#66d9ef>string</span> {
+	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;%x&#34;</span>, int(<span style=color:#a6e22e>h</span>))
+}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>h</span> <span style=color:#a6e22e>Hex</span> = <span style=color:#ae81ff>100</span>
+	<span style=color:#a6e22e>f</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>Hex</span>.<span style=color:#a6e22e>String</span> <span style=color:#75715e>// 変数の型.メソッド名  レシーバの値を決定していない状態でメソッドを参照
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%T\n%s\n&#34;</span>, <span style=color:#a6e22e>f</span>, <span style=color:#a6e22e>f</span>(<span style=color:#a6e22e>h</span>)) <span style=color:#75715e>// レシーバを第1引き数とした関数
+</span><span style=color:#75715e></span>}
+</code></pre></div><h2 id=file>
 File
 <a class=anchor href=#file>#</a>
 </h2>
@@ -1153,7 +1694,48 @@ go 1.16
 <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
   <span style=color:#a6e22e>sample</span>.<span style=color:#a6e22e>IsAvailable</span>()
 }
-</code></pre></div><h2 id=references>
+</code></pre></div><h2 id=メモ>
+メモ
+<a class=anchor href=#%e3%83%a1%e3%83%a2>#</a>
+</h2>
+<p>スライスの例</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>ns</span> []<span style=color:#66d9ef>int</span>
+</code></pre></div><p>マップの例</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>m</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>
+<span style=color:#75715e>// make で初期化
+</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> = make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>)
+<span style=color:#75715e>// 容量を指定可
+</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> = make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>, <span style=color:#ae81ff>10</span>)
+<span style=color:#75715e>// リテラルで初期化
+</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> <span style=color:#f92672>:=</span> make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>{<span style=color:#e6db74>&#34;x&#34;</span>: <span style=color:#ae81ff>10</span>, <span style=color:#e6db74>&#34;y&#34;</span>: <span style=color:#ae81ff>20</span>})
+
+<span style=color:#75715e>// 空の場合
+</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>int</span>{}
+<span style=color:#75715e>// キーをしていしてアクセス
+</span><span style=color:#75715e></span>println(<span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;x&#34;</span>])
+<span style=color:#75715e>// キーを指定して入力
+</span><span style=color:#75715e></span><span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;x&#34;</span>] = <span style=color:#ae81ff>30</span>
+
+<span style=color:#75715e>// 存在を確認
+</span><span style=color:#75715e></span><span style=color:#a6e22e>n</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;z&#34;</span>]
+println(<span style=color:#a6e22e>z</span>, <span style=color:#a6e22e>ok</span>)
+
+<span style=color:#75715e>// キーを指定して削除
+</span><span style=color:#75715e></span>delete(<span style=color:#a6e22e>m</span>, <span style=color:#e6db74>&#34;z&#34;</span>)
+
+<span style=color:#75715e>// 削除されていることを確認
+</span><span style=color:#75715e></span><span style=color:#a6e22e>n</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>m</span>[<span style=color:#e6db74>&#34;z&#34;</span>]
+println(<span style=color:#a6e22e>n</span>, <span style=color:#a6e22e>ok</span>) <span style=color:#75715e>// ゼロ値と false を返却
+</span><span style=color:#75715e></span>
+</code></pre></div><ul>
+<li>キーと値の型を指定</li>
+<li>キーには <code>==</code> で比較できる型以外はNG。（スライスは不可。たぶん長さが異なる等があるため。）
+<ul>
+<li>キーとして構造体やポインタも指定可。構造体の要素がスライスの場合はNG。</li>
+</ul>
+</li>
+</ul>
+<h2 id=references>
 References
 <a class=anchor href=#references>#</a>
 </h2>
@@ -1196,6 +1778,28 @@ English
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#コンパイル-バイナリ>コンパイル, バイナリ</a>
+<ul>
+<li><a href=#コンパイルして実行>コンパイルして実行</a></li>
+<li><a href=#コンパイルしてバイナリを生成>コンパイルしてバイナリを生成</a></li>
+</ul>
+</li>
+<li><a href=#静的解析によるミスの検出>静的解析によるミスの検出</a>
+<ul>
+<li><a href=#バグと思われるミスを検出>バグと思われるミスを検出</a></li>
+<li><a href=#エラー処理のミスを検出>エラー処理のミスを検出</a></li>
+</ul>
+</li>
+<li><a href=#linterのセットを使ってチェック>Linterのセットを使ってチェック</a>
+<ul>
+<li><a href=#staticcheck>Staticcheck</a></li>
+<li><a href=#golangci-lint>GolangCI-Lint</a></li>
+<li><a href=#reviewdog>reviewdog</a></li>
+</ul>
+</li>
+<li><a href=#リファクタリング>リファクタリング</a></li>
+<li><a href=#debug>Debug</a></li>
+<li><a href=#コードのフォーマット>コードのフォーマット</a></li>
 <li><a href=#組み込み型>組み込み型</a></li>
 <li><a href=#変数定義>変数定義</a></li>
 <li><a href=#ゼロ値>ゼロ値</a>
@@ -1213,6 +1817,25 @@ English
 <li><a href=#定数のデフォルトの型>定数のデフォルトの型</a></li>
 <li><a href=#型定義の右辺の省略>型定義の右辺の省略</a></li>
 <li><a href=#iota>iota</a></li>
+</ul>
+</li>
+<li><a href=#演算子>演算子</a>
+<ul>
+<li><a href=#算術演算>算術演算</a></li>
+<li><a href=#代入演算>代入演算</a></li>
+<li><a href=#ビット演算>ビット演算</a></li>
+<li><a href=#論理演算>論理演算</a></li>
+<li><a href=#比較演算>比較演算</a></li>
+<li><a href=#アドレス演算>アドレス演算</a></li>
+<li><a href=#チャネル演算>チャネル演算</a></li>
+</ul>
+</li>
+<li><a href=#制御構文>制御構文</a>
+<ul>
+<li><a href=#条件分岐-if>条件分岐 <code>if</code></a></li>
+<li><a href=#条件分岐-switch>条件分岐 <code>switch</code></a></li>
+<li><a href=#繰り返しループ-for>繰り返し(ループ) <code>for</code></a></li>
+<li><a href=#break-によるループの抜け出し><code>break</code> によるループの抜け出し</a></li>
 </ul>
 </li>
 <li><a href=#コンポジット型>コンポジット型</a>
@@ -1243,28 +1866,15 @@ English
 <li><a href=#内部でポインタを用いられているデータ型>内部でポインタを用いられているデータ型</a></li>
 </ul>
 </li>
-<li><a href=#コンパイルしてバイナリを生成>コンパイルしてバイナリを生成</a></li>
-<li><a href=#コンパイル-バイナリ>コンパイル, バイナリ</a>
+<li><a href=#メソッド>メソッド</a>
 <ul>
-<li><a href=#コンパイルして実行>コンパイルして実行</a></li>
-<li><a href=#コードのフォーマット書式を整形>コードのフォーマット（書式）を整形</a></li>
+<li><a href=#レシーバ>レシーバ</a></li>
+<li><a href=#ポインタ型のメソッドリスト>ポインタ型のメソッドリスト</a></li>
+<li><a href=#レシーバとして使うことができる型>レシーバとして使うことができる型</a></li>
+<li><a href=#メソッド値>メソッド値</a></li>
+<li><a href=#メソッド式>メソッド式</a></li>
 </ul>
 </li>
-<li><a href=#静的解析によるミスの検出>静的解析によるミスの検出</a>
-<ul>
-<li><a href=#バグと思われるミスを検出>バグと思われるミスを検出</a></li>
-<li><a href=#エラー処理のミスを検出>エラー処理のミスを検出</a></li>
-</ul>
-</li>
-<li><a href=#linterのセットを使ってチェック>Linterのセットを使ってチェック</a>
-<ul>
-<li><a href=#staticcheck>Staticcheck</a></li>
-<li><a href=#golangci-lint>GolangCI-Lint</a></li>
-<li><a href=#reviewdog>reviewdog</a></li>
-</ul>
-</li>
-<li><a href=#リファクタリング>リファクタリング</a></li>
-<li><a href=#debug>Debug</a></li>
 <li><a href=#file>File</a>
 <ul>
 <li><a href=#拡張子を除外したファイル名を取得>拡張子を除外したファイル名を取得</a></li>
@@ -1276,6 +1886,7 @@ English
 <li><a href=#ローカルパッケージのインポート>ローカル・パッケージのインポート</a></li>
 </ul>
 </li>
+<li><a href=#メモ>メモ</a></li>
 <li><a href=#references>References</a></li>
 </ul>
 </nav>
