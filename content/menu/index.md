@@ -8,6 +8,8 @@ headless: true
 - [Linux]({{< ref "infrastructure/linux" >}})
 - [MySQL]({{< ref "database/mysql" >}})
 - [PostgreSQL]({{< ref "database/postgresql" >}})
+- [Go Memo]({{< ref "go/memo">}})
+- [Python Memo]({{< ref "python/memo">}})
 - [Python OCR]({{< ref "python/ocr" >}})
 - [PHPUnit]({{< ref "php/phpunit" >}})
 - [PhpMetrics]({{< ref "php/phpmetrics" >}})
