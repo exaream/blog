@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.95dec475790dfbc421df6672be2ede175c5c3a6ed39c02f85ee78fda77289821.js integrity="sha256-ld7EdXkN+8Qh32Zyvi7eF1xcOm7TnAL4XueP2ncomCE=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.21fc5ad5995b84ee94ed9e1caddc5e7a3c123a2adbf86197a2086034f877f996.js integrity="sha256-Ifxa1ZlbhO6U7Z4crdxeejwSOirb+GGXoghgNPh3+ZY=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -87,9 +87,23 @@ Menu
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#組み込み型>組み込み型</a>
+<li><a href=#組み込み型>組み込み型</a></li>
+<li><a href=#変数定義>変数定義</a></li>
+<li><a href=#ゼロ値>ゼロ値</a>
 <ul>
 <li><a href=#ゼロ値があるため初期化が不要な例>ゼロ値があるため初期化が不要な例</a></li>
+</ul>
+</li>
+<li><a href=#定数>定数</a>
+<ul>
+<li><a href=#2進数8進数16進数表記>2進数・8進数・16進数表記</a></li>
+<li><a href=#数字の区切り>数字の区切り</a></li>
+<li><a href=#定数式>定数式</a></li>
+<li><a href=#名前付き定数>名前付き定数</a></li>
+<li><a href=#定数の型>定数の型</a></li>
+<li><a href=#定数のデフォルトの型>定数のデフォルトの型</a></li>
+<li><a href=#型定義の右辺の省略>型定義の右辺の省略</a></li>
+<li><a href=#iota>iota</a></li>
 </ul>
 </li>
 <li><a href=#コンポジット型>コンポジット型</a>
@@ -177,6 +191,7 @@ Go Memo
 組み込み型
 <a class=anchor href=#%e7%b5%84%e3%81%bf%e8%be%bc%e3%81%bf%e5%9e%8b>#</a>
 </h2>
+<p>言語に備わっているため最初から型のこと</p>
 <table>
 <thead>
 <tr>
@@ -198,37 +213,37 @@ Go Memo
 </tr>
 <tr>
 <td>int8/int16/int32/int64</td>
-<td>符号あり整数</td>
+<td>整数(符号あり)</td>
 <td>0</td>
 </tr>
 <tr>
 <td>uint8/uint16/uint32/uint64</td>
-<td>符号なし整数(unsigned)</td>
+<td>整数(符号なし=unsigned)</td>
 <td>0</td>
 </tr>
 <tr>
 <td>int</td>
-<td>32bit委譲の整数, 符号あり</td>
+<td>整数(符号あり, 32bit以上)</td>
 <td>0</td>
 </tr>
 <tr>
 <td>uint</td>
-<td>32bit委譲の整数, 符号なし</td>
+<td>整数(符号なし, 32bit以上)</td>
 <td>0</td>
 </tr>
 <tr>
 <td>byte</td>
-<td>uint8 の別名</td>
+<td>整数(uint8 の別名)</td>
 <td>0</td>
 </tr>
 <tr>
 <td>rune</td>
-<td>int32 の別名, unicode のコードポイントを表す</td>
+<td>整数(int32 の別名)</td>
 <td>0</td>
 </tr>
 <tr>
 <td>uintptr</td>
-<td>ポインタの値を格納する大きさの符号なし整数</td>
+<td>整数(符号なし, ポインタの値を格納する大きさ)</td>
 <td>0</td>
 </tr>
 <tr>
@@ -237,13 +252,13 @@ Go Memo
 <td>0</td>
 </tr>
 <tr>
-<td>complex64</td>
-<td>float32の実数部と虚数部を持つ複素数</td>
+<td>complex32</td>
+<td>複素数(float32の実数部と虚数部を持つ)</td>
 <td>(0+0i)</td>
 </tr>
 <tr>
 <td>complex64</td>
-<td>float64の実数部と虚数部を持つ複素数</td>
+<td>複素数(float64の実数部と虚数部を持つ)</td>
 <td>(0+0i)</td>
 </tr>
 <tr>
@@ -253,6 +268,32 @@ Go Memo
 </tr>
 </tbody>
 </table>
+<h2 id=変数定義>
+変数定義
+<a class=anchor href=#%e5%a4%89%e6%95%b0%e5%ae%9a%e7%be%a9>#</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// 変数定義と代入が同時
+</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>n</span> <span style=color:#66d9ef>int</span> = <span style=color:#ae81ff>100</span>
+<span style=color:#75715e>// 変数定義と代入が別
+</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>n</span> <span style=color:#66d9ef>int</span>
+<span style=color:#a6e22e>n</span> = <span style=color:#ae81ff>100</span>
+<span style=color:#75715e>// 型を省略(型推論により自動的に int 型を定義)
+</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>n</span> = <span style=color:#ae81ff>100</span>
+<span style=color:#75715e>// var を省略, 関数内でのみ使用可能
+</span><span style=color:#75715e></span><span style=color:#a6e22e>n</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>100</span>
+<span style=color:#75715e>// まとめて記述する方法
+</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> (
+	<span style=color:#a6e22e>n</span> = <span style=color:#ae81ff>100</span>
+	<span style=color:#a6e22e>m</span> = <span style=color:#ae81ff>200</span>
+)
+</code></pre></div><h2 id=ゼロ値>
+ゼロ値
+<a class=anchor href=#%e3%82%bc%e3%83%ad%e5%80%a4>#</a>
+</h2>
+<ul>
+<li>ゼロ値とはGoの変数に設定されている初期値のこと。</li>
+<li>明示的な初期化をせずに使用可能。</li>
+</ul>
 <h3 id=ゼロ値があるため初期化が不要な例>
 ゼロ値があるため初期化が不要な例
 <a class=anchor href=#%e3%82%bc%e3%83%ad%e5%80%a4%e3%81%8c%e3%81%82%e3%82%8b%e3%81%9f%e3%82%81%e5%88%9d%e6%9c%9f%e5%8c%96%e3%81%8c%e4%b8%8d%e8%a6%81%e3%81%aa%e4%be%8b>#</a>
@@ -283,6 +324,247 @@ Go Memo
 </span><span style=color:#75715e></span>		<span style=color:#a6e22e>counts</span>[<span style=color:#a6e22e>word</span>]<span style=color:#f92672>++</span>
 	}
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>counts</span>) <span style=color:#75715e>// map[dog:2 cat:2 fish:1]
+</span><span style=color:#75715e></span>}
+</code></pre></div><h2 id=定数>
+定数
+<a class=anchor href=#%e5%ae%9a%e6%95%b0>#</a>
+</h2>
+<ul>
+<li>定数とは値が変わらないもののこと。</li>
+<li>コンパイル時から値が変わらないもの。</li>
+<li>リテラルで記述されることが多い。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>種類</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数値リテラル</td>
+<td>100, 1.5, 1+4i</td>
+</tr>
+<tr>
+<td>文字列リテラル</td>
+<td>&ldquo;foo&rdquo;, &ldquo;bar&rdquo;</td>
+</tr>
+<tr>
+<td>ルーンリテラル</td>
+<td>&lsquo;A&rsquo;, &lsquo;世&rsquo;, &lsquo;エ&rsquo;</td>
+</tr>
+<tr>
+<td>真偽値リテラル</td>
+<td>true, false</td>
+</tr>
+</tbody>
+</table>
+<h3 id=2進数8進数16進数表記>
+2進数・8進数・16進数表記
+<a class=anchor href=#2%e9%80%b2%e6%95%b08%e9%80%b2%e6%95%b016%e9%80%b2%e6%95%b0%e8%a1%a8%e8%a8%98>#</a>
+</h3>
+<ul>
+<li>10進数以外にも対応</li>
+<li>数字の前にプレフィックスを付与</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>10進数</th>
+<th>2進数</th>
+<th>8進数</th>
+<th>16進数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>0b1100100 (Go1.13)</td>
+<td>0144, 0o144 (Go1.13)</td>
+<td>0x64</td>
+</tr>
+<tr>
+<td>10.5</td>
+<td>-</td>
+<td>-</td>
+<td>0x1.5p+03 (Go1.13)</td>
+</tr>
+</tbody>
+</table>
+<h3 id=数字の区切り>
+数字の区切り
+<a class=anchor href=#%e6%95%b0%e5%ad%97%e3%81%ae%e5%8c%ba%e5%88%87%e3%82%8a>#</a>
+</h3>
+<ul>
+<li>桁を区切りたい場合に使用</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#ae81ff>5_000_000_000_000_000</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#ae81ff>0</span><span style=color:#a6e22e>b_1010_0110</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#ae81ff>3.1415</span><span style=color:#a6e22e>_9265</span>
+</code></pre></div><h3 id=定数式>
+定数式
+<a class=anchor href=#%e5%ae%9a%e6%95%b0%e5%bc%8f>#</a>
+</h3>
+<ul>
+<li>定数のみからなる演算式</li>
+<li>コンパイル時に計算</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>種類</th>
+<th>例</th>
+<th>演算結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>四則演算</td>
+<td>100 + 200</td>
+<td>300</td>
+</tr>
+<tr>
+<td>シフト演算</td>
+<td>1 &#171; 2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>文字列結合</td>
+<td>&ldquo;Hello, " + &ldquo;世界&rdquo;</td>
+<td>&ldquo;Hello, 世界&rdquo;</td>
+</tr>
+<tr>
+<td>関係演算/論理演算</td>
+<td>!(10 == 20)</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h3 id=名前付き定数>
+名前付き定数
+<a class=anchor href=#%e5%90%8d%e5%89%8d%e4%bb%98%e3%81%8d%e5%ae%9a%e6%95%b0>#</a>
+</h3>
+<ul>
+<li>定数に名前をつけて定義</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// 型のある定数
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>n</span> <span style=color:#66d9ef>int</span> = <span style=color:#ae81ff>100</span>
+<span style=color:#75715e>// 型のない定数
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>m</span> = <span style=color:#ae81ff>100</span>
+<span style=color:#75715e>// 定数式の使用
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>s</span> = <span style=color:#e6db74>&#34;Hello, &#34;</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;世界&#34;</span>
+<span style=color:#75715e>// まとめて記述
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> (
+	<span style=color:#a6e22e>x</span> = <span style=color:#ae81ff>100</span>
+	<span style=color:#a6e22e>y</span> = <span style=color:#ae81ff>200</span>
+)
+</code></pre></div><h3 id=定数の型>
+定数の型
+<a class=anchor href=#%e5%ae%9a%e6%95%b0%e3%81%ae%e5%9e%8b>#</a>
+</h3>
+<ul>
+<li>型を明治しない場合, 定数は型を持たず, デフォルトの型を持つ</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>種類</th>
+<th>例</th>
+<th>デフォルトの型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整数</td>
+<td>100</td>
+<td>int</td>
+</tr>
+<tr>
+<td>浮動小数点数</td>
+<td>1.5</td>
+<td>float64</td>
+</tr>
+<tr>
+<td>複素数</td>
+<td>1+4i</td>
+<td>complex128</td>
+</tr>
+<tr>
+<td>ルーン</td>
+<td>&lsquo;A&rsquo;, &lsquo;世&rsquo;, &lsquo;エ&rsquo;</td>
+<td>rune</td>
+</tr>
+<tr>
+<td>文字列</td>
+<td>&ldquo;hoge&rdquo;</td>
+<td>string</td>
+</tr>
+<tr>
+<td>真偽値</td>
+<td>true, false</td>
+<td>bool</td>
+</tr>
+</tbody>
+</table>
+<h3 id=定数のデフォルトの型>
+定数のデフォルトの型
+<a class=anchor href=#%e5%ae%9a%e6%95%b0%e3%81%ae%e3%83%87%e3%83%95%e3%82%a9%e3%83%ab%e3%83%88%e3%81%ae%e5%9e%8b>#</a>
+</h3>
+<ul>
+<li>型推論ではデフォルトの型が推論される</li>
+<li>型が指定されている変数への代入はその型になる</li>
+<li>変数や型のある定数との演算はそれらの型になる
+<ul>
+<li>キャストできない場合はコンパイルエラーになる</li>
+</ul>
+</li>
+</ul>
+<h3 id=型定義の右辺の省略>
+型定義の右辺の省略
+<a class=anchor href=#%e5%9e%8b%e5%ae%9a%e7%be%a9%e3%81%ae%e5%8f%b3%e8%be%ba%e3%81%ae%e7%9c%81%e7%95%a5>#</a>
+</h3>
+<p>名前付き定数定義の右辺は省略可</p>
+<ul>
+<li>グループ化された名前付き定数で使用</li>
+<li>2つ目以降の名前付き定数定義の右辺が省略可</li>
+<li>2つ目以降の定数定義の右辺は1つ目の右辺と同じ値</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>const</span> (
+		<span style=color:#a6e22e>a</span> = <span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>2</span>
+		<span style=color:#a6e22e>b</span>
+		<span style=color:#a6e22e>c</span>
+		<span style=color:#a6e22e>d</span>
+	)
+	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>a</span>, <span style=color:#a6e22e>b</span>, <span style=color:#a6e22e>c</span>, <span style=color:#a6e22e>d</span>) <span style=color:#75715e>// 3 3 3 3
+</span><span style=color:#75715e></span>}
+</code></pre></div><h3 id=iota>
+iota
+<a class=anchor href=#iota>#</a>
+</h3>
+<ul>
+<li>連続した定数を作るための仕組み</li>
+<li>グループ化された名前付き定数の定義で使用</li>
+<li>0 から始まり1ずつ加算</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>const</span> (
+		<span style=color:#a6e22e>a</span> = <span style=color:#66d9ef>iota</span>
+		<span style=color:#a6e22e>b</span>
+		<span style=color:#a6e22e>c</span>
+		<span style=color:#a6e22e>d</span>
+	)
+	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>a</span>, <span style=color:#a6e22e>b</span>, <span style=color:#a6e22e>c</span>, <span style=color:#a6e22e>d</span>) <span style=color:#75715e>// 0 1 2 3
+</span><span style=color:#75715e></span>}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>const</span> (
+		<span style=color:#a6e22e>a</span> = <span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;&lt;</span> <span style=color:#66d9ef>iota</span> <span style=color:#75715e>// 式の中でも使用可能
+</span><span style=color:#75715e></span>		<span style=color:#a6e22e>b</span>
+		<span style=color:#a6e22e>c</span>
+		<span style=color:#a6e22e>d</span>
+	)
+	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>a</span>, <span style=color:#a6e22e>b</span>, <span style=color:#a6e22e>c</span>, <span style=color:#a6e22e>d</span>) <span style=color:#75715e>// 1 2 4 8
 </span><span style=color:#75715e></span>}
 </code></pre></div><h2 id=コンポジット型>
 コンポジット型
@@ -914,9 +1196,23 @@ English
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#組み込み型>組み込み型</a>
+<li><a href=#組み込み型>組み込み型</a></li>
+<li><a href=#変数定義>変数定義</a></li>
+<li><a href=#ゼロ値>ゼロ値</a>
 <ul>
 <li><a href=#ゼロ値があるため初期化が不要な例>ゼロ値があるため初期化が不要な例</a></li>
+</ul>
+</li>
+<li><a href=#定数>定数</a>
+<ul>
+<li><a href=#2進数8進数16進数表記>2進数・8進数・16進数表記</a></li>
+<li><a href=#数字の区切り>数字の区切り</a></li>
+<li><a href=#定数式>定数式</a></li>
+<li><a href=#名前付き定数>名前付き定数</a></li>
+<li><a href=#定数の型>定数の型</a></li>
+<li><a href=#定数のデフォルトの型>定数のデフォルトの型</a></li>
+<li><a href=#型定義の右辺の省略>型定義の右辺の省略</a></li>
+<li><a href=#iota>iota</a></li>
 </ul>
 </li>
 <li><a href=#コンポジット型>コンポジット型</a>
