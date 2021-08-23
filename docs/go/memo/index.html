@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.8217176a75575cc0d2132c6f45c39c29e535094193cc8145ce059da9b2721a0d.js integrity="sha256-ghcXanVXXMDSEyxvRcOcKeU1CUGTzIFFzgWdqbJyGg0=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.596af913d4e6ac80347bc77dfa18a437ddb03b127913a1724378b22616b8eee3.js integrity="sha256-WWr5E9TmrIA0e8d9+hikN92wOxJ5E6FyQ3iyJha47uM=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -120,8 +120,7 @@ Menu
 </li>
 <li><a href=#定数>定数</a>
 <ul>
-<li><a href=#2進数8進数16進数表記>2進数・8進数・16進数表記</a></li>
-<li><a href=#数字の区切り>数字の区切り</a></li>
+<li><a href=#リテラル>リテラル</a></li>
 <li><a href=#定数式>定数式</a></li>
 <li><a href=#名前付き定数>名前付き定数</a></li>
 <li><a href=#定数の型>定数の型</a></li>
@@ -347,7 +346,7 @@ $ go fmt pkgname
 <thead>
 <tr>
 <th>型</th>
-<th>概要</th>
+<th>説明</th>
 <th>ゼロ値(初期値)</th>
 </tr>
 </thead>
@@ -485,75 +484,112 @@ $ go fmt pkgname
 <li>コンパイル時から値が変わらないもの。</li>
 <li>リテラルで記述されることが多い。</li>
 </ul>
+<h3 id=リテラル>
+リテラル
+<a class=anchor href=#%e3%83%aa%e3%83%86%e3%83%a9%e3%83%ab>#</a>
+</h3>
+<ul>
+<li>数字の区切り: 桁を区切る場合 <code>_</code> を使用 (可読性の向上のため)</li>
+<li>2進数・8進数・16進数: 数字の前にプレフィックスを付与
 <table>
 <thead>
 <tr>
-<th>種類</th>
-<th>例</th>
+<th>種別</th>
+<th>値</th>
+<th>説明</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>数値リテラル</td>
-<td>100, 1.5, 1+4i</td>
-</tr>
-<tr>
-<td>文字列リテラル</td>
-<td>&ldquo;foo&rdquo;, &ldquo;bar&rdquo;</td>
-</tr>
-<tr>
-<td>ルーンリテラル</td>
-<td>&lsquo;A&rsquo;, &lsquo;世&rsquo;, &lsquo;エ&rsquo;</td>
+<td>nilリテラル</td>
+<td><code>nil</code></td>
+<td>無しを示す特別な値</td>
+<td></td>
 </tr>
 <tr>
 <td>真偽値リテラル</td>
-<td>true, false</td>
+<td><code>true</code></td>
+<td>真</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>false</code></td>
+<td>偽</td>
+<td></td>
+</tr>
+<tr>
+<td>数値リテラル</td>
+<td><code>1234</code></td>
+<td>整数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>123_456</code></td>
+<td>整数 (カンマの変わりに _ を使用)</td>
+<td>例は <code>123,456</code> と同義</td>
+</tr>
+<tr>
+<td></td>
+<td><code>0777</code></td>
+<td>8進数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>0o755</code></td>
+<td>8進数</td>
+<td>接頭辞は <code>0O</code> も可</td>
+</tr>
+<tr>
+<td></td>
+<td><code>0x89ab</code></td>
+<td>16進数</td>
+<td>接頭辞は <code>0X</code> も可</td>
+</tr>
+<tr>
+<td></td>
+<td><code>0b1111</code></td>
+<td>2進数</td>
+<td>接頭辞は <code>0B</code> も可</td>
+</tr>
+<tr>
+<td></td>
+<td><code>123.4</code></td>
+<td>小数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>1.23e4</code></td>
+<td>浮動小数点数</td>
+<td><code>1.23E4</code> も可</td>
+</tr>
+<tr>
+<td></td>
+<td><code>1.23i</code></td>
+<td>虚数</td>
+<td></td>
+</tr>
+<tr>
+<td>文字列リテラル</td>
+<td><code>abc</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ルーンリテラル</td>
+<td><code>a</code></td>
+<td>文字(rune)</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h3 id=2進数8進数16進数表記>
-2進数・8進数・16進数表記
-<a class=anchor href=#2%e9%80%b2%e6%95%b08%e9%80%b2%e6%95%b016%e9%80%b2%e6%95%b0%e8%a1%a8%e8%a8%98>#</a>
-</h3>
-<ul>
-<li>10進数以外にも対応</li>
-<li>数字の前にプレフィックスを付与</li>
+</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>10進数</th>
-<th>2進数</th>
-<th>8進数</th>
-<th>16進数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>100</td>
-<td>0b1100100 (Go1.13)</td>
-<td>0144, 0o144 (Go1.13)</td>
-<td>0x64</td>
-</tr>
-<tr>
-<td>10.5</td>
-<td>-</td>
-<td>-</td>
-<td>0x1.5p+03 (Go1.13)</td>
-</tr>
-</tbody>
-</table>
-<h3 id=数字の区切り>
-数字の区切り
-<a class=anchor href=#%e6%95%b0%e5%ad%97%e3%81%ae%e5%8c%ba%e5%88%87%e3%82%8a>#</a>
-</h3>
-<ul>
-<li>桁を区切りたい場合に使用</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#ae81ff>5_000_000_000_000_000</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#ae81ff>0</span><span style=color:#a6e22e>b_1010_0110</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#ae81ff>3.1415</span><span style=color:#a6e22e>_9265</span>
-</code></pre></div><h3 id=定数式>
+<h3 id=定数式>
 定数式
 <a class=anchor href=#%e5%ae%9a%e6%95%b0%e5%bc%8f>#</a>
 </h3>
@@ -1894,8 +1930,7 @@ English
 </li>
 <li><a href=#定数>定数</a>
 <ul>
-<li><a href=#2進数8進数16進数表記>2進数・8進数・16進数表記</a></li>
-<li><a href=#数字の区切り>数字の区切り</a></li>
+<li><a href=#リテラル>リテラル</a></li>
 <li><a href=#定数式>定数式</a></li>
 <li><a href=#名前付き定数>名前付き定数</a></li>
 <li><a href=#定数の型>定数の型</a></li>
