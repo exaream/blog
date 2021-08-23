@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.48a1fab4fc2f09ca1bfdff94b4f55d952b25f2ac7f204a2b4a45263addbd1070.js integrity="sha256-SKH6tPwvCcob/f+UtPVdlSsl8qx/IEorSkUmOt29EHA=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.8217176a75575cc0d2132c6f45c39c29e535094193cc8145ce059da9b2721a0d.js integrity="sha256-ghcXanVXXMDSEyxvRcOcKeU1CUGTzIFFzgWdqbJyGg0=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -730,39 +730,39 @@ iota
 <tr>
 <th>演算子</th>
 <th>説明</th>
-<th>例</th>
+<th>備考</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>+</code>, <code>-</code></td>
+<td><code>+x</code>, <code>-x</code></td>
 <td>符号</td>
-<td>+100, -100</td>
+<td></td>
 </tr>
 <tr>
-<td><code>+</code></td>
+<td><code>x + y</code></td>
 <td>加算</td>
-<td>2+1</td>
+<td></td>
 </tr>
 <tr>
-<td><code>-</code></td>
+<td><code>x - y</code></td>
 <td>減算</td>
-<td>2-1</td>
+<td></td>
 </tr>
 <tr>
-<td><code>/</code></td>
-<td>割り算</td>
-<td>4/2</td>
+<td><code>x * y</code></td>
+<td>乗算(掛け算)</td>
+<td></td>
 </tr>
 <tr>
-<td><code>*</code></td>
-<td>掛け算</td>
-<td>5*3</td>
+<td><code>x / y</code></td>
+<td>除算(割り算)</td>
+<td></td>
 </tr>
 <tr>
-<td><code>%</code></td>
-<td>余り</td>
-<td>5%2</td>
+<td><code>x % y</code></td>
+<td>除算の余り</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -775,34 +775,49 @@ iota
 <tr>
 <th>演算子</th>
 <th>説明</th>
-<th>例</th>
+<th>備考</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>=</code></td>
+<td><code>x = y</code></td>
 <td>変数への代入</td>
-<td>a = 100</td>
+<td></td>
 </tr>
 <tr>
-<td><code>:=</code></td>
+<td><code>x := y</code></td>
 <td>変数の初期化と代入</td>
-<td>a := 100</td>
+<td></td>
 </tr>
 <tr>
-<td><code>+=</code>, <code>-=</code> 等</td>
-<td>演算と代入</td>
-<td>i += 2</td>
+<td><code>x++</code></td>
+<td>1の加算と代入</td>
+<td><code>x = x + 1</code> と同義</td>
 </tr>
 <tr>
-<td><code>++</code></td>
-<td>i += 1 と同じ</td>
-<td>i++</td>
+<td><code>x--</code></td>
+<td>1の加算と代入</td>
+<td><code>x = x - 1</code> と同義</td>
 </tr>
 <tr>
-<td><code>--</code></td>
-<td>i -= 1 と同じ</td>
-<td>i&ndash;</td>
+<td><code>x += y</code></td>
+<td>加算と代入</td>
+<td><code>x = x + y</code> と同義</td>
+</tr>
+<tr>
+<td><code>x -= y</code></td>
+<td>減算と代入</td>
+<td><code>x = x - y</code> と同義</td>
+</tr>
+<tr>
+<td><code>x /= y</code></td>
+<td>除算(割り算)と代入</td>
+<td><code>x = x / y</code> と同義</td>
+</tr>
+<tr>
+<td><code>x %= y</code></td>
+<td>除算(割り算)の余りの演算と代入</td>
+<td><code>x = x % y</code> と同義</td>
 </tr>
 </tbody>
 </table>
@@ -820,39 +835,64 @@ iota
 </thead>
 <tbody>
 <tr>
-<td><code>|</code></td>
-<td>論理和</td>
-<td>0x10</td>
+<td><code>x & y</code></td>
+<td>論理積(AND)</td>
+<td></td>
 </tr>
 <tr>
-<td><code>&</code></td>
-<td>論理積</td>
-<td>0x1&0xf</td>
+<td><code>x | y</code></td>
+<td>論理和(OR)</td>
+<td></td>
 </tr>
 <tr>
-<td><code>^</code></td>
-<td>否定</td>
-<td>^0x3</td>
+<td><code>x ^ y</code></td>
+<td>排他的論理和(XOR)</td>
+<td></td>
 </tr>
 <tr>
-<td><code>^</code></td>
-<td>排他的論理和</td>
-<td>0xc^0x3</td>
+<td><code>x &^ y</code></td>
+<td>x AND (NOT y)</td>
+<td></td>
 </tr>
 <tr>
-<td><code>&^</code></td>
-<td>論理積の否定</td>
-<td>0xc&^0x3</td>
-</tr>
-<tr>
-<td><code>&lt;&lt;</code></td>
+<td><code>x &lt;&lt; y</code></td>
 <td>左に算術シフト</td>
-<td>0x1&#171;4</td>
+<td></td>
 </tr>
 <tr>
-<td><code>>></code></td>
+<td><code>x >> y</code></td>
 <td>右に算術シフト</td>
-<td>0x1&#187;4</td>
+<td></td>
+</tr>
+<tr>
+<td><code>x &= y</code></td>
+<td>論理積(AND)の演算と代入</td>
+<td><code>x = x & y</code> と同義</td>
+</tr>
+<tr>
+<td><code>x |= y</code></td>
+<td>論理和(OR)の演算と代入</td>
+<td><code>x = x | y</code> と同義</td>
+</tr>
+<tr>
+<td><code>x ^= y</code></td>
+<td>排他的論理和(XOR)の演算と代入</td>
+<td><code>x = x ^ y</code> と同義</td>
+</tr>
+<tr>
+<td><code>x &^= y</code></td>
+<td>x AND (NOT y)の演算と代入</td>
+<td><code>x = x &^ y</code> と同義</td>
+</tr>
+<tr>
+<td><code>x &lt;&lt;= y</code></td>
+<td>左に算術シフトと代入</td>
+<td><code>x = x &lt;&lt; y</code> と同義</td>
+</tr>
+<tr>
+<td><code>x >>= y</code></td>
+<td>右に算術シフトと代入</td>
+<td><code>x >> y</code> と同義</td>
 </tr>
 </tbody>
 </table>
@@ -865,24 +905,24 @@ iota
 <tr>
 <th>演算子</th>
 <th>説明</th>
-<th>例</th>
+<th>備考</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>||</code></td>
-<td>または</td>
-<td>a || b</td>
+<td><code>x && y</code></td>
+<td>x かつ y (AND)</td>
+<td></td>
 </tr>
 <tr>
-<td><code>&&</code></td>
-<td>かつ</td>
-<td>a && a</td>
+<td><code>x || y</code></td>
+<td>x または y (OR)</td>
+<td></td>
 </tr>
 <tr>
-<td><code>!</code></td>
-<td>否定</td>
-<td>!a</td>
+<td><code>!x</code></td>
+<td>x が true の場合 false, false の場合 true (NOT)</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -895,39 +935,39 @@ iota
 <tr>
 <th>演算子</th>
 <th>説明</th>
-<th>例</th>
+<th>備考</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>==</code></td>
-<td>等しいかどうか</td>
-<td>a == b</td>
+<td><code>x == y</code></td>
+<td>x と y が等しい</td>
+<td></td>
 </tr>
 <tr>
-<td><code>!=</code></td>
-<td>等しくないか</td>
-<td>a != b</td>
+<td><code>x != y</code></td>
+<td>x と y が等しくない</td>
+<td></td>
 </tr>
 <tr>
-<td><code>&lt;</code></td>
-<td>a は b より小さい</td>
-<td>a &lt; b</td>
+<td><code>x &lt; y</code></td>
+<td>x が y より小さい</td>
+<td></td>
 </tr>
 <tr>
-<td><code>&lt;=</code></td>
-<td>a は b 以下</td>
-<td>a &lt;= b</td>
+<td><code>x &lt;= y</code></td>
+<td>x は y 以下</td>
+<td></td>
 </tr>
 <tr>
-<td><code>></code></td>
-<td>a は b より大きい</td>
-<td>a > b</td>
+<td><code>x > y</code></td>
+<td>x は y より大きい</td>
+<td></td>
 </tr>
 <tr>
-<td><code>>=</code></td>
-<td>a は b 以下</td>
-<td>a >= b</td>
+<td><code>x >= y</code></td>
+<td>x は y 以上</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -940,19 +980,19 @@ iota
 <tr>
 <th>演算子</th>
 <th>説明</th>
-<th>例</th>
+<th>備考</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&</td>
+<td><code>&x</code></td>
 <td>ポインタを取得</td>
-<td>&a</td>
+<td></td>
 </tr>
 <tr>
-<td>*</td>
+<td><code>*x</code></td>
 <td>ポインタが指す値を取得</td>
-<td>*a</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -965,14 +1005,19 @@ iota
 <tr>
 <th>演算子</th>
 <th>説明</th>
-<th>例</th>
+<th>備考</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>&lt;-</code></td>
-<td>チャネルへの送受信</td>
-<td><code>ch&lt;-100</code>, <code>&lt;-ch</code></td>
+<td><code>ch &lt;- x</code></td>
+<td>チャネル ch に x を送信</td>
+<td></td>
+</tr>
+<tr>
+<td><code>x =&lt;- ch</code></td>
+<td>チャネル ch から x に受信</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1780,6 +1825,8 @@ References
 <ul>
 <li><a href="https://docs.google.com/presentation/d/1RVx8oeIMAWxbB7ZP2IcgZXnbZokjCmTUca-AbIpORGk/edit#slide=id.g4f417182ce_0_0">プログラミング言語Go完全入門</a></li>
 <li><a href=https://i-beam.org/2019/12/09/go-slice-tricks/>Slice Tricks</a></li>
+<li><a href=https://www.tohoho-web.com/ex/golang.html>https://www.tohoho-web.com/ex/golang.html</a></li>
+<li><a href=https://ashitani.jp/golangtips/tips_file.html>https://ashitani.jp/golangtips/tips_file.html</a></li>
 <li><a href=https://qiita.com/hnishi/items/a9217249d7832ed2c035>https://qiita.com/hnishi/items/a9217249d7832ed2c035</a></li>
 <li><a href=https://qiita.com/fetaro/items/31b02b940ce9ec579baf>https://qiita.com/fetaro/items/31b02b940ce9ec579baf</a></li>
 </ul>
