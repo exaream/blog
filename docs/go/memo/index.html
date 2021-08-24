@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.596af913d4e6ac80347bc77dfa18a437ddb03b127913a1724378b22616b8eee3.js integrity="sha256-WWr5E9TmrIA0e8d9+hikN92wOxJ5E6FyQ3iyJha47uM=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.e364ca14c025cd62455dfabc5bd9ed4d0d6eae750fa4f0f6fda48a8a4a52f9bd.js integrity="sha256-42TKFMAlzWJFXfq8W9ntTQ1urnUPpPD2/aSKikpS+b0=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -185,15 +185,36 @@ Menu
 <li><a href=#メソッド式>メソッド式</a></li>
 </ul>
 </li>
-<li><a href=#file>File</a>
+<li><a href=#ディレクトリファイル>ディレクトリ/ファイル</a>
 <ul>
 <li><a href=#パスを結合>パスを結合</a></li>
-<li><a href=#ディレクトリ名を取得>ディレクトリ名を取得</a></li>
-<li><a href=#ファイル名を取得>ファイル名を取得</a></li>
-<li><a href=#拡張子を取得>拡張子を取得</a></li>
-<li><a href=#拡張子を除外したファイル名を取得>拡張子を除外したファイル名を取得</a></li>
 <li><a href=#相対パスを取得>相対パスを取得</a></li>
 <li><a href=#相対パスから絶対パスを取得>相対パスから絶対パスを取得</a></li>
+</ul>
+</li>
+<li><a href=#ディレクトリ>ディレクトリ</a>
+<ul>
+<li><a href=#ディレクトリ名を取得>ディレクトリ名を取得</a></li>
+<li><a href=#ディレクトリを作成>ディレクトリを作成</a></li>
+<li><a href=#ディレクトリを再帰的に作成>ディレクトリを再帰的に作成</a></li>
+<li><a href=#ディレクトリ名を変更>ディレクトリ名を変更</a></li>
+<li><a href=#ディレクトリを移動>ディレクトリを移動</a></li>
+<li><a href=#ディレクトリの権限を変更>ディレクトリの権限を変更</a></li>
+<li><a href=#ディレクトリを削除>ディレクトリを削除</a></li>
+<li><a href=#ディレクトリを再帰的に削除>ディレクトリを再帰的に削除</a></li>
+</ul>
+</li>
+<li><a href=#ファイル>ファイル</a>
+<ul>
+<li><a href=#ファイルを作成>ファイルを作成</a></li>
+<li><a href=#ファイルに入力>ファイルに入力</a></li>
+<li><a href=#ファイルの情報を取得>ファイルの情報を取得</a></li>
+<li><a href=#ファイル名を取得>ファイル名を取得</a></li>
+<li><a href=#ファイルの拡張子を取得>ファイルの拡張子を取得</a></li>
+<li><a href=#ファイルの拡張子を除外したファイル名を取得>ファイルの拡張子を除外したファイル名を取得</a></li>
+<li><a href=#ファイル名を変更>ファイル名を変更</a></li>
+<li><a href=#ファイルを移動>ファイルを移動</a></li>
+<li><a href=#ファイルの権限を変更>ファイルの権限を変更</a></li>
 </ul>
 </li>
 <li><a href=#struct>Struct</a></li>
@@ -1734,35 +1755,15 @@ println(<span style=color:#a6e22e>p1</span>.<span style=color:#a6e22e>age</span>
 	<span style=color:#a6e22e>f</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>Hex</span>.<span style=color:#a6e22e>String</span> <span style=color:#75715e>// 変数の型.メソッド名  レシーバの値を決定していない状態でメソッドを参照
 </span><span style=color:#75715e></span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%T\n%s\n&#34;</span>, <span style=color:#a6e22e>f</span>, <span style=color:#a6e22e>f</span>(<span style=color:#a6e22e>h</span>)) <span style=color:#75715e>// レシーバを第1引き数とした関数
 </span><span style=color:#75715e></span>}
-</code></pre></div><h2 id=file>
-File
-<a class=anchor href=#file>#</a>
+</code></pre></div><h2 id=ディレクトリファイル>
+ディレクトリ/ファイル
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab>#</a>
 </h2>
 <h3 id=パスを結合>
 パスを結合
 <a class=anchor href=#%e3%83%91%e3%82%b9%e3%82%92%e7%b5%90%e5%90%88>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>path</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Join</span>(<span style=color:#e6db74>&#34;dir&#34;</span>, <span style=color:#e6db74>&#34;main.go&#34;</span>)
-</code></pre></div><h3 id=ディレクトリ名を取得>
-ディレクトリ名を取得
-<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>dir_name</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Dir</span>(<span style=color:#a6e22e>path</span>)
-</code></pre></div><h3 id=ファイル名を取得>
-ファイル名を取得
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_name</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>path</span>)
-</code></pre></div><h3 id=拡張子を取得>
-拡張子を取得
-<a class=anchor href=#%e6%8b%a1%e5%bc%b5%e5%ad%90%e3%82%92%e5%8f%96%e5%be%97>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_ext</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Ext</span>(<span style=color:#a6e22e>path</span>)
-</code></pre></div><h3 id=拡張子を除外したファイル名を取得>
-拡張子を除外したファイル名を取得
-<a class=anchor href=#%e6%8b%a1%e5%bc%b5%e5%ad%90%e3%82%92%e9%99%a4%e5%a4%96%e3%81%97%e3%81%9f%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_stem</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>path</span>[:len(<span style=color:#a6e22e>path</span>)<span style=color:#f92672>-</span>len(<span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Ext</span>(<span style=color:#a6e22e>path</span>))])
 </code></pre></div><h3 id=相対パスを取得>
 相対パスを取得
 <a class=anchor href=#%e7%9b%b8%e5%af%be%e3%83%91%e3%82%b9%e3%82%92%e5%8f%96%e5%be%97>#</a>
@@ -1773,6 +1774,114 @@ File
 <a class=anchor href=#%e7%9b%b8%e5%af%be%e3%83%91%e3%82%b9%e3%81%8b%e3%82%89%e7%b5%b6%e5%af%be%e3%83%91%e3%82%b9%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>absolute_path</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Abs</span>(<span style=color:#a6e22e>relative_path</span>)
+</code></pre></div><h2 id=ディレクトリ>
+ディレクトリ
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa>#</a>
+</h2>
+<h3 id=ディレクトリ名を取得>
+ディレクトリ名を取得
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>dir_name</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Dir</span>(<span style=color:#a6e22e>path</span>)
+</code></pre></div><h3 id=ディレクトリを作成>
+ディレクトリを作成
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e4%bd%9c%e6%88%90>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Mkdir</span>(<span style=color:#e6db74>&#34;foo&#34;</span>, <span style=color:#ae81ff>0755</span>)
+</code></pre></div><h3 id=ディレクトリを再帰的に作成>
+ディレクトリを再帰的に作成
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e5%86%8d%e5%b8%b0%e7%9a%84%e3%81%ab%e4%bd%9c%e6%88%90>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>MkdirAll</span>(<span style=color:#e6db74>&#34;foo/bar&#34;</span>, <span style=color:#ae81ff>0755</span>)
+</code></pre></div><h3 id=ディレクトリ名を変更>
+ディレクトリ名を変更
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e5%90%8d%e3%82%92%e5%a4%89%e6%9b%b4>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Rename</span>(<span style=color:#e6db74>&#34;before&#34;</span>, <span style=color:#e6db74>&#34;after&#34;</span>)
+</code></pre></div><h3 id=ディレクトリを移動>
+ディレクトリを移動
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e7%a7%bb%e5%8b%95>#</a>
+</h3>
+<ul>
+<li><code>osRename()</code> で移動</li>
+<li>パーテーションをまたぐ場合は移動不可</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Rename</span>(<span style=color:#e6db74>&#34;foo/bar/baz&#34;</span>, <span style=color:#e6db74>&#34;foo/baz&#34;</span>)
+</code></pre></div><h3 id=ディレクトリの権限を変更>
+ディレクトリの権限を変更
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e6%a8%a9%e9%99%90%e3%82%92%e5%a4%89%e6%9b%b4>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Chmod</span>(<span style=color:#e6db74>&#34;foo&#34;</span>, <span style=color:#ae81ff>0755</span>)
+</code></pre></div><h3 id=ディレクトリを削除>
+ディレクトリを削除
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e5%89%8a%e9%99%a4>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Remove</span>(<span style=color:#e6db74>&#34;foo&#34;</span>)
+</code></pre></div><h3 id=ディレクトリを再帰的に削除>
+ディレクトリを再帰的に削除
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e5%86%8d%e5%b8%b0%e7%9a%84%e3%81%ab%e5%89%8a%e9%99%a4>#</a>
+</h3>
+<ul>
+<li>ディレクトリ内のサブディレクトリやファイルも削除</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>RemoveAll</span>(<span style=color:#e6db74>&#34;foo&#34;</span>)
+</code></pre></div><h2 id=ファイル>
+ファイル
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab>#</a>
+</h2>
+<h3 id=ファイルを作成>
+ファイルを作成
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e4%bd%9c%e6%88%90>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_obj</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Create</span>(<span style=color:#e6db74>&#34;foo.txt&#34;</span>)
+</code></pre></div><h3 id=ファイルに入力>
+ファイルに入力
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ab%e5%85%a5%e5%8a%9b>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>a</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>file_obj</span>.<span style=color:#a6e22e>WriteString</span>(<span style=color:#e6db74>&#34;Hello\n&#34;</span>)
+</code></pre></div><h3 id=ファイルの情報を取得>
+ファイルの情報を取得
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%83%85%e5%a0%b1%e3%82%92%e5%8f%96%e5%be%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>info</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stat</span>(<span style=color:#a6e22e>file_name</span>)
+<span style=color:#75715e>// or
+</span><span style=color:#75715e></span><span style=color:#a6e22e>info</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>file_obj</span>.<span style=color:#a6e22e>Stat</span>()
+
+<span style=color:#a6e22e>info</span>.<span style=color:#a6e22e>Name</span>() <span style=color:#75715e>// ファイル名
+</span><span style=color:#75715e></span><span style=color:#a6e22e>info</span>.<span style=color:#a6e22e>Size</span>() <span style=color:#75715e>// ファイルサイズ
+</span><span style=color:#75715e></span><span style=color:#a6e22e>info</span>.<span style=color:#a6e22e>Mode</span>() <span style=color:#75715e>// ファイルモード
+</span><span style=color:#75715e></span><span style=color:#a6e22e>info</span>.<span style=color:#a6e22e>ModTime</span>() <span style=color:#75715e>// 最終更新日時
+</span><span style=color:#75715e></span><span style=color:#a6e22e>infi</span>.<span style=color:#a6e22e>IsDir</span>() <span style=color:#75715e>// ディレクトリか否か
+</span></code></pre></div><h3 id=ファイル名を取得>
+ファイル名を取得
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_name</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>path</span>)
+</code></pre></div><h3 id=ファイルの拡張子を取得>
+ファイルの拡張子を取得
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%8b%a1%e5%bc%b5%e5%ad%90%e3%82%92%e5%8f%96%e5%be%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_ext</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Ext</span>(<span style=color:#a6e22e>path</span>)
+</code></pre></div><h3 id=ファイルの拡張子を除外したファイル名を取得>
+ファイルの拡張子を除外したファイル名を取得
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%8b%a1%e5%bc%b5%e5%ad%90%e3%82%92%e9%99%a4%e5%a4%96%e3%81%97%e3%81%9f%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_stem</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>path</span>[:len(<span style=color:#a6e22e>path</span>)<span style=color:#f92672>-</span>len(<span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Ext</span>(<span style=color:#a6e22e>path</span>))])
+</code></pre></div><h3 id=ファイル名を変更>
+ファイル名を変更
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%82%92%e5%a4%89%e6%9b%b4>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Rename</span>(<span style=color:#e6db74>&#34;foo.txt&#34;</span>, <span style=color:#e6db74>&#34;bar.txt&#34;</span>)
+</code></pre></div><h3 id=ファイルを移動>
+ファイルを移動
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e7%a7%bb%e5%8b%95>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Rename</span>(<span style=color:#e6db74>&#34;foo/bar/baz.txt&#34;</span>, <span style=color:#e6db74>&#34;foo/baz.txt&#34;</span>)
+</code></pre></div><h3 id=ファイルの権限を変更>
+ファイルの権限を変更
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%a8%a9%e9%99%90%e3%82%92%e5%a4%89%e6%9b%b4>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Chmod</span>(<span style=color:#e6db74>&#34;foo.txt&#34;</span>, <span style=color:#ae81ff>0644</span>)
 </code></pre></div><h2 id=struct>
 Struct
 <a class=anchor href=#struct>#</a>
@@ -1995,15 +2104,36 @@ English
 <li><a href=#メソッド式>メソッド式</a></li>
 </ul>
 </li>
-<li><a href=#file>File</a>
+<li><a href=#ディレクトリファイル>ディレクトリ/ファイル</a>
 <ul>
 <li><a href=#パスを結合>パスを結合</a></li>
-<li><a href=#ディレクトリ名を取得>ディレクトリ名を取得</a></li>
-<li><a href=#ファイル名を取得>ファイル名を取得</a></li>
-<li><a href=#拡張子を取得>拡張子を取得</a></li>
-<li><a href=#拡張子を除外したファイル名を取得>拡張子を除外したファイル名を取得</a></li>
 <li><a href=#相対パスを取得>相対パスを取得</a></li>
 <li><a href=#相対パスから絶対パスを取得>相対パスから絶対パスを取得</a></li>
+</ul>
+</li>
+<li><a href=#ディレクトリ>ディレクトリ</a>
+<ul>
+<li><a href=#ディレクトリ名を取得>ディレクトリ名を取得</a></li>
+<li><a href=#ディレクトリを作成>ディレクトリを作成</a></li>
+<li><a href=#ディレクトリを再帰的に作成>ディレクトリを再帰的に作成</a></li>
+<li><a href=#ディレクトリ名を変更>ディレクトリ名を変更</a></li>
+<li><a href=#ディレクトリを移動>ディレクトリを移動</a></li>
+<li><a href=#ディレクトリの権限を変更>ディレクトリの権限を変更</a></li>
+<li><a href=#ディレクトリを削除>ディレクトリを削除</a></li>
+<li><a href=#ディレクトリを再帰的に削除>ディレクトリを再帰的に削除</a></li>
+</ul>
+</li>
+<li><a href=#ファイル>ファイル</a>
+<ul>
+<li><a href=#ファイルを作成>ファイルを作成</a></li>
+<li><a href=#ファイルに入力>ファイルに入力</a></li>
+<li><a href=#ファイルの情報を取得>ファイルの情報を取得</a></li>
+<li><a href=#ファイル名を取得>ファイル名を取得</a></li>
+<li><a href=#ファイルの拡張子を取得>ファイルの拡張子を取得</a></li>
+<li><a href=#ファイルの拡張子を除外したファイル名を取得>ファイルの拡張子を除外したファイル名を取得</a></li>
+<li><a href=#ファイル名を変更>ファイル名を変更</a></li>
+<li><a href=#ファイルを移動>ファイルを移動</a></li>
+<li><a href=#ファイルの権限を変更>ファイルの権限を変更</a></li>
 </ul>
 </li>
 <li><a href=#struct>Struct</a></li>
