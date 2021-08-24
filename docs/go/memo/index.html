@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.ca623d8ca10ac4caebe3938537aaf0c15f3123457ce152b95b4d2860d1f25183.js integrity="sha256-ymI9jKEKxMrr45OFN6rwwV8xI0V84VK5W00oYNHyUYM=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.e1830b5cf450b4bda2df559479326f00d08df4cb754ce6cc1748f59ba29d609d.js integrity="sha256-4YMLXPRQtL2i31WUeTJvANCN9Mt1TObMF0j1m6KdYJ0=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -215,6 +215,11 @@ Menu
 <li><a href=#ファイル名を変更>ファイル名を変更</a></li>
 <li><a href=#ファイルを移動>ファイルを移動</a></li>
 <li><a href=#ファイルの権限を変更>ファイルの権限を変更</a></li>
+</ul>
+</li>
+<li><a href=#ipアドレス>IPアドレス</a>
+<ul>
+<li><a href=#ipアドレスからホスト名を取得>IPアドレスからホスト名を取得</a></li>
 </ul>
 </li>
 <li><a href=#struct>Struct</a></li>
@@ -1882,6 +1887,15 @@ println(<span style=color:#a6e22e>p1</span>.<span style=color:#a6e22e>age</span>
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%a8%a9%e9%99%90%e3%82%92%e5%a4%89%e6%9b%b4>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Chmod</span>(<span style=color:#e6db74>&#34;foo.txt&#34;</span>, <span style=color:#ae81ff>0644</span>)
+</code></pre></div><h2 id=ipアドレス>
+IPアドレス
+<a class=anchor href=#ip%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9>#</a>
+</h2>
+<h3 id=ipアドレスからホスト名を取得>
+IPアドレスからホスト名を取得
+<a class=anchor href=#ip%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%81%8b%e3%82%89%e3%83%9b%e3%82%b9%e3%83%88%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>host</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>net</span>.<span style=color:#a6e22e>LookupAddr</span>(<span style=color:#a6e22e>ip</span>)
 </code></pre></div><h2 id=struct>
 Struct
 <a class=anchor href=#struct>#</a>
@@ -2134,6 +2148,11 @@ English
 <li><a href=#ファイル名を変更>ファイル名を変更</a></li>
 <li><a href=#ファイルを移動>ファイルを移動</a></li>
 <li><a href=#ファイルの権限を変更>ファイルの権限を変更</a></li>
+</ul>
+</li>
+<li><a href=#ipアドレス>IPアドレス</a>
+<ul>
+<li><a href=#ipアドレスからホスト名を取得>IPアドレスからホスト名を取得</a></li>
 </ul>
 </li>
 <li><a href=#struct>Struct</a></li>
