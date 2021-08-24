@@ -1042,20 +1042,20 @@ file_obj, err := os.Create("foo.txt")
 
 ### ファイルに入力
 ```go
-a, err := file_obj.WriteString("Hello\n")
+byte_count, err := file_obj.WriteString("Hello\n")
 ```
 
 ### ファイルの情報を取得
 ```go
-info, err := os.Stat(file_name)
+file_info, err := os.Stat(file_name)
 // or
-info, err := file_obj.Stat()
+file_info, err := file_obj.Stat()
 
-info.Name() // ファイル名
-info.Size() // ファイルサイズ
-info.Mode() // ファイルモード
-info.ModTime() // 最終更新日時
-infi.IsDir() // ディレクトリか否か
+file_info.Name() // ファイル名
+file_info.Size() // ファイルサイズ
+file_info.Mode() // ファイルモード
+file_info.ModTime() // 最終更新日時
+file_infi.IsDir() // ディレクトリか否か
 ```
 
 ### ファイル名を取得
