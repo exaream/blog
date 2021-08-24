@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.e364ca14c025cd62455dfabc5bd9ed4d0d6eae750fa4f0f6fda48a8a4a52f9bd.js integrity="sha256-42TKFMAlzWJFXfq8W9ntTQ1urnUPpPD2/aSKikpS+b0=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.ca623d8ca10ac4caebe3938537aaf0c15f3123457ce152b95b4d2860d1f25183.js integrity="sha256-ymI9jKEKxMrr45OFN6rwwV8xI0V84VK5W00oYNHyUYM=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1838,20 +1838,20 @@ println(<span style=color:#a6e22e>p1</span>.<span style=color:#a6e22e>age</span>
 ファイルに入力
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ab%e5%85%a5%e5%8a%9b>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>a</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>file_obj</span>.<span style=color:#a6e22e>WriteString</span>(<span style=color:#e6db74>&#34;Hello\n&#34;</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>byte_count</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>file_obj</span>.<span style=color:#a6e22e>WriteString</span>(<span style=color:#e6db74>&#34;Hello\n&#34;</span>)
 </code></pre></div><h3 id=ファイルの情報を取得>
 ファイルの情報を取得
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%83%85%e5%a0%b1%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>info</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stat</span>(<span style=color:#a6e22e>file_name</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_info</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stat</span>(<span style=color:#a6e22e>file_name</span>)
 <span style=color:#75715e>// or
-</span><span style=color:#75715e></span><span style=color:#a6e22e>info</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>file_obj</span>.<span style=color:#a6e22e>Stat</span>()
+</span><span style=color:#75715e></span><span style=color:#a6e22e>file_info</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>file_obj</span>.<span style=color:#a6e22e>Stat</span>()
 
-<span style=color:#a6e22e>info</span>.<span style=color:#a6e22e>Name</span>() <span style=color:#75715e>// ファイル名
-</span><span style=color:#75715e></span><span style=color:#a6e22e>info</span>.<span style=color:#a6e22e>Size</span>() <span style=color:#75715e>// ファイルサイズ
-</span><span style=color:#75715e></span><span style=color:#a6e22e>info</span>.<span style=color:#a6e22e>Mode</span>() <span style=color:#75715e>// ファイルモード
-</span><span style=color:#75715e></span><span style=color:#a6e22e>info</span>.<span style=color:#a6e22e>ModTime</span>() <span style=color:#75715e>// 最終更新日時
-</span><span style=color:#75715e></span><span style=color:#a6e22e>infi</span>.<span style=color:#a6e22e>IsDir</span>() <span style=color:#75715e>// ディレクトリか否か
+<span style=color:#a6e22e>file_info</span>.<span style=color:#a6e22e>Name</span>() <span style=color:#75715e>// ファイル名
+</span><span style=color:#75715e></span><span style=color:#a6e22e>file_info</span>.<span style=color:#a6e22e>Size</span>() <span style=color:#75715e>// ファイルサイズ
+</span><span style=color:#75715e></span><span style=color:#a6e22e>file_info</span>.<span style=color:#a6e22e>Mode</span>() <span style=color:#75715e>// ファイルモード
+</span><span style=color:#75715e></span><span style=color:#a6e22e>file_info</span>.<span style=color:#a6e22e>ModTime</span>() <span style=color:#75715e>// 最終更新日時
+</span><span style=color:#75715e></span><span style=color:#a6e22e>file_infi</span>.<span style=color:#a6e22e>IsDir</span>() <span style=color:#75715e>// ディレクトリか否か
 </span></code></pre></div><h3 id=ファイル名を取得>
 ファイル名を取得
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
