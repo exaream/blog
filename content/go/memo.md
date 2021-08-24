@@ -1088,6 +1088,13 @@ err := os.Rename("foo/bar/baz.txt", "foo/baz.txt")
 err := os.Chmod("foo.txt", 0644)
 ```
 
+## IPアドレス
+
+### IPアドレスからホスト名を取得
+```go
+host, err := net.LookupAddr(ip)
+```
+
 ## Struct
 https://www.yoheim.net/blog.php?q=20170902  
 構造体で、値メソッドとポインタメソッドを使い分ける
