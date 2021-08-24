@@ -970,31 +970,11 @@ func main() {
 }
 ```
 
-## File
+## ディレクトリ/ファイル
 
 ### パスを結合
 ```go
 path := filepath.Join("dir", "main.go")
-```
-
-### ディレクトリ名を取得
-```go
-dir_name := filepath.Dir(path)
-```
-
-### ファイル名を取得
-```go
-file_name := filepath.Base(path)
-```
-
-### 拡張子を取得
-```go
-file_ext := filepath.Ext(path)
-```
-
-### 拡張子を除外したファイル名を取得
-```go
-file_stem := filepath.Base(path[:len(path)-len(filepath.Ext(path))])
 ```
 
 ### 相対パスを取得
@@ -1005,6 +985,107 @@ relative_path := filepath.Rel(base_path, target_path)
 ### 相対パスから絶対パスを取得
 ```go
 absolute_path := filepath.Abs(relative_path)
+```
+
+## ディレクトリ
+
+### ディレクトリ名を取得
+```go
+dir_name := filepath.Dir(path)
+```
+### ディレクトリを作成
+```go
+err := os.Mkdir("foo", 0755)
+```
+
+### ディレクトリを再帰的に作成
+```go
+err := os.MkdirAll("foo/bar", 0755)
+```
+
+### ディレクトリ名を変更
+
+```go
+err := os.Rename("before", "after")
+```
+
+### ディレクトリを移動
+* ```osRename()``` で移動
+* パーテーションをまたぐ場合は移動不可
+```go
+err := os.Rename("foo/bar/baz", "foo/baz")
+```
+
+### ディレクトリの権限を変更
+```go
+err := os.Chmod("foo", 0755)
+```
+
+### ディレクトリを削除
+```go
+err := os.Remove("foo")
+```
+
+### ディレクトリを再帰的に削除
+* ディレクトリ内のサブディレクトリやファイルも削除
+```go
+err := os.RemoveAll("foo")
+```
+
+
+## ファイル
+
+### ファイルを作成
+```go
+file_obj, err := os.Create("foo.txt")
+```
+
+### ファイルに入力
+```go
+a, err := file_obj.WriteString("Hello\n")
+```
+
+### ファイルの情報を取得
+```go
+info, err := os.Stat(file_name)
+// or
+info, err := file_obj.Stat()
+
+info.Name() // ファイル名
+info.Size() // ファイルサイズ
+info.Mode() // ファイルモード
+info.ModTime() // 最終更新日時
+infi.IsDir() // ディレクトリか否か
+```
+
+### ファイル名を取得
+```go
+file_name := filepath.Base(path)
+```
+
+### ファイルの拡張子を取得
+```go
+file_ext := filepath.Ext(path)
+```
+
+### ファイルの拡張子を除外したファイル名を取得
+```go
+file_stem := filepath.Base(path[:len(path)-len(filepath.Ext(path))])
+```
+
+### ファイル名を変更
+```go
+err := os.Rename("foo.txt", "bar.txt")
+```
+
+### ファイルを移動
+```go
+err := os.Rename("foo/bar/baz.txt", "foo/baz.txt")
+```
+
+### ファイルの権限を変更
+```go
+err := os.Chmod("foo.txt", 0644)
 ```
 
 ## Struct
