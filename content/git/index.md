@@ -2,10 +2,10 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: Git
-tags: ["Git","Log", "Configuration"]
+tags: ["Git","Log","Configuration","Memo"]
 ---
 
-# Git
+# Git Memo
 
 ## 実用的なコマンド
 

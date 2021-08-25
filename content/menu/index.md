@@ -3,7 +3,7 @@ headless: true
 ---
 
 ### Menu
-- [Git]({{< ref "vcs/git" >}})
+- [Git]({{< ref "git" >}})
 - [Docker]({{< ref "docker" >}})
 - [Linux]({{< ref "linux" >}})
 - [MySQL]({{< ref "mysql" >}})
