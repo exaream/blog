@@ -4,11 +4,11 @@ headless: true
 
 ### Menu
 - [Git]({{< ref "vcs/git" >}})
-- [Docker]({{< ref "infrastructure/docker" >}})
-- [Linux]({{< ref "infrastructure/linux" >}})
-- [MySQL]({{< ref "database/mysql" >}})
-- [PostgreSQL]({{< ref "database/postgresql" >}})
-- [Go Memo]({{< ref "go/memo">}})
+- [Docker]({{< ref "docker" >}})
+- [Linux]({{< ref "linux" >}})
+- [MySQL]({{< ref "mysql" >}})
+- [PostgreSQL]({{< ref "postgresql" >}})
+- [Go Memo]({{< ref "go">}})
 - [Python Memo]({{< ref "python/memo">}})
 - [Python OCR]({{< ref "python/ocr" >}})
 - [PHPUnit]({{< ref "php/phpunit" >}})
