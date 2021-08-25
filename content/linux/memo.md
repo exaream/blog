@@ -1,7 +1,7 @@
 ---
 date: 2020-01-01
 lastmod: ["lastmod"]
-title: Linux
+title: Linux Memo
 tags: ["Linux","Command","Memo"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 date: 2020-01-01
 lastmod: ["lastmod"]
-title: Git
+title: Git Memo
 tags: ["Git","Log","Configuration","Memo"]
 ---
 

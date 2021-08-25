@@ -1,7 +1,7 @@
 ---
 date: 2020-01-01
 lastmod: ["lastmod"]
-title: PostgreSQL
+title: PostgreSQL Memo
 tags: ["SQL", "PostgreSQL","Memo"]
 ---
 

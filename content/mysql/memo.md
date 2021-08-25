@@ -1,7 +1,7 @@
 ---
 date: 2020-01-01
 lastmod: ["lastmod"]
-title: MySQL
+title: MySQL Memo
 tags: ["SQL", "MySQL", "Memo"]
 ---
 
