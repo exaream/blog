@@ -12,7 +12,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.9c9723e97837a6080e8f892b1e7e08a3768f0b9a1585908fd8d4369844d25529.js integrity="sha256-nJcj6Xg3pggOj4krHn4Io3aPC5oVhZCP2NQ2mETSVSk=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.b0b6bb50894e69f51a9828f08ea6a2d999037715acaf8ca689bdc5e476e269b5.js integrity="sha256-sLa7UIlOafUamCjwjqai2ZkDdxWsr4ymib3F5HbiabU=" crossorigin=anonymous></script>
 <link rel=alternate type=application/rss+xml href=https://exaream.github.io/tech-blog/tags/memo/index.xml title="Tech Blog">
 </head>
 <body dir=ltr>
@@ -52,7 +52,7 @@ Menu
 <a class=anchor href=#menu>#</a>
 </h3>
 <ul>
-<li><a href=https://exaream.github.io/tech-blog/vcs/git/>Git</a></li>
+<li><a href=https://exaream.github.io/tech-blog/git/>Git</a></li>
 <li><a href=https://exaream.github.io/tech-blog/docker/>Docker</a></li>
 <li><a href=https://exaream.github.io/tech-blog/linux/>Linux</a></li>
 <li><a href=https://exaream.github.io/tech-blog/mysql/>MySQL</a></li>
@@ -103,7 +103,7 @@ Menu
 </li>
 <li class="flex justify-between">
 <a href=/tech-blog/tags/memo/>Memo</a>
-<span>4</span>
+<span>6</span>
 </li>
 <li class="flex justify-between">
 <a href=/tech-blog/tags/ocr/>OCR</a>
@@ -264,6 +264,22 @@ $ python -VV Python 3.9.6 (default, Jul 22 2021, 15:16:20) [GCC 8.3.0] Source co
 </article>
 <article class="markdown book-post">
 <h2>
+<a href=/tech-blog/git/>Git</a>
+</h2>
+<h5>January 1, 2020</h5>
+<div>
+<a href=/tech-blog/tags/git/>Git</a>,
+<a href=/tech-blog/tags/log/>Log</a>,
+<a href=/tech-blog/tags/configuration/>Configuration</a>,
+<a href=/tech-blog/tags/memo/>Memo</a>
+</div>
+<p>Git Memo # 実用的なコマンド # 指定したフォーマットでコミット・ログを表示 # $ git log --graph --date=iso --pretty=format:"[%ad] %h %an : %s" 特定の注釈を含むコミットを検索 # $ git log --oneline --grep "&lt;pattern>" コミット間の変更ファイル一覧を表示 # $ git diff --stat &lt;Commit A> &lt;Commit B> ファイル名のみ表示する場合
+$ git diff --stat --name-only &lt;Commit A> &lt;Commit B> タグの一覧を表示 # $ git tag -n Git 設定 # バージョンを確認 # $ git --version 設定の一覧を表示 # 設定適用範囲
+<a href=/tech-blog/git/>...</a>
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
 <a href=/tech-blog/linux/>Linux</a>
 </h2>
 <h5>January 1, 2020</h5>
@@ -288,6 +304,19 @@ $ python -VV Python 3.9.6 (default, Jul 22 2021, 15:16:20) [GCC 8.3.0] Source co
 </div>
 <p>MySQL Memo # Preparation # Install to macOS # $ brew install mysql Start # $ mysql.server start Starting MySQL ....... SUCCESS! Check the vertion # $ mysql --version mysql Ver 8.0.26 for macos11.3 on x86_64 (Homebrew) Make initial settings # $ mysql_secure_installation パスワード強度検証プラグインの利用有無 パスワード強度の選択 root ユーザのパスワード設定 匿名ユーザの削除 リモートからの root ユーザとしてのログインの禁止 サンプル用 test データベースの削除 $ mysql_secure_installation Securing the MySQL server deployment. Connecting to MySQL using a blank password.
 <a href=/tech-blog/mysql/>...</a>
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
+<a href=/tech-blog/postgresql/>PostgreSQL</a>
+</h2>
+<h5>January 1, 2020</h5>
+<div>
+<a href=/tech-blog/tags/sql/>SQL</a>,
+<a href=/tech-blog/tags/postgresql/>PostgreSQL</a>,
+<a href=/tech-blog/tags/memo/>Memo</a>
+</div>
+<p>PostgreSQL Memo # PostgreSQL&rsquo;s Information # Table Schema # SELECT col.table_name, col.ordinal_position, -- No. col.column_name, col.data_type, col.character_maximum_length, -- 文字数(文字列型) col.character_octet_length, -- バイト数(文字列型) col.numeric_precision, -- 桁数(数値型) col.numeric_scale, -- 小数部(数値型) col.datetime_precision, -- ミリ秒以下(日付型) col.interval_type, -- インターバルの単位(日付型) col.is_nullable, -- NULLを許可するか否か col.column_default -- 初期値 FROM information_schema.columns col WHERE col.table_name = 'sample_table' -- 対象テーブル名を指定 ORDER BY col.table_name, col.ordinal_position
 </p>
 </article>
 <footer class=book-footer>
@@ -335,7 +364,7 @@ English
 </li>
 <li class="flex justify-between">
 <a href=/tech-blog/tags/memo/>Memo</a>
-<span>4</span>
+<span>6</span>
 </li>
 <li class="flex justify-between">
 <a href=/tech-blog/tags/ocr/>OCR</a>

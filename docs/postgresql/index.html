@@ -2,9 +2,9 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="PostgreSQL #  PostgreSQL&rsquo;s Information #  Table Schema #  SELECT col.table_name, col.ordinal_position, -- No.  col.column_name, col.data_type, col.character_maximum_length, -- 文字数(文字列型)  col.character_octet_length, -- バイト数(文字列型)  col.numeric_precision, -- 桁数(数値型)  col.numeric_scale, -- 小数部(数値型)  col.datetime_precision, -- ミリ秒以下(日付型)  col.interval_type, -- インターバルの単位(日付型)  col.is_nullable, -- NULLを許可するか否か  col.column_default -- 初期値 FROM information_schema.columns col WHERE col.table_name = 'sample_table' -- 対象テーブル名を指定 ORDER BY col.table_name, col.ordinal_position ">
+<meta name=description content="PostgreSQL Memo #  PostgreSQL&rsquo;s Information #  Table Schema #  SELECT col.table_name, col.ordinal_position, -- No.  col.column_name, col.data_type, col.character_maximum_length, -- 文字数(文字列型)  col.character_octet_length, -- バイト数(文字列型)  col.numeric_precision, -- 桁数(数値型)  col.numeric_scale, -- 小数部(数値型)  col.datetime_precision, -- ミリ秒以下(日付型)  col.interval_type, -- インターバルの単位(日付型)  col.is_nullable, -- NULLを許可するか否か  col.column_default -- 初期値 FROM information_schema.columns col WHERE col.table_name = 'sample_table' -- 対象テーブル名を指定 ORDER BY col.table_name, col.ordinal_position ">
 <meta name=theme-color content="#FFFFFF"><meta property="og:title" content="PostgreSQL">
-<meta property="og:description" content="PostgreSQL #  PostgreSQL&rsquo;s Information #  Table Schema #  SELECT col.table_name, col.ordinal_position, -- No.  col.column_name, col.data_type, col.character_maximum_length, -- 文字数(文字列型)  col.character_octet_length, -- バイト数(文字列型)  col.numeric_precision, -- 桁数(数値型)  col.numeric_scale, -- 小数部(数値型)  col.datetime_precision, -- ミリ秒以下(日付型)  col.interval_type, -- インターバルの単位(日付型)  col.is_nullable, -- NULLを許可するか否か  col.column_default -- 初期値 FROM information_schema.columns col WHERE col.table_name = 'sample_table' -- 対象テーブル名を指定 ORDER BY col.table_name, col.ordinal_position ">
+<meta property="og:description" content="PostgreSQL Memo #  PostgreSQL&rsquo;s Information #  Table Schema #  SELECT col.table_name, col.ordinal_position, -- No.  col.column_name, col.data_type, col.character_maximum_length, -- 文字数(文字列型)  col.character_octet_length, -- バイト数(文字列型)  col.numeric_precision, -- 桁数(数値型)  col.numeric_scale, -- 小数部(数値型)  col.datetime_precision, -- ミリ秒以下(日付型)  col.interval_type, -- インターバルの単位(日付型)  col.is_nullable, -- NULLを許可するか否か  col.column_default -- 初期値 FROM information_schema.columns col WHERE col.table_name = 'sample_table' -- 対象テーブル名を指定 ORDER BY col.table_name, col.ordinal_position ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://exaream.github.io/tech-blog/postgresql/"><meta property="article:section" content>
 <meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.9c9723e97837a6080e8f892b1e7e08a3768f0b9a1585908fd8d4369844d25529.js integrity="sha256-nJcj6Xg3pggOj4krHn4Io3aPC5oVhZCP2NQ2mETSVSk=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.b0b6bb50894e69f51a9828f08ea6a2d999037715acaf8ca689bdc5e476e269b5.js integrity="sha256-sLa7UIlOafUamCjwjqai2ZkDdxWsr4ymib3F5HbiabU=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -53,7 +53,7 @@ Menu
 <a class=anchor href=#menu>#</a>
 </h3>
 <ul>
-<li><a href=https://exaream.github.io/tech-blog/vcs/git/>Git</a></li>
+<li><a href=https://exaream.github.io/tech-blog/git/>Git</a></li>
 <li><a href=https://exaream.github.io/tech-blog/docker/>Docker</a></li>
 <li><a href=https://exaream.github.io/tech-blog/linux/>Linux</a></li>
 <li><a href=https://exaream.github.io/tech-blog/mysql/>MySQL</a></li>
@@ -85,7 +85,7 @@ Menu
 </div>
 <aside class="hidden clearfix">
 <h2>Tags</h2>
-<ul class=tags><li><a href=/tech-blog/tags/sql>SQL</a><li><a href=/tech-blog/tags/postgresql>PostgreSQL</a></ul>
+<ul class=tags><li><a href=/tech-blog/tags/sql>SQL</a><li><a href=/tech-blog/tags/postgresql>PostgreSQL</a><li><a href=/tech-blog/tags/memo>Memo</a></ul>
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
@@ -106,9 +106,9 @@ Menu
 <a href=https://exaream.github.io/tech-blog/postgresql/>PostgreSQL</a>
 </li>
 </ol>
-<article class=markdown><h1 id=postgresql>
-PostgreSQL
-<a class=anchor href=#postgresql>#</a>
+<article class=markdown><h1 id=postgresql-memo>
+PostgreSQL Memo
+<a class=anchor href=#postgresql-memo>#</a>
 </h1>
 <h2 id=postgresqls-information>
 PostgreSQL&rsquo;s Information
@@ -167,7 +167,7 @@ English
 <aside class=book-toc>
 <div class=book-toc-content>
 <h2>Tags</h2>
-<ul class=tags><li><a href=/tech-blog/tags/sql>SQL</a><li><a href=/tech-blog/tags/postgresql>PostgreSQL</a></ul>
+<ul class=tags><li><a href=/tech-blog/tags/sql>SQL</a><li><a href=/tech-blog/tags/postgresql>PostgreSQL</a><li><a href=/tech-blog/tags/memo>Memo</a></ul>
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>

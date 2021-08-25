@@ -2,13 +2,13 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Git #  実用的なコマンド #  指定したフォーマットでコミット・ログを表示 #  $ git log --graph --date=iso --pretty=format:&#34;[%ad] %h %an : %s&#34; 特定の注釈を含むコミットを検索 #  $ git log --oneline --grep &#34;<pattern>&#34; コミット間の変更ファイル一覧を表示 #  $ git diff --stat <Commit A> <Commit B> ファイル名のみ表示する場合
+<meta name=description content="Git Memo #  実用的なコマンド #  指定したフォーマットでコミット・ログを表示 #  $ git log --graph --date=iso --pretty=format:&#34;[%ad] %h %an : %s&#34; 特定の注釈を含むコミットを検索 #  $ git log --oneline --grep &#34;<pattern>&#34; コミット間の変更ファイル一覧を表示 #  $ git diff --stat <Commit A> <Commit B> ファイル名のみ表示する場合
 $ git diff --stat --name-only <Commit A> <Commit B> タグの一覧を表示 #  $ git tag -n Git 設定 #  バージョンを確認 #  $ git --version 設定の一覧を表示 #  設定適用範囲">
 <meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Git">
-<meta property="og:description" content="Git #  実用的なコマンド #  指定したフォーマットでコミット・ログを表示 #  $ git log --graph --date=iso --pretty=format:&#34;[%ad] %h %an : %s&#34; 特定の注釈を含むコミットを検索 #  $ git log --oneline --grep &#34;<pattern>&#34; コミット間の変更ファイル一覧を表示 #  $ git diff --stat <Commit A> <Commit B> ファイル名のみ表示する場合
+<meta property="og:description" content="Git Memo #  実用的なコマンド #  指定したフォーマットでコミット・ログを表示 #  $ git log --graph --date=iso --pretty=format:&#34;[%ad] %h %an : %s&#34; 特定の注釈を含むコミットを検索 #  $ git log --oneline --grep &#34;<pattern>&#34; コミット間の変更ファイル一覧を表示 #  $ git diff --stat <Commit A> <Commit B> ファイル名のみ表示する場合
 $ git diff --stat --name-only <Commit A> <Commit B> タグの一覧を表示 #  $ git tag -n Git 設定 #  バージョンを確認 #  $ git --version 設定の一覧を表示 #  設定適用範囲">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://exaream.github.io/tech-blog/vcs/git/"><meta property="article:section" content="vcs">
+<meta property="og:url" content="https://exaream.github.io/tech-blog/git/"><meta property="article:section" content>
 <meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
 <meta property="article:modified_time" content="2020-01-01T00:00:00+00:00">
 <title>Git | Tech Blog</title>
@@ -16,7 +16,7 @@ $ git diff --stat --name-only <Commit A> <Commit B> タグの一覧を表示 #  
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.9c9723e97837a6080e8f892b1e7e08a3768f0b9a1585908fd8d4369844d25529.js integrity="sha256-nJcj6Xg3pggOj4krHn4Io3aPC5oVhZCP2NQ2mETSVSk=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.b0b6bb50894e69f51a9828f08ea6a2d999037715acaf8ca689bdc5e476e269b5.js integrity="sha256-sLa7UIlOafUamCjwjqai2ZkDdxWsr4ymib3F5HbiabU=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -55,7 +55,7 @@ Menu
 <a class=anchor href=#menu>#</a>
 </h3>
 <ul>
-<li><a href=https://exaream.github.io/tech-blog/vcs/git/>Git</a></li>
+<li><a href=https://exaream.github.io/tech-blog/git/>Git</a></li>
 <li><a href=https://exaream.github.io/tech-blog/docker/>Docker</a></li>
 <li><a href=https://exaream.github.io/tech-blog/linux/>Linux</a></li>
 <li><a href=https://exaream.github.io/tech-blog/mysql/>MySQL</a></li>
@@ -87,7 +87,7 @@ Menu
 </div>
 <aside class="hidden clearfix">
 <h2>Tags</h2>
-<ul class=tags><li><a href=/tech-blog/tags/git>Git</a><li><a href=/tech-blog/tags/log>Log</a><li><a href=/tech-blog/tags/configuration>Configuration</a></ul>
+<ul class=tags><li><a href=/tech-blog/tags/git>Git</a><li><a href=/tech-blog/tags/log>Log</a><li><a href=/tech-blog/tags/configuration>Configuration</a><li><a href=/tech-blog/tags/memo>Memo</a></ul>
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
@@ -211,16 +211,13 @@ Menu
 <li>
 <a href=https://exaream.github.io/tech-blog/>Tech Blog</a>
 </li>
-<li>
-<a href=https://exaream.github.io/tech-blog/vcs/>Vcs</a>
-</li>
 <li class=active>
-<a href=https://exaream.github.io/tech-blog/vcs/git/>Git</a>
+<a href=https://exaream.github.io/tech-blog/git/>Git</a>
 </li>
 </ol>
-<article class=markdown><h1 id=git>
-Git
-<a class=anchor href=#git>#</a>
+<article class=markdown><h1 id=git-memo>
+Git Memo
+<a class=anchor href=#git-memo>#</a>
 </h1>
 <h2 id=実用的なコマンド>
 実用的なコマンド
@@ -1037,7 +1034,7 @@ English
 <aside class=book-toc>
 <div class=book-toc-content>
 <h2>Tags</h2>
-<ul class=tags><li><a href=/tech-blog/tags/git>Git</a><li><a href=/tech-blog/tags/log>Log</a><li><a href=/tech-blog/tags/configuration>Configuration</a></ul>
+<ul class=tags><li><a href=/tech-blog/tags/git>Git</a><li><a href=/tech-blog/tags/log>Log</a><li><a href=/tech-blog/tags/configuration>Configuration</a><li><a href=/tech-blog/tags/memo>Memo</a></ul>
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
