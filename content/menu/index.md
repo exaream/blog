@@ -9,7 +9,7 @@ headless: true
 - [MySQL]({{< ref "mysql" >}})
 - [PostgreSQL]({{< ref "postgresql" >}})
 - [Go]({{< ref "go">}})
-- [Python]({{< ref "python">}})
+- [Python]({{< ref "python/memo">}})
 - [Python OCR]({{< ref "python/ocr" >}})
 - [PHPUnit]({{< ref "php/phpunit" >}})
 - [PhpMetrics]({{< ref "php/phpmetrics" >}})
