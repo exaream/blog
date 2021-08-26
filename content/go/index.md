@@ -1036,27 +1036,8 @@ $ go env GOPATH
 tree -L $GOPATH
 go
 ├── bin
-│   ├── dlv
-│   ├── dlv-dap
-│   ├── errcheck
-│   ├── go-outline
-│   ├── goimports
-│   ├── gomodifytags
-│   ├── gopkgs
-│   ├── goplay
-│   ├── gopls
-│   ├── gotests
-│   ├── impl
-│   └── staticcheck
 └── pkg
     ├── mod
-    │   ├── cache
-    │   ├── github.com
-    │   ├── go.starlark.net@v0.0.0-20200821142938-949cc6f4b097
-    │   ├── golang.org
-    │   ├── gopkg.in
-    │   ├── honnef.co
-    │   └── mvdan.cc
     └── sumdb
         └── sum.golang.org
 ```
