@@ -1016,8 +1016,51 @@ import (
 	mylog "github.com/foo/log" // パッケージが他のパッケージと衝突している場合
 	bar "github.com/foo/bar/v2" // インポートパスとパッケージ名が異なる場合
 )
-
 ```
+
+### パッケージ外へのエクスポート
+* 先頭大文字にした識別子がエクスポートの対象 (=他パッケージから参照可)
+
+```go
+var Foo string // exported
+var bar string // unexported
+```
+### GOPATH
+* ソースコードやビルドされたファイルを配置するパス
+GOPATH の確認方法
+```bash
+$ go env GOPATH
+```
+
+```bash
+tree -L $GOPATH
+go
+├── bin
+│   ├── dlv
+│   ├── dlv-dap
+│   ├── errcheck
+│   ├── go-outline
+│   ├── goimports
+│   ├── gomodifytags
+│   ├── gopkgs
+│   ├── goplay
+│   ├── gopls
+│   ├── gotests
+│   ├── impl
+│   └── staticcheck
+└── pkg
+    ├── mod
+    │   ├── cache
+    │   ├── github.com
+    │   ├── go.starlark.net@v0.0.0-20200821142938-949cc6f4b097
+    │   ├── golang.org
+    │   ├── gopkg.in
+    │   ├── honnef.co
+    │   └── mvdan.cc
+    └── sumdb
+        └── sum.golang.org
+```
+
 
 ## ディレクトリ/ファイル
 
