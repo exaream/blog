@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.28075dd1281232bc6d90309d1b5b1224748f621425585023f728be2e32a6e5a4.js integrity="sha256-KAdd0SgSMrxtkDCdG1sSJHSPYhQlWFAj9yi+LjKm5aQ=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.9434382a2954e52efa5d89a3cfe4824f635fbe9c564925f50d25a8c30bd829c9.js integrity="sha256-lDQ4KilU5S76XYmjz+SCT2NfvpxWSSX1DSWowwvYKck=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -161,10 +161,12 @@ Menu
 <li><a href=#ディレクトリとファイルの構成を表示>ディレクトリとファイルの構成を表示</a>
 <ul>
 <li><a href=#tree-コマンドのインストール-macos>tree コマンドのインストール (macOS)</a></li>
+<li><a href=#tree-コマンドのバージョンを確認>tree コマンドのバージョンを確認</a></li>
 <li><a href=#階層を指定>階層を指定</a></li>
-<li><a href=#ファイル名でフィルタリング>ファイル名でフィルタリング</a></li>
-<li><a href=#除外する対象の名前を指定>除外する対象の名前を指定</a></li>
+<li><a href=#ファイル名のパターンを指定>ファイル名のパターンを指定</a></li>
+<li><a href=#除外するファイル名のパターンを指定>除外するファイル名のパターンを指定</a></li>
 <li><a href=#ディレクトリのみを表示>ディレクトリのみを表示</a></li>
+<li><a href=#tree-コマンドのオプション><code>tree</code> コマンドのオプション</a></li>
 </ul>
 </li>
 <li><a href=#ディレクトリの作成>ディレクトリの作成</a>
@@ -1090,21 +1092,25 @@ tree コマンドのインストール (macOS)
 <a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab-macos>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install tree
-$ tree --version
+</code></pre></div><h3 id=tree-コマンドのバージョンを確認>
+tree コマンドのバージョンを確認
+<a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tree --version
 </code></pre></div><h3 id=階層を指定>
 階層を指定
 <a class=anchor href=#%e9%9a%8e%e5%b1%a4%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
 </h3>
 <p>e.g. カレントディレクトリ配下の3階層まで表示する場合</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tree -L <span style=color:#ae81ff>3</span>
-</code></pre></div><h3 id=ファイル名でフィルタリング>
-ファイル名でフィルタリング
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%81%a7%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0>#</a>
+</code></pre></div><h3 id=ファイル名のパターンを指定>
+ファイル名のパターンを指定
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%81%ae%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tree -P <span style=color:#e6db74>&#39;*.js&#39;</span>
-</code></pre></div><h3 id=除外する対象の名前を指定>
-除外する対象の名前を指定
-<a class=anchor href=#%e9%99%a4%e5%a4%96%e3%81%99%e3%82%8b%e5%af%be%e8%b1%a1%e3%81%ae%e5%90%8d%e5%89%8d%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
+</code></pre></div><h3 id=除外するファイル名のパターンを指定>
+除外するファイル名のパターンを指定
+<a class=anchor href=#%e9%99%a4%e5%a4%96%e3%81%99%e3%82%8b%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%81%ae%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tree -I <span style=color:#e6db74>&#39;*.log&#39;</span>
 </code></pre></div><h3 id=ディレクトリのみを表示>
@@ -1112,7 +1118,72 @@ $ tree --version
 <a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%81%bf%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tree -d
-</code></pre></div><h2 id=ディレクトリの作成>
+</code></pre></div><h3 id=tree-コマンドのオプション>
+<code>tree</code> コマンドのオプション
+<a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-a</code></td>
+<td></td>
+<td>ドット始まりのディレクトリを含めて表示</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td></td>
+<td>ディレクトリのみ表示</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td></td>
+<td>シンボリックをたどって表示</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td></td>
+<td>カレントディレクトリまたは指定したディレクトリからのパスをつけてファイルやディレクトリを表示</td>
+</tr>
+<tr>
+<td><code>-L 整数</code></td>
+<td></td>
+<td>表示するディレクトリの階層(深さ), 1以上の整数を指定</td>
+</tr>
+<tr>
+<td><code>-P パターン</code></td>
+<td></td>
+<td>パターンにマッチしたファイルのみ表示</td>
+</tr>
+<tr>
+<td><code>-l パターン</code></td>
+<td></td>
+<td>パターンにマッチしないファイルのみ表示</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--prune</code></td>
+<td>表示対象ファイルが存在しないディレクトリを除外して表示</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--filelimit エントリ数</code></td>
+<td>指定した数を超えるエントリを持つディレクトリの内部は非表示(&ndash;filelimit 10 の場合, 表示内容が10イないのディレクトリの内部のみを表示)</td>
+</tr>
+<tr>
+<td><code>-o ファイル名</code></td>
+<td></td>
+<td><code>tree</code>コマンドの結果を指定ファイルに出力</td>
+</tr>
+</tbody>
+</table>
+<h2 id=ディレクトリの作成>
 ディレクトリの作成
 <a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e4%bd%9c%e6%88%90>#</a>
 </h2>
@@ -1418,6 +1489,7 @@ References
 <li><a href=https://qiita.com/hirohiro77/items/771ffb64dddceabf69a3>grepでこういう時はどうする?</a></li>
 <li><a href=https://linuxjm.osdn.jp/html/GNU_grep/man1/grep.1.html>Man page of GREP</a></li>
 <li><a href=https://www.atmarkit.co.jp/ait/articles/1810/18/news014.html>gzip ファイルを操作</a></li>
+<li><a href=https://atmarkit.itmedia.co.jp/ait/articles/1802/01/news025.html>【 tree 】コマンド――ディレクトリをツリー状に表示する</a></li>
 </ul>
 </article>
 <footer class=book-footer>
@@ -1524,10 +1596,12 @@ English
 <li><a href=#ディレクトリとファイルの構成を表示>ディレクトリとファイルの構成を表示</a>
 <ul>
 <li><a href=#tree-コマンドのインストール-macos>tree コマンドのインストール (macOS)</a></li>
+<li><a href=#tree-コマンドのバージョンを確認>tree コマンドのバージョンを確認</a></li>
 <li><a href=#階層を指定>階層を指定</a></li>
-<li><a href=#ファイル名でフィルタリング>ファイル名でフィルタリング</a></li>
-<li><a href=#除外する対象の名前を指定>除外する対象の名前を指定</a></li>
+<li><a href=#ファイル名のパターンを指定>ファイル名のパターンを指定</a></li>
+<li><a href=#除外するファイル名のパターンを指定>除外するファイル名のパターンを指定</a></li>
 <li><a href=#ディレクトリのみを表示>ディレクトリのみを表示</a></li>
+<li><a href=#tree-コマンドのオプション><code>tree</code> コマンドのオプション</a></li>
 </ul>
 </li>
 <li><a href=#ディレクトリの作成>ディレクトリの作成</a>
