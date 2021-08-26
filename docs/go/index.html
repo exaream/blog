@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.51e1d3d812242daf8fb5875861a3db6d6ea493f2415df2ea5f009cb07b2bf9b6.js integrity="sha256-UeHT2BIkLa+PtYdYYaPbbW6kk/JBXfLqXwCcsHsr+bY=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.57bff9e34e7fbb7c6f13a8b70060ffc15d4dc42304672786acb97856f5a7abb5.js integrity="sha256-V7/5405/u3xvE6i3AGD/wV1NxCMEZyeGrLl4VvWnq7U=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -183,6 +183,16 @@ Menu
 <li><a href=#レシーバとして使うことができる型>レシーバとして使うことができる型</a></li>
 <li><a href=#メソッド値>メソッド値</a></li>
 <li><a href=#メソッド式>メソッド式</a></li>
+</ul>
+</li>
+<li><a href=#パッケージ>パッケージ</a>
+<ul>
+<li><a href=#パッケージとは>パッケージとは</a></li>
+<li><a href=#パッケージの種類>パッケージの種類</a></li>
+<li><a href=#パッケージのインポート>パッケージのインポート</a></li>
+<li><a href=#パッケージ名のエイリアス>パッケージ名のエイリアス</a></li>
+<li><a href=#パッケージ外へのエクスポート>パッケージ外へのエクスポート</a></li>
+<li><a href=#gopath>GOPATH</a></li>
 </ul>
 </li>
 <li><a href=#ディレクトリファイル>ディレクトリ/ファイル</a>
@@ -1757,6 +1767,121 @@ println(<span style=color:#a6e22e>p1</span>.<span style=color:#a6e22e>age</span>
 	<span style=color:#a6e22e>f</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>Hex</span>.<span style=color:#a6e22e>String</span> <span style=color:#75715e>// 変数の型.メソッド名  レシーバの値を決定していない状態でメソッドを参照
 </span><span style=color:#75715e></span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%T\n%s\n&#34;</span>, <span style=color:#a6e22e>f</span>, <span style=color:#a6e22e>f</span>(<span style=color:#a6e22e>h</span>)) <span style=color:#75715e>// レシーバを第1引き数とした関数
 </span><span style=color:#75715e></span>}
+</code></pre></div><h2 id=パッケージ>
+パッケージ
+<a class=anchor href=#%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8>#</a>
+</h2>
+<h3 id=パッケージとは>
+パッケージとは
+<a class=anchor href=#%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e3%81%a8%e3%81%af>#</a>
+</h3>
+<ul>
+<li>関数・変数・定数・型を意味のある単位でまとめたもの</li>
+<li>複数のファイルで構成可能
+<ul>
+<li>型の定義とメソッドの定義が別ファイルに記述可</li>
+<li>同じディレクトリ内でパッケージが混在するのはNG</li>
+<li><code>import</code> 文はフィルごとに記述</li>
+</ul>
+</li>
+</ul>
+<h3 id=パッケージの種類>
+パッケージの種類
+<a class=anchor href=#%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e3%81%ae%e7%a8%ae%e9%a1%9e>#</a>
+</h3>
+<ul>
+<li>main パッケージ
+<ul>
+<li>main 関数が存在するパッケージ</li>
+<li>プログラムの起点(エントリポイント)となるパッケージ</li>
+<li>実行可能なGoプログラムの場合は必ず存在</li>
+</ul>
+</li>
+<li>標準パッケージ
+<ul>
+<li>Go が最初から用意しているパッケージ</li>
+<li>100以上のパッケージが存在</li>
+</ul>
+</li>
+<li>サードパーティパッケージ
+<ul>
+<li>第三者(自分を含む)が開発したパッケージ</li>
+<li>インターネット上に公開されている場合が多い</li>
+<li>インストールすることで使用可能</li>
+<li>ライブラリとも呼ばれている</li>
+</ul>
+</li>
+</ul>
+<h3 id=パッケージのインポート>
+パッケージのインポート
+<a class=anchor href=#%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e3%81%ae%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88>#</a>
+</h3>
+<ul>
+<li>他のパッケージに用意された機能(変数・関数・定数など)を使用可</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go get &lt;pkgname&gt;
+</code></pre></div><p>e.g.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go get github.com/xxx/xxx
+</code></pre></div><h3 id=パッケージ名のエイリアス>
+パッケージ名のエイリアス
+<a class=anchor href=#%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e5%90%8d%e3%81%ae%e3%82%a8%e3%82%a4%e3%83%aa%e3%82%a2%e3%82%b9>#</a>
+</h3>
+<ul>
+<li>インポートパスの左側にエイリアスを記述</li>
+<li>パッケージが他のパッケージと衝突している場合にエイリアスを使用</li>
+<li>インポートパスとパッケージ名が異なる場合にエイリアスを使用(バージョンの場合など)</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>import</span> (
+	<span style=color:#e6db74>&#34;fmt&#34;</span>
+	<span style=color:#e6db74>&#34;log&#34;</span>
+
+	<span style=color:#a6e22e>mylog</span> <span style=color:#e6db74>&#34;github.com/foo/log&#34;</span> <span style=color:#75715e>// パッケージが他のパッケージと衝突している場合
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>bar</span> <span style=color:#e6db74>&#34;github.com/foo/bar/v2&#34;</span> <span style=color:#75715e>// インポートパスとパッケージ名が異なる場合
+</span><span style=color:#75715e></span>)
+</code></pre></div><h3 id=パッケージ外へのエクスポート>
+パッケージ外へのエクスポート
+<a class=anchor href=#%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e5%a4%96%e3%81%b8%e3%81%ae%e3%82%a8%e3%82%af%e3%82%b9%e3%83%9d%e3%83%bc%e3%83%88>#</a>
+</h3>
+<ul>
+<li>先頭大文字にした識別子がエクスポートの対象 (=他パッケージから参照可)</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>Foo</span> <span style=color:#66d9ef>string</span> <span style=color:#75715e>// exported
+</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>bar</span> <span style=color:#66d9ef>string</span> <span style=color:#75715e>// unexported
+</span></code></pre></div><h3 id=gopath>
+GOPATH
+<a class=anchor href=#gopath>#</a>
+</h3>
+<ul>
+<li>ソースコードやビルドされたファイルを配置するパス
+GOPATH の確認方法</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go env GOPATH
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>tree -L $GOPATH
+go
+├── bin
+│   ├── dlv
+│   ├── dlv-dap
+│   ├── errcheck
+│   ├── go-outline
+│   ├── goimports
+│   ├── gomodifytags
+│   ├── gopkgs
+│   ├── goplay
+│   ├── gopls
+│   ├── gotests
+│   ├── impl
+│   └── staticcheck
+└── pkg
+    ├── mod
+    │   ├── cache
+    │   ├── github.com
+    │   ├── go.starlark.net@v0.0.0-20200821142938-949cc6f4b097
+    │   ├── golang.org
+    │   ├── gopkg.in
+    │   ├── honnef.co
+    │   └── mvdan.cc
+    └── sumdb
+        └── sum.golang.org
 </code></pre></div><h2 id=ディレクトリファイル>
 ディレクトリ/ファイル
 <a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab>#</a>
@@ -2113,6 +2238,16 @@ English
 <li><a href=#レシーバとして使うことができる型>レシーバとして使うことができる型</a></li>
 <li><a href=#メソッド値>メソッド値</a></li>
 <li><a href=#メソッド式>メソッド式</a></li>
+</ul>
+</li>
+<li><a href=#パッケージ>パッケージ</a>
+<ul>
+<li><a href=#パッケージとは>パッケージとは</a></li>
+<li><a href=#パッケージの種類>パッケージの種類</a></li>
+<li><a href=#パッケージのインポート>パッケージのインポート</a></li>
+<li><a href=#パッケージ名のエイリアス>パッケージ名のエイリアス</a></li>
+<li><a href=#パッケージ外へのエクスポート>パッケージ外へのエクスポート</a></li>
+<li><a href=#gopath>GOPATH</a></li>
 </ul>
 </li>
 <li><a href=#ディレクトリファイル>ディレクトリ/ファイル</a>
