@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.afe8c6f030892c608c42101adddf4fbe4f4f4532cde7a18493f218bed904b3cc.js integrity="sha256-r+jG8DCJLGCMQhAa3d9Pvk9PRTLN56GEk/IYvtkEs8w=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.28075dd1281232bc6d90309d1b5b1224748f621425585023f728be2e32a6e5a4.js integrity="sha256-KAdd0SgSMrxtkDCdG1sSJHSPYhQlWFAj9yi+LjKm5aQ=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -156,6 +156,15 @@ Menu
 <li><a href=#cp-コマンドのオプション><code>cp</code> コマンドのオプション</a></li>
 <li><a href=#ネットワーク上のホスト間のsshを利用したコピー>ネットワーク上のホスト間のSSHを利用したコピー</a></li>
 <li><a href=#scp-コマンドのオプション><code>scp</code> コマンドのオプション</a></li>
+</ul>
+</li>
+<li><a href=#ディレクトリとファイルの構成を表示>ディレクトリとファイルの構成を表示</a>
+<ul>
+<li><a href=#tree-コマンドのインストール-macos>tree コマンドのインストール (macOS)</a></li>
+<li><a href=#階層を指定>階層を指定</a></li>
+<li><a href=#ファイル名でフィルタリング>ファイル名でフィルタリング</a></li>
+<li><a href=#除外する対象の名前を指定>除外する対象の名前を指定</a></li>
+<li><a href=#ディレクトリのみを表示>ディレクトリのみを表示</a></li>
 </ul>
 </li>
 <li><a href=#ディレクトリの作成>ディレクトリの作成</a>
@@ -842,12 +851,12 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 タイムスタンプ降順で一覧表示(隠しファイル含む)
 <a class=anchor href=#%e3%82%bf%e3%82%a4%e3%83%a0%e3%82%b9%e3%82%bf%e3%83%b3%e3%83%97%e9%99%8d%e9%a0%86%e3%81%a7%e4%b8%80%e8%a6%a7%e8%a1%a8%e7%a4%ba%e9%9a%a0%e3%81%97%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%ab%e3%82%80>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bas data-lang=bas>ls <span style=color:#f92672>-</span>alt
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ls -alt
 </code></pre></div><h3 id=タイムスタンプ昇順で一覧表示隠しファイル含む>
 タイムスタンプ昇順で一覧表示(隠しファイル含む)
 <a class=anchor href=#%e3%82%bf%e3%82%a4%e3%83%a0%e3%82%b9%e3%82%bf%e3%83%b3%e3%83%97%e6%98%87%e9%a0%86%e3%81%a7%e4%b8%80%e8%a6%a7%e8%a1%a8%e7%a4%ba%e9%9a%a0%e3%81%97%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%ab%e3%82%80>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bas data-lang=bas>ls <span style=color:#f92672>-</span>altr
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ls -altr
 </code></pre></div><h3 id=ls-コマンドのオプション>
 <code>ls</code> コマンドのオプション
 <a class=anchor href=#ls-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
@@ -1072,7 +1081,38 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 </tr>
 </tbody>
 </table>
-<h2 id=ディレクトリの作成>
+<h2 id=ディレクトリとファイルの構成を表示>
+ディレクトリとファイルの構成を表示
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%a8%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%a7%8b%e6%88%90%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h2>
+<h3 id=tree-コマンドのインストール-macos>
+tree コマンドのインストール (macOS)
+<a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab-macos>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install tree
+$ tree --version
+</code></pre></div><h3 id=階層を指定>
+階層を指定
+<a class=anchor href=#%e9%9a%8e%e5%b1%a4%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
+</h3>
+<p>e.g. カレントディレクトリ配下の3階層まで表示する場合</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tree -L <span style=color:#ae81ff>3</span>
+</code></pre></div><h3 id=ファイル名でフィルタリング>
+ファイル名でフィルタリング
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%81%a7%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tree -P <span style=color:#e6db74>&#39;*.js&#39;</span>
+</code></pre></div><h3 id=除外する対象の名前を指定>
+除外する対象の名前を指定
+<a class=anchor href=#%e9%99%a4%e5%a4%96%e3%81%99%e3%82%8b%e5%af%be%e8%b1%a1%e3%81%ae%e5%90%8d%e5%89%8d%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tree -I <span style=color:#e6db74>&#39;*.log&#39;</span>
+</code></pre></div><h3 id=ディレクトリのみを表示>
+ディレクトリのみを表示
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%81%bf%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tree -d
+</code></pre></div><h2 id=ディレクトリの作成>
 ディレクトリの作成
 <a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e4%bd%9c%e6%88%90>#</a>
 </h2>
@@ -1479,6 +1519,15 @@ English
 <li><a href=#cp-コマンドのオプション><code>cp</code> コマンドのオプション</a></li>
 <li><a href=#ネットワーク上のホスト間のsshを利用したコピー>ネットワーク上のホスト間のSSHを利用したコピー</a></li>
 <li><a href=#scp-コマンドのオプション><code>scp</code> コマンドのオプション</a></li>
+</ul>
+</li>
+<li><a href=#ディレクトリとファイルの構成を表示>ディレクトリとファイルの構成を表示</a>
+<ul>
+<li><a href=#tree-コマンドのインストール-macos>tree コマンドのインストール (macOS)</a></li>
+<li><a href=#階層を指定>階層を指定</a></li>
+<li><a href=#ファイル名でフィルタリング>ファイル名でフィルタリング</a></li>
+<li><a href=#除外する対象の名前を指定>除外する対象の名前を指定</a></li>
+<li><a href=#ディレクトリのみを表示>ディレクトリのみを表示</a></li>
 </ul>
 </li>
 <li><a href=#ディレクトリの作成>ディレクトリの作成</a>
