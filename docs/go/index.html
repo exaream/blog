@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.9df0e7b800dc535f30aded90526a8bcd2f5e5c9042147d4969258889ecd43b20.js integrity="sha256-nfDnuADcU18wre2QUmqLzS9eXJBCFH1JaSWIiezUOyA=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.6be825e70d6e7680d939652851e02ba3f45f09a5919584a97295df46f6362d5f.js integrity="sha256-a+gl5w1udoDZOWUoUeAro/RfCaWRlYSpcpXfRvY2LV8=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -235,6 +235,7 @@ Menu
 <li><a href=#年月日時分秒ナノ秒を取得>年月日・時分秒・ナノ秒を取得</a></li>
 <li><a href=#年月日を取得>年月日を取得</a></li>
 <li><a href=#時分秒を取得>時分秒を取得</a></li>
+<li><a href=#unixタイム秒ミリ秒ナノ秒を取得>UNIXタイム・秒・ミリ秒・ナノ秒を取得</a></li>
 <li><a href=#曜日を日本語に変換>曜日を日本語に変換</a></li>
 </ul>
 </li>
@@ -2024,9 +2025,9 @@ go
 <a class=anchor href=#%e3%82%bf%e3%82%a4%e3%83%a0%e3%82%be%e3%83%bc%e3%83%b3%e3%82%92%e5%a4%89%e6%8f%9b>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>t</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Local</span>)
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>) <span style=color:#75715e>// 2021-01-02 03:04:05.000000006 +0900 JST
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>)     <span style=color:#75715e>// 2021-01-02 03:04:05.000000006 +0900 JST
 </span><span style=color:#75715e></span><span style=color:#a6e22e>utc</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>UTC</span>() 
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>utc</span>) <span style=color:#75715e>// 2021-01-01 18:04:05.000000006 +0000 UTC
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>utc</span>)   <span style=color:#75715e>// 2021-01-01 18:04:05.000000006 +0000 UTC
 </span><span style=color:#75715e></span><span style=color:#a6e22e>local</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>utc</span>.<span style=color:#a6e22e>Local</span>()
 <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>local</span>) <span style=color:#75715e>// 2021-01-02 03:04:05.000000006 +0900 JST
 </span></code></pre></div><h3 id=年月日時分秒ナノ秒を取得>
@@ -2034,34 +2035,42 @@ go
 <a class=anchor href=#%e5%b9%b4%e6%9c%88%e6%97%a5%e6%99%82%e5%88%86%e7%a7%92%e3%83%8a%e3%83%8e%e7%a7%92%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>t</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Local</span>)
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Year</span>())       <span style=color:#75715e>// -&gt; 2021
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Month</span>())      <span style=color:#75715e>// -&gt; January
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(int(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Month</span>())) <span style=color:#75715e>// -&gt; 1
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Day</span>())        <span style=color:#75715e>// -&gt; 2
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Weekday</span>())    <span style=color:#75715e>// -&gt; Saturday
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>YearDay</span>())    <span style=color:#75715e>// -&gt; 2
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Hour</span>())       <span style=color:#75715e>// -&gt; 3
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Minute</span>())     <span style=color:#75715e>// -&gt; 4
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Second</span>())     <span style=color:#75715e>// -&gt; 5
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Nanosecond</span>()) <span style=color:#75715e>// -&gt; 6
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Year</span>())       <span style=color:#75715e>// 2021
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Month</span>())      <span style=color:#75715e>// January
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(int(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Month</span>())) <span style=color:#75715e>// 1
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Day</span>())        <span style=color:#75715e>// 2
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Weekday</span>())    <span style=color:#75715e>// Saturday
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>YearDay</span>())    <span style=color:#75715e>// 2
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Hour</span>())       <span style=color:#75715e>// 3
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Minute</span>())     <span style=color:#75715e>// 4
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Second</span>())     <span style=color:#75715e>// 5
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Nanosecond</span>()) <span style=color:#75715e>// 6
 </span></code></pre></div><h3 id=年月日を取得>
 年月日を取得
 <a class=anchor href=#%e5%b9%b4%e6%9c%88%e6%97%a5%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>t</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Local</span>)
 <span style=color:#a6e22e>year</span>, <span style=color:#a6e22e>month</span>, <span style=color:#a6e22e>day</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Date</span>()
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>year</span>)       <span style=color:#75715e>// -&gt; 2021
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>month</span>)      <span style=color:#75715e>// -&gt; January
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>day</span>)        <span style=color:#75715e>// -&gt; 2
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>year</span>)  <span style=color:#75715e>// 2021
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>month</span>) <span style=color:#75715e>// January
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>day</span>)   <span style=color:#75715e>// 2
 </span></code></pre></div><h3 id=時分秒を取得>
 時分秒を取得
 <a class=anchor href=#%e6%99%82%e5%88%86%e7%a7%92%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>t</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Local</span>)
 <span style=color:#a6e22e>hour</span>, <span style=color:#a6e22e>min</span>, <span style=color:#a6e22e>sec</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Clock</span>()
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>hour</span>) <span style=color:#75715e>// -&gt; 3
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>min</span>)  <span style=color:#75715e>// -&gt; 4
-</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>sec</span>)  <span style=color:#75715e>// -&gt; 5
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>hour</span>) <span style=color:#75715e>// 3
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>min</span>)  <span style=color:#75715e>// 4
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>sec</span>)  <span style=color:#75715e>// 5
+</span></code></pre></div><h3 id=unixタイム秒ミリ秒ナノ秒を取得>
+UNIXタイム・秒・ミリ秒・ナノ秒を取得
+<a class=anchor href=#unix%e3%82%bf%e3%82%a4%e3%83%a0%e7%a7%92%e3%83%9f%e3%83%aa%e7%a7%92%e3%83%8a%e3%83%8e%e7%a7%92%e3%82%92%e5%8f%96%e5%be%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>t</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Local</span>)
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Unix</span>())                               <span style=color:#75715e>// 1609524245
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>UnixNano</span>() <span style=color:#f92672>/</span> int64(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Millisecond</span>)) <span style=color:#75715e>// 1609524245000
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>UnixNano</span>())                           <span style=color:#75715e>// 1609524245000000006
 </span></code></pre></div><h3 id=曜日を日本語に変換>
 曜日を日本語に変換
 <a class=anchor href=#%e6%9b%9c%e6%97%a5%e3%82%92%e6%97%a5%e6%9c%ac%e8%aa%9e%e3%81%ab%e5%a4%89%e6%8f%9b>#</a>
@@ -2352,6 +2361,7 @@ English
 <li><a href=#年月日時分秒ナノ秒を取得>年月日・時分秒・ナノ秒を取得</a></li>
 <li><a href=#年月日を取得>年月日を取得</a></li>
 <li><a href=#時分秒を取得>時分秒を取得</a></li>
+<li><a href=#unixタイム秒ミリ秒ナノ秒を取得>UNIXタイム・秒・ミリ秒・ナノ秒を取得</a></li>
 <li><a href=#曜日を日本語に変換>曜日を日本語に変換</a></li>
 </ul>
 </li>
