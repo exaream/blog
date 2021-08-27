@@ -1181,9 +1181,9 @@ fmt.Println(utc)   // 2021-01-02 03:04:05.000000006 +0000 UTC
 ### タイムゾーンを変換
 ```go
 t := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
-fmt.Println(t) // 2021-01-02 03:04:05.000000006 +0900 JST
+fmt.Println(t)     // 2021-01-02 03:04:05.000000006 +0900 JST
 utc := t.UTC() 
-fmt.Println(utc) // 2021-01-01 18:04:05.000000006 +0000 UTC
+fmt.Println(utc)   // 2021-01-01 18:04:05.000000006 +0000 UTC
 local := utc.Local()
 fmt.Println(local) // 2021-01-02 03:04:05.000000006 +0900 JST
 ```
@@ -1191,35 +1191,44 @@ fmt.Println(local) // 2021-01-02 03:04:05.000000006 +0900 JST
 ### 年月日・時分秒・ナノ秒を取得
 ```go
 t := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
-fmt.Println(t.Year())       // -> 2021
-fmt.Println(t.Month())      // -> January
-fmt.Println(int(t.Month())) // -> 1
-fmt.Println(t.Day())        // -> 2
-fmt.Println(t.Weekday())    // -> Saturday
-fmt.Println(t.YearDay())    // -> 2
-fmt.Println(t.Hour())       // -> 3
-fmt.Println(t.Minute())     // -> 4
-fmt.Println(t.Second())     // -> 5
-fmt.Println(t.Nanosecond()) // -> 6
+fmt.Println(t.Year())       // 2021
+fmt.Println(t.Month())      // January
+fmt.Println(int(t.Month())) // 1
+fmt.Println(t.Day())        // 2
+fmt.Println(t.Weekday())    // Saturday
+fmt.Println(t.YearDay())    // 2
+fmt.Println(t.Hour())       // 3
+fmt.Println(t.Minute())     // 4
+fmt.Println(t.Second())     // 5
+fmt.Println(t.Nanosecond()) // 6
 ```
 
 ### 年月日を取得
 ```go
 t := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
 year, month, day := t.Date()
-fmt.Println(year)       // -> 2021
-fmt.Println(month)      // -> January
-fmt.Println(day)        // -> 2
+fmt.Println(year)  // 2021
+fmt.Println(month) // January
+fmt.Println(day)   // 2
 ```
 
 ### 時分秒を取得
 ```go
 t := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
 hour, min, sec := t.Clock()
-fmt.Println(hour) // -> 3
-fmt.Println(min)  // -> 4
-fmt.Println(sec)  // -> 5
+fmt.Println(hour) // 3
+fmt.Println(min)  // 4
+fmt.Println(sec)  // 5
 ```
+
+### UNIXタイム・秒・ミリ秒・ナノ秒を取得
+```go
+t := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
+fmt.Println(t.Unix())                               // 1609524245
+fmt.Println(t.UnixNano() / int64(time.Millisecond)) // 1609524245000
+fmt.Println(t.UnixNano())                           // 1609524245000000006
+```
+
 ### 曜日を日本語に変換
 ```go
 weekdays := [...]string{"日", "月", "火", "水", "木", "金", "土"}
