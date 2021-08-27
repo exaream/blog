@@ -1161,6 +1161,74 @@ err := os.Rename("foo/bar/baz.txt", "foo/baz.txt")
 err := os.Chmod("foo.txt", 0644)
 ```
 
+## 日付・時刻
+
+
+### 現在日時を取得
+```go
+t := time.Now()
+fmt.Println(t) // 2021-08-27 23:44:43.784975 +0900 JST m=+0.000236593
+```
+
+### タイムゾーンを指定し日時を取得
+```go
+local := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
+fmt.Println(local) // 2021-01-02 03:04:05.000000006 +0900 JST
+utc := time.Date(2021, 1, 2, 3, 4, 5, 6, time.UTC)
+fmt.Println(utc)   // 2021-01-02 03:04:05.000000006 +0000 UTC
+```
+
+### タイムゾーンを変換
+```go
+t := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
+fmt.Println(t) // 2021-01-02 03:04:05.000000006 +0900 JST
+utc := t.UTC() 
+fmt.Println(utc) // 2021-01-01 18:04:05.000000006 +0000 UTC
+local := utc.Local()
+fmt.Println(local) // 2021-01-02 03:04:05.000000006 +0900 JST
+```
+
+### 年月日・時分秒・ナノ秒を取得
+```go
+t := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
+fmt.Println(t.Year())       // -> 2021
+fmt.Println(t.Month())      // -> January
+fmt.Println(int(t.Month())) // -> 1
+fmt.Println(t.Day())        // -> 2
+fmt.Println(t.Weekday())    // -> Saturday
+fmt.Println(t.YearDay())    // -> 2
+fmt.Println(t.Hour())       // -> 3
+fmt.Println(t.Minute())     // -> 4
+fmt.Println(t.Second())     // -> 5
+fmt.Println(t.Nanosecond()) // -> 6
+```
+
+### 年月日を取得
+```go
+t := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
+year, month, day := t.Date()
+fmt.Println(year)       // -> 2021
+fmt.Println(month)      // -> January
+fmt.Println(day)        // -> 2
+```
+
+### 時分秒を取得
+```go
+t := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
+hour, min, sec := t.Clock()
+fmt.Println(hour) // -> 3
+fmt.Println(min)  // -> 4
+fmt.Println(sec)  // -> 5
+```
+### 曜日を日本語に変換
+```go
+weekdays := [...]string{"日", "月", "火", "水", "木", "金", "土"}
+now := time.Now()
+weekday := now.Weekday()
+fmt.Println(weekday)           // =>"Tuesday"
+fmt.Println(weekdays[weekday]) // =>"火"
+```
+
 ## IPアドレス
 
 ### IPアドレスからホスト名を取得
