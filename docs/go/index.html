@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.6be825e70d6e7680d939652851e02ba3f45f09a5919584a97295df46f6362d5f.js integrity="sha256-a+gl5w1udoDZOWUoUeAro/RfCaWRlYSpcpXfRvY2LV8=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.61cb4499e7614a113d92555e4310d2237106c001dbf2539e17799824a568ef14.js integrity="sha256-YctEmedhShE9klVeQxDSI3EGwAHb8lOeF3mYJKVo7xQ=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -236,6 +236,11 @@ Menu
 <li><a href=#年月日を取得>年月日を取得</a></li>
 <li><a href=#時分秒を取得>時分秒を取得</a></li>
 <li><a href=#unixタイム秒ミリ秒ナノ秒を取得>UNIXタイム・秒・ミリ秒・ナノ秒を取得</a></li>
+<li><a href=#時分秒ミリ秒以下の切り捨て>時・分・秒・ミリ秒以下の切り捨て</a></li>
+<li><a href=#日時の追加単位を使用>日時の追加(単位を使用)</a></li>
+<li><a href=#日時の追加追加する年月日を指定>日時の追加(追加する年・月・日を指定)</a></li>
+<li><a href=#日時の前後比較>日時の前後比較</a></li>
+<li><a href=#日時の同値比較>日時の同値比較</a></li>
 <li><a href=#曜日を日本語に変換>曜日を日本語に変換</a></li>
 </ul>
 </li>
@@ -2071,6 +2076,56 @@ UNIXタイム・秒・ミリ秒・ナノ秒を取得
 <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Unix</span>())                               <span style=color:#75715e>// 1609524245
 </span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>UnixNano</span>() <span style=color:#f92672>/</span> int64(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Millisecond</span>)) <span style=color:#75715e>// 1609524245000
 </span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>UnixNano</span>())                           <span style=color:#75715e>// 1609524245000000006
+</span></code></pre></div><h3 id=時分秒ミリ秒以下の切り捨て>
+時・分・秒・ミリ秒以下の切り捨て
+<a class=anchor href=#%e6%99%82%e5%88%86%e7%a7%92%e3%83%9f%e3%83%aa%e7%a7%92%e4%bb%a5%e4%b8%8b%e3%81%ae%e5%88%87%e3%82%8a%e6%8d%a8%e3%81%a6>#</a>
+</h3>
+<p><code>Trancate()</code> での切り捨ては <code>UTC</code> で行われるとのこと</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>t</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>678900000</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>UTC</span>)
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>)                          <span style=color:#75715e>// 2021-01-02 03:04:05.6789 +0000 UTC (切り捨て前)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Truncate</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Hour</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>24</span>)) <span style=color:#75715e>// 2021-01-02 00:00:00 +0000 UTC (切り捨て 時間)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Truncate</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Hour</span>))      <span style=color:#75715e>// 2021-01-02 03:00:00 +0000 UTC (切り捨て 分)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Truncate</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Minute</span>))    <span style=color:#75715e>// 2021-01-02 03:04:05 +0000 UTC (切り捨て 秒)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Truncate</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Second</span>))    <span style=color:#75715e>// 2021-02-03 04:05:06 +0000 UTC (切り捨て ミリ秒以下)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>t</span> = <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>678900000</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Local</span>)
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Truncate</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Hour</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>24</span>)) <span style=color:#75715e>// 2021-01-01 09:00:00 +0900 JST (UTC で切り捨て済)
+</span></code></pre></div><h3 id=日時の追加単位を使用>
+日時の追加(単位を使用)
+<a class=anchor href=#%e6%97%a5%e6%99%82%e3%81%ae%e8%bf%bd%e5%8a%a0%e5%8d%98%e4%bd%8d%e3%82%92%e4%bd%bf%e7%94%a8>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>t1</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>678900000</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>UTC</span>)
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t1</span>)               <span style=color:#75715e>// 2021-01-02 03:04:05.6789 +0000 UTC
+</span><span style=color:#75715e></span><span style=color:#a6e22e>t2</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>t1</span>.<span style=color:#a6e22e>Add</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Minute</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>) <span style=color:#75715e>// 2分追加
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t2</span>)               <span style=color:#75715e>// 2021-01-02 03:06:05.6789 +0000 UTC
+</span></code></pre></div><h3 id=日時の追加追加する年月日を指定>
+日時の追加(追加する年・月・日を指定)
+<a class=anchor href=#%e6%97%a5%e6%99%82%e3%81%ae%e8%bf%bd%e5%8a%a0%e8%bf%bd%e5%8a%a0%e3%81%99%e3%82%8b%e5%b9%b4%e6%9c%88%e6%97%a5%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>t1</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>678900000</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>UTC</span>)
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t1</span>)           <span style=color:#75715e>// 2021-01-02 03:04:05.6789 +0000 UTC
+</span><span style=color:#75715e></span><span style=color:#a6e22e>t2</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>t1</span>.<span style=color:#a6e22e>AddDate</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>) <span style=color:#75715e>// 1年・2ヶ月・3日追加
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t2</span>)           <span style=color:#75715e>// 2022-03-05 03:04:05.6789 +0000 UTC
+</span></code></pre></div><h3 id=日時の前後比較>
+日時の前後比較
+<a class=anchor href=#%e6%97%a5%e6%99%82%e3%81%ae%e5%89%8d%e5%be%8c%e6%af%94%e8%bc%83>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// t1 &lt; t2
+</span><span style=color:#75715e></span><span style=color:#a6e22e>t1</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>678900000</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>UTC</span>)
+<span style=color:#a6e22e>t2</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>678910000</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>UTC</span>)
+
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t1</span>.<span style=color:#a6e22e>Before</span>(<span style=color:#a6e22e>t2</span>)) <span style=color:#75715e>// true
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t2</span>.<span style=color:#a6e22e>Before</span>(<span style=color:#a6e22e>t1</span>)) <span style=color:#75715e>// false
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t1</span>.<span style=color:#a6e22e>After</span>(<span style=color:#a6e22e>t2</span>))  <span style=color:#75715e>// fase
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t2</span>.<span style=color:#a6e22e>After</span>(<span style=color:#a6e22e>t1</span>))  <span style=color:#75715e>// true
+</span></code></pre></div><h3 id=日時の同値比較>
+日時の同値比較
+<a class=anchor href=#%e6%97%a5%e6%99%82%e3%81%ae%e5%90%8c%e5%80%a4%e6%af%94%e8%bc%83>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// t1 == t2
+</span><span style=color:#75715e></span><span style=color:#a6e22e>t1</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>678900000</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>UTC</span>)
+<span style=color:#a6e22e>t2</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Date</span>(<span style=color:#ae81ff>2021</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>678900000</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>UTC</span>)
+
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>t1</span>.<span style=color:#a6e22e>Equal</span>(<span style=color:#a6e22e>t2</span>)) <span style=color:#75715e>// true
 </span></code></pre></div><h3 id=曜日を日本語に変換>
 曜日を日本語に変換
 <a class=anchor href=#%e6%9b%9c%e6%97%a5%e3%82%92%e6%97%a5%e6%9c%ac%e8%aa%9e%e3%81%ab%e5%a4%89%e6%8f%9b>#</a>
@@ -2181,6 +2236,7 @@ References
 <li><a href=https://ashitani.jp/golangtips/tips_file.html>https://ashitani.jp/golangtips/tips_file.html</a></li>
 <li><a href=https://qiita.com/hnishi/items/a9217249d7832ed2c035>https://qiita.com/hnishi/items/a9217249d7832ed2c035</a></li>
 <li><a href=https://qiita.com/fetaro/items/31b02b940ce9ec579baf>https://qiita.com/fetaro/items/31b02b940ce9ec579baf</a></li>
+<li><a href=https://qiita.com/tchnkmr/items/f3c94abb3e3a47e993ab>https://qiita.com/tchnkmr/items/f3c94abb3e3a47e993ab</a></li>
 </ul>
 </article>
 <footer class=book-footer>
@@ -2362,6 +2418,11 @@ English
 <li><a href=#年月日を取得>年月日を取得</a></li>
 <li><a href=#時分秒を取得>時分秒を取得</a></li>
 <li><a href=#unixタイム秒ミリ秒ナノ秒を取得>UNIXタイム・秒・ミリ秒・ナノ秒を取得</a></li>
+<li><a href=#時分秒ミリ秒以下の切り捨て>時・分・秒・ミリ秒以下の切り捨て</a></li>
+<li><a href=#日時の追加単位を使用>日時の追加(単位を使用)</a></li>
+<li><a href=#日時の追加追加する年月日を指定>日時の追加(追加する年・月・日を指定)</a></li>
+<li><a href=#日時の前後比較>日時の前後比較</a></li>
+<li><a href=#日時の同値比較>日時の同値比較</a></li>
 <li><a href=#曜日を日本語に変換>曜日を日本語に変換</a></li>
 </ul>
 </li>
