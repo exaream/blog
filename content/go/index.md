@@ -1229,6 +1229,55 @@ fmt.Println(t.UnixNano() / int64(time.Millisecond)) // 1609524245000
 fmt.Println(t.UnixNano())                           // 1609524245000000006
 ```
 
+### 時・分・秒・ミリ秒以下の切り捨て
+```Trancate()``` での切り捨ては ```UTC``` で行われるとのこと
+```go
+t := time.Date(2021, 1, 2, 3, 4, 5, 678900000, time.UTC)
+fmt.Println(t)                          // 2021-01-02 03:04:05.6789 +0000 UTC (切り捨て前)
+fmt.Println(t.Truncate(time.Hour * 24)) // 2021-01-02 00:00:00 +0000 UTC (切り捨て 時間)
+fmt.Println(t.Truncate(time.Hour))      // 2021-01-02 03:00:00 +0000 UTC (切り捨て 分)
+fmt.Println(t.Truncate(time.Minute))    // 2021-01-02 03:04:05 +0000 UTC (切り捨て 秒)
+fmt.Println(t.Truncate(time.Second))    // 2021-02-03 04:05:06 +0000 UTC (切り捨て ミリ秒以下)
+t = time.Date(2021, 1, 2, 3, 4, 5, 678900000, time.Local)
+fmt.Println(t.Truncate(time.Hour * 24)) // 2021-01-01 09:00:00 +0900 JST (UTC で切り捨て済)
+```
+
+### 日時の追加(単位を使用)
+```go
+t1 := time.Date(2021, 1, 2, 3, 4, 5, 678900000, time.UTC)
+fmt.Println(t1)               // 2021-01-02 03:04:05.6789 +0000 UTC
+t2 := t1.Add(time.Minute * 2) // 2分追加
+fmt.Println(t2)               // 2021-01-02 03:06:05.6789 +0000 UTC
+```
+
+### 日時の追加(追加する年・月・日を指定)
+```go
+t1 := time.Date(2021, 1, 2, 3, 4, 5, 678900000, time.UTC)
+fmt.Println(t1)           // 2021-01-02 03:04:05.6789 +0000 UTC
+t2 := t1.AddDate(1, 2, 3) // 1年・2ヶ月・3日追加
+fmt.Println(t2)           // 2022-03-05 03:04:05.6789 +0000 UTC
+```
+
+### 日時の前後比較
+```go
+// t1 < t2
+t1 := time.Date(2021, 1, 2, 3, 4, 5, 678900000, time.UTC)
+t2 := time.Date(2021, 1, 2, 3, 4, 5, 678910000, time.UTC)
+
+fmt.Println(t1.Before(t2)) // true
+fmt.Println(t2.Before(t1)) // false
+fmt.Println(t1.After(t2))  // fase
+fmt.Println(t2.After(t1))  // true
+```
+
+### 日時の同値比較
+```go
+// t1 == t2
+t1 := time.Date(2021, 1, 2, 3, 4, 5, 678900000, time.UTC)
+t2 := time.Date(2021, 1, 2, 3, 4, 5, 678900000, time.UTC)
+
+fmt.Println(t1.Equal(t2)) // true
+```
 ### 曜日を日本語に変換
 ```go
 weekdays := [...]string{"日", "月", "火", "水", "木", "金", "土"}
@@ -1338,3 +1387,4 @@ println(n, ok) // ゼロ値と false を返却
 * https://ashitani.jp/golangtips/tips_file.html
 * https://qiita.com/hnishi/items/a9217249d7832ed2c035
 * https://qiita.com/fetaro/items/31b02b940ce9ec579baf
+* https://qiita.com/tchnkmr/items/f3c94abb3e3a47e993ab
