@@ -1278,6 +1278,14 @@ t2 := time.Date(2021, 1, 2, 3, 4, 5, 678900000, time.UTC)
 
 fmt.Println(t1.Equal(t2)) // true
 ```
+
+### 現在時刻までの経過時間を取得
+
+```go
+t := time.Date(2021, 1, 2, 3, 4, 5, 678900000, time.Local)
+d := time.Since(t) // or time.Now().Sub(t)
+fmt.Println(d) // 5800h26m17.806336s
+```
 ### 曜日を日本語に変換
 ```go
 weekdays := [...]string{"日", "月", "火", "水", "木", "金", "土"}
