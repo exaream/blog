@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.0f456b229b2101ad4080bddee3a7c94bb75844a704ae674ff9e9b30ac0377845.js integrity="sha256-D0VrIpshAa1AgL3e46fJS7dYRKcErmdP+emzCsA3eEU=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.98542b52f49f01174c17299a920adbbb88522031007193a322ed24c2fe9603a1.js integrity="sha256-mFQrUvSfARdMFymakgrbu4hSIDEAcZOjIu0kwv6WA6E=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -181,7 +181,20 @@ Menu
 <li><a href=#ファイルのタイムスタンプを変更>ファイルのタイムスタンプを変更</a></li>
 </ul>
 </li>
-<li><a href=#ファイル操作>ファイル操作</a>
+<li><a href=#ファイル内容の表示>ファイル内容の表示</a>
+<ul>
+<li><a href=#ファイル内容を1画面に表示編集なし>ファイル内容を1画面に表示(編集なし)</a></li>
+<li><a href=#ファイル内容表示時のショートカット>ファイル内容表示時のショートカット</a></li>
+</ul>
+</li>
+<li><a href=#ファイル内容の編集>ファイル内容の編集</a>
+<ul>
+<li><a href=#入力モードへの切り替え>入力モードへの切り替え</a></li>
+<li><a href=#入力モードからコマンドモードへの切り替え>入力モードからコマンドモードへの切り替え</a></li>
+<li><a href=#コマンドモードの操作>コマンドモードの操作</a></li>
+</ul>
+</li>
+<li><a href=#ファイル内容の行数並べ替え重複>ファイル内容の行数・並べ替え・重複</a>
 <ul>
 <li><a href=#ファイルの行数>ファイルの行数</a></li>
 <li><a href=#ファイル内容の並べ替え>ファイル内容の並べ替え</a></li>
@@ -1245,9 +1258,187 @@ tree コマンドのバージョンを確認
 </tr>
 </tbody>
 </table>
-<h2 id=ファイル操作>
-ファイル操作
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e6%93%8d%e4%bd%9c>#</a>
+<h2 id=ファイル内容の表示>
+ファイル内容の表示
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e8%a1%a8%e7%a4%ba>#</a>
+</h2>
+<h3 id=ファイル内容を1画面に表示編集なし>
+ファイル内容を1画面に表示(編集なし)
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%82%921%e7%94%bb%e9%9d%a2%e3%81%ab%e8%a1%a8%e7%a4%ba%e7%b7%a8%e9%9b%86%e3%81%aa%e3%81%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>less sample.txt
+</code></pre></div><p>行番号も表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>less -N sample.txt
+</code></pre></div><h3 id=ファイル内容表示時のショートカット>
+ファイル内容表示時のショートカット
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e8%a1%a8%e7%a4%ba%e6%99%82%e3%81%ae%e3%82%b7%e3%83%a7%e3%83%bc%e3%83%88%e3%82%ab%e3%83%83%e3%83%88>#</a>
+</h3>
+<p><code>less</code> コマンド</p>
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d</code></td>
+<td>半画面前進(下へ移動)</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>半画面後退(上へ移動)</td>
+</tr>
+<tr>
+<td><code>g</code></td>
+<td>先頭行へ移動</td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>最終行へ移動</td>
+</tr>
+<tr>
+<td><code>v</code></td>
+<td><code>vi</code> コマンドで編集</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>終了</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>前方(下方向)へ検索 (n 下方向, N 上方向)</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>後方(上方向)へ検索 (n 下方向, N 上方向)</td>
+</tr>
+</tbody>
+</table>
+<h2 id=ファイル内容の編集>
+ファイル内容の編集
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e7%b7%a8%e9%9b%86>#</a>
+</h2>
+<p>ファイルの作成と編集
+<code>vi sample.txt</code></p>
+<h3 id=入力モードへの切り替え>
+入力モードへの切り替え
+<a class=anchor href=#%e5%85%a5%e5%8a%9b%e3%83%a2%e3%83%bc%e3%83%89%e3%81%b8%e3%81%ae%e5%88%87%e3%82%8a%e6%9b%bf%e3%81%88>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>i</code></td>
+<td>現在のカーソル位置に入力</td>
+</tr>
+<tr>
+<td><code>A</code></td>
+<td>現在のカーソル位置の行末に入力</td>
+</tr>
+<tr>
+<td><code>O</code></td>
+<td>1つ上の行に文字を入力</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>1つ下の行に文字を入力</td>
+</tr>
+</tbody>
+</table>
+<h3 id=入力モードからコマンドモードへの切り替え>
+入力モードからコマンドモードへの切り替え
+<a class=anchor href=#%e5%85%a5%e5%8a%9b%e3%83%a2%e3%83%bc%e3%83%89%e3%81%8b%e3%82%89%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%a2%e3%83%bc%e3%83%89%e3%81%b8%e3%81%ae%e5%88%87%e3%82%8a%e6%9b%bf%e3%81%88>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>esc</code></td>
+<td>入力モードからコマンドモードへ切り替え</td>
+</tr>
+</tbody>
+</table>
+<h3 id=コマンドモードの操作>
+コマンドモードの操作
+<a class=anchor href=#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%a2%e3%83%bc%e3%83%89%e3%81%ae%e6%93%8d%e4%bd%9c>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x</code></td>
+<td>1文字削除</td>
+</tr>
+<tr>
+<td><code>dd</code></td>
+<td>1行削除</td>
+</tr>
+<tr>
+<td><code>d100d</code></td>
+<td>100行削除</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>行コピー</td>
+</tr>
+<tr>
+<td><code>y100y</code></td>
+<td>100行コピー</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>コピーした行の貼り付け</td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>最終行へ移動</td>
+</tr>
+<tr>
+<td><code>100G</code></td>
+<td>100行目へ移動</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>前方(下方向)へ検索</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>後方(上方向)へ検索</td>
+</tr>
+<tr>
+<td><code>:q!</code></td>
+<td>ファイルを保存せずに終了(閉じる)</td>
+</tr>
+<tr>
+<td><code>:wq</code></td>
+<td>ファイルを保存して終了(閉じる)</td>
+</tr>
+<tr>
+<td><code>:w</code></td>
+<td>ファイルを保存のみ(viは終了しない状態)</td>
+</tr>
+</tbody>
+</table>
+<h2 id=ファイル内容の行数並べ替え重複>
+ファイル内容の行数・並べ替え・重複
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e8%a1%8c%e6%95%b0%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e9%87%8d%e8%a4%87>#</a>
 </h2>
 <h3 id=ファイルの行数>
 ファイルの行数
@@ -1616,7 +1807,20 @@ English
 <li><a href=#ファイルのタイムスタンプを変更>ファイルのタイムスタンプを変更</a></li>
 </ul>
 </li>
-<li><a href=#ファイル操作>ファイル操作</a>
+<li><a href=#ファイル内容の表示>ファイル内容の表示</a>
+<ul>
+<li><a href=#ファイル内容を1画面に表示編集なし>ファイル内容を1画面に表示(編集なし)</a></li>
+<li><a href=#ファイル内容表示時のショートカット>ファイル内容表示時のショートカット</a></li>
+</ul>
+</li>
+<li><a href=#ファイル内容の編集>ファイル内容の編集</a>
+<ul>
+<li><a href=#入力モードへの切り替え>入力モードへの切り替え</a></li>
+<li><a href=#入力モードからコマンドモードへの切り替え>入力モードからコマンドモードへの切り替え</a></li>
+<li><a href=#コマンドモードの操作>コマンドモードの操作</a></li>
+</ul>
+</li>
+<li><a href=#ファイル内容の行数並べ替え重複>ファイル内容の行数・並べ替え・重複</a>
 <ul>
 <li><a href=#ファイルの行数>ファイルの行数</a></li>
 <li><a href=#ファイル内容の並べ替え>ファイル内容の並べ替え</a></li>
