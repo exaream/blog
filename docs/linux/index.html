@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.98542b52f49f01174c17299a920adbbb88522031007193a322ed24c2fe9603a1.js integrity="sha256-mFQrUvSfARdMFymakgrbu4hSIDEAcZOjIu0kwv6WA6E=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.aa0b0e407ef9828cd8ed9b09d87dd6e506e300faf058590082841b15cf869f66.js integrity="sha256-qgsOQH75gozY7ZsJ2H3W5QbjAPrwWFkAgoQbFc+Gn2Y=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -146,6 +146,15 @@ Menu
 <li><a href=#複数のファイルを移動>複数のファイルを移動</a></li>
 <li><a href=#ファイルの名称を変更リネーム>ファイルの名称を変更(リネーム)</a></li>
 <li><a href=#mv-コマンドのオプション><code>mv</code> コマンドのオプション</a></li>
+</ul>
+</li>
+<li><a href=#削除>削除</a>
+<ul>
+<li><a href=#1ファイルを削除>1ファイルを削除</a></li>
+<li><a href=#複数ファイルを削除>複数ファイルを削除</a></li>
+<li><a href=#カレントディレクトリの全ファイルを確認しながら削除>カレントディレクトリの全ファイルを確認しながら削除</a></li>
+<li><a href=#rm-コマンドのオプション><code>rm</code> コマンドのオプション</a></li>
+<li><a href=#空のディレクトリを削除>空のディレクトリを削除</a></li>
 </ul>
 </li>
 <li><a href=#コピー>コピー</a>
@@ -654,7 +663,7 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 </code></pre></div><p>複数のパターンを指定</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>grep -e 検索したい文字列1 -e 検索したい文字列2 検索したいテキストファイル
 </code></pre></div><p>指定したディレクトリ配下を再帰的に検索, 検索結果に行番号を表示</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>grep -rn -e <span style=color:#e6db74>&#39;pattern&#39;</span> /target/dir/
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>grep -rn -e <span style=color:#e6db74>&#39;pattern&#39;</span> /dir/
 </code></pre></div><h3 id=grep-コマンドのオプション>
 <code>grep</code> コマンドのオプション
 <a class=anchor href=#grep-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
@@ -974,7 +983,81 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 </tr>
 </tbody>
 </table>
-<h2 id=コピー>
+<h2 id=削除>
+削除
+<a class=anchor href=#%e5%89%8a%e9%99%a4>#</a>
+</h2>
+<h3 id=1ファイルを削除>
+1ファイルを削除
+<a class=anchor href=#1%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e5%89%8a%e9%99%a4>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ rm sample.txt
+</code></pre></div><h3 id=複数ファイルを削除>
+複数ファイルを削除
+<a class=anchor href=#%e8%a4%87%e6%95%b0%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e5%89%8a%e9%99%a4>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ rm sample-1.txt sample-2.txt sample-3.txt
+</code></pre></div><h3 id=カレントディレクトリの全ファイルを確認しながら削除>
+カレントディレクトリの全ファイルを確認しながら削除
+<a class=anchor href=#%e3%82%ab%e3%83%ac%e3%83%b3%e3%83%88%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e5%85%a8%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%97%e3%81%aa%e3%81%8c%e3%82%89%e5%89%8a%e9%99%a4>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ rm -i *
+</code></pre></div><h3 id=rm-コマンドのオプション>
+<code>rm</code> コマンドのオプション
+<a class=anchor href=#rm-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-f</code></td>
+<td><code>--force</code></td>
+<td>削除前の確認なし(指定したファイルが存在しない場合もエラー表示なし)</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td><code>--interactive</code></td>
+<td>削除前に確認</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td><code>--verbose</code></td>
+<td>経過を表示</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td><code>--directory</code></td>
+<td><code>unlink</code> でディレクトリを削除</td>
+</tr>
+<tr>
+<td><code>-r</code>,<code>-R</code></td>
+<td><code>--recursive</code></td>
+<td>ディレクトリを再帰的に削除(ファイルを含む)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--preserve-root</code></td>
+<td><code>/</code> の削除なし (<code>/</code> を特別なものとして扱う, デフォルト)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--no-preserve-root</code></td>
+<td><code>/</code> の削除あり (<code>/</code> を特別なものとして扱わない)</td>
+</tr>
+</tbody>
+</table>
+<h3 id=空のディレクトリを削除>
+空のディレクトリを削除
+<a class=anchor href=#%e7%a9%ba%e3%81%ae%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e5%89%8a%e9%99%a4>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ rmdir ./dir/
+</code></pre></div><h2 id=コピー>
 コピー
 <a class=anchor href=#%e3%82%b3%e3%83%94%e3%83%bc>#</a>
 </h2>
@@ -1772,6 +1855,15 @@ English
 <li><a href=#複数のファイルを移動>複数のファイルを移動</a></li>
 <li><a href=#ファイルの名称を変更リネーム>ファイルの名称を変更(リネーム)</a></li>
 <li><a href=#mv-コマンドのオプション><code>mv</code> コマンドのオプション</a></li>
+</ul>
+</li>
+<li><a href=#削除>削除</a>
+<ul>
+<li><a href=#1ファイルを削除>1ファイルを削除</a></li>
+<li><a href=#複数ファイルを削除>複数ファイルを削除</a></li>
+<li><a href=#カレントディレクトリの全ファイルを確認しながら削除>カレントディレクトリの全ファイルを確認しながら削除</a></li>
+<li><a href=#rm-コマンドのオプション><code>rm</code> コマンドのオプション</a></li>
+<li><a href=#空のディレクトリを削除>空のディレクトリを削除</a></li>
 </ul>
 </li>
 <li><a href=#コピー>コピー</a>
