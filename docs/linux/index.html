@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.aa0b0e407ef9828cd8ed9b09d87dd6e506e300faf058590082841b15cf869f66.js integrity="sha256-qgsOQH75gozY7ZsJ2H3W5QbjAPrwWFkAgoQbFc+Gn2Y=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.736a655a0768dea9e9ef69b0d908ac3e06e59335f424221a5122157df7252fb8.js integrity="sha256-c2plWgdo3qnp72mw2QisPgblkzX0JCIaUSIVffclL7g=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -154,7 +154,11 @@ Menu
 <li><a href=#複数ファイルを削除>複数ファイルを削除</a></li>
 <li><a href=#カレントディレクトリの全ファイルを確認しながら削除>カレントディレクトリの全ファイルを確認しながら削除</a></li>
 <li><a href=#rm-コマンドのオプション><code>rm</code> コマンドのオプション</a></li>
-<li><a href=#空のディレクトリを削除>空のディレクトリを削除</a></li>
+</ul>
+</li>
+<li><a href=#空ディレクトリを削除>空ディレクトリを削除</a>
+<ul>
+<li><a href=#rmdir-コマンドの主なオプション><code>rmdir</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#コピー>コピー</a>
@@ -1052,12 +1056,44 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 </tr>
 </tbody>
 </table>
-<h3 id=空のディレクトリを削除>
-空のディレクトリを削除
-<a class=anchor href=#%e7%a9%ba%e3%81%ae%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e5%89%8a%e9%99%a4>#</a>
+<h2 id=空ディレクトリを削除>
+空ディレクトリを削除
+<a class=anchor href=#%e7%a9%ba%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e5%89%8a%e9%99%a4>#</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ rmdir dir
+</code></pre></div><p>多階層の空ディレクトリを削除</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ rmdir -p dir1/dir2/dir3
+</code></pre></div><h3 id=rmdir-コマンドの主なオプション>
+<code>rmdir</code> コマンドの主なオプション
+<a class=anchor href=#rmdir-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ rmdir ./dir/
-</code></pre></div><h2 id=コピー>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>--ignore-fail-on-non-empty</code></td>
+<td>空ディレクトリでない場合のエラーのみ無視(エラーメッセージの表示なし)</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td><code>--parents</code></td>
+<td>必要に応じて親ディレクトリも削除</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td><code>--verbose</code></td>
+<td>経過を表示</td>
+</tr>
+</tbody>
+</table>
+<h2 id=コピー>
 コピー
 <a class=anchor href=#%e3%82%b3%e3%83%94%e3%83%bc>#</a>
 </h2>
@@ -1863,7 +1899,11 @@ English
 <li><a href=#複数ファイルを削除>複数ファイルを削除</a></li>
 <li><a href=#カレントディレクトリの全ファイルを確認しながら削除>カレントディレクトリの全ファイルを確認しながら削除</a></li>
 <li><a href=#rm-コマンドのオプション><code>rm</code> コマンドのオプション</a></li>
-<li><a href=#空のディレクトリを削除>空のディレクトリを削除</a></li>
+</ul>
+</li>
+<li><a href=#空ディレクトリを削除>空ディレクトリを削除</a>
+<ul>
+<li><a href=#rmdir-コマンドの主なオプション><code>rmdir</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#コピー>コピー</a>
