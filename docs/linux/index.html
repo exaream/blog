@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.d9067741a1ed5901bb23dcc5524fed86a3713617a868667c1adb60ddcb900a9a.js integrity="sha256-2QZ3QaHtWQG7I9zFUk/thqNxNheoaGZ8Gttg3cuQCpo=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.5a0bf4dccedc2fdd6242307fa79c7980822acab64e4f82cef8eb8c6dc1515cea.js integrity="sha256-Wgv03M7cL91iQjB/p5x5gIIqyrZOT4LO+OuMbcFRXOo=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -122,22 +122,22 @@ Menu
 </li>
 <li><a href=#日付時刻>日付・時刻</a>
 <ul>
-<li><a href=#date-コマンドのオプション><code>date</code> コマンドのオプション</a></li>
+<li><a href=#date-コマンドの主なオプション><code>date</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#検索>検索</a>
 <ul>
 <li><a href=#grep-コマンドの使用方法><code>grep</code> コマンドの使用方法</a></li>
-<li><a href=#grep-コマンドのオプション><code>grep</code> コマンドのオプション</a></li>
+<li><a href=#grep-コマンドの主なオプション><code>grep</code> コマンドの主なオプション</a></li>
 <li><a href=#タイムスタンプでの検索>タイムスタンプでの検索</a></li>
-<li><a href=#find-コマンドのオプション><code>find</code> コマンドのオプション</a></li>
+<li><a href=#find-コマンドの主なオプション><code>find</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#一覧表示>一覧表示</a>
 <ul>
 <li><a href=#タイムスタンプ降順で一覧表示隠しファイル含む>タイムスタンプ降順で一覧表示(隠しファイル含む)</a></li>
 <li><a href=#タイムスタンプ昇順で一覧表示隠しファイル含む>タイムスタンプ昇順で一覧表示(隠しファイル含む)</a></li>
-<li><a href=#ls-コマンドのオプション><code>ls</code> コマンドのオプション</a></li>
+<li><a href=#ls-コマンドの主なオプション><code>ls</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#移動名称変更>移動・名称変更</a>
@@ -145,7 +145,7 @@ Menu
 <li><a href=#1つのファイルを移動>1つのファイルを移動</a></li>
 <li><a href=#複数のファイルを移動>複数のファイルを移動</a></li>
 <li><a href=#ファイルの名称を変更リネーム>ファイルの名称を変更(リネーム)</a></li>
-<li><a href=#mv-コマンドのオプション><code>mv</code> コマンドのオプション</a></li>
+<li><a href=#mv-コマンドの主なオプション><code>mv</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#削除>削除</a>
@@ -153,7 +153,7 @@ Menu
 <li><a href=#1ファイルを削除>1ファイルを削除</a></li>
 <li><a href=#複数ファイルを削除>複数ファイルを削除</a></li>
 <li><a href=#カレントディレクトリの全ファイルを確認しながら削除>カレントディレクトリの全ファイルを確認しながら削除</a></li>
-<li><a href=#rm-コマンドのオプション><code>rm</code> コマンドのオプション</a></li>
+<li><a href=#rm-コマンドの主なオプション><code>rm</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#空ディレクトリを削除>空ディレクトリを削除</a>
@@ -166,9 +166,9 @@ Menu
 <li><a href=#ファイルをコピー>ファイルをコピー</a></li>
 <li><a href=#ディレクトリごとファイルをコピー>ディレクトリごとファイルをコピー</a></li>
 <li><a href=#ファイルをコピーする際にバックアップを作成>ファイルをコピーする際にバックアップを作成</a></li>
-<li><a href=#cp-コマンドのオプション><code>cp</code> コマンドのオプション</a></li>
+<li><a href=#cp-コマンドの主なオプション><code>cp</code> コマンドの主なオプション</a></li>
 <li><a href=#ネットワーク上のホスト間のsshを利用したコピー>ネットワーク上のホスト間のSSHを利用したコピー</a></li>
-<li><a href=#scp-コマンドのオプション><code>scp</code> コマンドのオプション</a></li>
+<li><a href=#scp-コマンドの主なオプション><code>scp</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#ディレクトリとファイルの構成を表示>ディレクトリとファイルの構成を表示</a>
@@ -179,14 +179,17 @@ Menu
 <li><a href=#ファイル名のパターンを指定>ファイル名のパターンを指定</a></li>
 <li><a href=#除外するファイル名のパターンを指定>除外するファイル名のパターンを指定</a></li>
 <li><a href=#ディレクトリのみを表示>ディレクトリのみを表示</a></li>
-<li><a href=#tree-コマンドのオプション><code>tree</code> コマンドのオプション</a></li>
+<li><a href=#tree-コマンドの主なオプション><code>tree</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#ln-ディレクトリやファイルのシンボリックリンクを作成><code>ln</code> ディレクトリやファイルのシンボリックリンクを作成</a>
+<li><a href=#ln-ディレクトリやファイルのリンクを作成><code>ln</code> ディレクトリやファイルのリンクを作成</a>
 <ul>
+<li><a href=#ハードリンクとシンボリックリンク>ハードリンクとシンボリックリンク</a></li>
 <li><a href=#ディレクトリのシンボリックリンクを作成>ディレクトリのシンボリックリンクを作成</a></li>
 <li><a href=#ファイルのシンボリックリンクを作成>ファイルのシンボリックリンクを作成</a></li>
 <li><a href=#指定したディレクトリ内にシンボリックリンクを作成>指定したディレクトリ内にシンボリックリンクを作成</a></li>
+<li><a href=#ディレクトリのハードリンクを作成>ディレクトリのハードリンクを作成</a></li>
+<li><a href=#ファイルのハードリンクを作成>ファイルのハードリンクを作成</a></li>
 <li><a href=#ln-コマンドの主なオプション><code>ln</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
@@ -555,9 +558,9 @@ vim 内部で使用される文字コードを確認
 YESTERDAY<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>date <span style=color:#e6db74>&#39;+%Y%m%d&#39;</span> --date <span style=color:#e6db74>&#39;-1 day&#39;</span><span style=color:#e6db74>`</span>
 echo <span style=color:#e6db74>${</span>TOMORROW<span style=color:#e6db74>}</span>
 echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</span>
-</code></pre></div><h3 id=date-コマンドのオプション>
-<code>date</code> コマンドのオプション
-<a class=anchor href=#date-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</code></pre></div><h3 id=date-コマンドの主なオプション>
+<code>date</code> コマンドの主なオプション
+<a class=anchor href=#date-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
@@ -676,9 +679,9 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>grep -e 検索したい文字列1 -e 検索したい文字列2 検索したいテキストファイル
 </code></pre></div><p>指定したディレクトリ配下を再帰的に検索, 検索結果に行番号を表示</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>grep -rn -e <span style=color:#e6db74>&#39;pattern&#39;</span> /dir/
-</code></pre></div><h3 id=grep-コマンドのオプション>
-<code>grep</code> コマンドのオプション
-<a class=anchor href=#grep-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</code></pre></div><h3 id=grep-コマンドの主なオプション>
+<code>grep</code> コマンドの主なオプション
+<a class=anchor href=#grep-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
@@ -837,9 +840,9 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>find ./ -mtime +1
 </code></pre></div><p>e.g) 特定のディレクトリ内の30日以前のCSV拡張子のファイルを削除</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>find ./ -type f -name <span style=color:#e6db74>&#39;*.csv&#39;</span> -mtime +30 | xargs rm -f
-</code></pre></div><h3 id=find-コマンドのオプション>
-<code>find</code> コマンドのオプション
-<a class=anchor href=#find-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</code></pre></div><h3 id=find-コマンドの主なオプション>
+<code>find</code> コマンドの主なオプション
+<a class=anchor href=#find-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
@@ -893,9 +896,9 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 <a class=anchor href=#%e3%82%bf%e3%82%a4%e3%83%a0%e3%82%b9%e3%82%bf%e3%83%b3%e3%83%97%e6%98%87%e9%a0%86%e3%81%a7%e4%b8%80%e8%a6%a7%e8%a1%a8%e7%a4%ba%e9%9a%a0%e3%81%97%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%ab%e3%82%80>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ls -altr
-</code></pre></div><h3 id=ls-コマンドのオプション>
-<code>ls</code> コマンドのオプション
-<a class=anchor href=#ls-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</code></pre></div><h3 id=ls-コマンドの主なオプション>
+<code>ls</code> コマンドの主なオプション
+<a class=anchor href=#ls-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
@@ -950,9 +953,9 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 </h3>
 <p>ファイル <code>before.txt</code> を <code>after.txt</code> に変更</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>mv before.txt after.txt
-</code></pre></div><h3 id=mv-コマンドのオプション>
-<code>mv</code> コマンドのオプション
-<a class=anchor href=#mv-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</code></pre></div><h3 id=mv-コマンドの主なオプション>
+<code>mv</code> コマンドの主なオプション
+<a class=anchor href=#mv-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
@@ -1014,9 +1017,9 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 <a class=anchor href=#%e3%82%ab%e3%83%ac%e3%83%b3%e3%83%88%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e5%85%a8%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%97%e3%81%aa%e3%81%8c%e3%82%89%e5%89%8a%e9%99%a4>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ rm -i *
-</code></pre></div><h3 id=rm-コマンドのオプション>
-<code>rm</code> コマンドのオプション
-<a class=anchor href=#rm-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</code></pre></div><h3 id=rm-コマンドの主なオプション>
+<code>rm</code> コマンドの主なオプション
+<a class=anchor href=#rm-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
@@ -1121,9 +1124,9 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e3%82%b3%e3%83%94%e3%83%bc%e3%81%99%e3%82%8b%e9%9a%9b%e3%81%ab%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%82%92%e4%bd%9c%e6%88%90>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cp -b --suffix<span style=color:#f92672>=</span>_<span style=color:#66d9ef>$(</span>date +%Y%m%d%H%M%S<span style=color:#66d9ef>)</span> original.txt copy.txt
-</code></pre></div><h3 id=cp-コマンドのオプション>
-<code>cp</code> コマンドのオプション
-<a class=anchor href=#cp-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</code></pre></div><h3 id=cp-コマンドの主なオプション>
+<code>cp</code> コマンドの主なオプション
+<a class=anchor href=#cp-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
@@ -1181,9 +1184,9 @@ echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</sp
 <a class=anchor href=#%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e4%b8%8a%e3%81%ae%e3%83%9b%e3%82%b9%e3%83%88%e9%96%93%e3%81%aessh%e3%82%92%e5%88%a9%e7%94%a8%e3%81%97%e3%81%9f%e3%82%b3%e3%83%94%e3%83%bc>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>scp <span style=color:#f92672>[</span>option<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>転送元ユーザー名@<span style=color:#f92672>][</span>転送元ホスト名:<span style=color:#f92672>]</span>転送元ファイルパス 転送先ユーザ名@転送先ホスト名:転送先パス
-</code></pre></div><h3 id=scp-コマンドのオプション>
-<code>scp</code> コマンドのオプション
-<a class=anchor href=#scp-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</code></pre></div><h3 id=scp-コマンドの主なオプション>
+<code>scp</code> コマンドの主なオプション
+<a class=anchor href=#scp-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
@@ -1258,9 +1261,9 @@ tree コマンドのバージョンを確認
 <a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%81%bf%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tree -d
-</code></pre></div><h3 id=tree-コマンドのオプション>
-<code>tree</code> コマンドのオプション
-<a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</code></pre></div><h3 id=tree-コマンドの主なオプション>
+<code>tree</code> コマンドの主なオプション
+<a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
@@ -1323,10 +1326,18 @@ tree コマンドのバージョンを確認
 </tr>
 </tbody>
 </table>
-<h2 id=ln-ディレクトリやファイルのシンボリックリンクを作成>
-<code>ln</code> ディレクトリやファイルのシンボリックリンクを作成
-<a class=anchor href=#ln-%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%84%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%aa%e3%83%83%e3%82%af%e3%83%aa%e3%83%b3%e3%82%af%e3%82%92%e4%bd%9c%e6%88%90>#</a>
+<h2 id=ln-ディレクトリやファイルのリンクを作成>
+<code>ln</code> ディレクトリやファイルのリンクを作成
+<a class=anchor href=#ln-%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%84%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%b3%e3%82%af%e3%82%92%e4%bd%9c%e6%88%90>#</a>
 </h2>
+<h3 id=ハードリンクとシンボリックリンク>
+ハードリンクとシンボリックリンク
+<a class=anchor href=#%e3%83%8f%e3%83%bc%e3%83%89%e3%83%aa%e3%83%b3%e3%82%af%e3%81%a8%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%aa%e3%83%83%e3%82%af%e3%83%aa%e3%83%b3%e3%82%af>#</a>
+</h3>
+<ul>
+<li>シンボリックリンクでファイルの「別名」なら、ハードリンクはファイルの「本名」。</li>
+<li>ハードリンクの場合、元ファイルもリンクもどちらも「本名」。両者は同等。</li>
+</ul>
 <h3 id=ディレクトリのシンボリックリンクを作成>
 ディレクトリのシンボリックリンクを作成
 <a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%aa%e3%83%83%e3%82%af%e3%83%aa%e3%83%b3%e3%82%af%e3%82%92%e4%bd%9c%e6%88%90>#</a>
@@ -1342,24 +1353,96 @@ tree コマンドのバージョンを確認
 <a class=anchor href=#%e6%8c%87%e5%ae%9a%e3%81%97%e3%81%9f%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e5%86%85%e3%81%ab%e3%82%b7%e3%83%b3%e3%83%9c%e3%83%aa%e3%83%83%e3%82%af%e3%83%aa%e3%83%b3%e3%82%af%e3%82%92%e4%bd%9c%e6%88%90>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ln -s ファイル1 ファイル2・・・ ディレクトリ名
+</code></pre></div><h3 id=ディレクトリのハードリンクを作成>
+ディレクトリのハードリンクを作成
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%83%8f%e3%83%bc%e3%83%89%e3%83%aa%e3%83%b3%e3%82%af%e3%82%92%e4%bd%9c%e6%88%90>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ln ディレクトリ名 リンク名
+</code></pre></div><h3 id=ファイルのハードリンクを作成>
+ファイルのハードリンクを作成
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%8f%e3%83%bc%e3%83%89%e3%83%aa%e3%83%b3%e3%82%af%e3%82%92%e4%bd%9c%e6%88%90>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ln ファイル名 リンク名
 </code></pre></div><h3 id=ln-コマンドの主なオプション>
 <code>ln</code> コマンドの主なオプション
 <a class=anchor href=#ln-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
-<p>|option|option|description|
-|-s|&ndash;symbolic|ハードリンクの代わりにシンボリックリンクを作成|
-|-d,-F|&ndash;directory|ディレクトリのハードリンクを作成(スーパーユーザのみ)|
-|-f|&ndash;force|リンクファイルと同名のファイルがある場合も強制的に上書き|
-|-i|&ndash;interactive|上書きする場合に確認|
-|-n|&ndash;no-dereference|リンク作成場所として指定したディレクトリがシンボリックリンクだった場合、参照先にリンクを作成するのではなく、シンボリックリンクそのものを置き換え(-fと組み合わせて使用)|
-|-L|&ndash;logical|対象がシンボリックリンクの場合リンクを巡る|
-|-P|&ndash;physical|シンボリック自体のハードリンクを作成|
-|-r|&ndash;relative|相対パスのシンボリックリンクを作成|
-|-T|&ndash;no-target-directory|リンク先を常に通常ファイルとして扱う|
-|-t ディレクトリ名|&ndash;target-directory=ディレクトリ名|指定したディレクトリにリンクを作成|
-|-b|&ndash;backup=方法|上書きされるバックアップを作成|
-|-S 接尾時|&ndash;suffix=接尾辞|バックアップファイル作成時にファイル末尾に付与する文字を指定(未指定の場合は ~ または環境変数 SIMPLE_BACKUP_SUFFIX)|
-|-v|&ndash;verbose|経過を表示|</p>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-s</code></td>
+<td><code>--symbolic</code></td>
+<td>ハードリンクの代わりにシンボリックリンクを作成</td>
+</tr>
+<tr>
+<td><code>-d</code>,<code>-F</code></td>
+<td><code>--directory</code></td>
+<td>ディレクトリのハードリンクを作成(スーパーユーザのみ)</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td><code>--force</code></td>
+<td>リンクファイルと同名のファイルがある場合も強制的に上書き</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td><code>--interactive</code></td>
+<td>上書きする場合に確認</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td><code>--no-dereference</code></td>
+<td>リンク作成場所として指定したディレクトリがシンボリックリンクだった場合、参照先にリンクを作成するのではなく、シンボリックリンクそのものを置き換え(-fと組み合わせて使用)</td>
+</tr>
+<tr>
+<td><code>-L</code></td>
+<td><code>--logical</code></td>
+<td>対象がシンボリックリンクの場合リンクを巡る</td>
+</tr>
+<tr>
+<td><code>-P</code></td>
+<td><code>--physical</code></td>
+<td>シンボリック自体のハードリンクを作成</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td><code>--relative</code></td>
+<td>相対パスのシンボリックリンクを作成</td>
+</tr>
+<tr>
+<td><code>-T</code></td>
+<td><code>--no-target-directory</code></td>
+<td>リンク先を常に通常ファイルとして扱う</td>
+</tr>
+<tr>
+<td><code>-t ディレクトリ名</code></td>
+<td><code>--target-directory=ディレクトリ名</code></td>
+<td>指定したディレクトリにリンクを作成</td>
+</tr>
+<tr>
+<td><code>-b</code></td>
+<td><code>--backup=方法</code></td>
+<td>上書きされるバックアップを作成。<code>numbered</code> または <code>t</code> の場合は番号の添字。<code>simple</code> または <code>never</code> の場合はファイルの末尾に <code>~</code> または <code>-S</code> オプションか環境変数で指定した文字をつけるシンプルなバックアップ(<code>-b</code> と同じ)。<code>existing</code> または <code>nil</code> の場合はすでにあるファイルに従う(ない場合は <code>simple</code> と同じ)</td>
+</tr>
+<tr>
+<td><code>-S 接尾辞</code></td>
+<td><code>--suffix=接尾辞</code></td>
+<td>バックアップファイル作成時にファイル末尾に付与する文字を指定(未指定の場合は ~ または環境変数 <code>SIMPLE_BACKUP_SUFFIX</code>)</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td><code>--verbose</code></td>
+<td>経過を表示</td>
+</tr>
+</tbody>
+</table>
 <h2 id=mkdir-ディレクトリの作成>
 <code>mkdir</code> ディレクトリの作成
 <a class=anchor href=#mkdir-%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e4%bd%9c%e6%88%90>#</a>
@@ -1912,22 +1995,22 @@ English
 </li>
 <li><a href=#日付時刻>日付・時刻</a>
 <ul>
-<li><a href=#date-コマンドのオプション><code>date</code> コマンドのオプション</a></li>
+<li><a href=#date-コマンドの主なオプション><code>date</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#検索>検索</a>
 <ul>
 <li><a href=#grep-コマンドの使用方法><code>grep</code> コマンドの使用方法</a></li>
-<li><a href=#grep-コマンドのオプション><code>grep</code> コマンドのオプション</a></li>
+<li><a href=#grep-コマンドの主なオプション><code>grep</code> コマンドの主なオプション</a></li>
 <li><a href=#タイムスタンプでの検索>タイムスタンプでの検索</a></li>
-<li><a href=#find-コマンドのオプション><code>find</code> コマンドのオプション</a></li>
+<li><a href=#find-コマンドの主なオプション><code>find</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#一覧表示>一覧表示</a>
 <ul>
 <li><a href=#タイムスタンプ降順で一覧表示隠しファイル含む>タイムスタンプ降順で一覧表示(隠しファイル含む)</a></li>
 <li><a href=#タイムスタンプ昇順で一覧表示隠しファイル含む>タイムスタンプ昇順で一覧表示(隠しファイル含む)</a></li>
-<li><a href=#ls-コマンドのオプション><code>ls</code> コマンドのオプション</a></li>
+<li><a href=#ls-コマンドの主なオプション><code>ls</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#移動名称変更>移動・名称変更</a>
@@ -1935,7 +2018,7 @@ English
 <li><a href=#1つのファイルを移動>1つのファイルを移動</a></li>
 <li><a href=#複数のファイルを移動>複数のファイルを移動</a></li>
 <li><a href=#ファイルの名称を変更リネーム>ファイルの名称を変更(リネーム)</a></li>
-<li><a href=#mv-コマンドのオプション><code>mv</code> コマンドのオプション</a></li>
+<li><a href=#mv-コマンドの主なオプション><code>mv</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#削除>削除</a>
@@ -1943,7 +2026,7 @@ English
 <li><a href=#1ファイルを削除>1ファイルを削除</a></li>
 <li><a href=#複数ファイルを削除>複数ファイルを削除</a></li>
 <li><a href=#カレントディレクトリの全ファイルを確認しながら削除>カレントディレクトリの全ファイルを確認しながら削除</a></li>
-<li><a href=#rm-コマンドのオプション><code>rm</code> コマンドのオプション</a></li>
+<li><a href=#rm-コマンドの主なオプション><code>rm</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#空ディレクトリを削除>空ディレクトリを削除</a>
@@ -1956,9 +2039,9 @@ English
 <li><a href=#ファイルをコピー>ファイルをコピー</a></li>
 <li><a href=#ディレクトリごとファイルをコピー>ディレクトリごとファイルをコピー</a></li>
 <li><a href=#ファイルをコピーする際にバックアップを作成>ファイルをコピーする際にバックアップを作成</a></li>
-<li><a href=#cp-コマンドのオプション><code>cp</code> コマンドのオプション</a></li>
+<li><a href=#cp-コマンドの主なオプション><code>cp</code> コマンドの主なオプション</a></li>
 <li><a href=#ネットワーク上のホスト間のsshを利用したコピー>ネットワーク上のホスト間のSSHを利用したコピー</a></li>
-<li><a href=#scp-コマンドのオプション><code>scp</code> コマンドのオプション</a></li>
+<li><a href=#scp-コマンドの主なオプション><code>scp</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
 <li><a href=#ディレクトリとファイルの構成を表示>ディレクトリとファイルの構成を表示</a>
@@ -1969,14 +2052,17 @@ English
 <li><a href=#ファイル名のパターンを指定>ファイル名のパターンを指定</a></li>
 <li><a href=#除外するファイル名のパターンを指定>除外するファイル名のパターンを指定</a></li>
 <li><a href=#ディレクトリのみを表示>ディレクトリのみを表示</a></li>
-<li><a href=#tree-コマンドのオプション><code>tree</code> コマンドのオプション</a></li>
+<li><a href=#tree-コマンドの主なオプション><code>tree</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#ln-ディレクトリやファイルのシンボリックリンクを作成><code>ln</code> ディレクトリやファイルのシンボリックリンクを作成</a>
+<li><a href=#ln-ディレクトリやファイルのリンクを作成><code>ln</code> ディレクトリやファイルのリンクを作成</a>
 <ul>
+<li><a href=#ハードリンクとシンボリックリンク>ハードリンクとシンボリックリンク</a></li>
 <li><a href=#ディレクトリのシンボリックリンクを作成>ディレクトリのシンボリックリンクを作成</a></li>
 <li><a href=#ファイルのシンボリックリンクを作成>ファイルのシンボリックリンクを作成</a></li>
 <li><a href=#指定したディレクトリ内にシンボリックリンクを作成>指定したディレクトリ内にシンボリックリンクを作成</a></li>
+<li><a href=#ディレクトリのハードリンクを作成>ディレクトリのハードリンクを作成</a></li>
+<li><a href=#ファイルのハードリンクを作成>ファイルのハードリンクを作成</a></li>
 <li><a href=#ln-コマンドの主なオプション><code>ln</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
