@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.5a0bf4dccedc2fdd6242307fa79c7980822acab64e4f82cef8eb8c6dc1515cea.js integrity="sha256-Wgv03M7cL91iQjB/p5x5gIIqyrZOT4LO+OuMbcFRXOo=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.91c9cdc8de8574eb3c5c040327a9dba4d5db5c7505975f6f765135d79748625a.js integrity="sha256-kcnNyN6FdOs8XAQDJ6nbpNXbXHUFl19vdlE115dIYlo=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -226,7 +226,18 @@ Menu
 <li><a href=#ファイル内容の正規表現での確認>ファイル内容の正規表現での確認</a></li>
 </ul>
 </li>
-<li><a href=#圧縮>圧縮</a></li>
+<li><a href=#圧縮解凍暗号解除>圧縮・解凍・暗号解除</a>
+<ul>
+<li><a href=#zip-コマンドでの圧縮><code>zip</code> コマンドでの圧縮</a></li>
+<li><a href=#zip-コマンドでの展開><code>zip</code> コマンドでの展開</a></li>
+<li><a href=#zip-ファイルの暗号解除><code>zip</code> ファイルの暗号解除</a></li>
+<li><a href=#zipcloak-コマンドの主なオプション><code>zipcloak</code> コマンドの主なオプション</a></li>
+<li><a href=#tarコマンドでの圧縮><code>tar</code>コマンドでの圧縮</a></li>
+<li><a href=#tar-コマンドでの展開解凍><code>tar</code> コマンドでの展開(解凍)</a></li>
+<li><a href=#tar-コマンドの主なオプション><code>tar</code> コマンドの主なオプション</a></li>
+<li><a href=#tar-コマンドの共通のオプション><code>tar</code> コマンドの共通のオプション</a></li>
+</ul>
+</li>
 <li><a href=#csv>CSV</a>
 <ul>
 <li><a href=#csvファイルの各行のカラム数が指定した数以下の例では-10と一致しない行数を確認>CSVファイルの各行のカラム数が指定した数(以下の例では 10)と一致しない行数を確認</a></li>
@@ -1751,13 +1762,175 @@ tree コマンドのバージョンを確認
 </h4>
 <p>e.g.) 半角数字10桁のみの行数</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>grep -c -E <span style=color:#e6db74>&#39;^[0-9]{10}$&#39;</span> sample.txt
-</code></pre></div><h2 id=圧縮>
-圧縮
-<a class=anchor href=#%e5%9c%a7%e7%b8%ae>#</a>
+</code></pre></div><h2 id=圧縮解凍暗号解除>
+圧縮・解凍・暗号解除
+<a class=anchor href=#%e5%9c%a7%e7%b8%ae%e8%a7%a3%e5%87%8d%e6%9a%97%e5%8f%b7%e8%a7%a3%e9%99%a4>#</a>
 </h2>
+<h3 id=zip-コマンドでの圧縮>
+<code>zip</code> コマンドでの圧縮
+<a class=anchor href=#zip-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a7%e3%81%ae%e5%9c%a7%e7%b8%ae>#</a>
+</h3>
 <p><code>zip</code>圧縮後に元ファイルを削除</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>zip -rm after.zip before.file
-</code></pre></div><h2 id=csv>
+</code></pre></div><p>パスワード付き <code>zip</code> ファイルの作成</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>zip -e -r after.zip before/
+</code></pre></div><h3 id=zip-コマンドでの展開>
+<code>zip</code> コマンドでの展開
+<a class=anchor href=#zip-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a7%e3%81%ae%e5%b1%95%e9%96%8b>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ unzip sample.zip
+</code></pre></div><h3 id=zip-ファイルの暗号解除>
+<code>zip</code> ファイルの暗号解除
+<a class=anchor href=#zip-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%9a%97%e5%8f%b7%e8%a7%a3%e9%99%a4>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ zipcloak -d sample.zip
+</code></pre></div><p><code>encrypted_data.zip</code> の暗号を解除し <code>decrypted_data.zip</code> に保存</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ zipcloak -d -O decrypted_data.zip encrypted_data.zip
+</code></pre></div><h3 id=zipcloak-コマンドの主なオプション>
+<code>zipcloak</code> コマンドの主なオプション
+<a class=anchor href=#zipcloak-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-d</code></td>
+<td><code>--decrypt</code></td>
+<td>暗号を解除 (間違ったパスワードを入力した場合、<code>zip</code> ファイルを元のまま上書き。</td>
+</tr>
+<tr>
+<td><code>-O ZIPファイル名</code></td>
+<td><code>--output-file ZIPファイル名</code></td>
+<td>暗号を解除したZIPファイルの保存先を指定。 (元のZIPファイルはそのまま残る。)</td>
+</tr>
+<tr>
+<td><code>-b</code> ```パス</td>
+<td>&ndash;temp-path```</td>
+<td>一時作業用のディレクトリを指定。</td>
+</tr>
+<tr>
+<td><code>-q</code></td>
+<td><code>--quiet</code></td>
+<td>動作中のメッセージを非表示。</td>
+</tr>
+</tbody>
+</table>
+<h3 id=tarコマンドでの圧縮>
+<code>tar</code>コマンドでの圧縮
+<a class=anchor href=#tar%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a7%e3%81%ae%e5%9c%a7%e7%b8%ae>#</a>
+</h3>
+<p><code>tar</code> コマンドでファイルのアーカイブを作成し <code>gzip</code> 形式に圧縮</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tar -czvf after.tar.gz before.txt
+</code></pre></div><p>カレントディレクトリの全ファイルをまとめたアーカイブを作成し <code>gzip</code> 形式に圧縮</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tar -czvf after.tar.gz *
+</code></pre></div><h3 id=tar-コマンドでの展開解凍>
+<code>tar</code> コマンドでの展開(解凍)
+<a class=anchor href=#tar-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a7%e3%81%ae%e5%b1%95%e9%96%8b%e8%a7%a3%e5%87%8d>#</a>
+</h3>
+<p><code>gzip</code> 形式で圧縮されたアーカイブを <code>tar</code> コマンドで展開</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tar -xzvf sample.tar.gz
+</code></pre></div><h3 id=tar-コマンドの主なオプション>
+<code>tar</code> コマンドの主なオプション
+<a class=anchor href=#tar-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-c</code></td>
+<td><code>--create</code></td>
+<td>新しいアーカイブを作成</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td><code>--append</code></td>
+<td>アーカイブの最後にファイルを追加</td>
+</tr>
+<tr>
+<td><code>-A</code></td>
+<td><code>--catenate</code>, <code>--concatenate</code></td>
+<td>アーカイブに tarアーカイブを追加</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td><code>--update</code></td>
+<td>アーカイブのファイルを更新 (アーカイブ内の同名ファイルより新しいものだけを追加)</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td><code>--diff</code>, <code>--compare</code></td>
+<td>アーカイブとファイルシステムを比較</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--delete</code></td>
+<td>アーカイブから削除</td>
+</tr>
+<tr>
+<td><code>-t</code></td>
+<td><code>--list</code></td>
+<td>アーカイブの内容の一覧を表示</td>
+</tr>
+<tr>
+<td><code>-x</code></td>
+<td><code>--extract</code>, <code>--get</code></td>
+<td>アーカイブからファイルを抽出</td>
+</tr>
+</tbody>
+</table>
+<h3 id=tar-コマンドの共通のオプション>
+<code>tar</code> コマンドの共通のオプション
+<a class=anchor href=#tar-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e5%85%b1%e9%80%9a%e3%81%ae%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-z</code></td>
+<td><code>--gzip</code></td>
+<td>アーカイブを <code>gzip</code> 形式で圧縮。<code>gzip</code> 形式で圧縮されたアーカイブを展開。拡張子は <code>.tar.gz</code> または <code>.tgz</code>。</td>
+</tr>
+<tr>
+<td><code>-j</code></td>
+<td><code>--bzip2</code></td>
+<td>アーカイブを <code>bzip2</code> 形式で圧縮。<code>bzip2</code> 形式で圧縮されたアーカイブを展開。拡張子は <code>.tar.bz2</code>。</td>
+</tr>
+<tr>
+<td><code>-Z</code></td>
+<td><code>--compress</code>, <code>--uncompress</code></td>
+<td>アーカイブを <code>compress</code> 形式で圧縮。<code>compress</code> 形式で圧縮されたアーカイブを展開。拡張子は <code>.tar.Z</code>。</td>
+</tr>
+<tr>
+<td><code>-W</code></td>
+<td><code>--verify</code></td>
+<td>アーカイブを書き出した後に検証。</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td><code>--verbose</code></td>
+<td>処理したファイルを詳しく出力。</td>
+</tr>
+</tbody>
+</table>
+<h2 id=csv>
 CSV
 <a class=anchor href=#csv>#</a>
 </h2>
@@ -2099,7 +2272,18 @@ English
 <li><a href=#ファイル内容の正規表現での確認>ファイル内容の正規表現での確認</a></li>
 </ul>
 </li>
-<li><a href=#圧縮>圧縮</a></li>
+<li><a href=#圧縮解凍暗号解除>圧縮・解凍・暗号解除</a>
+<ul>
+<li><a href=#zip-コマンドでの圧縮><code>zip</code> コマンドでの圧縮</a></li>
+<li><a href=#zip-コマンドでの展開><code>zip</code> コマンドでの展開</a></li>
+<li><a href=#zip-ファイルの暗号解除><code>zip</code> ファイルの暗号解除</a></li>
+<li><a href=#zipcloak-コマンドの主なオプション><code>zipcloak</code> コマンドの主なオプション</a></li>
+<li><a href=#tarコマンドでの圧縮><code>tar</code>コマンドでの圧縮</a></li>
+<li><a href=#tar-コマンドでの展開解凍><code>tar</code> コマンドでの展開(解凍)</a></li>
+<li><a href=#tar-コマンドの主なオプション><code>tar</code> コマンドの主なオプション</a></li>
+<li><a href=#tar-コマンドの共通のオプション><code>tar</code> コマンドの共通のオプション</a></li>
+</ul>
+</li>
 <li><a href=#csv>CSV</a>
 <ul>
 <li><a href=#csvファイルの各行のカラム数が指定した数以下の例では-10と一致しない行数を確認>CSVファイルの各行のカラム数が指定した数(以下の例では 10)と一致しない行数を確認</a></li>
