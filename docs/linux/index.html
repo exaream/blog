@@ -2,9 +2,15 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Linux Memo #  画面操作 #  ターミナル操作のショートカット #     Mac Windows description     control + a ctrl + a カーソルを行頭へ移動   control + e ctrl + e カーソルを行末へ移動   control + f ctrl + f カーソルを前進(右へ移動)   control + b ctrl + b カーソルを後退(左へ移動)   control + d ctrl + d カーソル上の1文字削除   control + h ctrl + h カーソル後方(左)の1文字削除   control + u ctrl + u カーソルから行頭まで削除   control + k ctrl + k カーソルから行末まで削除   control + w ctrl + w カーソル上の単語1つ分削除   control + y ctrl + y 最後に削除した文字を貼り付け   control + p ctrl + p 1つ前のコマンド履歴を表示   control + n ctrl + n 1つ後のコマンド履歴を表示   control + s ctrl + s 画面をロック   control + q ctrl + q 画面のロックを解除   control + c ctrl + c 実行中のコマンドを強制終了   control + l(エル) ctrl + l(エル) 画面をクリア   tab tab コマンド,ディレクトリ,ファイルの候補を補完    文字コード #  文字コードの値 #     文字コード コマンドで指定する値 remarks     Shift_JIS cp932 or sjis cp932 には sjis に含まれていない文字（①, ②, Ⅰ, Ⅱ, ㍉, ㌍, 彅, 髙 etc.">
+<meta name=description content="Linux Memo #  コマンド入力履歴 #  history コマンドの主なオプション #     option description     整数値 履歴の末尾から指定した行数分を表示   -c 履歴一覧からすべての項目を削除   -d 番号 指定した番号の履歴項目を削除   -a 履歴ファイルに現在のセッションの履歴を追加   -n 履歴ファイルからまだ読み込まれていない行を全て読み込み   -r 履歴ファイルを読み込み、内容を履歴一覧に追加   -w 現在の履歴を履歴ファイルに上書き    コマンド入力履歴を表示 #  履歴を末尾から10件分表示
+$ history 10 コマンドライン上で !番号 と入力することで指定したコマンドを実行 例) 履歴の末尾から5件目のコマンドを実行する場合
+!5 履歴の件数が多い場合 head コマンドで冒頭のみ表示
+$ history | head コマンド入力履歴を削除 #  指定した番号の履歴を削除 例) 5番の履歴を削除">
 <meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Linux Memo">
-<meta property="og:description" content="Linux Memo #  画面操作 #  ターミナル操作のショートカット #     Mac Windows description     control + a ctrl + a カーソルを行頭へ移動   control + e ctrl + e カーソルを行末へ移動   control + f ctrl + f カーソルを前進(右へ移動)   control + b ctrl + b カーソルを後退(左へ移動)   control + d ctrl + d カーソル上の1文字削除   control + h ctrl + h カーソル後方(左)の1文字削除   control + u ctrl + u カーソルから行頭まで削除   control + k ctrl + k カーソルから行末まで削除   control + w ctrl + w カーソル上の単語1つ分削除   control + y ctrl + y 最後に削除した文字を貼り付け   control + p ctrl + p 1つ前のコマンド履歴を表示   control + n ctrl + n 1つ後のコマンド履歴を表示   control + s ctrl + s 画面をロック   control + q ctrl + q 画面のロックを解除   control + c ctrl + c 実行中のコマンドを強制終了   control + l(エル) ctrl + l(エル) 画面をクリア   tab tab コマンド,ディレクトリ,ファイルの候補を補完    文字コード #  文字コードの値 #     文字コード コマンドで指定する値 remarks     Shift_JIS cp932 or sjis cp932 には sjis に含まれていない文字（①, ②, Ⅰ, Ⅱ, ㍉, ㌍, 彅, 髙 etc.">
+<meta property="og:description" content="Linux Memo #  コマンド入力履歴 #  history コマンドの主なオプション #     option description     整数値 履歴の末尾から指定した行数分を表示   -c 履歴一覧からすべての項目を削除   -d 番号 指定した番号の履歴項目を削除   -a 履歴ファイルに現在のセッションの履歴を追加   -n 履歴ファイルからまだ読み込まれていない行を全て読み込み   -r 履歴ファイルを読み込み、内容を履歴一覧に追加   -w 現在の履歴を履歴ファイルに上書き    コマンド入力履歴を表示 #  履歴を末尾から10件分表示
+$ history 10 コマンドライン上で !番号 と入力することで指定したコマンドを実行 例) 履歴の末尾から5件目のコマンドを実行する場合
+!5 履歴の件数が多い場合 head コマンドで冒頭のみ表示
+$ history | head コマンド入力履歴を削除 #  指定した番号の履歴を削除 例) 5番の履歴を削除">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://exaream.github.io/tech-blog/linux/"><meta property="article:section" content>
 <meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
@@ -14,7 +20,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.91c9cdc8de8574eb3c5c040327a9dba4d5db5c7505975f6f765135d79748625a.js integrity="sha256-kcnNyN6FdOs8XAQDJ6nbpNXbXHUFl19vdlE115dIYlo=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.d5473366989d7ca2e18654863121a9ef4acd1f60acf81f62b7c28de66819762d.js integrity="sha256-1UczZpidfKLhhlSGMSGp70rNH2Cs+B9it8KN5mgZdi0=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -89,6 +95,15 @@ Menu
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#コマンド入力履歴>コマンド入力履歴</a>
+<ul>
+<li><a href=#history-コマンドの主なオプション><code>history</code> コマンドの主なオプション</a></li>
+<li><a href=#コマンド入力履歴を表示>コマンド入力履歴を表示</a></li>
+<li><a href=#コマンド入力履歴を削除>コマンド入力履歴を削除</a></li>
+<li><a href=#現在のコマンド入力履歴を履歴ファイルに上書き>現在のコマンド入力履歴を履歴ファイルに上書き</a></li>
+<li><a href=#履歴ファイルを読み込み>履歴ファイルを読み込み</a></li>
+</ul>
+</li>
 <li><a href=#画面操作>画面操作</a>
 <ul>
 <li><a href=#ターミナル操作のショートカット>ターミナル操作のショートカット</a></li>
@@ -275,7 +290,85 @@ Menu
 Linux Memo
 <a class=anchor href=#linux-memo>#</a>
 </h1>
-<h2 id=画面操作>
+<h2 id=コマンド入力履歴>
+コマンド入力履歴
+<a class=anchor href=#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4>#</a>
+</h2>
+<h3 id=history-コマンドの主なオプション>
+<code>history</code> コマンドの主なオプション
+<a class=anchor href=#history-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>整数値</code></td>
+<td>履歴の末尾から指定した行数分を表示</td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>履歴一覧からすべての項目を削除</td>
+</tr>
+<tr>
+<td><code>-d 番号</code></td>
+<td>指定した番号の履歴項目を削除</td>
+</tr>
+<tr>
+<td><code>-a</code></td>
+<td>履歴ファイルに現在のセッションの履歴を追加</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>履歴ファイルからまだ読み込まれていない行を全て読み込み</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>履歴ファイルを読み込み、内容を履歴一覧に追加</td>
+</tr>
+<tr>
+<td><code>-w</code></td>
+<td>現在の履歴を履歴ファイルに上書き</td>
+</tr>
+</tbody>
+</table>
+<h3 id=コマンド入力履歴を表示>
+コマンド入力履歴を表示
+<a class=anchor href=#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<p>履歴を末尾から10件分表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ history <span style=color:#ae81ff>10</span>
+</code></pre></div><p>コマンドライン上で <code>!番号</code> と入力することで指定したコマンドを実行
+例) 履歴の末尾から5件目のコマンドを実行する場合</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>!5
+</code></pre></div><p>履歴の件数が多い場合 <code>head</code> コマンドで冒頭のみ表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ history | head
+</code></pre></div><h3 id=コマンド入力履歴を削除>
+コマンド入力履歴を削除
+<a class=anchor href=#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e5%89%8a%e9%99%a4>#</a>
+</h3>
+<p>指定した番号の履歴を削除
+例) 5番の履歴を削除</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ history -d <span style=color:#ae81ff>5</span>
+</code></pre></div><p>全ての履歴を削除</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ history -c
+</code></pre></div><h3 id=現在のコマンド入力履歴を履歴ファイルに上書き>
+現在のコマンド入力履歴を履歴ファイルに上書き
+<a class=anchor href=#%e7%8f%be%e5%9c%a8%e3%81%ae%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e5%b1%a5%e6%ad%b4%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ab%e4%b8%8a%e6%9b%b8%e3%81%8d>#</a>
+</h3>
+<p>例) 現在の履歴を <code>sample.txt</code> に上書き</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ history -w sample.txt
+</code></pre></div><h3 id=履歴ファイルを読み込み>
+履歴ファイルを読み込み
+<a class=anchor href=#%e5%b1%a5%e6%ad%b4%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e8%aa%ad%e3%81%bf%e8%be%bc%e3%81%bf>#</a>
+</h3>
+<p><code>sample.txt</code>　の内容を履歴として読み込み</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ history -r sample.txt
+</code></pre></div><h2 id=画面操作>
 画面操作
 <a class=anchor href=#%e7%94%bb%e9%9d%a2%e6%93%8d%e4%bd%9c>#</a>
 </h2>
@@ -2135,6 +2228,15 @@ English
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#コマンド入力履歴>コマンド入力履歴</a>
+<ul>
+<li><a href=#history-コマンドの主なオプション><code>history</code> コマンドの主なオプション</a></li>
+<li><a href=#コマンド入力履歴を表示>コマンド入力履歴を表示</a></li>
+<li><a href=#コマンド入力履歴を削除>コマンド入力履歴を削除</a></li>
+<li><a href=#現在のコマンド入力履歴を履歴ファイルに上書き>現在のコマンド入力履歴を履歴ファイルに上書き</a></li>
+<li><a href=#履歴ファイルを読み込み>履歴ファイルを読み込み</a></li>
+</ul>
+</li>
 <li><a href=#画面操作>画面操作</a>
 <ul>
 <li><a href=#ターミナル操作のショートカット>ターミナル操作のショートカット</a></li>
