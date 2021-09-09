@@ -22,7 +22,7 @@ $ history | head コマンド入力履歴を削除 #  指定した番号の履�
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.6c9ce029c6e6bf1b58cdcc26b66a3981d990a563f11318d0163bf189426b25a9.js integrity="sha256-bJzgKcbmvxtYzcwmtmo5gdmQpWPxExjQFjvxiUJrJak=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.3edb7739254405446eb0fa73d65992f0b4bb88939471cb10cdc1e699395dc811.js integrity="sha256-Ptt3OSVEBURusPpz1lmS8LS7iJOUccsQzcHmmTldyBE=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -222,7 +222,15 @@ Menu
 <li><a href=#ファイルのタイムスタンプを変更>ファイルのタイムスタンプを変更</a></li>
 </ul>
 </li>
-<li><a href=#ファイル内容の表示>ファイル内容の表示</a>
+<li><a href=#cat-ファイル内容の表示><code>cat</code> ファイル内容の表示</a>
+<ul>
+<li><a href=#cat-コマンドとは><code>cat</code> コマンドとは</a></li>
+<li><a href=#ファイルの内容を行番号付きで表示>ファイルの内容を行番号付きで表示</a></li>
+<li><a href=#複数のファイルを連結して-1つのファイルに出力>複数のファイルを連結して 1つのファイルに出力</a></li>
+<li><a href=#cat-コマンドの主なオプション><code>cat</code> コマンドの主なオプション</a></li>
+</ul>
+</li>
+<li><a href=#less-ファイル内容の表示><code>less</code> ファイル内容の表示</a>
 <ul>
 <li><a href=#ファイル内容を1画面に表示編集なし>ファイル内容を1画面に表示(編集なし)</a></li>
 <li><a href=#ファイル内容表示時のショートカット>ファイル内容表示時のショートカット</a></li>
@@ -1611,9 +1619,84 @@ tree コマンドのバージョンを確認
 </tr>
 </tbody>
 </table>
-<h2 id=ファイル内容の表示>
-ファイル内容の表示
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e8%a1%a8%e7%a4%ba>#</a>
+<h2 id=cat-ファイル内容の表示>
+<code>cat</code> ファイル内容の表示
+<a class=anchor href=#cat-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e8%a1%a8%e7%a4%ba>#</a>
+</h2>
+<h3 id=cat-コマンドとは>
+<code>cat</code> コマンドとは
+<a class=anchor href=#cat-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a8%e3%81%af>#</a>
+</h3>
+<p>ファイルを連結するためのコマンドだが、ファイルの内容を簡単に表示する際に使用されている。
+<code>cat</code> = con<code>CAT</code>enate (つなぐ, 連結する)</p>
+<h3 id=ファイルの内容を行番号付きで表示>
+ファイルの内容を行番号付きで表示
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e5%86%85%e5%ae%b9%e3%82%92%e8%a1%8c%e7%95%aa%e5%8f%b7%e4%bb%98%e3%81%8d%e3%81%a7%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat -n sample.txt
+</code></pre></div><h3 id=複数のファイルを連結して-1つのファイルに出力>
+複数のファイルを連結して 1つのファイルに出力
+<a class=anchor href=#%e8%a4%87%e6%95%b0%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e9%80%a3%e7%b5%90%e3%81%97%e3%81%a6-1%e3%81%a4%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ab%e5%87%ba%e5%8a%9b>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat before1.txt before2.txt &gt; after.txt
+</code></pre></div><h3 id=cat-コマンドの主なオプション>
+<code>cat</code> コマンドの主なオプション
+<a class=anchor href=#cat-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n</td>
+<td>&ndash;number</td>
+<td>行番号を付与</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>&ndash;number-nonblank</td>
+<td>行番号を付与(空白行以外)</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>-squeeze-blank</td>
+<td>連続した空行を1行として表示</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>&ndash;show-nonprinting</td>
+<td>タブ, 改行, 改ページ以外の非表示文字を表示</td>
+</tr>
+<tr>
+<td>-t</td>
+<td></td>
+<td>非表示文字を表示(タブを <code>^|</code>, 用紙送りを <code>^L</code> として表示</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>&ndash;show-ends</td>
+<td>行の最後に <code>$</code> を表示</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>&ndash;show-all</td>
+<td>全ての非表示文字を表示(<code>-vET</code> と同じ)</td>
+</tr>
+<tr>
+<td>-e</td>
+<td></td>
+<td>タブを除く全ての非表示文字を表示(<code>-vE</code> と同じ)</td>
+</tr>
+</tbody>
+</table>
+<h2 id=less-ファイル内容の表示>
+<code>less</code> ファイル内容の表示
+<a class=anchor href=#less-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e8%a1%a8%e7%a4%ba>#</a>
 </h2>
 <h3 id=ファイル内容を1画面に表示編集なし>
 ファイル内容を1画面に表示(編集なし)
@@ -2355,7 +2438,15 @@ English
 <li><a href=#ファイルのタイムスタンプを変更>ファイルのタイムスタンプを変更</a></li>
 </ul>
 </li>
-<li><a href=#ファイル内容の表示>ファイル内容の表示</a>
+<li><a href=#cat-ファイル内容の表示><code>cat</code> ファイル内容の表示</a>
+<ul>
+<li><a href=#cat-コマンドとは><code>cat</code> コマンドとは</a></li>
+<li><a href=#ファイルの内容を行番号付きで表示>ファイルの内容を行番号付きで表示</a></li>
+<li><a href=#複数のファイルを連結して-1つのファイルに出力>複数のファイルを連結して 1つのファイルに出力</a></li>
+<li><a href=#cat-コマンドの主なオプション><code>cat</code> コマンドの主なオプション</a></li>
+</ul>
+</li>
+<li><a href=#less-ファイル内容の表示><code>less</code> ファイル内容の表示</a>
 <ul>
 <li><a href=#ファイル内容を1画面に表示編集なし>ファイル内容を1画面に表示(編集なし)</a></li>
 <li><a href=#ファイル内容表示時のショートカット>ファイル内容表示時のショートカット</a></li>
