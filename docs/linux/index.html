@@ -22,7 +22,7 @@ $ history | head コマンド入力履歴を削除 #  指定した番号の履�
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.3edb7739254405446eb0fa73d65992f0b4bb88939471cb10cdc1e699395dc811.js integrity="sha256-Ptt3OSVEBURusPpz1lmS8LS7iJOUccsQzcHmmTldyBE=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.a4cadbc9ee776902aa47935d21ebaa871dc31e0bd3b6ae5bbd67f6107fb32e0b.js integrity="sha256-pMrbye53aQKqR5NdIeuqhx3DHgvTtq5bvWf2EH+zLgs=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -276,6 +276,17 @@ Menu
 <li><a href=#osのバージョン情報を確認>OSのバージョン情報を確認</a></li>
 <li><a href=#osのバージョン情報を確認ディストリビューション別>OSのバージョン情報を確認(ディストリビューション別)</a></li>
 <li><a href=#osのバージョン情報確認コマンドを確認>OSのバージョン情報確認コマンドを確認</a></li>
+</ul>
+</li>
+<li><a href=#ディスク使用量を確認>ディスク使用量を確認</a>
+<ul>
+<li><a href=#du-コマンドとは><code>du</code> コマンドとは</a></li>
+<li><a href=#du-コマンドの主なオプション><code>du</code> コマンドの主なオプション</a></li>
+<li><a href=#カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示>カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示</a></li>
+<li><a href=#カレントディレクトリのディスク使用量の合計のみを表示>カレントディレクトリのディスク使用量の合計のみを表示</a></li>
+<li><a href=#カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示>カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示</a></li>
+<li><a href=#集計するディレクトリの深さを指定>集計するディレクトリの深さを指定</a></li>
+<li><a href=#ディスク使用量が大きい順にソート>ディスク使用量が大きい順にソート</a></li>
 </ul>
 </li>
 <li><a href=#その他>その他</a>
@@ -2256,6 +2267,195 @@ OSのバージョン情報確認コマンドを確認
 <a class=anchor href=#os%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e6%83%85%e5%a0%b1%e7%a2%ba%e8%aa%8d%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ls -l /etc/*release
+</code></pre></div><h2 id=ディスク使用量を確認>
+ディスク使用量を確認
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+</h2>
+<h3 id=du-コマンドとは>
+<code>du</code> コマンドとは
+<a class=anchor href=#du-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a8%e3%81%af>#</a>
+</h3>
+<ul>
+<li>ディスク使用量を集計し表示</li>
+<li>アクセス権限のないファイルやディレクトリは集計対象外</li>
+</ul>
+<h3 id=du-コマンドの主なオプション>
+<code>du</code> コマンドの主なオプション
+<a class=anchor href=#du-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<h4 id=集計>
+集計
+<a class=anchor href=#%e9%9b%86%e8%a8%88>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-S</td>
+<td>&ndash;separate-dirs</td>
+<td>サブディレクトリのサイズを含めずに集計</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>&ndash;summarize</td>
+<td>指定したディレクトリの合計のみ表示(サブディレクトリの行は非表示)</td>
+</tr>
+<tr>
+<td>-d深さ</td>
+<td>&ndash;max-depth=深さ</td>
+<td>集計するディレクトリの深さを指定</td>
+</tr>
+<tr>
+<td>-P</td>
+<td>&ndash;no-dereference</td>
+<td>シンボリックをたどらずに集計(デフォルト)</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>&ndash;dereference</td>
+<td>全てのシンボリックをたどって集計</td>
+</tr>
+<tr>
+<td>-D,-H</td>
+<td>&ndash;dereference-args</td>
+<td>コマンドラインで指定されたシンボリックのみたどって集計</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>&ndash;one-file-system</td>
+<td>異なるファイルシステム(パーティーション)にあるディレクトリをスキップして集計</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>&ndash;count-links</td>
+<td>ハードリンクがある場合、その個数分のサイズを数える</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;exclude=パターン</td>
+<td>パターンと一致するファイルを除外して集計</td>
+</tr>
+<tr>
+<td>-Xファイル</td>
+<td>&ndash;exclude-from=ファイル</td>
+<td>ファイルに含まれるパターンに一致するファイルを除外して集計</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;files0-from=ファイル</td>
+<td>ファイルに指定されたリスト(NULL区切り)を対象に集計、<code>-</code> を指定した場合は標準入力から読み込み</td>
+</tr>
+</tbody>
+</table>
+<h4 id=表示>
+表示
+<a class=anchor href=#%e8%a1%a8%e7%a4%ba>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h</td>
+<td>&ndash;human-readable</td>
+<td>サイズに応じて人間が読みやすい単位に変換して表示</td>
+</tr>
+<tr>
+<td>-H</td>
+<td>&ndash;si</td>
+<td>イズに応じて人間が読みやすい単位に変換して表示、ただし 1024単位ではなく 1000単位の値を使用</td>
+</tr>
+<tr>
+<td>-Bサイズ</td>
+<td>&ndash;block-size=サイズ</td>
+<td>指定したサイズの倍数で表示、サイズは数値または単位で指定</td>
+</tr>
+<tr>
+<td>-k</td>
+<td></td>
+<td>&ndash;block-size=1K と同じ</td>
+</tr>
+<tr>
+<td>-m</td>
+<td></td>
+<td>&ndash;block-size=1M と同じ</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;apparent-size</td>
+<td>ディスク使用量ではなく実際のサイズを表示</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>&ndash;bytes</td>
+<td>実際のサイズをバイト単位で表示（ <code>--apparent-size</code> または <code>--block-size=1</code> に相当）</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>&ndash;total</td>
+<td>全体の合計も表示</td>
+</tr>
+<tr>
+<td>-0</td>
+<td>&ndash;null</td>
+<td>改行ではなく NULL で区切って表示</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;time</td>
+<td>集計対象となったファイルの最終更新時間を対象ごとに表示</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;time=表示</td>
+<td>表示の値に指定した <code>atime</code> <code>access</code> <code>use</code> <code>ctime</code> <code>status</code> の時間を表示</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;time-style=スタイル</td>
+<td>時間の表示スタイルとして <code>full-iso</code> <code>long-iso</code> <code>iso</code> <code>+FORMAT</code> を指定、<code>+FORMAT</code> は <code>date</code> コマンドのフォーマット指定と共通</td>
+</tr>
+</tbody>
+</table>
+<h3 id=カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示>
+カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示
+<a class=anchor href=#%e3%82%ab%e3%83%ac%e3%83%b3%e3%83%88%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e9%85%8d%e4%b8%8b%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%82%92%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%94%e3%81%a8%e3%81%ab%e9%9b%86%e8%a8%88%e3%81%97%e3%81%a6%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du
+</code></pre></div><h3 id=カレントディレクトリのディスク使用量の合計のみを表示>
+カレントディレクトリのディスク使用量の合計のみを表示
+<a class=anchor href=#%e3%82%ab%e3%83%ac%e3%83%b3%e3%83%88%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%81%ae%e5%90%88%e8%a8%88%e3%81%ae%e3%81%bf%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du -s
+</code></pre></div><h3 id=カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示>
+カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示
+<a class=anchor href=#%e3%82%ab%e3%83%ac%e3%83%b3%e3%83%88%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e7%9b%b4%e4%b8%8b%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%a8%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%81%a8%e3%81%9d%e3%81%ae%e5%90%88%e8%a8%88%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du -s -c *
+</code></pre></div><h3 id=集計するディレクトリの深さを指定>
+集計するディレクトリの深さを指定
+<a class=anchor href=#%e9%9b%86%e8%a8%88%e3%81%99%e3%82%8b%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e6%b7%b1%e3%81%95%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
+</h3>
+<p>e.g. ルートディレクトリとその直下のディスク容量を1階層まで表示<br>
+(他のパーティーションにあるファイルは対象外)<br>
+<code>-x</code> 1つのファイルシステムのみを集計</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du -d1 -x /
+</code></pre></div><h3 id=ディスク使用量が大きい順にソート>
+ディスク使用量が大きい順にソート
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%81%8c%e5%a4%a7%e3%81%8d%e3%81%84%e9%a0%86%e3%81%ab%e3%82%bd%e3%83%bc%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du -d1 -x / | sort -nr
 </code></pre></div><h2 id=その他>
 その他
 <a class=anchor href=#%e3%81%9d%e3%81%ae%e4%bb%96>#</a>
@@ -2271,6 +2471,7 @@ References
 <a class=anchor href=#references>#</a>
 </h2>
 <ul>
+<li><a href=https://atmarkit.itmedia.co.jp/ait/series/3065/>Linux基本コマンドTips</a></li>
 <li><a href=https://qiita.com/sion_cojp/items/04a2aa76a1021fe77079>インフラエンジニアとしてよく使うコマンド集</a></li>
 <li><a href=https://qiita.com/tag1216/items/5d06bad7468f731f590e>インフラエンジニアじゃなくても押さえておきたいSSHの基礎知識</a></li>
 <li><a href="http://capm-network.com/?tag=vi%E3%81%AE%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">viの文字コードについて</a></li>
@@ -2492,6 +2693,17 @@ English
 <li><a href=#osのバージョン情報を確認>OSのバージョン情報を確認</a></li>
 <li><a href=#osのバージョン情報を確認ディストリビューション別>OSのバージョン情報を確認(ディストリビューション別)</a></li>
 <li><a href=#osのバージョン情報確認コマンドを確認>OSのバージョン情報確認コマンドを確認</a></li>
+</ul>
+</li>
+<li><a href=#ディスク使用量を確認>ディスク使用量を確認</a>
+<ul>
+<li><a href=#du-コマンドとは><code>du</code> コマンドとは</a></li>
+<li><a href=#du-コマンドの主なオプション><code>du</code> コマンドの主なオプション</a></li>
+<li><a href=#カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示>カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示</a></li>
+<li><a href=#カレントディレクトリのディスク使用量の合計のみを表示>カレントディレクトリのディスク使用量の合計のみを表示</a></li>
+<li><a href=#カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示>カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示</a></li>
+<li><a href=#集計するディレクトリの深さを指定>集計するディレクトリの深さを指定</a></li>
+<li><a href=#ディスク使用量が大きい順にソート>ディスク使用量が大きい順にソート</a></li>
 </ul>
 </li>
 <li><a href=#その他>その他</a>
