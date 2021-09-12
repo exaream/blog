@@ -1210,6 +1210,25 @@ fmt.Println(local) // 2021-01-02 03:04:05.000000006 +0900 JST
 	fmt.Println(now.In(jst).Format(ymdhis)) // 2021-01-02 03:04:05
 ```
 
+Local -> UTC
+```go
+const ymdhis string = "2006-01-02 15:04:05"
+t, err := time.ParseInLocation(ymdhis, "2021-01-02 03:04:05", time.Local)
+if err != nil {
+	log.Println("Faild to parse local time.")
+}
+t.In(time.UTC)
+```
+UTC -> Local
+```go
+const ymdhis string = "2006-01-02 15:04:05"
+t, err := time.ParseInLocation(ymdhis, "2021-01-02 03:04:05", time.UTC)
+if err != nil {
+	log.Println("Faild to parse time of UTC.")
+}
+t.In(t.Local)
+```
+
 ### 年月日・時分秒・ナノ秒を取得
 ```go
 t := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
