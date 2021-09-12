@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.8f142ed8aec99a14567a8ac72be89ae6d4c6aff5f75a7fbf3bdec13ed054d29f.js integrity="sha256-jxQu2K7JmhRWeorHK+ia5tTGr/X3Wn+/O97BPtBU0p8=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.1d6fe26b59533aef70f57855cafe93a709a8dc581565f5bdcc27295e817425e0.js integrity="sha256-HW/ia1lTOu9w9XhVyv6Tpwmo3FgVZfW9zCcpXoF0JeA=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -2055,7 +2055,21 @@ go
 	}
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>jst</span>.<span style=color:#a6e22e>String</span>())               <span style=color:#75715e>// Asia/Tokyo
 </span><span style=color:#75715e></span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>now</span>.<span style=color:#a6e22e>In</span>(<span style=color:#a6e22e>jst</span>).<span style=color:#a6e22e>Format</span>(<span style=color:#a6e22e>ymdhis</span>)) <span style=color:#75715e>// 2021-01-02 03:04:05
-</span></code></pre></div><h3 id=年月日時分秒ナノ秒を取得>
+</span></code></pre></div><p>Local -> UTC</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>ymdhis</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;2006-01-02 15:04:05&#34;</span>
+<span style=color:#a6e22e>t</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>ParseInLocation</span>(<span style=color:#a6e22e>ymdhis</span>, <span style=color:#e6db74>&#34;2021-01-02 03:04:05&#34;</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Local</span>)
+<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Faild to parse local time.&#34;</span>)
+}
+<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>In</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>UTC</span>)
+</code></pre></div><p>UTC -> Local</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>ymdhis</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;2006-01-02 15:04:05&#34;</span>
+<span style=color:#a6e22e>t</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>ParseInLocation</span>(<span style=color:#a6e22e>ymdhis</span>, <span style=color:#e6db74>&#34;2021-01-02 03:04:05&#34;</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>UTC</span>)
+<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Faild to parse time of UTC.&#34;</span>)
+}
+<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>In</span>(<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Local</span>)
+</code></pre></div><h3 id=年月日時分秒ナノ秒を取得>
 年月日・時分秒・ナノ秒を取得
 <a class=anchor href=#%e5%b9%b4%e6%9c%88%e6%97%a5%e6%99%82%e5%88%86%e7%a7%92%e3%83%8a%e3%83%8e%e7%a7%92%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
