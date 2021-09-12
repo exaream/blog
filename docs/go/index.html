@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.1d6fe26b59533aef70f57855cafe93a709a8dc581565f5bdcc27295e817425e0.js integrity="sha256-HW/ia1lTOu9w9XhVyv6Tpwmo3FgVZfW9zCcpXoF0JeA=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.f602fbea7bdfbfc3b5e87595f82e9af911af67d2edc2da361849380d83a72bcd.js integrity="sha256-9gL76nvfv8O16HWV+C6a+RGvZ9Ltwto2GEk4DYOnK80=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -2036,27 +2036,26 @@ go
 <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>utc</span>)   <span style=color:#75715e>// 2021-01-01 18:04:05.000000006 +0000 UTC
 </span><span style=color:#75715e></span><span style=color:#a6e22e>local</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>utc</span>.<span style=color:#a6e22e>Local</span>()
 <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>local</span>) <span style=color:#75715e>// 2021-01-02 03:04:05.000000006 +0900 JST
-</span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>	<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>ymdhis</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;2006-01-02 15:04:05&#34;</span>
+</span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>ymdhis</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;2006-01-02 15:04:05&#34;</span>
 
-	<span style=color:#a6e22e>now</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>()
-
-	<span style=color:#75715e>// UTC (協定世界時)
-</span><span style=color:#75715e></span>	<span style=color:#a6e22e>utc</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>LoadLocation</span>(<span style=color:#e6db74>&#34;UTC&#34;</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Failed to load location UTC.&#34;</span>)
-	}
-	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>utc</span>.<span style=color:#a6e22e>String</span>())               <span style=color:#75715e>// UTC
-</span><span style=color:#75715e></span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>now</span>.<span style=color:#a6e22e>In</span>(<span style=color:#a6e22e>utc</span>).<span style=color:#a6e22e>Format</span>(<span style=color:#a6e22e>ymdhis</span>)) <span style=color:#75715e>// 2021-01-01 18:04:05
-</span><span style=color:#75715e></span>
-	<span style=color:#75715e>// JST (日本標準時)
-</span><span style=color:#75715e></span>	<span style=color:#a6e22e>jst</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>LoadLocation</span>(<span style=color:#e6db74>&#34;Asia/Tokyo&#34;</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Failed to load location Asia/Tokyo.&#34;</span>)
-	}
-	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>jst</span>.<span style=color:#a6e22e>String</span>())               <span style=color:#75715e>// Asia/Tokyo
-</span><span style=color:#75715e></span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>now</span>.<span style=color:#a6e22e>In</span>(<span style=color:#a6e22e>jst</span>).<span style=color:#a6e22e>Format</span>(<span style=color:#a6e22e>ymdhis</span>)) <span style=color:#75715e>// 2021-01-02 03:04:05
+<span style=color:#a6e22e>now</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>()
+<span style=color:#75715e>// UTC (協定世界時)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>utc</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>LoadLocation</span>(<span style=color:#e6db74>&#34;UTC&#34;</span>)
+<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Failed to load location UTC.&#34;</span>)
+}
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>utc</span>.<span style=color:#a6e22e>String</span>())               <span style=color:#75715e>// UTC
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>now</span>.<span style=color:#a6e22e>In</span>(<span style=color:#a6e22e>utc</span>).<span style=color:#a6e22e>Format</span>(<span style=color:#a6e22e>ymdhis</span>)) <span style=color:#75715e>// 2021-01-01 18:04:05
+</span><span style=color:#75715e>// JST (日本標準時)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>jst</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>LoadLocation</span>(<span style=color:#e6db74>&#34;Asia/Tokyo&#34;</span>)
+<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Failed to load location Asia/Tokyo.&#34;</span>)
+}
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>jst</span>.<span style=color:#a6e22e>String</span>())               <span style=color:#75715e>// Asia/Tokyo
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>now</span>.<span style=color:#a6e22e>In</span>(<span style=color:#a6e22e>jst</span>).<span style=color:#a6e22e>Format</span>(<span style=color:#a6e22e>ymdhis</span>)) <span style=color:#75715e>// 2021-01-02 03:04:05
 </span></code></pre></div><p>Local -> UTC</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>ymdhis</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;2006-01-02 15:04:05&#34;</span>
+
 <span style=color:#a6e22e>t</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>ParseInLocation</span>(<span style=color:#a6e22e>ymdhis</span>, <span style=color:#e6db74>&#34;2021-01-02 03:04:05&#34;</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Local</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
 	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Faild to parse local time.&#34;</span>)
@@ -2064,6 +2063,7 @@ go
 <span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>In</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>UTC</span>)
 </code></pre></div><p>UTC -> Local</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>ymdhis</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;2006-01-02 15:04:05&#34;</span>
+
 <span style=color:#a6e22e>t</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>ParseInLocation</span>(<span style=color:#a6e22e>ymdhis</span>, <span style=color:#e6db74>&#34;2021-01-02 03:04:05&#34;</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>UTC</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
 	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Faild to parse time of UTC.&#34;</span>)
