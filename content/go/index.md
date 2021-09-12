@@ -1188,6 +1188,28 @@ local := utc.Local()
 fmt.Println(local) // 2021-01-02 03:04:05.000000006 +0900 JST
 ```
 
+```go
+	const ymdhis string = "2006-01-02 15:04:05"
+
+	now := time.Now()
+
+	// UTC (協定世界時)
+	utc, err := time.LoadLocation("UTC")
+	if err != nil {
+		log.Println("Failed to load location UTC.")
+	}
+	fmt.Println(utc.String())               // UTC
+	fmt.Println(now.In(utc).Format(ymdhis)) // 2021-01-01 18:04:05
+
+	// JST (日本標準時)
+	jst, err := time.LoadLocation("Asia/Tokyo")
+	if err != nil {
+		log.Println("Failed to load location Asia/Tokyo.")
+	}
+	fmt.Println(jst.String())               // Asia/Tokyo
+	fmt.Println(now.In(jst).Format(ymdhis)) // 2021-01-02 03:04:05
+```
+
 ### 年月日・時分秒・ナノ秒を取得
 ```go
 t := time.Date(2021, 1, 2, 3, 4, 5, 6, time.Local)
