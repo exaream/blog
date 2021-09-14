@@ -5,7 +5,8 @@ headless: true
 ### Menu
 - [Git]({{< ref "git" >}})
 - [Docker]({{< ref "docker" >}})
-- [Linux]({{< ref "linux" >}})
+- [Linux]({{< ref "linux/memo" >}})
+- [Ubuntu]({{< ref "linux/ubuntu" >}})
 - [MySQL]({{< ref "mysql" >}})
 - [PostgreSQL]({{< ref "postgresql" >}})
 - [Go]({{< ref "go">}})
