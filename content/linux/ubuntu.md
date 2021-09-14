@@ -5,6 +5,7 @@ title: Ubuntu
 tags: ["Linux","Ubuntu","apt-get"]
 ---
 
+# Ubuntu
 ## ```apt-get```
 
 |command|description|
