@@ -12,7 +12,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.d9094c34eb98c0abde7fd940c6b2efccc220225f6a39a28074cbf050b878d2d9.js integrity="sha256-2QlMNOuYwKvef9lAxrLvzMIgIl9qOaKAdMvwULh40tk=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.e0590807158cbe8c6d2d6e9230bbfc09ee2b048172ca58f28b4d522dfea5570f.js integrity="sha256-4FkIBxWMvoxtLW6SMLv8Ce4rBIFyyljyi01SLf6lVw8=" crossorigin=anonymous></script>
 <link rel=alternate type=application/rss+xml href=https://exaream.github.io/tech-blog/tags/linux/index.xml title="Tech Blog">
 </head>
 <body dir=ltr>
@@ -54,7 +54,8 @@ Menu
 <ul>
 <li><a href=https://exaream.github.io/tech-blog/git/>Git</a></li>
 <li><a href=https://exaream.github.io/tech-blog/docker/>Docker</a></li>
-<li><a href=https://exaream.github.io/tech-blog/linux/>Linux</a></li>
+<li><a href=https://exaream.github.io/tech-blog/linux/memo/>Linux</a></li>
+<li><a href=https://exaream.github.io/tech-blog/linux/ubuntu/>Ubuntu</a></li>
 <li><a href=https://exaream.github.io/tech-blog/mysql/>MySQL</a></li>
 <li><a href=https://exaream.github.io/tech-blog/postgresql/>PostgreSQL</a></li>
 <li><a href=https://exaream.github.io/tech-blog/go/>Go</a></li>
@@ -118,6 +119,10 @@ Menu
 <span>1</span>
 </li>
 <li class="flex justify-between">
+<a href=/tech-blog/tags/apt-get/>apt-get</a>
+<span>1</span>
+</li>
+<li class="flex justify-between">
 <a href=/tech-blog/tags/command/>Command</a>
 <span>1</span>
 </li>
@@ -155,7 +160,7 @@ Menu
 </li>
 <li class="flex justify-between">
 <a href=/tech-blog/tags/linux/>Linux</a>
-<span>1</span>
+<span>2</span>
 </li>
 <li class="flex justify-between">
 <a href=/tech-blog/tags/log/>Log</a>
@@ -202,6 +207,10 @@ Menu
 <span>1</span>
 </li>
 <li class="flex justify-between">
+<a href=/tech-blog/tags/ubuntu/>Ubuntu</a>
+<span>1</span>
+</li>
+<li class="flex justify-between">
 <a href=/tech-blog/tags/visual-studio-code/>Visual Studio Code</a>
 <span>1</span>
 </li>
@@ -232,7 +241,7 @@ Menu
 </ol>
 <article class="markdown book-post">
 <h2>
-<a href=/tech-blog/linux/>Linux Memo</a>
+<a href=/tech-blog/linux/memo/>Linux Memo</a>
 </h2>
 <h5>January 1, 2020</h5>
 <div>
@@ -245,7 +254,20 @@ $ history 10 コマンドライン上で !番号 と入力することで指定�
 例) 履歴の末尾から5件目のコマンドを実行する場合
 !5 履歴の件数が多い場合 head コマンドで冒頭のみ表示
 $ history | head コマンド入力履歴を削除 # 指定した番号の履歴を削除 例) 5番の履歴を削除
-<a href=/tech-blog/linux/>...</a>
+<a href=/tech-blog/linux/memo/>...</a>
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
+<a href=/tech-blog/linux/ubuntu/>Ubuntu</a>
+</h2>
+<h5>January 1, 2020</h5>
+<div>
+<a href=/tech-blog/tags/linux/>Linux</a>,
+<a href=/tech-blog/tags/ubuntu/>Ubuntu</a>,
+<a href=/tech-blog/tags/apt-get/>apt-get</a>
+</div>
+<p>apt-get # command description apt-get install &lt;package> 指定パッケージのインストールと更新 apt-get update パッケージ・リストを更新 apt-get upgrade インストール済パッケージを更新 apt-get dist-upgrade 追加で必要なパッケージをインストール、不要パッケージを削除、ディストリビューションのバージョンを更新(セキュリティパッチをあてる場合などにも使用) apt-get remove &lt;package> 指定パッケージを削除 apt-get autoremove 未使用パッケージを削除 (設定ファイルは削除しない) apt-get purge &lt;package> 未使用パッケージを削除 (設定ファイルも削除する) apt-get clean パッケージをインストールした際のアーカイブ・ファイル(*.tar.gzなど)を削除 apt-get autoclean 未使用パッケージのアーカイブ・ファイルを削除 apt-cache # command description apt-cache search &lt;query> パッケージを検索 (パッケージ名と説明が &lt;query> の対象) apt-cache policy &lt;query> パッケージを検索 (インストール可能なバージョンの表示) apt-cache madison &lt;query> パッケージを検索 (インストール可能なバージョンの一覧) dpkg # command description dpkg -l &lt;package> インストール済パッケージの一覧を表示、&lt;package> を省略した場合 全パッケージを表示 dpkg -L &lt;package> インストール時のファイルの一覧を表示 References # Ubuntu apt-get まとめ
 </p>
 </article>
 <footer class=book-footer>
@@ -308,6 +330,10 @@ English
 <span>1</span>
 </li>
 <li class="flex justify-between">
+<a href=/tech-blog/tags/apt-get/>apt-get</a>
+<span>1</span>
+</li>
+<li class="flex justify-between">
 <a href=/tech-blog/tags/command/>Command</a>
 <span>1</span>
 </li>
@@ -345,7 +371,7 @@ English
 </li>
 <li class="flex justify-between">
 <a href=/tech-blog/tags/linux/>Linux</a>
-<span>1</span>
+<span>2</span>
 </li>
 <li class="flex justify-between">
 <a href=/tech-blog/tags/log/>Log</a>
@@ -389,6 +415,10 @@ English
 </li>
 <li class="flex justify-between">
 <a href=/tech-blog/tags/todo/>TODO</a>
+<span>1</span>
+</li>
+<li class="flex justify-between">
+<a href=/tech-blog/tags/ubuntu/>Ubuntu</a>
 <span>1</span>
 </li>
 <li class="flex justify-between">
