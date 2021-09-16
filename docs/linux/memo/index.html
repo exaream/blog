@@ -22,7 +22,7 @@ $ history | head コマンド入力履歴を削除 #  指定した番号の履�
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.594c904b8c7cc837031a07191bf8109fe0fe1da976285021fdcfdc5b9de10ee8.js integrity="sha256-WUyQS4x8yDcDGgcZG/gQn+D+Hal2KFAh/c/cW53hDug=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.52a1d3078336fdff5b4fb330eacd8926a3f8e5031bbd369cbe3e3c195c557ed9.js integrity="sha256-UqHTB4M2/f9bT7Mw6s2JJqP45QMbvTacvj48GVxVftk=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -134,7 +134,11 @@ Menu
 </li>
 <li><a href=#ディスク容量>ディスク容量</a>
 <ul>
-<li><a href=#ディスク容量を確認>ディスク容量を確認</a></li>
+<li><a href=#df-コマンドとは><code>df</code> コマンドとは</a></li>
+<li><a href=#df-コマンドの主なオプション><code>df</code> コマンドの主なオプション</a></li>
+<li><a href=#ディスクの空き容量を表示>ディスクの空き容量を表示</a></li>
+<li><a href=#ディスクの空き容量を表示場所を指定して集計>ディスクの空き容量を表示(場所を指定して集計)</a></li>
+<li><a href=#ディスクの空き容量を読みやすいサイズ表記で表示>ディスクの空き容量を読みやすいサイズ表記で表示</a></li>
 <li><a href=#特定ディレクトリ配下の容量を確認>特定ディレクトリ配下の容量を確認</a></li>
 </ul>
 </li>
@@ -669,10 +673,128 @@ vim 内部で使用される文字コードを確認
 ディスク容量
 <a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e5%ae%b9%e9%87%8f>#</a>
 </h2>
-<h3 id=ディスク容量を確認>
-ディスク容量を確認
-<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e5%ae%b9%e9%87%8f%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+<h3 id=df-コマンドとは>
+<code>df</code> コマンドとは
+<a class=anchor href=#df-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a8%e3%81%af>#</a>
 </h3>
+<p>ディスクの空き領域(free スペース)のサイズを集計して表示</p>
+<h3 id=df-コマンドの主なオプション>
+<code>df</code> コマンドの主なオプション
+<a class=anchor href=#df-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-h</code></td>
+<td><code>--human-readable</code></td>
+<td>サイズに応じて人間が読みやすい単位に変換して表示</td>
+</tr>
+<tr>
+<td><code>-H</code></td>
+<td><code>--si</code></td>
+<td>イズに応じて人間が読みやすい単位に変換して表示、ただし 1024単位ではなく 1000単位の値を使用</td>
+</tr>
+<tr>
+<td><code>-Bサイズ</code></td>
+<td><code>--block-size=サイズ</code></td>
+<td>指定したサイズの倍数で表示、サイズは数値または単位で指定</td>
+</tr>
+<tr>
+<td><code>-k</code></td>
+<td></td>
+<td><code>--block-size=1K</code> と同じ</td>
+</tr>
+<tr>
+<td><code>-m</code></td>
+<td></td>
+<td><code>--block-size=1M</code> と同じ</td>
+</tr>
+<tr>
+<td><code>-P</code></td>
+<td><code>--portability</code></td>
+<td>POSIX出力形式（サイズではなくブロックで表示）</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td><code>--inodes</code></td>
+<td>ブロック使用量の代わりにiノード情報を表示</td>
+</tr>
+<tr>
+<td><code>-T</code></td>
+<td><code>--print-type</code></td>
+<td>各ファイルシステムの種類を合わせて表示</td>
+</tr>
+<tr>
+<td><code>-t種類</code></td>
+<td><code>--type=種類</code></td>
+<td>対象とするフォーマットの種類を指定(e.g.「-txfs」でXFSフォーマットの場所のみ表示)</td>
+</tr>
+<tr>
+<td><code>-x種類</code></td>
+<td><code>--exclude-type=種類</code></td>
+<td>対象としないフォーマットの種類を指定</td>
+</tr>
+<tr>
+<td><code>-a</code></td>
+<td><code>--all</code></td>
+<td>ダミーファイルシステムを含めて表示</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td><code>--local</code></td>
+<td>ローカルファイルシステムのみを表示</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--total</code></td>
+<td>全体の合計も表示</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--sync</code></td>
+<td>使用量の情報を得る前にsyncを実行</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--no-sync</code></td>
+<td>使用量の情報を得る前にsyncの実行なし（デフォルト）</td>
+</tr>
+</tbody>
+</table>
+<h3 id=ディスクの空き容量を表示>
+ディスクの空き容量を表示
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%81%ae%e7%a9%ba%e3%81%8d%e5%ae%b9%e9%87%8f%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>df
+</code></pre></div><p>メガ(1024×1024バイト)単位で表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>df -BM
+</code></pre></div><p>メガ(1000×1000バイト)単位で表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>df -BMB
+</code></pre></div><p>フォーマットの種類も合わせて表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>df -T
+</code></pre></div><p>XFSでフォーマットされているパーティションの空き領域と合計を表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>df -txfs --total
+</code></pre></div><h3 id=ディスクの空き容量を表示場所を指定して集計>
+ディスクの空き容量を表示(場所を指定して集計)
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%81%ae%e7%a9%ba%e3%81%8d%e5%ae%b9%e9%87%8f%e3%82%92%e8%a1%a8%e7%a4%ba%e5%a0%b4%e6%89%80%e3%82%92%e6%8c%87%e5%ae%9a%e3%81%97%e3%81%a6%e9%9b%86%e8%a8%88>#</a>
+</h3>
+<p>カレントディレクトリを含むパーティションの空き領域を表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>df .
+</code></pre></div><p><code>/usr</code> を含むパーティションの空き領域を表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>df /usr
+</code></pre></div><h3 id=ディスクの空き容量を読みやすいサイズ表記で表示>
+ディスクの空き容量を読みやすいサイズ表記で表示
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%81%ae%e7%a9%ba%e3%81%8d%e5%ae%b9%e9%87%8f%e3%82%92%e8%aa%ad%e3%81%bf%e3%82%84%e3%81%99%e3%81%84%e3%82%b5%e3%82%a4%e3%82%ba%e8%a1%a8%e8%a8%98%e3%81%a7%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>df -h
+</code></pre></div><p>空き領域の合計もあわせて表示</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>df -h --total
 </code></pre></div><h3 id=特定ディレクトリ配下の容量を確認>
 特定ディレクトリ配下の容量を確認
@@ -2563,7 +2685,11 @@ English
 </li>
 <li><a href=#ディスク容量>ディスク容量</a>
 <ul>
-<li><a href=#ディスク容量を確認>ディスク容量を確認</a></li>
+<li><a href=#df-コマンドとは><code>df</code> コマンドとは</a></li>
+<li><a href=#df-コマンドの主なオプション><code>df</code> コマンドの主なオプション</a></li>
+<li><a href=#ディスクの空き容量を表示>ディスクの空き容量を表示</a></li>
+<li><a href=#ディスクの空き容量を表示場所を指定して集計>ディスクの空き容量を表示(場所を指定して集計)</a></li>
+<li><a href=#ディスクの空き容量を読みやすいサイズ表記で表示>ディスクの空き容量を読みやすいサイズ表記で表示</a></li>
 <li><a href=#特定ディレクトリ配下の容量を確認>特定ディレクトリ配下の容量を確認</a></li>
 </ul>
 </li>
