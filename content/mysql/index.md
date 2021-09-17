@@ -1272,6 +1272,11 @@ FROM
 EXPLAIN SELECT * FROM sample_table WHERE sample_flag = 1;
 ```
 
+### 一時的なテーブルの作成
+```mysql
+CREATE TEMPORARY TABLE new_table SELECT * FROM original_table
+```
+
 ### データベースへのコネクション数
 {{<hint info>}}
 threads へのアクセスには相互排他ロックは必要なく、サーバーパフォーマンスへの影響は最小です。INFORMATION_SCHEMA.PROCESSLIST と SHOW PROCESSLIST では相互排他ロックが必要になるため、パフォーマンスの低下につながります。
@@ -1384,3 +1389,4 @@ SELECT AES_DECRYPT(@crypt_str,@key_str,@init_vector);
 * https://qiita.com/marnie_ms4/items/576055abc355184c51a1
 * https://qiita.com/fururun02/items/148a1eee68a1fb978f06
 * https://qiita.com/dodonki1223/items/776a3520e45626773c60
+* https://dev.mysql.com/doc/refman/8.0/ja/select.html
