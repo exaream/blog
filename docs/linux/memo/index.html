@@ -22,7 +22,7 @@ $ history | head コマンド入力履歴を削除 #  指定した番号の履�
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.5900fdad30296970d51300067928a06004af28ea8574816cc3eb16c7db1b325b.js integrity="sha256-WQD9rTApaXDVEwAGeSigYASvKOqFdIFsw+sWx9sbMls=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.bf81dac8a1e6d0274745d4ffa09a5475c041c5a6ceaab69876b573e8050cc544.js integrity="sha256-v4HayKHm0CdHRdT/oJpUdcBBxabOqraYdrVz6AUMxUQ=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -139,7 +139,6 @@ Menu
 <li><a href=#ディスクの空き容量を表示>ディスクの空き容量を表示</a></li>
 <li><a href=#ディスクの空き容量を表示場所を指定して集計>ディスクの空き容量を表示(場所を指定して集計)</a></li>
 <li><a href=#ディスクの空き容量を読みやすいサイズ表記で表示>ディスクの空き容量を読みやすいサイズ表記で表示</a></li>
-<li><a href=#特定ディレクトリ配下の容量を確認>特定ディレクトリ配下の容量を確認</a></li>
 </ul>
 </li>
 <li><a href=#日付時刻>日付・時刻</a>
@@ -288,14 +287,19 @@ Menu
 <ul>
 <li><a href=#du-コマンドとは><code>du</code> コマンドとは</a></li>
 <li><a href=#du-コマンドの主なオプション><code>du</code> コマンドの主なオプション</a></li>
-<li><a href=#カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示>カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示</a></li>
-<li><a href=#カレントディレクトリのディスク使用量の合計のみを表示>カレントディレクトリのディスク使用量の合計のみを表示</a></li>
-<li><a href=#カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示>カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示</a></li>
+<li><a href=#特定ディレクトリ配下でディスク使用量が大きい順に表示>特定ディレクトリ配下でディスク使用量が大きい順に表示</a></li>
+<li><a href=#カレントディレクトリ直下のファイルやディレクトリのディスク使用量とその合計を表示>カレントディレクトリ直下のファイルやディレクトリのディスク使用量とその合計を表示</a></li>
 <li><a href=#集計するディレクトリの深さを指定>集計するディレクトリの深さを指定</a></li>
-<li><a href=#ディスク使用量が大きい順にソート>ディスク使用量が大きい順にソート</a></li>
 </ul>
 </li>
-<li><a href=#その他>その他</a>
+<li><a href=#並べ替え>並べ替え</a>
+<ul>
+<li><a href=#sort-コマンドとは><code>sort</code> コマンドとは</a></li>
+<li><a href=#sort-コマンドの主なオプション><code>sort</code> コマンドの主なオプション</a></li>
+<li><a href=#指定した列で並べ替え>指定した列で並べ替え</a></li>
+</ul>
+</li>
+<li><a href=#その他-1>その他</a>
 <ul>
 <li><a href=#ログイン中のユーザー>ログイン中のユーザー</a></li>
 </ul>
@@ -796,12 +800,6 @@ vim 内部で使用される文字コードを確認
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>df -h
 </code></pre></div><p>空き領域の合計もあわせて表示</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>df -h --total
-</code></pre></div><h3 id=特定ディレクトリ配下の容量を確認>
-特定ディレクトリ配下の容量を確認
-<a class=anchor href=#%e7%89%b9%e5%ae%9a%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e9%85%8d%e4%b8%8b%e3%81%ae%e5%ae%b9%e9%87%8f%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
-</h3>
-<p>e.g) 容量が大きい順に30件表示</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>du -sh /path/to/target/directory/* | sort -hr | head -30
 </code></pre></div><h2 id=日付時刻>
 日付・時刻
 <a class=anchor href=#%e6%97%a5%e4%bb%98%e6%99%82%e5%88%bb>#</a>
@@ -2563,21 +2561,16 @@ OSのバージョン情報確認コマンドを確認
 </tr>
 </tbody>
 </table>
-<h3 id=カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示>
-カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示
-<a class=anchor href=#%e3%82%ab%e3%83%ac%e3%83%b3%e3%83%88%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e9%85%8d%e4%b8%8b%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%82%92%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%94%e3%81%a8%e3%81%ab%e9%9b%86%e8%a8%88%e3%81%97%e3%81%a6%e8%a1%a8%e7%a4%ba>#</a>
+<h3 id=特定ディレクトリ配下でディスク使用量が大きい順に表示>
+特定ディレクトリ配下でディスク使用量が大きい順に表示
+<a class=anchor href=#%e7%89%b9%e5%ae%9a%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e9%85%8d%e4%b8%8b%e3%81%a7%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%81%8c%e5%a4%a7%e3%81%8d%e3%81%84%e9%a0%86%e3%81%ab%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du
-</code></pre></div><h3 id=カレントディレクトリのディスク使用量の合計のみを表示>
-カレントディレクトリのディスク使用量の合計のみを表示
-<a class=anchor href=#%e3%82%ab%e3%83%ac%e3%83%b3%e3%83%88%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%81%ae%e5%90%88%e8%a8%88%e3%81%ae%e3%81%bf%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>du -hs /path/to/target/directory/* | sort -hr | head -10
+</code></pre></div><h3 id=カレントディレクトリ直下のファイルやディレクトリのディスク使用量とその合計を表示>
+カレントディレクトリ直下のファイルやディレクトリのディスク使用量とその合計を表示
+<a class=anchor href=#%e3%82%ab%e3%83%ac%e3%83%b3%e3%83%88%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e7%9b%b4%e4%b8%8b%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%84%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%81%a8%e3%81%9d%e3%81%ae%e5%90%88%e8%a8%88%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du -s
-</code></pre></div><h3 id=カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示>
-カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示
-<a class=anchor href=#%e3%82%ab%e3%83%ac%e3%83%b3%e3%83%88%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e7%9b%b4%e4%b8%8b%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%a8%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%81%a8%e3%81%9d%e3%81%ae%e5%90%88%e8%a8%88%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du -s -c *
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du -cs *
 </code></pre></div><h3 id=集計するディレクトリの深さを指定>
 集計するディレクトリの深さを指定
 <a class=anchor href=#%e9%9b%86%e8%a8%88%e3%81%99%e3%82%8b%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e6%b7%b1%e3%81%95%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
@@ -2586,14 +2579,177 @@ OSのバージョン情報確認コマンドを確認
 (他のパーティーションにあるファイルは対象外)<br>
 <code>-x</code> 1つのファイルシステムのみを集計</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du -d1 -x /
-</code></pre></div><h3 id=ディスク使用量が大きい順にソート>
-ディスク使用量が大きい順にソート
-<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%81%8c%e5%a4%a7%e3%81%8d%e3%81%84%e9%a0%86%e3%81%ab%e3%82%bd%e3%83%bc%e3%83%88>#</a>
+</code></pre></div><h2 id=並べ替え>
+並べ替え
+<a class=anchor href=#%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88>#</a>
+</h2>
+<h3 id=sort-コマンドとは>
+<code>sort</code> コマンドとは
+<a class=anchor href=#sort-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a8%e3%81%af>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du -d1 -x / | sort -nr
-</code></pre></div><h2 id=その他>
+<ul>
+<li>テキストファイルを行単位で並べ替えるコマンド</li>
+</ul>
+<h3 id=sort-コマンドの主なオプション>
+<code>sort</code> コマンドの主なオプション
+<a class=anchor href=#sort-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<h4 id=並べ替え関連>
+並べ替え関連
+<a class=anchor href=#%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e9%96%a2%e9%80%a3>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-f</code></td>
+<td><code>--ignore-case</code></td>
+<td>大文字／小文字を区別せずに並べ替え</td>
+</tr>
+<tr>
+<td><code>-V</code></td>
+<td><code>--version-sort</code></td>
+<td>自然な（バージョン）数字順で並べ替え</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td><code>--numeric-sort</code></td>
+<td>文字列を数値と見なして並べ替え</td>
+</tr>
+<tr>
+<td><code>-h</code></td>
+<td><code>--human-numeric-sort</code></td>
+<td>人が読むことのできる形式の数値で並べ替え(e.g. 5K, 1.2G etc.)</td>
+</tr>
+<tr>
+<td><code>-g</code></td>
+<td><code>--general-numeric-sort</code></td>
+<td>一般的な数値として並べ替え</td>
+</tr>
+<tr>
+<td><code>-M</code></td>
+<td><code>--month-sort</code></td>
+<td>月名で並べ替え</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td><code>--dictionary-order</code></td>
+<td>データが空白と英数字のみ含まれていると仮定して並べ替え</td>
+</tr>
+<tr>
+<td><code>-b</code></td>
+<td><code>--ignore-leading-blanks</code></td>
+<td>先頭の空白を無視して並べ替え</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td><code>--ignore-nonprinting</code></td>
+<td>表示可能な文字だけを対象に並べ替え</td>
+</tr>
+<tr>
+<td><code>-R</code></td>
+<td><code>--random-sort</code></td>
+<td>キーのランダムハッシュ順に並べ替え</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--random-source=ファイル</code></td>
+<td>ランダムソースのファイルを設定</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--sort=指定</code></td>
+<td>並べ替えの方法を指定 (general-numeric、human-numeric、month、numeric、random、version)</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td><code>--reverse</code></td>
+<td>逆順で並べ替え</td>
+</tr>
+<tr>
+<td><code>-k 指定</code></td>
+<td><code>--key=指定</code></td>
+<td>所と並べ替え種別を指定する (<code>-k 5</code>なら5列目、<code>-k 5n</code> なら5列目を数値として並べ替え。複数指定する場合は <code>-k</code> オプションを複数回指定)</td>
+</tr>
+<tr>
+<td><code>-t 文字</code></td>
+<td><code>--field-separator=文字</code></td>
+<td>フィールドの区切り文字を指定（デフォルトは空白文字）</td>
+</tr>
+</tbody>
+</table>
+<h4 id=その他>
 その他
 <a class=anchor href=#%e3%81%9d%e3%81%ae%e4%bb%96>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>````-m```</td>
+<td><code>--merge</code></td>
+<td>並べ替えられたファイルをマージ (並べ替え自体は行わない)</td>
+</tr>
+<tr>
+<td>````-c```</td>
+<td><code>--check</code>, <code>--check=diagnose-first</code></td>
+<td>並べ替えられているかどうかを確認</td>
+</tr>
+<tr>
+<td>````-C```</td>
+<td><code>--check=quiet</code>, <code>--check=silent</code></td>
+<td><code>-c</code> と同様だがメッセージは出力しない（スクリプト内の判定行などで使用）</td>
+</tr>
+<tr>
+<td>````-u```</td>
+<td><code>--unique</code></td>
+<td>同一行は1つ目だけを出力（<code>-c</code> と併せて使用した場合、厳密に順序を確認）</td>
+</tr>
+<tr>
+<td>````-z```</td>
+<td><code>--zero-terminated</code></td>
+<td>最後に NULL 文字を出力</td>
+</tr>
+<tr>
+<td>````-o ファイル名```</td>
+<td><code>--output=ファイル名</code></td>
+<td>結果を出力するファイル名を指定（デフォルトは標準出力）</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--files0-from=F</code></td>
+<td>NULL文字で区切られたファイル名のリストを指定（<code>--files0-from=-</code> とした場合、ファイル名を標準入力から読み込み</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--debug</code></td>
+<td>並べ替えに使用されている行の一部に注釈を付けて、不確かな使用方法について標準エラー出力に警告を表示</td>
+</tr>
+</tbody>
+</table>
+<h3 id=指定した列で並べ替え>
+指定した列で並べ替え
+<a class=anchor href=#%e6%8c%87%e5%ae%9a%e3%81%97%e3%81%9f%e5%88%97%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88>#</a>
+</h3>
+<p>区切り文字を <code>,</code> として 5列目の項目で並べ替え</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sort -k <span style=color:#ae81ff>5</span> -t , sample.csv
+</code></pre></div><p>区切り文字を <code>,</code> として 5列目の項目を数字として並べ替え</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sort -k 5n -t , sample.csv
+</code></pre></div><h2 id=その他-1>
+その他
+<a class=anchor href=#%e3%81%9d%e3%81%ae%e4%bb%96-1>#</a>
 </h2>
 <h3 id=ログイン中のユーザー>
 ログイン中のユーザー
@@ -2690,7 +2846,6 @@ English
 <li><a href=#ディスクの空き容量を表示>ディスクの空き容量を表示</a></li>
 <li><a href=#ディスクの空き容量を表示場所を指定して集計>ディスクの空き容量を表示(場所を指定して集計)</a></li>
 <li><a href=#ディスクの空き容量を読みやすいサイズ表記で表示>ディスクの空き容量を読みやすいサイズ表記で表示</a></li>
-<li><a href=#特定ディレクトリ配下の容量を確認>特定ディレクトリ配下の容量を確認</a></li>
 </ul>
 </li>
 <li><a href=#日付時刻>日付・時刻</a>
@@ -2839,14 +2994,19 @@ English
 <ul>
 <li><a href=#du-コマンドとは><code>du</code> コマンドとは</a></li>
 <li><a href=#du-コマンドの主なオプション><code>du</code> コマンドの主なオプション</a></li>
-<li><a href=#カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示>カレントディレクトリ配下のディスク使用量をディレクトリごとに集計して表示</a></li>
-<li><a href=#カレントディレクトリのディスク使用量の合計のみを表示>カレントディレクトリのディスク使用量の合計のみを表示</a></li>
-<li><a href=#カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示>カレントディレクトリ直下のファイルとディレクトリのディスク使用量とその合計を表示</a></li>
+<li><a href=#特定ディレクトリ配下でディスク使用量が大きい順に表示>特定ディレクトリ配下でディスク使用量が大きい順に表示</a></li>
+<li><a href=#カレントディレクトリ直下のファイルやディレクトリのディスク使用量とその合計を表示>カレントディレクトリ直下のファイルやディレクトリのディスク使用量とその合計を表示</a></li>
 <li><a href=#集計するディレクトリの深さを指定>集計するディレクトリの深さを指定</a></li>
-<li><a href=#ディスク使用量が大きい順にソート>ディスク使用量が大きい順にソート</a></li>
 </ul>
 </li>
-<li><a href=#その他>その他</a>
+<li><a href=#並べ替え>並べ替え</a>
+<ul>
+<li><a href=#sort-コマンドとは><code>sort</code> コマンドとは</a></li>
+<li><a href=#sort-コマンドの主なオプション><code>sort</code> コマンドの主なオプション</a></li>
+<li><a href=#指定した列で並べ替え>指定した列で並べ替え</a></li>
+</ul>
+</li>
+<li><a href=#その他-1>その他</a>
 <ul>
 <li><a href=#ログイン中のユーザー>ログイン中のユーザー</a></li>
 </ul>
