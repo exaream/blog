@@ -1052,19 +1052,19 @@ path := filepath.Join("dir", "main.go")
 
 ### 相対パスを取得
 ```go
-relative_path := filepath.Rel(base_path, target_path)
+relativePath, err := filepath.Rel(base_path, target_path)
 ```
 
 ### 相対パスから絶対パスを取得
 ```go
-absolute_path := filepath.Abs(relative_path)
+absolutePath, err := filepath.Abs(relative_path)
 ```
 
 ## ディレクトリ
 
 ### ディレクトリ名を取得
 ```go
-dir_name := filepath.Dir(path)
+dirName := filepath.Dir(path)
 ```
 ### ディレクトリを作成
 ```go
@@ -1110,40 +1110,40 @@ err := os.RemoveAll("foo")
 
 ### ファイルを作成
 ```go
-file_obj, err := os.Create("foo.txt")
+fileObj, err := os.Create("foo.txt")
 ```
 
 ### ファイルに入力
 ```go
-byte_count, err := file_obj.WriteString("Hello\n")
+byteCount, err := fileObj.WriteString("Hello\n")
 ```
 
 ### ファイルの情報を取得
 ```go
-file_info, err := os.Stat(file_name)
+fileInfo, err := os.Stat(file_name)
 // or
-file_info, err := file_obj.Stat()
+fileInfo, err := file_obj.Stat()
 
-file_info.Name() // ファイル名
-file_info.Size() // ファイルサイズ
-file_info.Mode() // ファイルモード
-file_info.ModTime() // 最終更新日時
-file_infi.IsDir() // ディレクトリか否か
+fileInfo.Name() // ファイル名
+fileInfo.Size() // ファイルサイズ
+fileInfo.Mode() // ファイルモード
+fileInfo.ModTime() // 最終更新日時
+fileInfi.IsDir() // ディレクトリか否か
 ```
 
 ### ファイル名を取得
 ```go
-file_name := filepath.Base(path)
+fileName := filepath.Base(path)
 ```
 
 ### ファイルの拡張子を取得
 ```go
-file_ext := filepath.Ext(path)
+fileExt := filepath.Ext(path)
 ```
 
 ### ファイルの拡張子を除外したファイル名を取得
 ```go
-file_stem := filepath.Base(path[:len(path)-len(filepath.Ext(path))])
+fileStem := filepath.Base(path[:len(path)-len(filepath.Ext(path))])
 ```
 
 ### ファイル名を変更
