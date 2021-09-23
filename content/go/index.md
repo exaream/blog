@@ -8,6 +8,14 @@ tags: ["Go", "Golang", "Memo"]
 
 # Go Memo
 
+## macOS でパスを通す方法
+
+```bash
+echo "export GOPATH=$HOME/go" >> ~/.bash_profile
+echo "export PATH=$PATH:$GOPATH/bin" >> ~/.bash_profile
+source ~/.bash_profile
+```
+
 ## コンパイル, バイナリ
 ### コンパイルして実行
 バイナリ（実行可能ファイル）の生成なし
@@ -45,6 +53,15 @@ $ go get github.com/kisielk/errcheck
 $ errcheck ./...
 ```
 
+### セキュリティのチェック
+
+```bash
+$ curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b $(go env GOPATH)/bin latest
+```
+
+```bash
+$ gosec ./...
+```
 ## Linterのセットを使ってチェック
 ### Staticcheck
 https://staticcheck.io/docs/  
