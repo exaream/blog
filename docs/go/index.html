@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.bf81dac8a1e6d0274745d4ffa09a5475c041c5a6ceaab69876b573e8050cc544.js integrity="sha256-v4HayKHm0CdHRdT/oJpUdcBBxabOqraYdrVz6AUMxUQ=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.0318b0915e47ac1f7ffdef18d00a2ffd519c516e0a01517f709dda5416c7145b.js integrity="sha256-AxiwkV5HrB9//e8Y0Aov/VGcUW4KAVF/cJ3aVBbHFFs=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -90,6 +90,7 @@ Menu
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#macos-でパスを通す方法>macOS でパスを通す方法</a></li>
 <li><a href=#コンパイル-バイナリ>コンパイル, バイナリ</a>
 <ul>
 <li><a href=#コンパイルして実行>コンパイルして実行</a></li>
@@ -100,6 +101,7 @@ Menu
 <ul>
 <li><a href=#バグと思われるミスを検出>バグと思われるミスを検出</a></li>
 <li><a href=#エラー処理のミスを検出>エラー処理のミスを検出</a></li>
+<li><a href=#セキュリティのチェック>セキュリティのチェック</a></li>
 </ul>
 </li>
 <li><a href=#linterのセットを使ってチェック>Linterのセットを使ってチェック</a>
@@ -275,7 +277,14 @@ Menu
 Go Memo
 <a class=anchor href=#go-memo>#</a>
 </h1>
-<h2 id=コンパイル-バイナリ>
+<h2 id=macos-でパスを通す方法>
+macOS でパスを通す方法
+<a class=anchor href=#macos-%e3%81%a7%e3%83%91%e3%82%b9%e3%82%92%e9%80%9a%e3%81%99%e6%96%b9%e6%b3%95>#</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>echo <span style=color:#e6db74>&#34;export GOPATH=</span>$HOME<span style=color:#e6db74>/go&#34;</span> &gt;&gt; ~/.bash_profile
+echo <span style=color:#e6db74>&#34;export PATH=</span>$PATH<span style=color:#e6db74>:</span>$GOPATH<span style=color:#e6db74>/bin&#34;</span> &gt;&gt; ~/.bash_profile
+source ~/.bash_profile
+</code></pre></div><h2 id=コンパイル-バイナリ>
 コンパイル, バイナリ
 <a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab-%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa>#</a>
 </h2>
@@ -314,6 +323,12 @@ $ go vet pkgname
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go get github.com/kisielk/errcheck
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ errcheck ./...
+</code></pre></div><h3 id=セキュリティのチェック>
+セキュリティのチェック
+<a class=anchor href=#%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%81%ae%e3%83%81%e3%82%a7%e3%83%83%e3%82%af>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b <span style=color:#66d9ef>$(</span>go env GOPATH<span style=color:#66d9ef>)</span>/bin latest
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ gosec ./...
 </code></pre></div><h2 id=linterのセットを使ってチェック>
 Linterのセットを使ってチェック
 <a class=anchor href=#linter%e3%81%ae%e3%82%bb%e3%83%83%e3%83%88%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%81%e3%82%a7%e3%83%83%e3%82%af>#</a>
@@ -1895,12 +1910,12 @@ go
 相対パスを取得
 <a class=anchor href=#%e7%9b%b8%e5%af%be%e3%83%91%e3%82%b9%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>relative_path</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Rel</span>(<span style=color:#a6e22e>base_path</span>, <span style=color:#a6e22e>target_path</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>relativePath</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Rel</span>(<span style=color:#a6e22e>base_path</span>, <span style=color:#a6e22e>target_path</span>)
 </code></pre></div><h3 id=相対パスから絶対パスを取得>
 相対パスから絶対パスを取得
 <a class=anchor href=#%e7%9b%b8%e5%af%be%e3%83%91%e3%82%b9%e3%81%8b%e3%82%89%e7%b5%b6%e5%af%be%e3%83%91%e3%82%b9%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>absolute_path</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Abs</span>(<span style=color:#a6e22e>relative_path</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>absolutePath</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Abs</span>(<span style=color:#a6e22e>relative_path</span>)
 </code></pre></div><h2 id=ディレクトリ>
 ディレクトリ
 <a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa>#</a>
@@ -1909,7 +1924,7 @@ go
 ディレクトリ名を取得
 <a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>dir_name</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Dir</span>(<span style=color:#a6e22e>path</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>dirName</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Dir</span>(<span style=color:#a6e22e>path</span>)
 </code></pre></div><h3 id=ディレクトリを作成>
 ディレクトリを作成
 <a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e4%bd%9c%e6%88%90>#</a>
@@ -1960,40 +1975,40 @@ go
 ファイルを作成
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e4%bd%9c%e6%88%90>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_obj</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Create</span>(<span style=color:#e6db74>&#34;foo.txt&#34;</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fileObj</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Create</span>(<span style=color:#e6db74>&#34;foo.txt&#34;</span>)
 </code></pre></div><h3 id=ファイルに入力>
 ファイルに入力
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ab%e5%85%a5%e5%8a%9b>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>byte_count</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>file_obj</span>.<span style=color:#a6e22e>WriteString</span>(<span style=color:#e6db74>&#34;Hello\n&#34;</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>byteCount</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>fileObj</span>.<span style=color:#a6e22e>WriteString</span>(<span style=color:#e6db74>&#34;Hello\n&#34;</span>)
 </code></pre></div><h3 id=ファイルの情報を取得>
 ファイルの情報を取得
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%83%85%e5%a0%b1%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_info</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stat</span>(<span style=color:#a6e22e>file_name</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fileInfo</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stat</span>(<span style=color:#a6e22e>file_name</span>)
 <span style=color:#75715e>// or
-</span><span style=color:#75715e></span><span style=color:#a6e22e>file_info</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>file_obj</span>.<span style=color:#a6e22e>Stat</span>()
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fileInfo</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>file_obj</span>.<span style=color:#a6e22e>Stat</span>()
 
-<span style=color:#a6e22e>file_info</span>.<span style=color:#a6e22e>Name</span>() <span style=color:#75715e>// ファイル名
-</span><span style=color:#75715e></span><span style=color:#a6e22e>file_info</span>.<span style=color:#a6e22e>Size</span>() <span style=color:#75715e>// ファイルサイズ
-</span><span style=color:#75715e></span><span style=color:#a6e22e>file_info</span>.<span style=color:#a6e22e>Mode</span>() <span style=color:#75715e>// ファイルモード
-</span><span style=color:#75715e></span><span style=color:#a6e22e>file_info</span>.<span style=color:#a6e22e>ModTime</span>() <span style=color:#75715e>// 最終更新日時
-</span><span style=color:#75715e></span><span style=color:#a6e22e>file_infi</span>.<span style=color:#a6e22e>IsDir</span>() <span style=color:#75715e>// ディレクトリか否か
+<span style=color:#a6e22e>fileInfo</span>.<span style=color:#a6e22e>Name</span>() <span style=color:#75715e>// ファイル名
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fileInfo</span>.<span style=color:#a6e22e>Size</span>() <span style=color:#75715e>// ファイルサイズ
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fileInfo</span>.<span style=color:#a6e22e>Mode</span>() <span style=color:#75715e>// ファイルモード
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fileInfo</span>.<span style=color:#a6e22e>ModTime</span>() <span style=color:#75715e>// 最終更新日時
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fileInfi</span>.<span style=color:#a6e22e>IsDir</span>() <span style=color:#75715e>// ディレクトリか否か
 </span></code></pre></div><h3 id=ファイル名を取得>
 ファイル名を取得
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_name</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>path</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fileName</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>path</span>)
 </code></pre></div><h3 id=ファイルの拡張子を取得>
 ファイルの拡張子を取得
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%8b%a1%e5%bc%b5%e5%ad%90%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_ext</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Ext</span>(<span style=color:#a6e22e>path</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fileExt</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Ext</span>(<span style=color:#a6e22e>path</span>)
 </code></pre></div><h3 id=ファイルの拡張子を除外したファイル名を取得>
 ファイルの拡張子を除外したファイル名を取得
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%8b%a1%e5%bc%b5%e5%ad%90%e3%82%92%e9%99%a4%e5%a4%96%e3%81%97%e3%81%9f%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>file_stem</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>path</span>[:len(<span style=color:#a6e22e>path</span>)<span style=color:#f92672>-</span>len(<span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Ext</span>(<span style=color:#a6e22e>path</span>))])
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fileStem</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Base</span>(<span style=color:#a6e22e>path</span>[:len(<span style=color:#a6e22e>path</span>)<span style=color:#f92672>-</span>len(<span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Ext</span>(<span style=color:#a6e22e>path</span>))])
 </code></pre></div><h3 id=ファイル名を変更>
 ファイル名を変更
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%82%92%e5%a4%89%e6%9b%b4>#</a>
@@ -2313,6 +2328,7 @@ English
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#macos-でパスを通す方法>macOS でパスを通す方法</a></li>
 <li><a href=#コンパイル-バイナリ>コンパイル, バイナリ</a>
 <ul>
 <li><a href=#コンパイルして実行>コンパイルして実行</a></li>
@@ -2323,6 +2339,7 @@ English
 <ul>
 <li><a href=#バグと思われるミスを検出>バグと思われるミスを検出</a></li>
 <li><a href=#エラー処理のミスを検出>エラー処理のミスを検出</a></li>
+<li><a href=#セキュリティのチェック>セキュリティのチェック</a></li>
 </ul>
 </li>
 <li><a href=#linterのセットを使ってチェック>Linterのセットを使ってチェック</a>
