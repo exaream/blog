@@ -8,6 +8,46 @@ tags: ["Python", "Memo"]
 
 # Python Memo
 
+## Install macOS
+
+### Check the default version of Python on macOS 
+```bash
+$ python --version
+Python 2.7.16
+$ which python
+/usr/bin/python
+```
+
+### Install the latest version using Homebrew
+* `brew update` Update Homebrew itself
+* `brew install` Install package
+```bash
+$ brew update
+$ brew install python
+```
+
+### Add Python's path
+```bash
+$ vi ~/.bash_profile
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+$ source ~/.bash_profile
+```
+
+### Check that the latest version is available
+```bash
+$ python --version
+Python 3.9.7
+$ which python
+/usr/local/opt/python/libexec/bin/python
+```
+
+### If you want to update Python on macOS in the future
+* `brew upgrade` Update if there is an update for the installed package
+```bash
+$ brew update
+$ brew upgrade python
+```
+
 ## Version
 
 ### Terminal
