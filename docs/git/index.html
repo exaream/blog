@@ -16,7 +16,7 @@ $ git diff --stat --name-only <Commit A> <Commit B> タグの一覧を表示 #  
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.0318b0915e47ac1f7ffdef18d00a2ffd519c516e0a01517f709dda5416c7145b.js integrity="sha256-AxiwkV5HrB9//e8Y0Aov/VGcUW4KAVF/cJ3aVBbHFFs=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.a445d8d4d4b292701c934c0647d97b118a930e174465cf54571a9ffad20d0e55.js integrity="sha256-pEXY1NSyknAck0wGR9l7EYqTDhdEZc9UVxqf+tINDlU=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -975,7 +975,7 @@ HEAD~ と HEAD^ の違い
 <li>~ (チルダ): 最初の親のみに続くn世代前の祖先</li>
 </ul>
 <p><a href=https://git-scm.com/docs/git-rev-parse#_specifying_revisions>https://git-scm.com/docs/git-rev-parse#_specifying_revisions</a></p>
-<pre><code>G   H   I   J
+<pre tabindex=0><code>G   H   I   J
  \ /     \ /
   D   E   F
    \  |  / \
@@ -985,7 +985,7 @@ HEAD~ と HEAD^ の違い
        \   /
         \ /
          A
-</code></pre><pre><code>A =      = A^0
+</code></pre><pre tabindex=0><code>A =      = A^0
 B = A^   = A^1     = A~1
 C =      = A^2
 D = A^^  = A^1^1   = A~2
