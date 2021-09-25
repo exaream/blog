@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.02b5ac35751b48e91ba8e5572a4fb233ed5cb325199157b64cf90f5867fedbb3.js integrity="sha256-ArWsNXUbSOkbqOVXKk+yM+1csyUZkVe2TPkPWGf+27M=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.a949b1335de99b633bfb8e63924ed5be52bece56df96dfed356fe05f6584a148.js integrity="sha256-qUmxM13pm2M7+45jkk7VvlK+zlbflt/tNW/gX2WEoUg=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -94,6 +94,7 @@ Menu
 <li><a href=#unit-test>Unit Test</a>
 <ul>
 <li><a href=#setup-and-shutdown>Setup and shutdown</a></li>
+<li><a href=#run-subtests-in-parallel>Run subtests in parallel</a></li>
 </ul>
 </li>
 </ul>
@@ -130,13 +131,40 @@ Setup and shutdown
 	<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Exit</span>(<span style=color:#a6e22e>code</span>)
 }
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>setup</span>() {
-	<span style=color:#75715e>// Your code
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>setup</span>() { <span style=color:#75715e>// Voluntary method name
+</span><span style=color:#75715e></span>	<span style=color:#75715e>// Your code
 </span><span style=color:#75715e></span>}
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>shutdown</span>() {
-	<span style=color:#75715e>// Your code
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>shutdown</span>() { <span style=color:#75715e>// Voluntary method name
+</span><span style=color:#75715e></span>	<span style=color:#75715e>// Your code
 </span><span style=color:#75715e></span>}
+</code></pre></div><h3 id=run-subtests-in-parallel>
+Run subtests in parallel
+<a class=anchor href=#run-subtests-in-parallel>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>TestSample</span>(<span style=color:#a6e22e>t</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>testing</span>.<span style=color:#a6e22e>T</span>) {
+	<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Logf</span>(<span style=color:#e6db74>&#34;Start: %s&#34;</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>())
+
+	<span style=color:#a6e22e>tests</span> <span style=color:#f92672>:=</span> []<span style=color:#66d9ef>struct</span> {
+		<span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>
+		<span style=color:#a6e22e>code</span> <span style=color:#66d9ef>string</span>
+		<span style=color:#a6e22e>msg</span>  <span style=color:#66d9ef>string</span>
+	}{
+		{<span style=color:#e6db74>&#34;1&#34;</span>, <span style=color:#e6db74>&#34;0001&#34;</span>, <span style=color:#e6db74>&#34;foo&#34;</span>},
+		{<span style=color:#e6db74>&#34;2&#34;</span>, <span style=color:#e6db74>&#34;0002&#34;</span>, <span style=color:#e6db74>&#34;bar&#34;</span>},
+		{<span style=color:#e6db74>&#34;3&#34;</span>, <span style=color:#e6db74>&#34;0003&#34;</span>, <span style=color:#e6db74>&#34;baz&#34;</span>},
+	}
+	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>test</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>tests</span> {
+<span style=display:block;width:100%;background-color:#3c3d38>		<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Run</span>(<span style=color:#a6e22e>test</span>.<span style=color:#a6e22e>name</span>, <span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>t</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>testing</span>.<span style=color:#a6e22e>T</span>) { <span style=color:#75715e>// Run subtests
+</span></span><span style=display:block;width:100%;background-color:#3c3d38><span style=color:#75715e></span>			<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Parallel</span>() <span style=color:#75715e>// Run subtests in parallel
+</span></span><span style=color:#75715e></span>			<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>msg</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>mypkg</span>.<span style=color:#a6e22e>Sample</span>(<span style=color:#a6e22e>test</span>.<span style=color:#a6e22e>code</span>); <span style=color:#a6e22e>msg</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>test</span>.<span style=color:#a6e22e>msg</span> {
+				<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;The message must be %s: %s&#34;</span>, <span style=color:#a6e22e>test</span>.<span style=color:#a6e22e>msg</span>, <span style=color:#a6e22e>msg</span>)
+			}
+		})
+	}
+
+	<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Logf</span>(<span style=color:#e6db74>&#34;End: %s&#34;</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>())
+}
 </code></pre></div></article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
@@ -173,6 +201,7 @@ English
 <li><a href=#unit-test>Unit Test</a>
 <ul>
 <li><a href=#setup-and-shutdown>Setup and shutdown</a></li>
+<li><a href=#run-subtests-in-parallel>Run subtests in parallel</a></li>
 </ul>
 </li>
 </ul>
