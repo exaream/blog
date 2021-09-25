@@ -419,11 +419,11 @@ case 0, 1, 2: // 0 または 1 または 2 の場合
 	println("baby")
 	// 何もしなければ break
 	// 次のケースに進みたい場合のみ fallthrough を記述
-case a >= 3 && a <= 12: // 式を使用する場合
+case age >= 3 && age <= 12: // 式を使用する場合
 	println("child")
-case a >= 13 && a <= 19: // 式を使用する場合
+case age >= 13 && age <= 19: // 式を使用する場合
 	println("teenager")
-case a > 20: // 式を使用する場合
+case age > 20: // 式を使用する場合
 	println("adult")
 default:
 	println("default")
