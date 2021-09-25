@@ -19,11 +19,35 @@ func TestMain(m *testing.M) {
 	os.Exit(code)
 }
 
-func setup() {
+func setup() { // Voluntary method name
 	// Your code
 }
 
-func shutdown() {
+func shutdown() { // Voluntary method name
 	// Your code
 }
 ```
+
+### Run subtests in parallel
+```go {hl_lines=["12-13"],linenostart=1}
+func TestSample(t *testing.T) {
+	tests := []struct {
+		name string
+		code string
+		msg  string
+	}{
+		{"1", "0001", "foo"},
+		{"2", "0002", "bar"},
+		{"3", "0003", "baz"},
+	}
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) { // Run subtests
+			t.Parallel() // Run subtests in parallel
+			if msg := mypkg.Sample(test.code); msg != test.msg {
+				t.Errorf("The message must be %v: %v", test.msg, msg)
+			}
+		})
+	}
+}
+```
+
