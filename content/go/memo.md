@@ -1405,6 +1405,29 @@ func main() {
 }
 ```
 
+## Command
+
+### パイプで渡ってきた値を処理
+https://kaneshin.hateblo.jp/entry/2016/07/05/004601
+```go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"os"
+)
+
+func main() {
+	body, _ := ioutil.ReadAll(os.Stdin)
+	fmt.Println(string(body))
+}
+```
+`ls` の結果を Go で出力
+```shell
+$ ls | go run main.go
+```
+
 ## メモ
 
 スライスの例
