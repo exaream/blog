@@ -10,6 +10,37 @@ tags: ["Go", "Golang", "Test"]
 
 ## Unit Test
 
+### Run
+#### Run all unit tests
+```shell
+$ go test ./...
+```
+Show detailed information
+```shell
+$ go test ./... -v
+```
+
+Disable test cache
+```shell
+$ go test ./... -count=1
+```
+
+#### Run a method of a unit test
+```shell
+$ go test ./mypkg/ -run TestSample
+```
+
+### Coverage
+```shell
+$ go test ./... -cover
+```
+
+### Clean test cache
+If you see `(cached)` in results of unit tests
+```bash
+$ go clean -testcache
+```
+
 ### Setup and shutdown
 ```go
 func TestMain(m *testing.M) {
@@ -29,10 +60,10 @@ func shutdown() { // Voluntary method name
 ```
 
 ### Run subtests in parallel
-```go {hl_lines=["14-15"],linenostart=1}
+```go {hl_lines=[2,14,15],linenostart=1}
 func TestSample(t *testing.T) {
+	t.Parallel() // Run main test in parallel
 	t.Logf("Start: %s", time.Now())
-
 	tests := []struct {
 		name string
 		code string
