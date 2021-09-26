@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.49b12dcf40596f129593755ed34df63db2fd4b159c4e14966e15b5776f7ef998.js integrity="sha256-SbEtz0BZbxKVk3Ve0032PbL9SxWcThSWbhW1d29++Zg=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.1b64f3b8e533ef1ba5c168bf00f474b9e046f0ae3007ef5ba0d2a836476c7ef1.js integrity="sha256-G2TzuOUz7xulwWi/APR0ueBG8K4wB+9boNKoNkdsfvE=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -258,6 +258,11 @@ Menu
 <li><a href=#go-modules>Go Modules</a>
 <ul>
 <li><a href=#ローカルパッケージのインポート>ローカル・パッケージのインポート</a></li>
+</ul>
+</li>
+<li><a href=#command>Command</a>
+<ul>
+<li><a href=#パイプで渡ってきた値を処理>パイプで渡ってきた値を処理</a></li>
 </ul>
 </li>
 <li><a href=#メモ>メモ</a></li>
@@ -2245,6 +2250,29 @@ go 1.16
 <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
   <span style=color:#a6e22e>sample</span>.<span style=color:#a6e22e>IsAvailable</span>()
 }
+</code></pre></div><h2 id=command>
+Command
+<a class=anchor href=#command>#</a>
+</h2>
+<h3 id=パイプで渡ってきた値を処理>
+パイプで渡ってきた値を処理
+<a class=anchor href=#%e3%83%91%e3%82%a4%e3%83%97%e3%81%a7%e6%b8%a1%e3%81%a3%e3%81%a6%e3%81%8d%e3%81%9f%e5%80%a4%e3%82%92%e5%87%a6%e7%90%86>#</a>
+</h3>
+<p><a href=https://kaneshin.hateblo.jp/entry/2016/07/05/004601>https://kaneshin.hateblo.jp/entry/2016/07/05/004601</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#f92672>import</span> (
+	<span style=color:#e6db74>&#34;fmt&#34;</span>
+	<span style=color:#e6db74>&#34;io/ioutil&#34;</span>
+	<span style=color:#e6db74>&#34;os&#34;</span>
+)
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#a6e22e>body</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>ioutil</span>.<span style=color:#a6e22e>ReadAll</span>(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stdin</span>)
+	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(string(<span style=color:#a6e22e>body</span>))
+}
+</code></pre></div><p><code>ls</code> の結果を Go で出力</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ ls | go run main.go
 </code></pre></div><h2 id=メモ>
 メモ
 <a class=anchor href=#%e3%83%a1%e3%83%a2>#</a>
@@ -2499,6 +2527,11 @@ English
 <li><a href=#go-modules>Go Modules</a>
 <ul>
 <li><a href=#ローカルパッケージのインポート>ローカル・パッケージのインポート</a></li>
+</ul>
+</li>
+<li><a href=#command>Command</a>
+<ul>
+<li><a href=#パイプで渡ってきた値を処理>パイプで渡ってきた値を処理</a></li>
 </ul>
 </li>
 <li><a href=#メモ>メモ</a></li>
