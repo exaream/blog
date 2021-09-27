@@ -3,7 +3,8 @@ headless: true
 ---
 
 ### Menu
-- [Git]({{< ref "git" >}})
+- [Git]({{< ref "git/memo" >}})
+- [Git Tool]({{< ref "git/tool" >}})
 - [Docker]({{< ref "docker" >}})
 - [Linux]({{< ref "linux/memo" >}})
 - [Ubuntu]({{< ref "linux/ubuntu" >}})
