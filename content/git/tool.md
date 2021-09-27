@@ -23,12 +23,12 @@ or, if you use `yarn`
 $ yarn global add git-split-diffs
 ```
 
-## Add configuration of git-split-diffs to .gitconfig
+### Add configuration of git-split-diffs to .gitconfig
 ```shell
 $ git config --global core.pager "git-split-diffs --color | less -RFX"
 ```
 
-## Confirm
+### Check
 ```shell
 $ git log -p
 ```
@@ -36,7 +36,7 @@ $ git log -p
 $ git diff <branch A> <branch B>
 ```
 
-## Additional info
+### Additional info
 If you want to use light theme
 ```shell
 $ git config --global split-diffs.theme-name light
