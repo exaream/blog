@@ -4,11 +4,11 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="Git Tool #  git-split-diffs #   Display the results of the git diff command side by side like Github.  Precondition #   npm or yarn  Install git-split-diffs #  If you use npm
 $ npm install -g git-split-diffs or, if you use yarn
-$ yarn global add git-split-diffs Add configuration of git-split-diffs to .gitconfig #  $ git config --global core.pager &#34;git-split-diffs --color | less -RFX&#34; Confirm #  $ git log -p $ git diff <branch A> <branch B> Additional info #  If you want to use light theme">
+$ yarn global add git-split-diffs Add configuration of git-split-diffs to .gitconfig #  $ git config --global core.pager &#34;git-split-diffs --color | less -RFX&#34; Check #  $ git log -p $ git diff <branch A> <branch B> Additional info #  If you want to use light theme">
 <meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Git Tool">
 <meta property="og:description" content="Git Tool #  git-split-diffs #   Display the results of the git diff command side by side like Github.  Precondition #   npm or yarn  Install git-split-diffs #  If you use npm
 $ npm install -g git-split-diffs or, if you use yarn
-$ yarn global add git-split-diffs Add configuration of git-split-diffs to .gitconfig #  $ git config --global core.pager &#34;git-split-diffs --color | less -RFX&#34; Confirm #  $ git log -p $ git diff <branch A> <branch B> Additional info #  If you want to use light theme">
+$ yarn global add git-split-diffs Add configuration of git-split-diffs to .gitconfig #  $ git config --global core.pager &#34;git-split-diffs --color | less -RFX&#34; Check #  $ git log -p $ git diff <branch A> <branch B> Additional info #  If you want to use light theme">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://exaream.github.io/tech-blog/git/tool/"><meta property="article:section" content="git">
 <meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
@@ -18,7 +18,7 @@ $ yarn global add git-split-diffs Add configuration of git-split-diffs to .gitco
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.deb0b71d52f08f673445b974eeb856aefd13dae0f55dc95ace46f066b60f33d7.js integrity="sha256-3rC3HVLwj2c0Rbl07rhWrv0T2uD1XclazkbwZrYPM9c=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.e9e0b618649c209fb8eb753a20e89b8e45b455f745a472923f8ebf47a7b735c5.js integrity="sha256-6eC2GGScIJ+463U6IOibjkW0VfdFpHKSP46/R6e3NcU=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -99,10 +99,13 @@ Menu
 <ul>
 <li><a href=#git-split-diffs>git-split-diffs</a></li>
 <li><a href=#precondition>Precondition</a></li>
-<li><a href=#install-git-split-diffs>Install git-split-diffs</a></li>
+<li><a href=#install-git-split-diffs>Install git-split-diffs</a>
+<ul>
 <li><a href=#add-configuration-of-git-split-diffs-to-gitconfig>Add configuration of git-split-diffs to .gitconfig</a></li>
-<li><a href=#confirm>Confirm</a></li>
+<li><a href=#check>Check</a></li>
 <li><a href=#additional-info>Additional info</a></li>
+</ul>
+</li>
 <li><a href=#references>References</a></li>
 </ul>
 </nav>
@@ -145,21 +148,21 @@ Install git-split-diffs
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ npm install -g git-split-diffs
 </code></pre></div><p>or, if you use <code>yarn</code></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ yarn global add git-split-diffs
-</code></pre></div><h2 id=add-configuration-of-git-split-diffs-to-gitconfig>
+</code></pre></div><h3 id=add-configuration-of-git-split-diffs-to-gitconfig>
 Add configuration of git-split-diffs to .gitconfig
 <a class=anchor href=#add-configuration-of-git-split-diffs-to-gitconfig>#</a>
-</h2>
+</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git config --global core.pager <span style=color:#e6db74>&#34;git-split-diffs --color | less -RFX&#34;</span>
-</code></pre></div><h2 id=confirm>
-Confirm
-<a class=anchor href=#confirm>#</a>
-</h2>
+</code></pre></div><h3 id=check>
+Check
+<a class=anchor href=#check>#</a>
+</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git log -p
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git diff &lt;branch A&gt; &lt;branch B&gt;
-</code></pre></div><h2 id=additional-info>
+</code></pre></div><h3 id=additional-info>
 Additional info
 <a class=anchor href=#additional-info>#</a>
-</h2>
+</h3>
 <p>If you want to use light theme</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git config --global split-diffs.theme-name light
 </code></pre></div><p>If you want to use dark theme</p>
@@ -208,10 +211,13 @@ English
 <ul>
 <li><a href=#git-split-diffs>git-split-diffs</a></li>
 <li><a href=#precondition>Precondition</a></li>
-<li><a href=#install-git-split-diffs>Install git-split-diffs</a></li>
+<li><a href=#install-git-split-diffs>Install git-split-diffs</a>
+<ul>
 <li><a href=#add-configuration-of-git-split-diffs-to-gitconfig>Add configuration of git-split-diffs to .gitconfig</a></li>
-<li><a href=#confirm>Confirm</a></li>
+<li><a href=#check>Check</a></li>
 <li><a href=#additional-info>Additional info</a></li>
+</ul>
+</li>
 <li><a href=#references>References</a></li>
 </ul>
 </nav>
