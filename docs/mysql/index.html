@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.e9e0b618649c209fb8eb753a20e89b8e45b455f745a472923f8ebf47a7b735c5.js integrity="sha256-6eC2GGScIJ+463U6IOibjkW0VfdFpHKSP46/R6e3NcU=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.20731edd9ba7e9b822de71627d6bb7b815ed4e7f348084c845384c09927de294.js integrity="sha256-IHMe3Zun6bgi3nFifWu3uBXtTn80gITIRThMCZJ94pQ=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -118,6 +118,7 @@ Menu
 <li><a href=#テーブルの物理名と論理名テーブルコメントの一覧>テーブルの物理名と論理名（テーブル・コメント）の一覧</a></li>
 <li><a href=#カラムの物理名と論理名カラムコメントの一覧>カラムの物理名と論理名（カラム・コメント）の一覧</a></li>
 <li><a href=#特定のカラムを含むテーブルの一覧>特定のカラムを含むテーブルの一覧</a></li>
+<li><a href=#インデックスの一覧>インデックスの一覧</a></li>
 <li><a href=#ビューの一覧>ビューの一覧</a></li>
 </ul>
 </li>
@@ -522,6 +523,21 @@ MySQLの情報
         <span style=color:#e6db74>&#39;information_schema&#39;</span>
     )
     <span style=color:#66d9ef>AND</span> column_name <span style=color:#66d9ef>LIKE</span> <span style=color:#e6db74>&#39;%sample_column%&#39;</span>
+<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span>
+    table_schema,
+    table_name,
+    column_name;
+</code></pre></div><h3 id=インデックスの一覧>
+インデックスの一覧
+<a class=anchor href=#%e3%82%a4%e3%83%b3%e3%83%87%e3%83%83%e3%82%af%e3%82%b9%e3%81%ae%e4%b8%80%e8%a6%a7>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mysql data-lang=mysql><span style=color:#66d9ef>SELECT</span>
+    table_schema <span style=color:#66d9ef>AS</span> database_name,
+    table_name,
+    column_name,
+    index_name
+<span style=color:#66d9ef>FROM</span>
+    information_schema.statistics
 <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span>
     table_schema,
     table_name,
@@ -1594,12 +1610,14 @@ AUTO_INCREMENT（自動採番）の値を確認
 <a class=anchor href=#auto_increment%e8%87%aa%e5%8b%95%e6%8e%a1%e7%95%aa%e3%81%ae%e5%80%a4%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mysql data-lang=mysql><span style=color:#66d9ef>SELECT</span>
-    <span style=color:#66d9ef>AUTO_INCREMENT</span>
+    table_schema <span style=color:#66d9ef>as</span> database_name,
+    table_name,
+    <span style=color:#66d9ef>auto_increment</span>
 <span style=color:#66d9ef>FROM</span>
-    INFORMATION_SCHEMA.<span style=color:#66d9ef>TABLES</span>
-<span style=color:#66d9ef>WHERE</span>
-    TABLE_SCHEMA <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;sample_database&#39;</span>
-    <span style=color:#66d9ef>AND</span> TABLE_NAME <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;sample_table&#39;</span>;
+    information_schema.<span style=color:#66d9ef>tables</span>
+<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span>
+    table_schema,
+    table_name;
 </code></pre></div><hr>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mysql data-lang=mysql><span style=color:#66d9ef>SHOW</span> <span style=color:#66d9ef>TABLE</span> STATUS <span style=color:#66d9ef>WHERE</span> name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;sample_table&#39;</span>;
 </code></pre></div><hr>
@@ -1710,6 +1728,7 @@ English
 <li><a href=#テーブルの物理名と論理名テーブルコメントの一覧>テーブルの物理名と論理名（テーブル・コメント）の一覧</a></li>
 <li><a href=#カラムの物理名と論理名カラムコメントの一覧>カラムの物理名と論理名（カラム・コメント）の一覧</a></li>
 <li><a href=#特定のカラムを含むテーブルの一覧>特定のカラムを含むテーブルの一覧</a></li>
+<li><a href=#インデックスの一覧>インデックスの一覧</a></li>
 <li><a href=#ビューの一覧>ビューの一覧</a></li>
 </ul>
 </li>
