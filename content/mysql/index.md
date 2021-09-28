@@ -274,6 +274,22 @@ ORDER BY
     column_name;
 ```
 
+### インデックスの一覧
+
+```mysql
+SELECT
+    table_schema AS database_name,
+    table_name,
+    column_name,
+    index_name
+FROM
+    information_schema.statistics
+ORDER BY
+    table_schema,
+    table_name,
+    column_name;
+```
+
 ### ビューの一覧
 ```mysql
 SELECT
@@ -1332,12 +1348,14 @@ COMMIT;
 ### AUTO_INCREMENT（自動採番）の値を確認
 ```mysql
 SELECT
-    AUTO_INCREMENT
+    table_schema as database_name,
+    table_name,
+    auto_increment
 FROM
-    INFORMATION_SCHEMA.TABLES
-WHERE
-    TABLE_SCHEMA = 'sample_database'
-    AND TABLE_NAME = 'sample_table';
+    information_schema.tables
+ORDER BY
+    table_schema,
+    table_name;
 ```
 ---
 ```mysql
