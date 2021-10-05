@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.20731edd9ba7e9b822de71627d6bb7b815ed4e7f348084c845384c09927de294.js integrity="sha256-IHMe3Zun6bgi3nFifWu3uBXtTn80gITIRThMCZJ94pQ=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.e96da54cb08a34b3af6dc06a5b7c5dee899e4cbcd4e9172dd8feb49287ad844f.js integrity="sha256-6W2lTLCKNLOvbcBqW3xd7omeTLzU6Rct2P60koethE8=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -256,6 +256,7 @@ Menu
 <li><a href=#ipアドレスからホスト名を取得>IPアドレスからホスト名を取得</a></li>
 </ul>
 </li>
+<li><a href=#slice>Slice</a></li>
 <li><a href=#struct>Struct</a></li>
 <li><a href=#go-modules>Go Modules</a>
 <ul>
@@ -2212,12 +2213,19 @@ IPアドレスからホスト名を取得
 <a class=anchor href=#ip%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%81%8b%e3%82%89%e3%83%9b%e3%82%b9%e3%83%88%e5%90%8d%e3%82%92%e5%8f%96%e5%be%97>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>host</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>net</span>.<span style=color:#a6e22e>LookupAddr</span>(<span style=color:#a6e22e>ip</span>)
+</code></pre></div><h2 id=slice>
+Slice
+<a class=anchor href=#slice>#</a>
+</h2>
+<p>スライスを比較
+<a href=https://qiita.com/Sekky0905/items/1ff4979d80b163e0aeb6>https://qiita.com/Sekky0905/items/1ff4979d80b163e0aeb6</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>reflect</span>.<span style=color:#a6e22e>DeepEqual</span>(<span style=color:#a6e22e>slice1</span>, <span style=color:#a6e22e>sclice2</span>)
 </code></pre></div><h2 id=struct>
 Struct
 <a class=anchor href=#struct>#</a>
 </h2>
-<p><a href="https://www.yoheim.net/blog.php?q=20170902">https://www.yoheim.net/blog.php?q=20170902</a><br>
-構造体で、値メソッドとポインタメソッドを使い分ける</p>
+<p>構造体で、値メソッドとポインタメソッドを使い分ける
+<a href="https://www.yoheim.net/blog.php?q=20170902">https://www.yoheim.net/blog.php?q=20170902</a></p>
 <h2 id=go-modules>
 Go Modules
 <a class=anchor href=#go-modules>#</a>
@@ -2525,6 +2533,7 @@ English
 <li><a href=#ipアドレスからホスト名を取得>IPアドレスからホスト名を取得</a></li>
 </ul>
 </li>
+<li><a href=#slice>Slice</a></li>
 <li><a href=#struct>Struct</a></li>
 <li><a href=#go-modules>Go Modules</a>
 <ul>
