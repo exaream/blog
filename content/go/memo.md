@@ -1360,9 +1360,16 @@ fmt.Println(weekdays[weekday]) // =>"火"
 host, err := net.LookupAddr(ip)
 ```
 
+## Slice
+
+スライスを比較
+https://qiita.com/Sekky0905/items/1ff4979d80b163e0aeb6
+```go
+reflect.DeepEqual(slice1, sclice2)
+```
 ## Struct
-https://www.yoheim.net/blog.php?q=20170902  
 構造体で、値メソッドとポインタメソッドを使い分ける
+https://www.yoheim.net/blog.php?q=20170902  
 
 ## Go Modules
 
