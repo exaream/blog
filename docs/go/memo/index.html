@@ -14,7 +14,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.e96da54cb08a34b3af6dc06a5b7c5dee899e4cbcd4e9172dd8feb49287ad844f.js integrity="sha256-6W2lTLCKNLOvbcBqW3xd7omeTLzU6Rct2P60koethE8=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.e22b0034d30813bd42e65051a0fa4214cd513fbeb73e6687b72394b4768f8a93.js integrity="sha256-4isANNMIE71C5lBRoPpCFM1RP763PmaHtyOUtHaPipM=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1169,19 +1169,21 @@ iota
 <li><code>break</code> は不要</li>
 <li><code>case</code> に式を使用可能</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>switch</span> <span style=color:#a6e22e>age</span> {
-<span style=color:#66d9ef>case</span> <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>: <span style=color:#75715e>// 0 または 1 または 2 の場合
-</span><span style=color:#75715e></span>	println(<span style=color:#e6db74>&#34;baby&#34;</span>)
+<h4 id=式で判定する場合>
+式で判定する場合
+<a class=anchor href=#%e5%bc%8f%e3%81%a7%e5%88%a4%e5%ae%9a%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88>#</a>
+</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>age</span> <span style=color:#66d9ef>uint8</span> <span style=color:#75715e>// 正の整数
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>switch</span> {　<span style=color:#75715e>// 式で判定する場合は引数の指定なし
+</span><span style=color:#75715e></span><span style=color:#66d9ef>case</span> <span style=color:#a6e22e>age</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>12</span>:
+	println(<span style=color:#e6db74>&#34;child&#34;</span>)
 	<span style=color:#75715e>// 何もしなければ break
 </span><span style=color:#75715e></span>	<span style=color:#75715e>// 次のケースに進みたい場合のみ fallthrough を記述
-</span><span style=color:#75715e></span><span style=color:#66d9ef>case</span> <span style=color:#a6e22e>age</span> <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>3</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>age</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>12</span>: <span style=color:#75715e>// 式を使用する場合
-</span><span style=color:#75715e></span>	println(<span style=color:#e6db74>&#34;child&#34;</span>)
-<span style=color:#66d9ef>case</span> <span style=color:#a6e22e>age</span> <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>13</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>age</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>19</span>: <span style=color:#75715e>// 式を使用する場合
-</span><span style=color:#75715e></span>	println(<span style=color:#e6db74>&#34;teenager&#34;</span>)
-<span style=color:#66d9ef>case</span> <span style=color:#a6e22e>age</span> &gt; <span style=color:#ae81ff>20</span>: <span style=color:#75715e>// 式を使用する場合
-</span><span style=color:#75715e></span>	println(<span style=color:#e6db74>&#34;adult&#34;</span>)
+</span><span style=color:#75715e></span><span style=color:#66d9ef>case</span> <span style=color:#a6e22e>age</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>19</span>:
+	println(<span style=color:#e6db74>&#34;teenager&#34;</span>)
 <span style=color:#66d9ef>default</span>:
-	println(<span style=color:#e6db74>&#34;default&#34;</span>)
+	println(<span style=color:#e6db74>&#34;adult&#34;</span>)
 }
 </code></pre></div><h3 id=繰り返しループ-for>
 繰り返し(ループ) <code>for</code>
