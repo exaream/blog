@@ -413,20 +413,19 @@ if (a == 0) println(a)
 * ```break``` は不要
 * ```case``` に式を使用可能
 
+#### 式で判定する場合
 ```go
-switch age {
-case 0, 1, 2: // 0 または 1 または 2 の場合
-	println("baby")
+var age uint8 // 正の整数
+
+switch {　// 式で判定する場合は引数の指定なし
+case age <= 12:
+	println("child")
 	// 何もしなければ break
 	// 次のケースに進みたい場合のみ fallthrough を記述
-case age >= 3 && age <= 12: // 式を使用する場合
-	println("child")
-case age >= 13 && age <= 19: // 式を使用する場合
+case age <= 19:
 	println("teenager")
-case age > 20: // 式を使用する場合
-	println("adult")
 default:
-	println("default")
+	println("adult")
 }
 ```
 
