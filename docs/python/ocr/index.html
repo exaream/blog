@@ -253,14 +253,14 @@ Preparation
 <a class=anchor href=#preparation>#</a>
 </h3>
 <p><code>pytyon-ocr</code> directory on your host machine</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker-compose -f setup/docker-compose.yml up -d --build
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker-compose -f setup/docker-compose.yml up -d --build
 docker exec -it python-ocr bash
 </code></pre></div><h3 id=run>
 Run
 <a class=anchor href=#run>#</a>
 </h3>
 <p><code>docker container</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cd /opt/
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cd /opt/
 python simple.py sample.jpg
 </code></pre></div><h2 id=advanced-sample>
 Advanced sample
@@ -442,10 +442,10 @@ Run
 </h3>
 <p>Run below if the docker container is stopped.<br>
 <code>pytyon-ocr</code> directory on your host machine</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker-compose -f setup/docker-compose.yml up -d
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker-compose -f setup/docker-compose.yml up -d
 docker exec -it python-ocr bash
 </code></pre></div><p><code>docker container</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cd /opt/
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cd /opt/
 python main.py --img sample.jp
 </code></pre></div><h2 id=references>
 References

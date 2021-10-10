@@ -293,7 +293,7 @@ Go Memo
 macOS でパスを通す方法
 <a class=anchor href=#macos-%e3%81%a7%e3%83%91%e3%82%b9%e3%82%92%e9%80%9a%e3%81%99%e6%96%b9%e6%b3%95>#</a>
 </h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>echo <span style=color:#e6db74>&#34;export GOPATH=</span>$HOME<span style=color:#e6db74>/go&#34;</span> &gt;&gt; ~/.bash_profile
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo <span style=color:#e6db74>&#34;export GOPATH=</span>$HOME<span style=color:#e6db74>/go&#34;</span> &gt;&gt; ~/.bash_profile
 echo <span style=color:#e6db74>&#34;export PATH=</span>$PATH<span style=color:#e6db74>:</span>$GOPATH<span style=color:#e6db74>/bin&#34;</span> &gt;&gt; ~/.bash_profile
 source ~/.bash_profile
 </code></pre></div><h2 id=コンパイル-バイナリ>
@@ -305,7 +305,7 @@ source ~/.bash_profile
 <a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%81%97%e3%81%a6%e5%ae%9f%e8%a1%8c>#</a>
 </h3>
 <p>バイナリ（実行可能ファイル）の生成なし</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go run main.go
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ go run main.go
 $ go run .
 $ go run pkgname
 </code></pre></div><h3 id=コンパイルしてバイナリを生成>
@@ -313,7 +313,7 @@ $ go run pkgname
 <a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%81%97%e3%81%a6%e3%83%90%e3%82%a4%e3%83%8a%e3%83%aa%e3%82%92%e7%94%9f%e6%88%90>#</a>
 </h3>
 <p>バイナリ（実行可能ファイル）の生成あり</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go build main.go
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ go build main.go
 $ go build .
 $ go build pkgname
 </code></pre></div><h2 id=静的解析によるミスの検出>
@@ -326,21 +326,21 @@ $ go build pkgname
 </h3>
 <p><code>go test</code> 実行時に自動で実行される
 The Go Playground でも実行される</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go vet main.go
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ go vet main.go
 $ go vet .
 $ go vet pkgname
 </code></pre></div><h3 id=エラー処理のミスを検出>
 エラー処理のミスを検出
 <a class=anchor href=#%e3%82%a8%e3%83%a9%e3%83%bc%e5%87%a6%e7%90%86%e3%81%ae%e3%83%9f%e3%82%b9%e3%82%92%e6%a4%9c%e5%87%ba>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go get github.com/kisielk/errcheck
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ errcheck ./...
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ go get github.com/kisielk/errcheck
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ errcheck ./...
 </code></pre></div><h3 id=セキュリティのチェック>
 セキュリティのチェック
 <a class=anchor href=#%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%81%ae%e3%83%81%e3%82%a7%e3%83%83%e3%82%af>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b <span style=color:#66d9ef>$(</span>go env GOPATH<span style=color:#66d9ef>)</span>/bin latest
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ gosec ./...
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b <span style=color:#66d9ef>$(</span>go env GOPATH<span style=color:#66d9ef>)</span>/bin latest
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ gosec ./...
 </code></pre></div><h2 id=linterのセットを使ってチェック>
 Linterのセットを使ってチェック
 <a class=anchor href=#linter%e3%81%ae%e3%82%bb%e3%83%83%e3%83%88%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%81%e3%82%a7%e3%83%83%e3%82%af>#</a>
@@ -350,29 +350,29 @@ Staticcheck
 <a class=anchor href=#staticcheck>#</a>
 </h3>
 <p><a href=https://staticcheck.io/docs/>https://staticcheck.io/docs/</a></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go install honnef.co/go/tools/cmd/staticcheck@latest
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ go install honnef.co/go/tools/cmd/staticcheck@latest
 $ staticcheck ./...
 </code></pre></div><h3 id=golangci-lint>
 GolangCI-Lint
 <a class=anchor href=#golangci-lint>#</a>
 </h3>
 <p><a href=https://golangci-lint.run/>https://golangci-lint.run/</a></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install golangci-lint
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ brew install golangci-lint
 $ brew upgrade golangci-lint
 or
 $ go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.0
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ golangci-lint run ./...
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ golangci-lint run ./...
 $ golangci-lint run dir1 dir2/... dir3/file1.go
 </code></pre></div><h3 id=reviewdog>
 reviewdog
 <a class=anchor href=#reviewdog>#</a>
 </h3>
 <p>PRレビューで静的解析ツールを使用</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install reviewdog/tap/reviewdog
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ brew install reviewdog/tap/reviewdog
 $ brew upgrade reviewdog/tap/reviewdog
 or
 go install github.com/reviewdog/reviewdog/cmd/reviewdog@latest
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>golint ./...
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>golint ./...
 </code></pre></div><h2 id=リファクタリング>
 リファクタリング
 <a class=anchor href=#%e3%83%aa%e3%83%95%e3%82%a1%e3%82%af%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0>#</a>
@@ -413,7 +413,7 @@ Debug
 <ul>
 <li>コードの書式を整形</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go fmt main.go
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ go fmt main.go
 $ go fmt .
 $ go fmt pkgname
 </code></pre></div><h2 id=組み込み型>
@@ -1867,9 +1867,9 @@ println(<span style=color:#a6e22e>p1</span>.<span style=color:#a6e22e>age</span>
 <ul>
 <li>他のパッケージに用意された機能(変数・関数・定数など)を使用可</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go get &lt;pkgname&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ go get &lt;pkgname&gt;
 </code></pre></div><p>e.g.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go get github.com/xxx/xxx
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ go get github.com/xxx/xxx
 </code></pre></div><h3 id=パッケージ名のエイリアス>
 パッケージ名のエイリアス
 <a class=anchor href=#%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e5%90%8d%e3%81%ae%e3%82%a8%e3%82%a4%e3%83%aa%e3%82%a2%e3%82%b9>#</a>
@@ -1903,8 +1903,8 @@ GOPATH
 <li>ソースコードやビルドされたファイルを配置するパス
 GOPATH の確認方法</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ go env GOPATH
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>tree -L $GOPATH
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ go env GOPATH
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>tree -L $GOPATH
 go
 ├── bin
 └── pkg

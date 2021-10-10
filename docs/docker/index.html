@@ -147,9 +147,9 @@ Stop
 Stop all containers
 <a class=anchor href=#stop-all-containers>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker container ps -q | xargs docker container stop
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker container ps -q | xargs docker container stop
 </code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker stop <span style=color:#66d9ef>$(</span>docker ps -q<span style=color:#66d9ef>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker stop <span style=color:#66d9ef>$(</span>docker ps -q<span style=color:#66d9ef>)</span>
 </code></pre></div><h2 id=remove>
 Remove
 <a class=anchor href=#remove>#</a>
@@ -158,12 +158,12 @@ Remove
 Stop and remove all (containers, images, volumes, networks) 滅びの呪文
 <a class=anchor href=#stop-and-remove-all-containers-images-volumes-networks-%e6%bb%85%e3%81%b3%e3%81%ae%e5%91%aa%e6%96%87>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker-compose down --rmi all --volumes --remove-orphans
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker-compose down --rmi all --volumes --remove-orphans
 </code></pre></div><h3 id=remove-stopped-containers-untagged-images-unused-volumes-unused-networks>
 Remove stopped containers, untagged images, unused volumes, unused networks
 <a class=anchor href=#remove-stopped-containers-untagged-images-unused-volumes-unused-networks>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker system prune
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker system prune
 </code></pre></div><table>
 <thead>
 <tr>
@@ -182,45 +182,45 @@ Remove stopped containers, untagged images, unused volumes, unused networks
 </tr>
 </tbody>
 </table>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker system prune -af
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker system prune -af
 </code></pre></div><h3 id=remove-stopped-containers>
 Remove stopped containers
 <a class=anchor href=#remove-stopped-containers>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker container prune
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker container prune
 </code></pre></div><h3 id=remove-all-containers>
 Remove all containers
 <a class=anchor href=#remove-all-containers>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker container ps -aq | xargs docker container rm -f
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker container ps -aq | xargs docker container rm -f
 </code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker ps -aq | xargs docker rm -f
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker ps -aq | xargs docker rm -f
 </code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker rm -f <span style=color:#66d9ef>$(</span>docker ps -aq<span style=color:#66d9ef>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker rm -f <span style=color:#66d9ef>$(</span>docker ps -aq<span style=color:#66d9ef>)</span>
 </code></pre></div><h3 id=remove-all-images-after-all-containers-were-removed>
 Remove all images (after all containers were removed)
 <a class=anchor href=#remove-all-images-after-all-containers-were-removed>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker images -aq | xargs docker image rm -f
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker images -aq | xargs docker image rm -f
 </code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker images -aq | xargs docker rmi -f
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker images -aq | xargs docker rmi -f
 </code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker rmi -f <span style=color:#66d9ef>$(</span>docker images -aq<span style=color:#66d9ef>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker rmi -f <span style=color:#66d9ef>$(</span>docker images -aq<span style=color:#66d9ef>)</span>
 </code></pre></div><h3 id=remove-untagged-images>
 Remove untagged images
 <a class=anchor href=#remove-untagged-images>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker images -fq <span style=color:#e6db74>&#34;dangling=true&#34;</span> | xargs docker image rm
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker images -fq <span style=color:#e6db74>&#34;dangling=true&#34;</span> | xargs docker image rm
 </code></pre></div><h3 id=remove-unused-volumes>
 Remove unused volumes
 <a class=anchor href=#remove-unused-volumes>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker volume prune
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker volume prune
 </code></pre></div><h3 id=remove-unused-networks>
 Remove unused networks
 <a class=anchor href=#remove-unused-networks>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker network prune
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker network prune
 </code></pre></div><h2 id=log>
 Log
 <a class=anchor href=#log>#</a>
@@ -230,7 +230,7 @@ How to check log
 <a class=anchor href=#how-to-check-log>#</a>
 </h3>
 <p>最新の30件を確認</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker logs -f --tail<span style=color:#f92672>=</span><span style=color:#ae81ff>30</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker logs -f --tail<span style=color:#f92672>=</span><span style=color:#ae81ff>30</span>
 </code></pre></div><h2 id=other>
 Other
 <a class=anchor href=#other>#</a>
@@ -239,7 +239,7 @@ Other
 How to mount a directory in host server
 <a class=anchor href=#how-to-mount-a-directory-in-host-server>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker run -v <span style=color:#f92672>[</span>absolute path in host<span style=color:#f92672>]</span>:<span style=color:#f92672>[</span>absolute path in container<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>image name<span style=color:#f92672>]</span>:<span style=color:#f92672>[</span>tag<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>command<span style=color:#f92672>]</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker run -v <span style=color:#f92672>[</span>absolute path in host<span style=color:#f92672>]</span>:<span style=color:#f92672>[</span>absolute path in container<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>image name<span style=color:#f92672>]</span>:<span style=color:#f92672>[</span>tag<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>command<span style=color:#f92672>]</span>
 </code></pre></div><h2 id=references>
 References
 <a class=anchor href=#references>#</a>

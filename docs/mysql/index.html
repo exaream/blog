@@ -271,25 +271,25 @@ Preparation
 Install to macOS
 <a class=anchor href=#install-to-macos>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install mysql
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ brew install mysql
 </code></pre></div><h3 id=start>
 Start
 <a class=anchor href=#start>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ mysql.server start
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ mysql.server start
 Starting MySQL
 ....... SUCCESS!
 </code></pre></div><h3 id=check-the-vertion>
 Check the vertion
 <a class=anchor href=#check-the-vertion>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ mysql --version
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ mysql --version
 mysql  Ver 8.0.26 <span style=color:#66d9ef>for</span> macos11.3 on x86_64 <span style=color:#f92672>(</span>Homebrew<span style=color:#f92672>)</span>
 </code></pre></div><h3 id=make-initial-settings>
 Make initial settings
 <a class=anchor href=#make-initial-settings>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ mysql_secure_installation
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ mysql_secure_installation
 </code></pre></div><ul>
 <li>パスワード強度検証プラグインの利用有無</li>
 <li>パスワード強度の選択</li>
@@ -298,7 +298,7 @@ Make initial settings
 <li>リモートからの root ユーザとしてのログインの禁止</li>
 <li>サンプル用 test データベースの削除</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:block;width:100%;background-color:#3c3d38>$ mysql_secure_installation
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:block;width:100%;background-color:#3c3d38>$ mysql_secure_installation
 </span>
 Securing the MySQL server deployment.
 
@@ -371,7 +371,7 @@ All <span style=color:#66d9ef>done</span>!
 <a class=anchor href=#%e3%83%ad%e3%82%b0%e3%82%a4%e3%83%b3>#</a>
 </h2>
 <p>e.g) rootユーザーでのログイン</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ mysql -uroot -p
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ mysql -uroot -p
 Enter password: <span style=color:#75715e>### 設定したパスワードを入力</span>
 </code></pre></div><h2 id=mysqlの情報>
 MySQLの情報

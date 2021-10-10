@@ -166,26 +166,26 @@ Create a git repository using Github
 Install Hugo on macOS
 <a class=anchor href=#install-hugo-on-macos>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install hugo
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ brew install hugo
 </code></pre></div><h3 id=build-a-blog-using-hugo>
 Build a blog using Hugo
 <a class=anchor href=#build-a-blog-using-hugo>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ GITHUB_USERNAME<span style=color:#f92672>=</span>xxxx
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ GITHUB_USERNAME<span style=color:#f92672>=</span>xxxx
 $ GIT_REPOSITORY<span style=color:#f92672>=</span>sample
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ hugo new site <span style=color:#e6db74>${</span>GIT_REPOSITORY<span style=color:#e6db74>}</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ hugo new site <span style=color:#e6db74>${</span>GIT_REPOSITORY<span style=color:#e6db74>}</span>
 $ cd <span style=color:#e6db74>${</span>GIT_REPOSITORY<span style=color:#e6db74>}</span>
 $ echo <span style=color:#e6db74>&#34;# </span><span style=color:#e6db74>${</span>GIT_REPOSITORY<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> &gt;&gt; README.md
 </code></pre></div><h3 id=initialize-git>
 Initialize git
 <a class=anchor href=#initialize-git>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git init
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git init
 </code></pre></div><p>If you want to change the configrations of git</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git config --local --list
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git config --local --list
 $ git config --local user.name xxxx
 $ git config --local user.email xxxx
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git add .
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git add .
 $ git commit -m <span style=color:#e6db74>&#34;Build a site using hugo&#34;</span>
 $ git branch -M main
 $ git remote add origin https://github.com/<span style=color:#e6db74>${</span>GITHUB_USERNAME<span style=color:#e6db74>}</span>/<span style=color:#e6db74>${</span>GIT_REPOSITORY<span style=color:#e6db74>}</span>.git
@@ -194,21 +194,21 @@ $ git push -u origin main
 Add .gitignore
 <a class=anchor href=#add-gitignore>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ vi .gitignore
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ vi .gitignore
 </code></pre></div><p>Add a line break on the last line.<br>
 <code>.gitignore</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>public/
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>public/
 resources/_gen/
 .DS_Store
 *.swp
 
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git add .
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git add .
 $ git commit -m <span style=color:#e6db74>&#34;Add .gitignore&#34;</span>
 </code></pre></div><h3 id=add-hugos-theme>
 Add Hugo&rsquo;s theme
 <a class=anchor href=#add-hugos-theme>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
 $ git add .
 $ git commit -m <span style=color:#e6db74>&#34;Add a theme as a submodule&#34;</span>
 </code></pre></div><h3 id=change-configtoml>
@@ -222,7 +222,7 @@ Change config.toml
 <span style=color:#a6e22e>publishDir</span> = <span style=color:#e6db74>&#34;docs&#34;</span>
 <span style=color:#a6e22e>theme</span> = <span style=color:#e6db74>&#34;hugo-book&#34;</span>
 <span style=color:#75715e># Add a line break on the last line. </span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git add .
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git add .
 $ git commit -m <span style=color:#e6db74>&#34;Change config.toml&#34;</span>
 </code></pre></div><h3 id=add-a-page-of-hello-world>
 Add a page of hello world
@@ -237,41 +237,41 @@ tags: [&#34;Foo&#34;,&#34;Bar&#34;]
 ---
 
 # Hello world!
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git add .
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git add .
 $ git commit -m <span style=color:#e6db74>&#34;Add a page of hello world&#34;</span>
 </code></pre></div><h3 id=generate-static-contents>
 Generate static contents
 <a class=anchor href=#generate-static-contents>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ hugo
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ hugo
 </code></pre></div><p>Execute the following instead above one if you want to minify static contents</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ hugo --minify
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git add .
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ hugo --minify
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git add .
 $ git commit -m <span style=color:#e6db74>&#34;Generate static contents&#34;</span>
 </code></pre></div><h3 id=check-on-your-local-environment>
 Check on your local environment
 <a class=anchor href=#check-on-your-local-environment>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ hugo server --minify -p <span style=color:#ae81ff>3000</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ hugo server --minify -p <span style=color:#ae81ff>3000</span>
 </code></pre></div><p>Access the following URL using a browser.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ echo http://localhost:3000/<span style=color:#e6db74>${</span>GIT_REPOSITORY<span style=color:#e6db74>}</span>/hello-world/
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ echo http://localhost:3000/<span style=color:#e6db74>${</span>GIT_REPOSITORY<span style=color:#e6db74>}</span>/hello-world/
 </code></pre></div><h3 id=push-to-github>
 Push to Github
 <a class=anchor href=#push-to-github>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git push -u origin main
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git push -u origin main
 </code></pre></div><h2 id=github-pages>
 Github Pages
 <a class=anchor href=#github-pages>#</a>
 </h2>
 <p>Access the following URL using a browser.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ echo https://github.com/<span style=color:#e6db74>${</span>GITHUB_USERNAME<span style=color:#e6db74>}</span>/<span style=color:#e6db74>${</span>GIT_REPOSITORY<span style=color:#e6db74>}</span>/settings/pages
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ echo https://github.com/<span style=color:#e6db74>${</span>GITHUB_USERNAME<span style=color:#e6db74>}</span>/<span style=color:#e6db74>${</span>GIT_REPOSITORY<span style=color:#e6db74>}</span>/settings/pages
 </code></pre></div><ol>
 <li>Source: > Branch: main > /docs</li>
 <li>Click &ldquo;Save&rdquo;</li>
 </ol>
 <p>Access the following URL using a browser after a few minute.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ echo https://<span style=color:#e6db74>${</span>GITHUB_USERNAME<span style=color:#e6db74>}</span>.github.io/<span style=color:#e6db74>${</span>GIT_REPOSITORY<span style=color:#e6db74>}</span>/hello-world/
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ echo https://<span style=color:#e6db74>${</span>GITHUB_USERNAME<span style=color:#e6db74>}</span>.github.io/<span style=color:#e6db74>${</span>GIT_REPOSITORY<span style=color:#e6db74>}</span>/hello-world/
 </code></pre></div><h2 id=left-menu>
 Left Menu
 <a class=anchor href=#left-menu>#</a>

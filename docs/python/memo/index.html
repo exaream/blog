@@ -155,7 +155,7 @@ Install macOS
 Check the default version of Python on macOS
 <a class=anchor href=#check-the-default-version-of-python-on-macos>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ python --version
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ python --version
 Python 2.7.16
 $ which python
 /usr/bin/python
@@ -167,20 +167,20 @@ Install the latest version using Homebrew
 <li><code>brew update</code> Update Homebrew itself</li>
 <li><code>brew install</code> Install package</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew update
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ brew update
 $ brew install python
 </code></pre></div><h3 id=add-pythons-path>
 Add Python&rsquo;s path
 <a class=anchor href=#add-pythons-path>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ vi ~/.bash_profile
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ vi ~/.bash_profile
 export PATH<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/usr/local/opt/python/libexec/bin:</span>$PATH<span style=color:#e6db74>&#34;</span>
 $ source ~/.bash_profile
 </code></pre></div><h3 id=check-that-the-latest-version-is-available>
 Check that the latest version is available
 <a class=anchor href=#check-that-the-latest-version-is-available>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ python --version
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ python --version
 Python 3.9.7
 $ which python
 /usr/local/opt/python/libexec/bin/python
@@ -191,7 +191,7 @@ If you want to update Python on macOS in the future
 <ul>
 <li><code>brew upgrade</code> Update if there is an update for the installed package</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew update
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ brew update
 $ brew upgrade python
 </code></pre></div><h2 id=version>
 Version
@@ -201,13 +201,13 @@ Version
 Terminal
 <a class=anchor href=#terminal>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ python --version
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ python --version
 Python 3.9.6
 </code></pre></div><p>Short option of <code>--version</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ python -V
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ python -V
 Python 3.9.6
 </code></pre></div><p>More detailed information</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ python -VV
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ python -VV
 Python 3.9.6 <span style=color:#f92672>(</span>default, Jul <span style=color:#ae81ff>22</span> 2021, 15:16:20<span style=color:#f92672>)</span> 
 <span style=color:#f92672>[</span>GCC 8.3.0<span style=color:#f92672>]</span>
 </code></pre></div><h3 id=source-code>
@@ -262,7 +262,7 @@ print(type(platform<span style=color:#f92672>.</span>python_version_tuple()))
 Package
 <a class=anchor href=#package>#</a>
 </h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pip list
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ pip list
 </code></pre></div><table>
 <thead>
 <tr>
@@ -299,11 +299,11 @@ Package
 </tr>
 </tbody>
 </table>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pip freeze
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ pip freeze
 </code></pre></div><p><code>pip list --format freeze</code> equals <code>pip freeze --all</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pip show &lt;installed package&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ pip show &lt;installed package&gt;
 </code></pre></div><p>e.g.)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pip show numpy
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ pip show numpy
 </code></pre></div><h2 id=argument>
 Argument
 <a class=anchor href=#argument>#</a>
@@ -321,7 +321,7 @@ print(args)
 print(args[<span style=color:#ae81ff>1</span>])
 print(args[<span style=color:#ae81ff>2</span>])
 </code></pre></div><p>Run</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ python simple.py aaa <span style=color:#ae81ff>123</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ python simple.py aaa <span style=color:#ae81ff>123</span>
 <span style=color:#f92672>[</span><span style=color:#e6db74>&#39;sample.py&#39;</span>, <span style=color:#e6db74>&#39;aaa&#39;</span>, <span style=color:#e6db74>&#39;123&#39;</span><span style=color:#f92672>]</span>
 aaa
 </code></pre></div><h3 id=argparse>
@@ -345,12 +345,12 @@ print(args)
 print(args<span style=color:#f92672>.</span>foo)
 print(args<span style=color:#f92672>.</span>bar)
 </code></pre></div><p>Run</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ python sample.py aaa <span style=color:#ae81ff>123</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ python sample.py aaa <span style=color:#ae81ff>123</span>
 Namespace<span style=color:#f92672>(</span>foo<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;aaa&#39;</span>, bar<span style=color:#f92672>=</span>123<span style=color:#f92672>)</span>
 aaa
 <span style=color:#ae81ff>123</span>
 </code></pre></div><p>Check help using <code>-h</code> or <code>---help</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ python sample.py --help
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ python sample.py --help
 usage: sample.py <span style=color:#f92672>[</span>-h<span style=color:#f92672>]</span> foo bar
 
 A description of this program.
@@ -392,7 +392,7 @@ print(args<span style=color:#f92672>.</span>named_arg2)
 print(args<span style=color:#f92672>.</span>flag1)
 print(args<span style=color:#f92672>.</span>flag2)
 </code></pre></div><p>Run</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ python sample.py --named_arg1 aaa --named_arg2 <span style=color:#ae81ff>123</span> --flag1 --flag2
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ python sample.py --named_arg1 aaa --named_arg2 <span style=color:#ae81ff>123</span> --flag1 --flag2
 Namespace<span style=color:#f92672>(</span>named_arg1<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;aaa&#39;</span>, named_arg2<span style=color:#f92672>=</span>123, flag1<span style=color:#f92672>=</span>True, flag2<span style=color:#f92672>=</span>False<span style=color:#f92672>)</span>
 aaa
 <span style=color:#ae81ff>123</span>
