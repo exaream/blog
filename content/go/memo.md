@@ -10,7 +10,7 @@ tags: ["Go", "Golang", "Memo"]
 
 ## macOS でパスを通す方法
 
-```bash
+```shell
 echo "export GOPATH=$HOME/go" >> ~/.bash_profile
 echo "export PATH=$PATH:$GOPATH/bin" >> ~/.bash_profile
 source ~/.bash_profile
@@ -20,7 +20,7 @@ source ~/.bash_profile
 ### コンパイルして実行
 バイナリ（実行可能ファイル）の生成なし
 
-```bash
+```shell
 $ go run main.go
 $ go run .
 $ go run pkgname
@@ -28,7 +28,7 @@ $ go run pkgname
 
 ### コンパイルしてバイナリを生成
 バイナリ（実行可能ファイル）の生成あり
-```bash
+```shell
 $ go build main.go
 $ go build .
 $ go build pkgname
@@ -38,48 +38,48 @@ $ go build pkgname
 ### バグと思われるミスを検出
 ```go test``` 実行時に自動で実行される
 The Go Playground でも実行される
-```bash
+```shell
 $ go vet main.go
 $ go vet .
 $ go vet pkgname
 ```
 ### エラー処理のミスを検出
 
-```bash
+```shell
 $ go get github.com/kisielk/errcheck
 ```
 
-```bash
+```shell
 $ errcheck ./...
 ```
 
 ### セキュリティのチェック
 
-```bash
+```shell
 $ curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b $(go env GOPATH)/bin latest
 ```
 
-```bash
+```shell
 $ gosec ./...
 ```
 ## Linterのセットを使ってチェック
 ### Staticcheck
 https://staticcheck.io/docs/  
 
-```bash
+```shell
 $ go install honnef.co/go/tools/cmd/staticcheck@latest
 $ staticcheck ./...
 ```
 
 ### GolangCI-Lint
 https://golangci-lint.run/
-```bash
+```shell
 $ brew install golangci-lint
 $ brew upgrade golangci-lint
 or
 $ go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.0
 ```
-```bash
+```shell
 $ golangci-lint run ./...
 $ golangci-lint run dir1 dir2/... dir3/file1.go
 ```
@@ -87,13 +87,13 @@ $ golangci-lint run dir1 dir2/... dir3/file1.go
 ### reviewdog
 PRレビューで静的解析ツールを使用
 
-```bash
+```shell
 $ brew install reviewdog/tap/reviewdog
 $ brew upgrade reviewdog/tap/reviewdog
 or
 go install github.com/reviewdog/reviewdog/cmd/reviewdog@latest
 ```
-```bash
+```shell
 golint ./...
 ```
 
@@ -113,7 +113,7 @@ golint ./...
 
 ## コードのフォーマット
 * コードの書式を整形
-```bash
+```shell
 $ go fmt main.go
 $ go fmt .
 $ go fmt pkgname
@@ -1012,11 +1012,11 @@ func main() {
 ### パッケージのインポート
 * 他のパッケージに用意された機能(変数・関数・定数など)を使用可
 
-```bash
+```shell
 $ go get <pkgname>
 ```
 e.g.
-```bash
+```shell
 $ go get github.com/xxx/xxx
 ```
 
@@ -1044,11 +1044,11 @@ var bar string // unexported
 ### GOPATH
 * ソースコードやビルドされたファイルを配置するパス
 GOPATH の確認方法
-```bash
+```shell
 $ go env GOPATH
 ```
 
-```bash
+```shell
 tree -L $GOPATH
 go
 ├── bin

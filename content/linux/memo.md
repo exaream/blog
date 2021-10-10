@@ -24,39 +24,39 @@ tags: ["Linux","Command","Memo"]
 ### コマンド入力履歴を表示
 
 履歴を末尾から10件分表示
-```bash
+```shell
 $ history 10
 ```
 コマンドライン上で ```!番号``` と入力することで指定したコマンドを実行  
 例) 履歴の末尾から5件目のコマンドを実行する場合
-```bash
+```shell
 !5
 ```
 履歴の件数が多い場合 ```head``` コマンドで冒頭のみ表示
-```bash
+```shell
 $ history | head
 ```
 
 ### コマンド入力履歴を削除
 指定した番号の履歴を削除
 例) 5番の履歴を削除
-```bash
+```shell
 $ history -d 5
 ```
 全ての履歴を削除
-```bash
+```shell
 $ history -c
 ```
 
 ### 現在のコマンド入力履歴を履歴ファイルに上書き
 例) 現在の履歴を ```sample.txt``` に上書き
-```bash
+```shell
 $ history -w sample.txt
 ```
 
 ### 履歴ファイルを読み込み
 例) ```sample.txt```　の内容を履歴として読み込み
-```bash
+```shell
 $ history -r sample.txt
 ```
 
@@ -99,7 +99,7 @@ $ history -r sample.txt
 
 ```.vimrc```
 以下を記述し ```:wq``` で保存。
-```bash
+```shell
 :set encoding=utf-8
 :set fileencodings=utf-8,cp932,sjis,euc-jp
 ```
@@ -111,57 +111,57 @@ $ history -r sample.txt
 |```fileencodings```|```fencs```|既存ファイル編集時の変換予定の文字コードを指定。カンマ区切りで複数記述可。
 
 ### vim 内部で使用される文字コードを確認
-```bash
+```shell
 :set encoding?
 ```
 or
-```bash
+```shell
 :se enc?
 ```
 
 ### ファイルの文字コードを確認
-```bash
+```shell
 :set fileencoding?
 ```
 or
-```bash
+```shell
 :se fenc?
 ```
 
 ### ファイルの文字コードの自動判別設定を確認
-```bash
+```shell
 :set fileencodings?
 ```
 or
-```bash
+```shell
 :se fencs?
 ```
 
 ### 指定の文字コードでファイルを開き直し
-```bash
+```shell
 :edit ++encoding=コマンドで指定する文字コードの値
 ```
 or
-```bash
+```shell
 :e ++enc=コマンドで指定する文字コードの値
 ```
 
 ### ファイルの文字コードを変換
 以下を実行後に ```:w``` で保存すること。
-```bash
+```shell
 :set fileencoding=コマンドで指定する文字コードの値
 ```
 or
-```bash
+```shell
 :set fenc=コマンドで指定する文字コードの値
 ```
 
 ### ファイルの文字コードを変換し保存
-```bash
+```shell
 :setlocal fileencoding=コマンドで指定する文字コードの値
 ```
 or
-```bash
+```shell
 :setl fenc=コマンドで指定する文字コードの値
 ```
 
@@ -171,7 +171,7 @@ or
 
 ```.vimrc```
 以下を記述し ```:wq``` で保存。
-```bash
+```shell
 :set fileformats=unix,dos,mac
 ```
 
@@ -185,21 +185,21 @@ or
 
 ### 改行コードを指定
 以下を実行後に ```:w``` で保存すること。
-```bash
+```shell
 :set fileformat=コマンドで指定する改行コードの値
 ```
 or
-```bash
+```shell
 :se ff=コマンドで指定する改行コードの値
 ```
 
 ### 改行コードを指定し保存
 
-```bash
+```shell
 :setlocal fileformat=コマンドで指定する改行コードの値
 ```
 or
-```bash
+```shell
 :setl ff=コマンドで指定する改行コードの値
 ```
 
@@ -229,48 +229,48 @@ or
 ||```--no-sync```|使用量の情報を得る前にsyncの実行なし（デフォルト）|
 
 ### ディスクの空き容量を表示
-```bash
+```shell
 df
 ```
 メガ(1024×1024バイト)単位で表示
-```bash
+```shell
 df -BM
 ```
 
 メガ(1000×1000バイト)単位で表示
-```bash
+```shell
 df -BMB
 ```
 フォーマットの種類も合わせて表示
-```bash
+```shell
 df -T
 ```
 XFSでフォーマットされているパーティションの空き領域と合計を表示
-```bash
+```shell
 df -txfs --total
 ```
 ### ディスクの空き容量を表示(場所を指定して集計)
 カレントディレクトリを含むパーティションの空き領域を表示
-```bash
+```shell
 df .
 ```
 ```/usr``` を含むパーティションの空き領域を表示
-```bash
+```shell
 df /usr
 ```
 
 ### ディスクの空き容量を読みやすいサイズ表記で表示
-```bash
+```shell
 df -h
 ```
 空き領域の合計もあわせて表示
-```bash
+```shell
 df -h --total
 ```
 
 ## 日付・時刻
 
-```bash
+```shell
 TOMORROW=`date '+%Y%m%d' --date '1 day'`
 YESTERDAY=`date '+%Y%m%d' --date '-1 day'`
 echo ${TOMORROW}
@@ -306,11 +306,11 @@ echo ${YESTERDAY}
 
 ### タイムゾーンを確認
 
-```bash
+```shell
 $ date +%Z
 JST
 ```
-```bash
+```shell
 $ date +"%Z %z"
 JST +0900
 ```
@@ -318,19 +318,19 @@ JST +0900
 ## 検索
 
 ### ```grep``` コマンドの使用方法
-```bash
+```shell
 grep 検索したい文字列 検索したいテキストファイル
 ```
 任意のコマンドの実行結果に対して検索
-```bash
+```shell
 コマンド | grep 検索したい文字列
 ```
 複数のパターンを指定
-```bash
+```shell
 grep -e 検索したい文字列1 -e 検索したい文字列2 検索したいテキストファイル
 ```
 指定したディレクトリ配下を再帰的に検索, 検索結果に行番号を表示
-```bash
+```shell
 grep -rn -e 'pattern' /dir/
 ```
 ### ```grep``` コマンドの主なオプション
@@ -364,22 +364,22 @@ grep -rn -e 'pattern' /dir/
 
 ### タイムスタンプでの検索
 #### 現在〜2日前(48時間前)
-```bash
+```shell
 find ./ -mtime -2
 ```
 
 #### 2日前(48時間前〜72時間前)
-```bash
+```shell
 find ./ -mtime 2
 ```
 
 #### 2日前(72時間前)〜過去
-```bash
+```shell
 find ./ -mtime +1
 ```
 
 e.g) 特定のディレクトリ内の30日以前のCSV拡張子のファイルを削除
-```bash
+```shell
 find ./ -type f -name '*.csv' -mtime +30 | xargs rm -f
 ```
 
@@ -398,11 +398,11 @@ find ./ -type f -name '*.csv' -mtime +30 | xargs rm -f
 ## 一覧表示
 
 ### タイムスタンプ降順で一覧表示(隠しファイル含む)
-```bash
+```shell
 ls -alt
 ```
 ### タイムスタンプ昇順で一覧表示(隠しファイル含む)
-```bash
+```shell
 ls -altr
 ```
 
@@ -422,17 +422,17 @@ ls -altr
 
 ### 1つのファイルを移動
 e.g) ファイル ```sample.txt``` を ディレクトリ ```./dir/``` に移動
-```bash
+```shell
 mv sample.txt ./dir/
 ```
 ### 複数のファイルを移動
 e.g) ファイル ```sample1.txt``` と ```sample2.txt``` を ディレクトリ ```./dir/``` に移動
-```bash
+```shell
 mv sample1.txt sample2.txt ./dir/
 ```
 ### ファイルの名称を変更(リネーム)
 ファイル ```before.txt``` を ```after.txt``` に変更
-```bash
+```shell
 mv before.txt after.txt
 ```
 
@@ -449,17 +449,17 @@ mv before.txt after.txt
 ## 削除
 
 ### 1ファイルを削除
-```bash
+```shell
 $ rm sample.txt
 ```
 
 ### 複数ファイルを削除
-```bash
+```shell
 $ rm sample-1.txt sample-2.txt sample-3.txt
 ```
 
 ### カレントディレクトリの全ファイルを確認しながら削除
-```bash
+```shell
 $ rm -i *
 ```
 
@@ -477,12 +477,12 @@ $ rm -i *
 
 ## 空ディレクトリを削除
 
-```bash
+```shell
 $ rmdir dir
 ```
 
 多階層の空ディレクトリを削除
-```bash
+```shell
 $ rmdir -p dir1/dir2/dir3
 ```
 
@@ -499,15 +499,15 @@ $ rmdir -p dir1/dir2/dir3
 ※ 基本的にファイルもディレクトリも操作は同じ
 
 ### ファイルをコピー
-```bash
+```shell
 cp -ip original.txt copy.txt
 ```
 ### ディレクトリごとファイルをコピー
-```bash
+```shell
 cp -ipr original-dir copy-dir
 ```
 ### ファイルをコピーする際にバックアップを作成
-```bash
+```shell
 cp -b --suffix=_$(date +%Y%m%d%H%M%S) original.txt copy.txt
 ```
 
@@ -526,7 +526,7 @@ cp -b --suffix=_$(date +%Y%m%d%H%M%S) original.txt copy.txt
 
 ### ネットワーク上のホスト間のSSHを利用したコピー
 
-```bash
+```shell
 scp [option] [転送元ユーザー名@][転送元ホスト名:]転送元ファイルパス 転送先ユーザ名@転送先ホスト名:転送先パス
 ```
 ### ```scp``` コマンドの主なオプション
@@ -544,33 +544,33 @@ scp [option] [転送元ユーザー名@][転送元ホスト名:]転送元ファ�
 ## ディレクトリとファイルの構成を表示
 
 ### tree コマンドのインストール (macOS)
-```bash
+```shell
 $ brew install tree
 ```
 
 ### tree コマンドのバージョンを確認
-```bash
+```shell
 $ tree --version
 ```
 
 ### 階層を指定
 e.g. カレントディレクトリ配下の3階層まで表示する場合
-```bash
+```shell
 $ tree -L 3
 ```
 
 ### ファイル名のパターンを指定
-```bash
+```shell
 $ tree -P '*.js'
 ```
 
 ### 除外するファイル名のパターンを指定
-```bash
+```shell
 $ tree -I '*.log'
 ```
 
 ### ディレクトリのみを表示
-```bash
+```shell
 $ tree -d
 ```
 
@@ -594,27 +594,27 @@ $ tree -d
 * シンボリックリンクでファイルの「別名」なら、ハードリンクはファイルの「本名」。
 * ハードリンクの場合、元ファイルもリンクもどちらも「本名」。両者は同等。
 ### ディレクトリのシンボリックリンクを作成
-```bash
+```shell
 ln -s ディレクトリ名 リンク名
 ```
 
 ### ファイルのシンボリックリンクを作成
-```bash
+```shell
 ln -s ファイル名 リンク名
 ```
 
 ### 指定したディレクトリ内にシンボリックリンクを作成
-```bash
+```shell
 ln -s ファイル1 ファイル2・・・ ディレクトリ名
 ```
 
 ### ディレクトリのハードリンクを作成
-```bash
+```shell
 ln ディレクトリ名 リンク名
 ```
 
 ### ファイルのハードリンクを作成
-```bash
+```shell
 ln ファイル名 リンク名
 ```
 
@@ -639,10 +639,10 @@ ln ファイル名 リンク名
 
 ### 多階層のディレクトリを作成
 
-```bash
+```shell
 mkdir -p /dir/subdir/{subsubdir-1,subsubdir-2,subsubdir-3}
 ```
-```bash
+```shell
 dir
 └── subdir
     ├── subsubdir-1
@@ -651,24 +651,24 @@ dir
 ```
 
 ### 作成したディレクトリに作業場所を移動
-```bash
+```shell
 mkdir -p /dir/subdir/subsubdir/ && cd $_
 ```
 
 ## ファイルの作成
 
 ### 空ファイルを作成
-```bash
+```shell
 touch sample.txt
 ```
 
 ### ファイルのタイムスタンプを変更
 e.g) ファイルのタイムスタンプ(最終更新日)を「2021-01-01 01:25:30」に変更
-```bash
+```shell
 touch --date="2021-01-01 01:25:30" sample.txt
 ```
 or
-```bash
+```shell
 touch -t 202101012530.30 sample.txt
 ```
 
@@ -686,12 +686,12 @@ touch -t 202101012530.30 sample.txt
 ```cat``` = con```CAT```enate (つなぐ, 連結する)
 
 ### ファイルの内容を行番号付きで表示
-```bash
+```shell
 $ cat -n sample.txt
 ```
 
 ### 複数のファイルを連結して 1つのファイルに出力
-```bash
+```shell
 $ cat before1.txt before2.txt > after.txt
 ```
 
@@ -712,11 +712,11 @@ $ cat before1.txt before2.txt > after.txt
 
 ### ファイル内容を1画面に表示(編集なし)
 
-```bash
+```shell
 less sample.txt
 ```
 行番号も表示
-```bash
+```shell
 less -N sample.txt
 ```
 ### ファイル内容表示時のショートカット
@@ -770,57 +770,57 @@ less -N sample.txt
 
 ### ファイルの行数
 #### ファイルの行数を出力
-```bash
+```shell
 wc -l sample.txt
 ```
 
 #### ファイルの空行の行数を出力
-```bash
+```shell
 grep -c '^$' sample.txt
 ```
 
 #### 指定した文字と一致しない行数を出力
-```bash
+```shell
 grep -c -v 'hoge' sample.txt
 ```
 
 ### ファイル内容の並べ替え
 #### 並べ替えた結果を出力
-```bash
+```shell
 sort sample.txt
 ```
 #### 並べ替え重複行は1行目のみを出力
-```bash
+```shell
 sort -u sample.txt
 ```
-```bash
+```shell
 sort --unique sample.txt
 ```
 
 #### 並べられているか確認
-```bash
+```shell
 sort -c
 ```
-```bash
+```shell
 sort --check
 ```
 
 ### ファイル内容の重複
 
 #### 重複行は1行目のみを出力
-```bash
+```shell
 uniq sample.txt
 ```
 
 #### 重複する行のみ出力
-```bash
+```shell
 uniq -d sample.txt
 ```
 
 ### ファイル内容の正規表現での確認
 #### 正規表現と一致する行数を確認
 e.g.) 半角数字10桁のみの行数
-```bash
+```shell
 grep -c -E '^[0-9]{10}$' sample.txt
 ```
 
@@ -829,28 +829,28 @@ grep -c -E '^[0-9]{10}$' sample.txt
 ### ```zip``` コマンドでの圧縮
 
 ```zip```圧縮後に元ファイルを削除
-```bash
+```shell
 zip -rm after.zip before.file
 ```
 
 パスワード付き ```zip``` ファイルの作成
-```bash
+```shell
 zip -e -r after.zip before/
 ```
 
 ### ```zip``` コマンドでの展開
-```bash
+```shell
 $ unzip sample.zip
 ```
 
 ### ```zip``` ファイルの暗号解除
 
-```bash
+```shell
 $ zipcloak -d sample.zip
 ```
 
 ```encrypted_data.zip``` の暗号を解除し ```decrypted_data.zip``` に保存
-```bash
+```shell
 $ zipcloak -d -O decrypted_data.zip encrypted_data.zip
 ```
 
@@ -865,17 +865,17 @@ $ zipcloak -d -O decrypted_data.zip encrypted_data.zip
 ### ```tar```コマンドでの圧縮
 ```tar``` コマンドでファイルのアーカイブを作成し ```gzip``` 形式に圧縮
 
-```bash
+```shell
 $ tar -czvf after.tar.gz before.txt
 ```
 カレントディレクトリの全ファイルをまとめたアーカイブを作成し ```gzip``` 形式に圧縮
-```bash
+```shell
 $ tar -czvf after.tar.gz *
 ```
 ### ```tar``` コマンドでの展開(解凍)
 ```gzip``` 形式で圧縮されたアーカイブを ```tar``` コマンドで展開
 
-```bash
+```shell
 $ tar -xzvf sample.tar.gz
 ```
 
@@ -902,29 +902,29 @@ $ tar -xzvf sample.tar.gz
 
 ## CSV
 ### CSVファイルの各行のカラム数が指定した数(以下の例では 10)と一致しない行数を確認
-```bash
+```shell
 cat sample.csv | awk -F ',' '{print NF}' | grep -c -v 10
 ```
 
 ### CSVファイルの特定のカラム(以下の例では10カラム目)のみを抽出
-```bash
+```shell
 cut -d ',' -f 10 sample.csv > specific_column.csv
 ```
 
 ## システム情報/バージョン
 
 ### システム情報を確認
-```bash
+```shell
 uname -a
 ```
 
 ### カーネルのバージョン情報を確認
-```bash
+```shell
 cat /proc/version
 ```
 
 ### OSのバージョン情報を確認
-```bash
+```shell
 cat /etc/os-release
 ```
 
@@ -943,7 +943,7 @@ cat /etc/os-release
 
 
 ### OSのバージョン情報確認コマンドを確認
-```bash
+```shell
 ls -l /etc/*release
 ```
 
@@ -986,12 +986,12 @@ ls -l /etc/*release
 ||--time-style=スタイル|時間の表示スタイルとして ```full-iso``` ```long-iso``` ```iso``` ```+FORMAT``` を指定、```+FORMAT``` は ```date``` コマンドのフォーマット指定と共通|
 
 ### 特定ディレクトリ配下でディスク使用量が大きい順に表示
-```bash
+```shell
 du -hs /path/to/target/directory/* | sort -hr | head -10
 ```
 
 ### カレントディレクトリ直下のファイルやディレクトリのディスク使用量とその合計を表示
-```bash
+```shell
 $ du -cs *
 ```
 
@@ -999,7 +999,7 @@ $ du -cs *
 e.g. ルートディレクトリとその直下のディスク容量を1階層まで表示  
 (他のパーティーションにあるファイルは対象外)  
 ```-x``` 1つのファイルシステムのみを集計
-```bash
+```shell
 $ du -d1 -x /
 ```
 
@@ -1043,18 +1043,18 @@ $ du -d1 -x /
 
 ### 指定した列で並べ替え
 区切り文字を ```,``` として 5列目の項目で並べ替え
-```bash
+```shell
 sort -k 5 -t , sample.csv
 ```
 区切り文字を ```,``` として 5列目の項目を数字として並べ替え
-```bash
+```shell
 sort -k 5n -t , sample.csv
 ```
 
 ## その他
 
 ### ログイン中のユーザー
-```bash
+```shell
 LOGIN_USER=`who am i | awk -F ' ' '{print $1}'`
 echo $LOGIN_USER
 ```

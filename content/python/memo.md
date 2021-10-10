@@ -11,7 +11,7 @@ tags: ["Python", "Memo"]
 ## Install macOS
 
 ### Check the default version of Python on macOS 
-```bash
+```shell
 $ python --version
 Python 2.7.16
 $ which python
@@ -21,20 +21,20 @@ $ which python
 ### Install the latest version using Homebrew
 * `brew update` Update Homebrew itself
 * `brew install` Install package
-```bash
+```shell
 $ brew update
 $ brew install python
 ```
 
 ### Add Python's path
-```bash
+```shell
 $ vi ~/.bash_profile
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 $ source ~/.bash_profile
 ```
 
 ### Check that the latest version is available
-```bash
+```shell
 $ python --version
 Python 3.9.7
 $ which python
@@ -43,7 +43,7 @@ $ which python
 
 ### If you want to update Python on macOS in the future
 * `brew upgrade` Update if there is an update for the installed package
-```bash
+```shell
 $ brew update
 $ brew upgrade python
 ```
@@ -51,18 +51,18 @@ $ brew upgrade python
 ## Version
 
 ### Terminal
-```bash
+```shell
 $ python --version
 Python 3.9.6
 ```
 Short option of ```--version```
-```bash
+```shell
 $ python -V
 Python 3.9.6
 ```
 
 More detailed information
-```bash
+```shell
 $ python -VV
 Python 3.9.6 (default, Jul 22 2021, 15:16:20) 
 [GCC 8.3.0]
@@ -117,7 +117,7 @@ print(type(platform.python_version_tuple()))
 
 ## Package
 
-```bash
+```shell
 $ pip list
 ```
 |option|option|description|
@@ -128,17 +128,17 @@ $ pip list
 ||`--format <list_format>`|Select the output format among: columns (default), freeze, or json.|
 ||`--not-required`|List packages that are not dependencies of installed packages.|
 
-```bash
+```shell
 $ pip freeze
 ```
 
 ```pip list --format freeze``` equals ```pip freeze --all```
 
-```bash
+```shell
 $ pip show <installed package>
 ```
 e.g.)
-```bash
+```shell
 $ pip show numpy
 ```
 
@@ -156,7 +156,7 @@ print(args[1])
 print(args[2])
 ```
 Run
-```bash
+```shell
 $ python simple.py aaa 123
 ['sample.py', 'aaa', '123']
 aaa
@@ -181,7 +181,7 @@ print(args.bar)
 ```
 
 Run
-```bash
+```shell
 $ python sample.py aaa 123
 Namespace(foo='aaa', bar=123)
 aaa
@@ -189,7 +189,7 @@ aaa
 ```
 
 Check help using  ```-h``` or ```---help```
-```bash
+```shell
 $ python sample.py --help
 usage: sample.py [-h] foo bar
 
@@ -233,7 +233,7 @@ print(args.flag1)
 print(args.flag2)
 ```
 Run
-```bash
+```shell
 $ python sample.py --named_arg1 aaa --named_arg2 123 --flag1 --flag2
 Namespace(named_arg1='aaa', named_arg2=123, flag1=True, flag2=False)
 aaa

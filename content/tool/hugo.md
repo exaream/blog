@@ -21,34 +21,34 @@ https://gohugo.io/about/
 3. Click "Create repository"
 
 ### Install Hugo on macOS
-```bash
+```shell
 $ brew install hugo
 ```
 
 ### Build a blog using Hugo
-```bash
+```shell
 $ GITHUB_USERNAME=xxxx
 $ GIT_REPOSITORY=sample
 ```
-```bash
+```shell
 $ hugo new site ${GIT_REPOSITORY}
 $ cd ${GIT_REPOSITORY}
 $ echo "# ${GIT_REPOSITORY}" >> README.md
 ```
 
 ### Initialize git
-```bash
+```shell
 $ git init
 ```
 
 If you want to change the configrations of git
-```bash
+```shell
 $ git config --local --list
 $ git config --local user.name xxxx
 $ git config --local user.email xxxx
 ```
 
-```bash
+```shell
 $ git add .
 $ git commit -m "Build a site using hugo"
 $ git branch -M main
@@ -57,12 +57,12 @@ $ git push -u origin main
 ```
 
 ### Add .gitignore
-```bash
+```shell
 $ vi .gitignore
 ```
 Add a line break on the last line.  
 ```.gitignore```
-```bash
+```shell
 public/
 resources/_gen/
 .DS_Store
@@ -70,13 +70,13 @@ resources/_gen/
 
 ```
 
-```bash
+```shell
 $ git add .
 $ git commit -m "Add .gitignore"
 ```
 
 ### Add Hugo's theme
-```bash
+```shell
 $ git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
 $ git add .
 $ git commit -m "Add a theme as a submodule"
@@ -94,7 +94,7 @@ theme = "hugo-book"
 # Add a line break on the last line. 
 ```
 
-```bash
+```shell
 $ git add .
 $ git commit -m "Change config.toml"
 ```
@@ -114,42 +114,42 @@ tags: ["Foo","Bar"]
 # Hello world!
 ```
 
-```bash
+```shell
 $ git add .
 $ git commit -m "Add a page of hello world"
 ```
 
 ### Generate static contents
-```bash
+```shell
 $ hugo
 ```
 Execute the following instead above one if you want to minify static contents
-```bash
+```shell
 $ hugo --minify
 ```
 
-```bash
+```shell
 $ git add .
 $ git commit -m "Generate static contents"
 ```
 
 ### Check on your local environment
-```bash
+```shell
 $ hugo server --minify -p 3000
 ```
 Access the following URL using a browser.
-```bash
+```shell
 $ echo http://localhost:3000/${GIT_REPOSITORY}/hello-world/
 ```
 
 ### Push to Github
-```bash
+```shell
 $ git push -u origin main
 ```
 
 ## Github Pages
 Access the following URL using a browser.
-```bash
+```shell
 $ echo https://github.com/${GITHUB_USERNAME}/${GIT_REPOSITORY}/settings/pages
 ```
 
@@ -157,7 +157,7 @@ $ echo https://github.com/${GITHUB_USERNAME}/${GIT_REPOSITORY}/settings/pages
 2. Click "Save"
 
 Access the following URL using a browser after a few minute.
-```bash
+```shell
 $ echo https://${GITHUB_USERNAME}.github.io/${GIT_REPOSITORY}/hello-world/
 ```
 

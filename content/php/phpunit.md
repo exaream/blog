@@ -20,12 +20,12 @@ tags: ["PHPUnit","Laravel","Test"]
 },
 ```
 
-```bash
+```shell
 $ composer install
 ```
 
 ### バージョンの確認
-```bash
+```shell
 $ ./vendor/bin/phpunit --version
 ```
 

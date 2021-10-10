@@ -37,7 +37,7 @@ $ go test ./... -cover
 
 ### Clean test cache
 If you see `(cached)` in results of unit tests
-```bash
+```shell
 $ go clean -testcache
 ```
 

@@ -113,7 +113,7 @@ print(text)
 ### Preparation
 
 ```pytyon-ocr``` directory on your host machine
-```bash
+```shell
 docker-compose -f setup/docker-compose.yml up -d --build
 docker exec -it python-ocr bash
 ```
@@ -121,7 +121,7 @@ docker exec -it python-ocr bash
 ### Run
 
 ```docker container```
-```bash
+```shell
 cd /opt/
 python simple.py sample.jpg
 ```
@@ -303,13 +303,13 @@ print(text)
 ### Run
 Run below if the docker container is stopped.  
 ```pytyon-ocr``` directory on your host machine
-```bash
+```shell
 docker-compose -f setup/docker-compose.yml up -d
 docker exec -it python-ocr bash
 ```
 
 ```docker container```
-```bash
+```shell
 cd /opt/
 python main.py --img sample.jp
 ```

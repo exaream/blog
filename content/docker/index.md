@@ -11,11 +11,11 @@ tags: ["Docker", "Container"]
 
 ### Stop all containers
 
-```bash
+```shell
 docker container ps -q | xargs docker container stop
 ```
 or
-```bash
+```shell
 docker stop $(docker ps -q)
 ```
 
@@ -23,13 +23,13 @@ docker stop $(docker ps -q)
 
 ### Stop and remove all (containers, images, volumes, networks) 滅びの呪文
 
-```bash
+```shell
 docker-compose down --rmi all --volumes --remove-orphans
 ```
 
 ### Remove stopped containers, untagged images, unused volumes, unused networks
 
-```bash
+```shell
 docker system prune
 ```
 
@@ -38,57 +38,57 @@ docker system prune
 |-a|未使用のイメージを含め削除|
 |-f|確認せず削除|
 
-```bash
+```shell
 docker system prune -af
 ```
 
 ### Remove stopped containers
-```bash
+```shell
 docker container prune
 ```
 
 ### Remove all containers
-```bash
+```shell
 docker container ps -aq | xargs docker container rm -f
 ```
 or
-```bash
+```shell
 docker ps -aq | xargs docker rm -f
 ```
 or
-```bash
+```shell
 docker rm -f $(docker ps -aq)
 ```
 
 ### Remove all images (after all containers were removed)
 
-```bash
+```shell
 docker images -aq | xargs docker image rm -f
 ```
 or
-```bash
+```shell
 docker images -aq | xargs docker rmi -f
 ```
 or
-```bash
+```shell
 docker rmi -f $(docker images -aq)
 ```
 
 ### Remove untagged images
 
-```bash
+```shell
 docker images -fq "dangling=true" | xargs docker image rm
 ```
 
 ### Remove unused volumes
 
-```bash
+```shell
 docker volume prune
 ```
 
 ### Remove unused networks
 
-```bash
+```shell
 docker network prune
 ```
 
@@ -97,13 +97,13 @@ docker network prune
 ### How to check log
 
 最新の30件を確認
-```bash
+```shell
 docker logs -f --tail=30
 ```
 
 ## Other
 ### How to mount a directory in host server
-```bash
+```shell
 docker run -v [absolute path in host]:[absolute path in container] [image name]:[tag] [command]
 ```
 

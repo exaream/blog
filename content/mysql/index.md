@@ -10,23 +10,23 @@ tags: ["SQL", "MySQL", "Memo"]
 ## Preparation
 
 ### Install to macOS
-```bash
+```shell
 $ brew install mysql
 ```
 ### Start
-```bash
+```shell
 $ mysql.server start
 Starting MySQL
 ....... SUCCESS!
 ```
 ### Check the vertion
-```bash
+```shell
 $ mysql --version
 mysql  Ver 8.0.26 for macos11.3 on x86_64 (Homebrew)
 ```
 
 ### Make initial settings
-```bash
+```shell
 $ mysql_secure_installation
 ```
 * パスワード強度検証プラグインの利用有無
@@ -36,7 +36,7 @@ $ mysql_secure_installation
 * リモートからの root ユーザとしてのログインの禁止
 * サンプル用 test データベースの削除
 
-```bash {hl_lines=[1,11,12,19,20,24,26,30,37,38,45,46,54,55,64,65]}
+```shell {hl_lines=[1,11,12,19,20,24,26,30,37,38,45,46,54,55,64,65]}
 $ mysql_secure_installation
 
 Securing the MySQL server deployment.
@@ -110,7 +110,7 @@ All done!
 ## ログイン
 
 e.g) rootユーザーでのログイン
-```bash
+```shell
 $ mysql -uroot -p
 Enter password: ### 設定したパスワードを入力
 ```

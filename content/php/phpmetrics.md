@@ -21,12 +21,12 @@ tags: ["PhpMetrics","Metrics"]
 
 ## インストール
 
-```bash
+```shell
 $ composer require phpmetrics/phpmetrics --dev
 ```
 
 ## 使用方法
-```bash
+```shell
 $ php ./vendor/bin/phpmetrics --report-html=myreport.html /path/to/your/sources/
 ```
 

@@ -11,28 +11,28 @@ tags: ["Git","Log","Configuration","Memo"]
 
 ### 指定したフォーマットでコミット・ログを表示
 
-```bash
+```shell
 $ git log --graph --date=iso --pretty=format:"[%ad] %h %an : %s"
 ```
 
 ### 特定の注釈を含むコミットを検索
 
-```bash
+```shell
 $ git log --oneline --grep "<pattern>"
 ```
 
 ### コミット間の変更ファイル一覧を表示
 
-```bash
+```shell
 $ git diff --stat <Commit A> <Commit B>
 ```
 ファイル名のみ表示する場合
-```bash
+```shell
 $ git diff --stat --name-only <Commit A> <Commit B>
 ```
 ### タグの一覧を表示
 
-```bash
+```shell
 $ git tag -n
 ```
 
@@ -40,7 +40,7 @@ $ git tag -n
 
 ### バージョンを確認
 
-```bash
+```shell
 $ git --version
 ```
 
@@ -50,24 +50,24 @@ $ git --version
 * system: システム全体に適用
 * global: ユーザー単位で適用（ユーザーのホームディレクトリ直下の設定ファイルを参照）
 * local: Gitリポジトリ単位で適用（```.git``` ディレクトリ直下の設定ファイルを参照）
-```bash
+```shell
 $ git config --system --list
 $ git config --global --list
 $ git config --local --list
 ```
 
 適用範囲を指定しない場合 ```--local``` と同様に Gitリポジトリ内の設定を表示
-```bash
+```shell
 $ git config --list
 ```
 Gitリポジトリの管理するディレクトリ外で以下を実行した場合 エラーが発生
-```bash
+```shell
 $ git config --local --list
 fatal: --local can only be used inside a git repository
 ```
 
 ```--list``` オプションの短縮版
-```bash
+```shell
 $ git config --system -l
 $ git config --global -l
 $ git config --local -l
@@ -75,13 +75,13 @@ $ git config --local -l
 
 ### 設定ファイルを直接編集
 
-```bash
+```shell
 $ git config --system --edit
 $ git config --global --edit
 $ git config --local --edit
 ```
 ```--edit``` オプションの短縮版
-```bash
+```shell
 $ git config --system -e
 $ git config --global -e
 $ git config --local -e
@@ -89,7 +89,7 @@ $ git config --local -e
 
 ### どの設定ファイルに記載された設定が適用されているか確認
 
-```bash
+```shell
 $ git config --show-origin user.name
 $ git config --show-origin user.email
 $ git config --show-origin core.autocrlf
@@ -98,20 +98,20 @@ $ git config --show-origin core.autocrlf
 ### ユーザー名/メールアドレスを設定
 
 * --global オプションを付けないと、該当のリポジトリのみ有効な設定になる
-```bash
+```shell
 $ git config --global user.name <username>
 $ git config --global user.email <mailaddress>
 ```
 
 ### 出力をカラーリングするよう設定
 
-```bash
+```shell
 $ git config --global color.ui auto
 ```
 
 ### コマンドにエイリアスを設定
 
-```bash
+```shell
 $ git config --global alias.<aliasname> <commandname>
 ```
 
@@ -119,7 +119,7 @@ $ git config --global alias.<aliasname> <commandname>
 
 * ```.gitignore``` に記載されたファイル名は、Gitの管理対象外
 * ```.gitignore``` ファイル自体をコミットしておくこと
-```bash
+```shell
 $ echo <file name> >> .gitignore
 ```
 ### 空ディレクトリを管理対象
@@ -127,14 +127,14 @@ $ echo <file name> >> .gitignore
 * Gitでは空ディレクトリは管理対象外
 * 空ディレクトリを管理対象にする場合、任意のファイルを配置
 * 慣例的に ```.gitkeep``` というファイルを使用
-```bash
+```shell
 $ cd <directory name>
 $ touch .gitkeep
 ```
 
 ### プロキシサーバを経由してhttp接続
 
-```bash
+```shell
 $ git config --global http.proxy <プロキシサーバのアドレス>:<プロキシサーバのポート番号>
 ```
 * ```.gitconfig``` ファイルの http の項目に次の設定を直接追加することもできる
@@ -145,7 +145,7 @@ proxy = <プロキシサーバのアドレス>:<プロキシサーバのポー�
 
 ### ユーザ認証の必要なプロキシサーバを経由してhttp接続
 
-```bash
+```shell
 $ git config --global http.proxy http://<ユーザ名>:<パスワード>@<プロキシサーバのアドレス>:<プロキシサーバのポート番号>
 ```
 * ```.gitconfig``` ファイルの http の項目に次の設定を直接追加することもできる
@@ -158,54 +158,54 @@ proxy = http://<ユーザ名>:<パスワード>@<プロキシサーバのアド�
 
 ### リポジトリを作成
 
-```bash
+```shell
 $ git init
 ```
 
 ### ファイルやディレクトリをインデックスに登録
 
-```bash
+```shell
 $ git add .
 ```
 
-```bash
+```shell
 $ git add *.txt
 ```
 
 ### インデックスに追加されたファイルをコミット
 
-```bash
+```shell
 $ git commit
 ```
 
 ### 変更されたファイルの一覧を表示
 
-```bash
+```shell
 $ git status
 ```
 
 ### 変更されたファイルの差分を表示
 
-```bash
+```shell
 $ git diff
 ```
 
 ### コミットログを表示
 
-```bash
+```shell
 $ git log
 ```
 
 ### コミットログを表示
 
 ```git log``` コマンドで参照したコミットやHEADを指定
-```bash
+```shell
 $ git show <commit>
 ```
 
 ### ファイルやディレクトリ名の変更や移動
 
-```bash
+```shell
 $ git mv <old file name> <new file name>
 ```
 
@@ -214,25 +214,25 @@ $ git mv <old file name> <new file name>
 * -n ： 削除されるファイルを確認
 * -f ： 実際にファイルを削除
 * -x ： .gitignore に指定されたファイルも削除
-```bash
+```shell
 $ git clean
 ```
 
 ### 手元で変更したインデックスに登録されていないファイルを元に戻す
 
-```bash
+```shell
 $ git checkout -- <file>
 ```
 
 ### インデックスに登録したファイルの取り消し
 
-```bash
+```shell
 $ git reset HEAD -- <file>
 ```
 
 ### 以前にコミットしたことのあるファイルだけをすべてインデックスに登録
 
-```bash
+```shell
 $ git add -u
 ```
 
@@ -240,12 +240,12 @@ $ git add -u
 
 ### コミットログを表示
 
-```bash
+```shell
 $ git log
 ```
 
 各コミットログを1行で表示
-```bash
+```shell
 $ git log --oneline
 ```
 
@@ -295,11 +295,11 @@ $ git log --oneline
 
 現在のブランチの先頭のコミットに上書き
 入力画面が表示されるのでコミットログを確認して保存
-```bash
+```shell
 $ git commit --amend
 ```
 入力画面が表示されず即上書き保存
-```bash
+```shell
 git commit --amend --no-edit
 ```
 
@@ -308,7 +308,7 @@ git commit --amend --no-edit
 インデックスにファイルを登録していない状態で再コミット  
 入力画面が表示されるのでコメントを修正して保存
 
-```bash
+```shell
 $ git commit --amend
 ```
 
@@ -317,17 +317,17 @@ $ git commit --amend
 1. 指定したコミットより後のコミットを指定すると、コミットの一覧が表示される
 2. その中から修正したいコミットを見つけてその行の ```pick``` の文字を ```edit``` に変更して保存・終了する
 
-```bash
+```shell
 $ git rebase -i <commit>
 ```
 
 3. 修正したいファイルを編集、保存した後に ```--amend``` オプションを指定してコミット
-```bash
+```shell
 $ git commit --amend
 ```
 
 4. ```--continue``` オプションを指定し ```rebase``` を実行
-```bash
+```shell
 $ git rebase --continue
 ```
 
@@ -336,31 +336,31 @@ $ git rebase --continue
 1. 指定したコミットより後のコミットを指定すると、コミットの一覧が表示される
 2. その中から修正したいコミットを見つけてその行の ```pick``` の文字を ```edit``` に変更して保存・終了する
 
-```bash
+```shell
 $ git rebase -i <commit>
 ```
 
 3. 修正したいファイルを編集、保存した後に ```--amend``` オプションを指定してコミット
 4. コメントの入力画面が表示されるので、コメントを修正
-```bash
+```shell
 $ git commit --amend
 ```
 
 5. ```--continue``` オプションを指定し ```rebase``` を実行
-```bash
+```shell
 $ git rebase --continue
 ```
 
 ### ```rebase``` を途中で中止
 
-```bash
+```shell
 $ git rebase --abort
 ```
 
 ### HEADの移動履歴を表示
 
 過去に HEAD が指していたコミットの一覧を表示(削除したコミットや rebase 等によってまとめられたコミットなども表示)
-```bash
+```shell
 $ git reflog
 ```
 
@@ -368,24 +368,24 @@ $ git reflog
 
 過去にそのブランチの先頭が指していたコミットの一覧
 
-```bash
+```shell
 $ git reflog <branch name>
 ```
 
 ### 直前のコミットを取り消し
 
-```bash
+```shell
 $ git reset --hard HEAD~
 ```
 
 ### ```rebase``` を取り消し
 
 1. HEADの移動履歴から ```rebase``` 直前のコミットを確認
-```bash
+```shell
 $ git reflog
 ```
 2. 見つけたハッシュ値を ```<commit>``` で指定して ```reset``` を実行
-```bash
+```shell
 $ git reset --hard <commit>
 ```
 
@@ -393,7 +393,7 @@ $ git reset --hard <commit>
 
 ```reset``` 前のコミットは ```ORIG_HEAD``` という名前で参照できるので、これを指定して ```reset``` を実行
 
-```bash
+```shell
 $ git reset --hard ORIG_HEAD
 ```
 
@@ -401,7 +401,7 @@ $ git reset --hard ORIG_HEAD
 
 ```<commit>``` で指定したコミットを現在のブランチにコピー
 
-```bash
+```shell
 $ git cherry-pick "<commit>"
 ```
 
@@ -409,7 +409,7 @@ $ git cherry-pick "<commit>"
 
 ```<pattern>``` で指定した文字がコミットログに含まれるコミット
 
-```bash
+```shell
 $ git log --grep "<pattern>"
 ```
 
@@ -417,55 +417,55 @@ $ git log --grep "<pattern>"
 
 ### ローカル・ブランチの一覧を表示
 
-```bash
+```shell
 $ git branch
 ```
 
 ### 特定の文字列を含むブランチをローカル・ブランチから検索
 
-```bash
+```shell
 $ git branch --list 'sample-*'
 ```
 or
-```bash
+```shell
 $ git branch -l 'sample-*'
 ```
 
 ### ローカル・ブランチとリモート・ブランチの一覧を表示
 
-```bash
+```shell
 $ git branch --all
 ```
 or
-```bash
+```shell
 $ git branch -a
 ```
 
 ### 特定の文字列を含むブランチをローカル・ブランチとリモート・ブランチから検索
 
-```bash
+```shell
 $ git branch --all --list 'sample-*'
 ```
 or
-```bash
+```shell
 $ git branch -a -l 'sample-*'
 ```
 
 ### ブランチを作成
 
-```bash
+```shell
 $ git branch <branch name>
 ```
 
 ### ブランチ名を変更
 
-```bash
+```shell
 $ git branch -m <old branch> <new branch>
 ```
 
 ### ブランチを削除
 
-```bash
+```shell
 $ git branch -d <branch name>
 ```
 
@@ -473,31 +473,31 @@ $ git branch -d <branch name>
 
 ```HEAD``` にマージされていないコミットがあるブランチを強制的に削除
 
-```bash
+```shell
 $ git branch -D <branch name>
 ```
 
 
 ### ブランチを切り替え
 
-```bash
+```shell
 $ git checkout <branch>
 ```
 
 ブランチの作成と切り替えを一度に実行
-```bash
+```shell
 $ git checkout -b <branch>
 ```
 
 ### ブランチをマージ
 
-```bash
+```shell
 $ git merge <branch>
 ```
 
 fast-forwardなマージであってもマージコミットを作成  
 ブランチが存在したという情報を残したいときに有用
-```bash
+```shell
 $ git merge --no-ff <branch>
 ```
 
@@ -505,26 +505,26 @@ $ git merge --no-ff <branch>
 
 ### 既存のリモートリポジトリを複製
 
-```bash
+```shell
 $ git clone <url>
 ```
 
 ### リモートリポジトリを追加
 
-```bash
+```shell
 $ git remote add <name> <url>
 ```
 
 
 ### リモートリポジトリの一覧を表示
 
-```bash
+```shell
 $ git remote
 ```
 
 ### リモートリポジトリのブランチからローカルリポジトリのブランチを作成
 
-```bash
+```shell
 $ git checkout <branch>
 ```
 
@@ -536,7 +536,7 @@ $ git checkout <branch>
 * ```refspec``` はブランチ名などを指定可
 * ```refspec``` を省略した場合, デフォルトではすべてのブランチが対象
 
-```bash
+```shell
 $ git push <repository> <refspec>
 ```
 
@@ -550,17 +550,17 @@ $ git push <repository> <refspec>
 * ```refspec``` を省略した場合, デフォルトではすべてのブランチが対象
 
 
-```bash
+```shell
 $ git fetch <repository> <refspec>
 ```
 
 ### リモートリポジトリから削除されたブランチをローカルリポジトリでも削除
 
-```bash
+```shell
 $ git fetch --prune
 ```
 or
-```bash
+```shell
 $ git remote prune <repository>
 ```
 
@@ -574,25 +574,25 @@ $ git remote prune <repository>
 * ```refspec``` はブランチ名などを指定可
 * ```refspec``` を省略した場合, デフォルトではすべてのブランチが対象
 
-```bash
+```shell
 $ git pull <repository> <refspec>
 ```
 
 ### リモートリポジトリのブランチを削除
 
-```bash
+```shell
 $ git push --delete <repository> <branch name>
 ```
 
 ### リモートリポジトリにタグを作成
 
-```bash
+```shell
 $ git push <repository> <tag name>
 ```
 
 ### リモートリポジトリのタグを削除
 
-```bash
+```shell
 $ git push --delete <repository> <tag name>
 ```
 
@@ -600,13 +600,13 @@ $ git push --delete <repository> <tag name>
 
 指定した名前で登録されているリモートリポジトリのアドレスを <newurl> のアドレスに変更
 
-```bash
+```shell
 $ git remote set-url <name> <newurl>
 ```
 
 ### 登録済みのリモートリポジトリの名前を変更
 
-```bash
+```shell
 $ git remote rename <old> <new>
 ```
 
@@ -614,26 +614,26 @@ $ git remote rename <old> <new>
 
 ### サブモジュールの設定
 ```.gitmodules``` というファイルを作成して以下の内容を記述
-```bash
+```shell
 [submodule "<submodule name>"]
 	path = <directory name>
 	url = <url>
 ```
 
 e.g.)
-```bash
+```shell
 [submodule "themes/hugo-book"]
 	path = themes/hugo-book
 	url = https://github.com/alex-shpak/hugo-book
 ```
 
 ### サブモジュールを含めて既存のリモートリポジトリを複製
-```bash
+```shell
 $ git clone --recursive <url>
 ```
 
 ### サブモジュールを後から複製
-```bash
+```shell
 git submodule update --init --recursive
 ```
 
@@ -642,26 +642,26 @@ git submodule update --init --recursive
 ### ローカルのタグの一覧を表示
 
 タグ名のみ
-```bash
+```shell
 $ git tag
 ```
 
 タグ名と注釈
 * ```-n``` 表示する注釈の行数
-```bash
+```shell
 $ git tag -n1
 ```
 
 ### リモートのタグの一覧を表示
 
 リモート・リポジトリ ```origin``` のタグの一覧を取得
-```bash
+```shell
 $ git ls-remote --tags origin
 ```
 
 ### リモートのタグを取得 ```fetch```
 
-```bash
+```shell
 $ git fetch --all --tags
 ```
 
@@ -670,18 +670,18 @@ $ git fetch --all --tags
 #### 現在のコミットにタグ付け
 
 注釈なし
-```bash
+```shell
 $ git tag <tag name>
 ```
 
 注釈付き
-```bash
+```shell
 $ git tag -m "<tag message>" <tag name>
 $ git tag --message "<tag message>" <tag name>
 ```
 
 注釈付き (viが起動)
-```bash
+```shell
 $ git tag -a <tag name>
 $ git tag --annotate <tag name>
 ```
@@ -689,13 +689,13 @@ $ git tag --annotate <tag name>
 #### 後からコミットにタグ付け
 
 指定したコミット, 注釈付き
-```bash
+```shell
 $ git tag -m "<tag message>" <tag name> <commit>
 $ git tag --message "<tag message>" <tag name> <commit>
 ```
 
 指定したコミット, 注釈付き (viが起動)
-```bash
+```shell
 $ git tag -a <tag name> -m <tag message> <commit>
 $ git tag --annotate <tag name> --message <tag message> <commit>
 ```
@@ -703,7 +703,7 @@ $ git tag --annotate <tag name> --message <tag message> <commit>
 ### タグを削除
 
 まだプッシュしていないタグは削除可
-```bash
+```shell
 $ git tag -d <tag name>
 $ git tag --delete <tag name>
 ```
@@ -711,29 +711,29 @@ $ git tag --delete <tag name>
 ### タグを共有
 
 リモート・リポジトリ ```origin``` にプッシュ
-```bash
+```shell
 $ git push origin <tag name>
 ```
 
 すべてのタグをリモート・リポジトリ ```origin``` にプッシュ
-```bash
+```shell
 $ git push origin --tags
 ```
 
 ### タグをチェックアウト
 
-```bash
+```shell
 $ git checkout <tag name>
 ```
 
 タグをチェックアウトすると同時にブランチを作成
-```bash
+```shell
 $ git checkout <tag name> -b <branch name>
 ```
 
 ## その他
 ### 特定のディレクトリやファイルのみチェックアウト
-```bash
+```shell
 mkdir work && cd $_
 git init .
 git sparse-checkout init --cone
