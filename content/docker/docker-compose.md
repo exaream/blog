@@ -5,7 +5,7 @@ title: docker-compose
 tags: ["Docker", "docker-compose"]
 ---
 
-### コンテナ群の起動
+### Run containers
 * カレントディレクトリの `docker-compose.yml` に記載したコンテナ群を起動
 * 初回起動時にコンテナ群をつなぐユーザ定義・ブリッジ・ネットワークも自動生成
 
@@ -18,7 +18,7 @@ $ docker-compose up
 $ docker-compose up -d
 ```
 
-### コンテナ群の停止
+### Stop containers
 * フォアグラウンドモードで起動した場合
   * ターミナルで Ctrl+C 押下
 * バックグラウンドモードで起動した場合
@@ -26,12 +26,18 @@ $ docker-compose up -d
 $ docker-compose stop
 ```
 
-### イメージの再ビルド
+### Rebuild an image
 ```shell
 $ docker-compose build
 ```
 
-### コンテナ群とネットワークの削除
+### Remove containers and networks
 ```shell
 $ docker-compose down
+```
+
+### Stop and remove all (containers, images, volumes, networks) 滅びの呪文
+
+```shell
+docker-compose down --rmi all --volumes --remove-orphans
 ```

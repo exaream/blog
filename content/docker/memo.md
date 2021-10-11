@@ -7,19 +7,53 @@ tags: ["Docker", "Container"]
 
 # Docker Memo
 
-### コンテナ情報の一覧を取得
+## Inspection
+
+### Get instance's information
 ```shell
-$ docker inspect <CONTAINER ID>
+$ docker inspect <CONTAINER ID|NAME>
 ```
-### コンテナに割り振られたIPアドレスを取得
+### Get an instance’s IP address
 ```shell
-$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <CONTAINER ID>
+$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <CONTAINER ID|NAME>
 ```
 
-### コンテナに割り振られたMACアドレスを取得
+### Get an instance’s MAC address
 ```shell
-$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' <CONTAINER ID>
+$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' <CONTAINER ID|NAME>
 ```
+
+### Get an instance’s log path
+```shell
+$ docker inspect --format='{{.LogPath}}' <CONTAINER ID|NAME>
+```
+
+### Get an instance’s image name
+```shell
+$ docker inspect --format='{{.Container.Spec.Image}}' <CONTAINER ID|NAME>
+```
+
+### List all port bindings
+```shell
+$ docker inspect --format='{{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}' <CONTAINER ID|NAME>
+```
+
+### Find a specific port mapping
+```shell
+$ docker inspect --format='{{(index (index .NetworkSettings.Ports "8787/tcp") 0).HostPort}}' <CONTAINER ID|NAME>
+```
+
+### Get a subsection in JSON format
+```shell
+$ docker inspect --format='{{json .Config}}' <CONTAINER ID|NAME>
+```
+
+### Get environmental variables
+```shell
+$ docker inspect --format='{{range .Config.Env}}{{println .}}{{end}}' <CONTAINER ID|NAME>
+```
+
+
 
 ## Stop
 
@@ -34,12 +68,6 @@ docker stop $(docker ps -q)
 ```
 
 ## Remove
-
-### Stop and remove all (containers, images, volumes, networks) 滅びの呪文
-
-```shell
-docker-compose down --rmi all --volumes --remove-orphans
-```
 
 ### Remove stopped containers, untagged images, unused volumes, unused networks
 
@@ -122,5 +150,5 @@ docker run -v [absolute path in host]:[absolute path in container] [image name]:
 ```
 
 ## References
-* https://qiita.com/saki-engineering/items/5791c609fcf055e13bca
+* https://docs.docker.com/engine/reference/commandline/inspect/
 * https://qiita.com/gold-kou/items/44860fbda1a34a001fc1
