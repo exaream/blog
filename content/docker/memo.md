@@ -7,6 +7,10 @@ tags: ["Docker", "Container"]
 
 # Docker Memo
 
+### コンテナ情報の一覧を取得
+```shell
+$ docker inspect <CONTAINER ID>
+```
 ### コンテナに割り振られたIPアドレスを取得
 ```shell
 $ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <CONTAINER ID>
