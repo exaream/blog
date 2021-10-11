@@ -7,6 +7,16 @@ tags: ["Docker", "Container"]
 
 # Docker Memo
 
+### コンテナに割り振られたIPアドレスを取得
+```shell
+$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <CONTAINER ID>
+```
+
+### コンテナに割り振られたMACアドレスを取得
+```shell
+$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' <CONTAINER ID>
+```
+
 ## Stop
 
 ### Stop all containers
@@ -108,4 +118,5 @@ docker run -v [absolute path in host]:[absolute path in container] [image name]:
 ```
 
 ## References
+* https://qiita.com/saki-engineering/items/5791c609fcf055e13bca
 * https://qiita.com/gold-kou/items/44860fbda1a34a001fc1
