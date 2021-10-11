@@ -2,10 +2,10 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Docker Memo #  Stop #  Stop all containers #  docker container ps -q | xargs docker container stop or
+<meta name=description content="Docker Memo #  コンテナ情報の一覧を取得 #  $ docker inspect <CONTAINER ID> コンテナに割り振られたIPアドレスを取得 #  $ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <CONTAINER ID> コンテナに割り振られたMACアドレスを取得 #  $ docker inspect --format='{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' <CONTAINER ID> Stop #  Stop all containers #  docker container ps -q | xargs docker container stop or
 docker stop $(docker ps -q) Remove #  Stop and remove all (containers, images, volumes, networks) 滅びの呪文 #  docker-compose down --rmi all --volumes --remove-orphans Remove stopped containers, untagged images, unused volumes, unused networks #  docker system prune    option description     -a 未使用のイメージを含め削除   -f 確認せず削除    docker system prune -af Remove stopped containers #  docker container prune Remove all containers #  docker container ps -aq | xargs docker container rm -f or">
 <meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Docker Memo">
-<meta property="og:description" content="Docker Memo #  Stop #  Stop all containers #  docker container ps -q | xargs docker container stop or
+<meta property="og:description" content="Docker Memo #  コンテナ情報の一覧を取得 #  $ docker inspect <CONTAINER ID> コンテナに割り振られたIPアドレスを取得 #  $ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <CONTAINER ID> コンテナに割り振られたMACアドレスを取得 #  $ docker inspect --format='{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' <CONTAINER ID> Stop #  Stop all containers #  docker container ps -q | xargs docker container stop or
 docker stop $(docker ps -q) Remove #  Stop and remove all (containers, images, volumes, networks) 滅びの呪文 #  docker-compose down --rmi all --volumes --remove-orphans Remove stopped containers, untagged images, unused volumes, unused networks #  docker system prune    option description     -a 未使用のイメージを含め削除   -f 確認せず削除    docker system prune -af Remove stopped containers #  docker container prune Remove all containers #  docker container ps -aq | xargs docker container rm -f or">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://exaream.github.io/tech-blog/docker/memo/"><meta property="article:section" content="docker">
@@ -16,7 +16,7 @@ docker stop $(docker ps -q) Remove #  Stop and remove all (containers, images, v
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.54317becaacba1fbcf832dd38e4a88b7551c2b81777e4c00b339c1ce532ee8be.js integrity="sha256-VDF77KrLofvPgy3TjkqIt1UcK4F3fkwAsznBzlMu6L4=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.2a360a2b54cacc7dfde88a70a36dcfb282f16a975318db680b4b5ff39ecbf285.js integrity="sha256-KjYKK1TKzH396Ipwo23PsoLxapdTGNtoC0tf857L8oU=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -95,6 +95,13 @@ Menu
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
+<li>
+<ul>
+<li><a href=#コンテナ情報の一覧を取得>コンテナ情報の一覧を取得</a></li>
+<li><a href=#コンテナに割り振られたipアドレスを取得>コンテナに割り振られたIPアドレスを取得</a></li>
+<li><a href=#コンテナに割り振られたmacアドレスを取得>コンテナに割り振られたMACアドレスを取得</a></li>
+</ul>
+</li>
 <li><a href=#stop>Stop</a>
 <ul>
 <li><a href=#stop-all-containers>Stop all containers</a></li>
@@ -142,7 +149,22 @@ Menu
 Docker Memo
 <a class=anchor href=#docker-memo>#</a>
 </h1>
-<h2 id=stop>
+<h3 id=コンテナ情報の一覧を取得>
+コンテナ情報の一覧を取得
+<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e6%83%85%e5%a0%b1%e3%81%ae%e4%b8%80%e8%a6%a7%e3%82%92%e5%8f%96%e5%be%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ docker inspect &lt;CONTAINER ID&gt;
+</code></pre></div><h3 id=コンテナに割り振られたipアドレスを取得>
+コンテナに割り振られたIPアドレスを取得
+<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%ab%e5%89%b2%e3%82%8a%e6%8c%af%e3%82%89%e3%82%8c%e3%81%9fip%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%82%92%e5%8f%96%e5%be%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ docker inspect --format<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span> &lt;CONTAINER ID&gt;
+</code></pre></div><h3 id=コンテナに割り振られたmacアドレスを取得>
+コンテナに割り振られたMACアドレスを取得
+<a class=anchor href=#%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%ab%e5%89%b2%e3%82%8a%e6%8c%af%e3%82%89%e3%82%8c%e3%81%9fmac%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%82%92%e5%8f%96%e5%be%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ docker inspect --format<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}&#39;</span> &lt;CONTAINER ID&gt;
+</code></pre></div><h2 id=stop>
 Stop
 <a class=anchor href=#stop>#</a>
 </h2>
@@ -248,6 +270,7 @@ References
 <a class=anchor href=#references>#</a>
 </h2>
 <ul>
+<li><a href=https://qiita.com/saki-engineering/items/5791c609fcf055e13bca>https://qiita.com/saki-engineering/items/5791c609fcf055e13bca</a></li>
 <li><a href=https://qiita.com/gold-kou/items/44860fbda1a34a001fc1>https://qiita.com/gold-kou/items/44860fbda1a34a001fc1</a></li>
 </ul>
 </article>
@@ -283,6 +306,13 @@ English
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
+<li>
+<ul>
+<li><a href=#コンテナ情報の一覧を取得>コンテナ情報の一覧を取得</a></li>
+<li><a href=#コンテナに割り振られたipアドレスを取得>コンテナに割り振られたIPアドレスを取得</a></li>
+<li><a href=#コンテナに割り振られたmacアドレスを取得>コンテナに割り振られたMACアドレスを取得</a></li>
+</ul>
+</li>
 <li><a href=#stop>Stop</a>
 <ul>
 <li><a href=#stop-all-containers>Stop all containers</a></li>
