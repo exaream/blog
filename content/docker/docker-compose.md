@@ -2,13 +2,15 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: docker-compose
-tags: ["Docker", "docker-compose"]
+tags: ["Docker", "Docker Compose", "docker-compose"]
 ---
+# Docker Compose
+
+## Basic operation
 
 ### Run containers
 * カレントディレクトリの `docker-compose.yml` に記載したコンテナ群を起動
 * 初回起動時にコンテナ群をつなぐユーザ定義・ブリッジ・ネットワークも自動生成
-
 * フォアグラウンドモードで起動する場合(ターミナルにコンテナログを出力)
 ```shell
 $ docker-compose up
