@@ -27,6 +27,18 @@ tags: ["Docker", "Container"]
 |`WORKDIR`|コンテナ内の作業ディレクトリ|
 |`ONBUILD`|コンテナ内で実行するコマンドを定義するが、定義したイメージでは実行されない。`ONBUILD` を定義したベースイメージを利用するイメージのビルド時に実行される|
 
+## Image
+
+### Dockerfile から Docker イメージをビルド
+```shell
+$ docker image build [options] (Dockerfileを配置したディレクトリのパス|URL)
+```
+
+### Docker Hub にホストされている Docker イメージを検索
+```shell
+$ docker search [options] 検索キーワード
+```
+
 ## Inspection
 
 ### Get instance's information
