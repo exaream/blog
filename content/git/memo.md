@@ -506,13 +506,13 @@ $ git merge --no-ff <branch>
 ### 既存のリモートリポジトリを複製
 
 ```shell
-$ git clone <url>
+$ git clone <repository url>
 ```
 
 ### リモートリポジトリを追加
 
 ```shell
-$ git remote add <name> <url>
+$ git remote add <name> <repository url>
 ```
 
 
@@ -617,7 +617,7 @@ $ git remote rename <old> <new>
 ```shell
 [submodule "<submodule name>"]
 	path = <directory name>
-	url = <url>
+	url = <repository url>
 ```
 
 e.g.)
@@ -629,12 +629,22 @@ e.g.)
 
 ### サブモジュールを含めて既存のリモートリポジトリを複製
 ```shell
-$ git clone --recursive <url>
+$ git clone --recursive <repository url>
 ```
 
 ### サブモジュールを後から複製
 ```shell
-git submodule update --init --recursive
+$ git submodule update --init --recursive
+```
+
+### サブモジュールのリモートリポジトリのブランチを指定し最新を反映
+```shell
+$ git submodule add -b <branch name> <repository url>
+```
+
+### サブモジュールのリモートリポジトリのマスタの最新を反映
+```shell
+git submodule update --remote
 ```
 
 ## タグ操作
