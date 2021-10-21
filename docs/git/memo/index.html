@@ -4,7 +4,8 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="Git Memo #  実用的なコマンド #  指定したフォーマットでコミット・ログを表示 #  $ git log --graph --date=iso --pretty=format:&#34;[%ad] %h %an : %s&#34; 特定の注釈を含むコミットを検索 #  $ git log --oneline --grep &#34;<pattern>&#34; コミット間の変更ファイル一覧を表示 #  $ git diff --stat <Commit A> <Commit B> ファイル名のみ表示する場合
 $ git diff --stat --name-only <Commit A> <Commit B> タグの一覧を表示 #  $ git tag -n Git 設定 #  バージョンを確認 #  $ git --version 設定の一覧を表示 #  設定適用範囲">
-<meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Git Memo">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Git Memo">
 <meta property="og:description" content="Git Memo #  実用的なコマンド #  指定したフォーマットでコミット・ログを表示 #  $ git log --graph --date=iso --pretty=format:&#34;[%ad] %h %an : %s&#34; 特定の注釈を含むコミットを検索 #  $ git log --oneline --grep &#34;<pattern>&#34; コミット間の変更ファイル一覧を表示 #  $ git diff --stat <Commit A> <Commit B> ファイル名のみ表示する場合
 $ git diff --stat --name-only <Commit A> <Commit B> タグの一覧を表示 #  $ git tag -n Git 設定 #  バージョンを確認 #  $ git --version 設定の一覧を表示 #  設定適用範囲">
 <meta property="og:type" content="article">
@@ -14,9 +15,9 @@ $ git diff --stat --name-only <Commit A> <Commit B> タグの一覧を表示 #  
 <title>Git Memo | Tech Blog</title>
 <link rel=manifest href=/tech-blog/manifest.json>
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
-<link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
+<link rel=stylesheet href=/tech-blog/book.min.4944a240c46d7765e4332a41d225ee13464caa633f4b84869232d60e2b118f03.css integrity="sha256-SUSiQMRtd2XkMypB0iXuE0ZMqmM/S4SGkjLWDisRjwM=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.470c8c19e74089fdb95936351ced119b7c5d3b722856ecf22512d46f1187662b.js integrity="sha256-RwyMGedAif25WTY1HO0Rm3xdO3IoVuzyJRLUbxGHZis=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.2ff2a32c75789b236a4f114d4871de12c98dca7ca889d5523c8a6dd03e47118f.js integrity="sha256-L/KjLHV4myNqTxFNSHHeEsmNynyoidVSPIpt0D5HEY8=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -26,7 +27,7 @@ $ git diff --stat --name-only <Commit A> <Commit B> タグの一覧を表示 #  
 <div class=book-menu-content>
 <nav>
 <h2 class=book-brand>
-<a href=/tech-blog/><span>Tech Blog</span>
+<a class="flex align-center" href=/tech-blog/><span>Tech Blog</span>
 </a>
 </h2>
 <div class=book-languages tabindex=0 aria-haspopup=true>
@@ -49,6 +50,22 @@ English
 <input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
 <div class="book-search-spinner hidden"></div>
 <ul id=book-search-results></ul>
+</div>
+<div class=book-languages tabindex=0 aria-haspopup=true>
+<ul>
+<li class="flex align-center">
+<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
+English
+</li>
+</ul>
+<ul class=book-languages-list>
+<li>
+<a href=https://exaream.github.io/tech-blog/ja/ class="flex align-center">
+<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
+日本語
+</a>
+</li>
+</ul>
 </div>
 <h3 id=menu>
 Menu
@@ -199,6 +216,8 @@ Menu
 <li><a href=#サブモジュールの設定>サブモジュールの設定</a></li>
 <li><a href=#サブモジュールを含めて既存のリモートリポジトリを複製>サブモジュールを含めて既存のリモートリポジトリを複製</a></li>
 <li><a href=#サブモジュールを後から複製>サブモジュールを後から複製</a></li>
+<li><a href=#サブモジュールのリモートリポジトリのブランチを指定し最新を反映>サブモジュールのリモートリポジトリのブランチを指定し最新を反映</a></li>
+<li><a href=#サブモジュールのリモートリポジトリのマスタの最新を反映>サブモジュールのリモートリポジトリのマスタの最新を反映</a></li>
 </ul>
 </li>
 <li><a href=#タグ操作>タグ操作</a>
@@ -781,12 +800,12 @@ HEADの移動履歴を表示
 既存のリモートリポジトリを複製
 <a class=anchor href=#%e6%97%a2%e5%ad%98%e3%81%ae%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%82%92%e8%a4%87%e8%a3%bd>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git clone &lt;url&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git clone &lt;repository url&gt;
 </code></pre></div><h3 id=リモートリポジトリを追加>
 リモートリポジトリを追加
 <a class=anchor href=#%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%82%92%e8%bf%bd%e5%8a%a0>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git remote add &lt;name&gt; &lt;url&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git remote add &lt;name&gt; &lt;repository url&gt;
 </code></pre></div><h3 id=リモートリポジトリの一覧を表示>
 リモートリポジトリの一覧を表示
 <a class=anchor href=#%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%81%ae%e4%b8%80%e8%a6%a7%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
@@ -879,7 +898,7 @@ HEADの移動履歴を表示
 <p><code>.gitmodules</code> というファイルを作成して以下の内容を記述</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#f92672>[</span>submodule <span style=color:#e6db74>&#34;&lt;submodule name&gt;&#34;</span><span style=color:#f92672>]</span>
 	path <span style=color:#f92672>=</span> &lt;directory name&gt;
-	url <span style=color:#f92672>=</span> &lt;url&gt;
+	url <span style=color:#f92672>=</span> &lt;repository url&gt;
 </code></pre></div><p>e.g.)</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#f92672>[</span>submodule <span style=color:#e6db74>&#34;themes/hugo-book&#34;</span><span style=color:#f92672>]</span>
 	path <span style=color:#f92672>=</span> themes/hugo-book
@@ -888,12 +907,22 @@ HEADの移動履歴を表示
 サブモジュールを含めて既存のリモートリポジトリを複製
 <a class=anchor href=#%e3%82%b5%e3%83%96%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%82%92%e5%90%ab%e3%82%81%e3%81%a6%e6%97%a2%e5%ad%98%e3%81%ae%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%82%92%e8%a4%87%e8%a3%bd>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git clone --recursive &lt;url&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git clone --recursive &lt;repository url&gt;
 </code></pre></div><h3 id=サブモジュールを後から複製>
 サブモジュールを後から複製
 <a class=anchor href=#%e3%82%b5%e3%83%96%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%82%92%e5%be%8c%e3%81%8b%e3%82%89%e8%a4%87%e8%a3%bd>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git submodule update --init --recursive
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git submodule update --init --recursive
+</code></pre></div><h3 id=サブモジュールのリモートリポジトリのブランチを指定し最新を反映>
+サブモジュールのリモートリポジトリのブランチを指定し最新を反映
+<a class=anchor href=#%e3%82%b5%e3%83%96%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%81%ae%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%82%92%e6%8c%87%e5%ae%9a%e3%81%97%e6%9c%80%e6%96%b0%e3%82%92%e5%8f%8d%e6%98%a0>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git submodule add -b &lt;branch name&gt; &lt;repository url&gt;
+</code></pre></div><h3 id=サブモジュールのリモートリポジトリのマスタの最新を反映>
+サブモジュールのリモートリポジトリのマスタの最新を反映
+<a class=anchor href=#%e3%82%b5%e3%83%96%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%81%ae%e3%83%9e%e3%82%b9%e3%82%bf%e3%81%ae%e6%9c%80%e6%96%b0%e3%82%92%e5%8f%8d%e6%98%a0>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git submodule update --remote
 </code></pre></div><h2 id=タグ操作>
 タグ操作
 <a class=anchor href=#%e3%82%bf%e3%82%b0%e6%93%8d%e4%bd%9c>#</a>
@@ -1027,22 +1056,6 @@ References
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div class=book-languages tabindex=0 aria-haspopup=true>
-<ul>
-<li class="flex align-center">
-<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
-English
-</li>
-</ul>
-<ul class=book-languages-list>
-<li>
-<a href=https://exaream.github.io/tech-blog/ja/ class="flex align-center">
-<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
-日本語
-</a>
-</li>
-</ul>
-</div>
 </div>
 <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 </footer>
@@ -1149,6 +1162,8 @@ English
 <li><a href=#サブモジュールの設定>サブモジュールの設定</a></li>
 <li><a href=#サブモジュールを含めて既存のリモートリポジトリを複製>サブモジュールを含めて既存のリモートリポジトリを複製</a></li>
 <li><a href=#サブモジュールを後から複製>サブモジュールを後から複製</a></li>
+<li><a href=#サブモジュールのリモートリポジトリのブランチを指定し最新を反映>サブモジュールのリモートリポジトリのブランチを指定し最新を反映</a></li>
+<li><a href=#サブモジュールのリモートリポジトリのマスタの最新を反映>サブモジュールのリモートリポジトリのマスタの最新を反映</a></li>
 </ul>
 </li>
 <li><a href=#タグ操作>タグ操作</a>

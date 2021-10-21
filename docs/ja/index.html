@@ -4,7 +4,8 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content>
-<meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Tech Blog">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Tech Blog">
 <meta property="og:description" content>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://exaream.github.io/tech-blog/ja/">
@@ -12,7 +13,7 @@
 <link rel=manifest href=/tech-blog/manifest.json>
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=alternate hreflang=en href=https://exaream.github.io/tech-blog/ title="Tech Blog">
-<link rel=stylesheet href=/tech-blog/book.min.34f0b99a62eb9ff649bdf223876fa6640335919bd2be36d600ab14d4d1c4bf4b.css integrity="sha256-NPC5mmLrn/ZJvfIjh2+mZAM1kZvSvjbWAKsU1NHEv0s=" crossorigin=anonymous>
+<link rel=stylesheet href=/tech-blog/book.min.4944a240c46d7765e4332a41d225ee13464caa633f4b84869232d60e2b118f03.css integrity="sha256-SUSiQMRtd2XkMypB0iXuE0ZMqmM/S4SGkjLWDisRjwM=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
 <script defer src=/tech-blog/ja.search.min.84a16da58e7cf620ab3f28490fc25bba83e9d3267e8fd127e4d854241890ab71.js integrity="sha256-hKFtpY589iCrPyhJD8JbuoPp0yZ+j9En5NhUJBiQq3E=" crossorigin=anonymous></script>
 <link rel=alternate type=application/rss+xml href=https://exaream.github.io/tech-blog/ja/index.xml title="Tech Blog">
@@ -25,7 +26,7 @@
 <div class=book-menu-content>
 <nav>
 <h2 class=book-brand>
-<a href=/tech-blog/><span>Tech Blog</span>
+<a class="flex align-center" href=/tech-blog/><span>Tech Blog</span>
 </a>
 </h2>
 <div class=book-languages tabindex=0 aria-haspopup=true>
@@ -48,6 +49,22 @@ English
 <input type=text id=book-search-input placeholder=検索 aria-label=検索 maxlength=64 data-hotkeys=s/>
 <div class="book-search-spinner hidden"></div>
 <ul id=book-search-results></ul>
+</div>
+<div class=book-languages tabindex=0 aria-haspopup=true>
+<ul>
+<li class="flex align-center">
+<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
+日本語
+</li>
+</ul>
+<ul class=book-languages-list>
+<li>
+<a href=https://exaream.github.io/tech-blog/ class="flex align-center">
+<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
+English
+</a>
+</li>
+</ul>
 </div>
 </nav>
 <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
@@ -77,22 +94,6 @@ English
 <article class=markdown></article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div class=book-languages tabindex=0 aria-haspopup=true>
-<ul>
-<li class="flex align-center">
-<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
-日本語
-</li>
-</ul>
-<ul class=book-languages-list>
-<li>
-<a href=https://exaream.github.io/tech-blog/ class="flex align-center">
-<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
-English
-</a>
-</li>
-</ul>
-</div>
 </div>
 <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 </footer>
