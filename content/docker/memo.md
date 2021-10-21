@@ -77,7 +77,7 @@ $ docker inspect --format='{{(index (index .NetworkSettings.Ports "8787/tcp") 0)
 
 ### Get a subsection in JSON format
 ```shell
-$ docker inspect --format='{{json .Config}}' <CONTAINER ID|NAME>
+$ docker inspect --format='{{json .Config}}' <CONTAINER ID|NAME> | jq
 ```
 
 ### Get environmental variables
@@ -85,7 +85,10 @@ $ docker inspect --format='{{json .Config}}' <CONTAINER ID|NAME>
 $ docker inspect --format='{{range .Config.Env}}{{println .}}{{end}}' <CONTAINER ID|NAME>
 ```
 
-
+### Get mount volumes
+```shell
+$ docker inspect --format='{{json .Mounts}}' <CONTAINER ID|NAME> | jq
+```
 
 ## Stop
 
