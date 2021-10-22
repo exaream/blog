@@ -10,10 +10,11 @@ headless: true
   - [Docker Memo]({{< ref "docker/memo" >}})
   - [Docker Compose]({{< ref "docker/docker-compose" >}})
   - [Docker Swarm]({{< ref "docker/docker-swarm" >}})
+* **SQL**
+  - [MySQL]({{< ref "mysql" >}})
+  - [PostgreSQL]({{< ref "postgresql" >}})
 - [Linux]({{< ref "linux/memo" >}})
 - [Ubuntu]({{< ref "linux/ubuntu" >}})
-- [MySQL]({{< ref "mysql" >}})
-- [PostgreSQL]({{< ref "postgresql" >}})
 - [Go]({{< ref "go/memo">}})
 - [Go Test]({{< ref "go/test">}})
 - [Python]({{< ref "python/memo">}})
