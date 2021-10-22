@@ -15,7 +15,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.4944a240c46d7765e4332a41d225ee13464caa633f4b84869232d60e2b118f03.css integrity="sha256-SUSiQMRtd2XkMypB0iXuE0ZMqmM/S4SGkjLWDisRjwM=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.2ff2a32c75789b236a4f114d4871de12c98dca7ca889d5523c8a6dd03e47118f.js integrity="sha256-L/KjLHV4myNqTxFNSHHeEsmNynyoidVSPIpt0D5HEY8=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.ba64935158337e1d4b830a29f2fe7914337fbd14245a3b266f45df08a7590900.js integrity="sha256-umSTUVgzfh1Lgwop8v55FDN/vRQkWjsmb0XfCKdZCQA=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -28,22 +28,6 @@
 <a class="flex align-center" href=/tech-blog/><span>Tech Blog</span>
 </a>
 </h2>
-<div class=book-languages tabindex=0 aria-haspopup=true>
-<ul>
-<li class="flex align-center">
-<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
-English
-</li>
-</ul>
-<ul class=book-languages-list>
-<li>
-<a href=https://exaream.github.io/tech-blog/ja/ class="flex align-center">
-<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
-日本語
-</a>
-</li>
-</ul>
-</div>
 <div class=book-search>
 <input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
 <div class="book-search-spinner hidden"></div>
@@ -83,12 +67,16 @@ Menu
 <li><a href=https://exaream.github.io/tech-blog/docker/docker-swarm/>Docker Swarm</a></li>
 </ul>
 </li>
+<li><strong>SQL</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/mysql/>MySQL</a></li>
+<li><a href=https://exaream.github.io/tech-blog/postgresql/>PostgreSQL</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li><a href=https://exaream.github.io/tech-blog/linux/memo/>Linux</a></li>
 <li><a href=https://exaream.github.io/tech-blog/linux/ubuntu/>Ubuntu</a></li>
-<li><a href=https://exaream.github.io/tech-blog/mysql/>MySQL</a></li>
-<li><a href=https://exaream.github.io/tech-blog/postgresql/>PostgreSQL</a></li>
 <li><a href=https://exaream.github.io/tech-blog/go/memo/>Go</a></li>
 <li><a href=https://exaream.github.io/tech-blog/go/test/>Go Test</a></li>
 <li><a href=https://exaream.github.io/tech-blog/python/memo/>Python</a></li>
@@ -260,6 +248,9 @@ Menu
 <li><a href=#sqlの実行計画>SQLの実行計画</a></li>
 <li><a href=#一時的なテーブルの作成>一時的なテーブルの作成</a></li>
 <li><a href=#データベースへのコネクション数>データベースへのコネクション数</a></li>
+<li><a href=#プロセスを終了kill>プロセスを終了(KILL)</a></li>
+<li><a href=#特定の時間を経過しているプロセスを確認>特定の時間を経過しているプロセスを確認</a></li>
+<li><a href=#複数のプロセスを終了kill>複数のプロセスを終了(KILL)</a></li>
 <li><a href=#テーブルのロック状態>テーブルのロック状態</a></li>
 <li><a href=#トランザクション>トランザクション</a></li>
 </ul>
@@ -1603,6 +1594,35 @@ threads へのアクセスには相互排他ロックは必要なく、サーバ
     processlist_host
 <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span>
     processlist_host;
+</code></pre></div><h3 id=プロセスを終了kill>
+プロセスを終了(KILL)
+<a class=anchor href=#%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%92%e7%b5%82%e4%ba%86kill>#</a>
+</h3>
+<p>プロセスIDを確認</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mysql data-lang=mysql><span style=color:#66d9ef>SHOW</span> PROCESSLIST;
+<span style=color:#f92672>+----+-------------+----------------+-----------+---------+------+----------+------------------+</span>
+<span style=color:#f92672>|</span> Id <span style=color:#f92672>|</span> <span style=color:#66d9ef>User</span>        <span style=color:#f92672>|</span> Host           <span style=color:#f92672>|</span> db        <span style=color:#f92672>|</span> Command <span style=color:#f92672>|</span> <span style=color:#66d9ef>Time</span> <span style=color:#f92672>|</span> State    <span style=color:#f92672>|</span> Info             <span style=color:#f92672>|</span>
+<span style=color:#f92672>+----+-------------+----------------+-----------+---------+------+----------+------------------+</span>
+<span style=color:#f92672>|</span>  <span style=color:#ae81ff>8</span> <span style=color:#f92672>|</span> sample_user <span style=color:#f92672>|</span> localhost:XXXX <span style=color:#f92672>|</span> sample_db <span style=color:#f92672>|</span> Sleep   <span style=color:#f92672>|</span>   <span style=color:#ae81ff>40</span> <span style=color:#f92672>|</span>          <span style=color:#f92672>|</span> <span style=color:#66d9ef>NULL</span>             <span style=color:#f92672>|</span>
+<span style=color:#f92672>|</span> <span style=color:#ae81ff>10</span> <span style=color:#f92672>|</span> sample_user <span style=color:#f92672>|</span> localhost:XXXX <span style=color:#f92672>|</span> sample_db <span style=color:#f92672>|</span> Query   <span style=color:#f92672>|</span>    <span style=color:#ae81ff>0</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>starting</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>SHOW</span> PROCESSLIST <span style=color:#f92672>|</span>
+<span style=color:#f92672>+----+-------------+----------------+-----------+---------+------+----------+------------------+</span>
+<span style=color:#ae81ff>1</span> row <span style=color:#66d9ef>in</span> <span style=color:#66d9ef>set</span> (<span style=color:#ae81ff>0</span>.<span style=color:#ae81ff>01</span> sec)
+</code></pre></div><p>MySQL の<code>KILL</code>コマンドでは1つのプロセスIDのみ指定可(複数IDの同時指定は不可)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mysql data-lang=mysql><span style=color:#66d9ef>KILL</span> <span style=color:#ae81ff>8</span>
+</code></pre></div><h3 id=特定の時間を経過しているプロセスを確認>
+特定の時間を経過しているプロセスを確認
+<a class=anchor href=#%e7%89%b9%e5%ae%9a%e3%81%ae%e6%99%82%e9%96%93%e3%82%92%e7%b5%8c%e9%81%8e%e3%81%97%e3%81%a6%e3%81%84%e3%82%8b%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+</h3>
+<p>60秒以上経過しているプロセス(処理)を確認</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mysql data-lang=mysql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> information_schema.processlist <span style=color:#66d9ef>WHERE</span> <span style=color:#66d9ef>time</span> <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>59</span>;
+</code></pre></div><h3 id=複数のプロセスを終了kill>
+複数のプロセスを終了(KILL)
+<a class=anchor href=#%e8%a4%87%e6%95%b0%e3%81%ae%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%82%92%e7%b5%82%e4%ba%86kill>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mysql data-lang=mysql><span style=color:#66d9ef>SELECT</span> <span style=color:#a6e22e>GROUP_CONCAT</span>(id) <span style=color:#66d9ef>AS</span> id_list <span style=color:#66d9ef>FROM</span> information_schema.processlist <span style=color:#66d9ef>WHERE</span> <span style=color:#66d9ef>time</span> <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>59</span>;
+<span style=color:#75715e>-- 10,11,12
+</span></code></pre></div><p>mysqladmin コマンドの引数で <code>kill</code> (終了) を実行する場合は複数IDの同時指定可(カンマ区切り)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mysqladminn kill 10,11,12 -h localhost -u sample_user
 </code></pre></div><h3 id=テーブルのロック状態>
 テーブルのロック状態
 <a class=anchor href=#%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%e3%81%ae%e3%83%ad%e3%83%83%e3%82%af%e7%8a%b6%e6%85%8b>#</a>
@@ -1854,6 +1874,9 @@ References
 <li><a href=#sqlの実行計画>SQLの実行計画</a></li>
 <li><a href=#一時的なテーブルの作成>一時的なテーブルの作成</a></li>
 <li><a href=#データベースへのコネクション数>データベースへのコネクション数</a></li>
+<li><a href=#プロセスを終了kill>プロセスを終了(KILL)</a></li>
+<li><a href=#特定の時間を経過しているプロセスを確認>特定の時間を経過しているプロセスを確認</a></li>
+<li><a href=#複数のプロセスを終了kill>複数のプロセスを終了(KILL)</a></li>
 <li><a href=#テーブルのロック状態>テーブルのロック状態</a></li>
 <li><a href=#トランザクション>トランザクション</a></li>
 </ul>
