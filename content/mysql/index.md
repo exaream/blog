@@ -1312,6 +1312,40 @@ ORDER BY
     processlist_host;
 ```
 
+### プロセスを終了(KILL)
+
+プロセスIDを確認
+```mysql
+SHOW PROCESSLIST;
++----+-------------+----------------+-----------+---------+------+----------+------------------+
+| Id | User        | Host           | db        | Command | Time | State    | Info             |
++----+-------------+----------------+-----------+---------+------+----------+------------------+
+|  8 | sample_user | localhost:XXXX | sample_db | Sleep   |   40 |          | NULL             |
+| 10 | sample_user | localhost:XXXX | sample_db | Query   |    0 | starting | SHOW PROCESSLIST |
++----+-------------+----------------+-----------+---------+------+----------+------------------+
+1 row in set (0.01 sec)
+```
+MySQL の`KILL`コマンドでは1つのプロセスIDのみ指定可(複数IDの同時指定は不可)
+```mysql
+KILL 8
+```
+
+### 特定の時間を経過しているプロセスを確認
+60秒以上経過しているプロセス(処理)を確認
+```mysql
+SELECT * FROM information_schema.processlist WHERE time > 59;
+```
+
+### 複数のプロセスを終了(KILL)
+```mysql
+SELECT GROUP_CONCAT(id) AS id_list FROM information_schema.processlist WHERE time > 59;
+-- 10,11,12
+```
+mysqladmin コマンドの引数で `kill` (終了) を実行する場合は複数IDの同時指定可(カンマ区切り)
+```shell
+mysqladminn kill 10,11,12 -h localhost -u sample_user
+```
+
 ### テーブルのロック状態
 ストレージエンジンがInnoDBの場合
 ```mysql
