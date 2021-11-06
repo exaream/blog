@@ -7,6 +7,8 @@ tags: ["MailCatcher", ""]
 ---
 
 # MailCatcher
+* Simple SMTP server made of Ruby.
+* You can check emails of web app on your local environment.
 
 ## Docker container of MailCatcher
 `docker-compose.yml`
@@ -47,4 +49,5 @@ rewriteDomain=foo-bar-baz.com
 ```
 
 ## References
+* https://github.com/sj26/mailcatcher
 * https://laraweb.net/environment/8894/
