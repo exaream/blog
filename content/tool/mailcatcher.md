@@ -1,0 +1,50 @@
+---
+date: 2020-01-01
+lastmod: ["lastmod"]
+title: MailCatcher
+description: How to test emails on your local environment.
+tags: ["MailCatcher", ""]
+---
+
+# MailCatcher
+
+## Docker container of MailCatcher
+`docker-compose.yml`
+```yaml
+  mailcatcher:
+    image: schickling/mailcatcher:latest
+    ports:
+      - 1080:1080
+```
+
+```shell
+docker-compose up -d
+```
+
+http://localhost:1080
+
+## .env config of Laravel
+`.env.local`
+```
+MAIL_DRIVER=smtp
+MAIL_HOST=mailcatcher
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+
+# Optional configuration
+MAIL_FROM_ADDRESS=mailcatcher@example.com
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+## smtp config of web app container
+`/etc/ssmtp/ssmtp.conf`
+```
+root=postmaster
+mailhub=mailcatcher:1025
+rewriteDomain=foo-bar-baz.com
+```
+
+## References
+* https://laraweb.net/environment/8894/
