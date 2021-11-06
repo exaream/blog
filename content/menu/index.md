@@ -29,4 +29,5 @@ headless: true
 - [Node]({{< ref "node/memo">}})
 - [VS Code]({{< ref "tool/vscode" >}})
 - [Excel]({{< ref "tool/excel" >}})
+- [MailCatcher]({{< ref "tool/mailcatcher" >}})
 - [Glossary]({{< ref "glossary" >}})

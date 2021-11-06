@@ -10,7 +10,7 @@ tags: ["MailCatcher", ""]
 
 ## Docker container of MailCatcher
 `docker-compose.yml`
-```yaml
+```yml
   mailcatcher:
     image: schickling/mailcatcher:latest
     ports:
@@ -21,11 +21,11 @@ tags: ["MailCatcher", ""]
 docker-compose up -d
 ```
 
-http://localhost:1080
+[http://localhost:1080](http://localhost:1080)
 
-## .env config of Laravel
+## .env config of Laravel container
 `.env.local`
-```
+```ini
 MAIL_DRIVER=smtp
 MAIL_HOST=mailcatcher
 MAIL_PORT=1025
@@ -38,9 +38,9 @@ MAIL_FROM_ADDRESS=mailcatcher@example.com
 MAIL_FROM_NAME="${APP_NAME}"
 ```
 
-## smtp config of web app container
+## SMTP config of Laravel container
 `/etc/ssmtp/ssmtp.conf`
-```
+```ini
 root=postmaster
 mailhub=mailcatcher:1025
 rewriteDomain=foo-bar-baz.com
