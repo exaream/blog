@@ -49,5 +49,6 @@ rewriteDomain=foo-bar-baz.com
 ```
 
 ## References
-* https://github.com/sj26/mailcatcher
-* https://laraweb.net/environment/8894/
+* [Github Mail Catcher](https://github.com/sj26/mailcatcher)
+* [ローカルの開発環境にSMTPを整備する](https://qiita.com/reflet/items/6e7c8d7850ff9cdb5d92)
+* [Laravelローカル環境構築 メール送信の設定＋MailCatcher](https://laraweb.net/environment/8894/)
