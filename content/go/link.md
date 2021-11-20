@@ -1,6 +1,7 @@
 # Go Link
 
 * [Go Spec](https://golang.org/ref/spec)
+* [Go First Step](https://docs.microsoft.com/ja-jp/learn/paths/go-first-steps/)
 * [The Go Playground](https://play.golang.org/)
 * [A Tour of Go](https://tour.golang.org/welcome/1)
 * [Effective Go](https://golang.org/doc/effective_go)
