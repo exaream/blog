@@ -1398,6 +1398,32 @@ host, err := net.LookupAddr(ip)
 
 ## Slice
 
+### After Go 1.18
+```shell
+package main
+
+import (
+	"fmt"
+
+	"golang.org/x/exp/maps"
+	"golang.org/x/exp/slices"
+)
+
+func main() {
+	animals := map[string]string{
+		"Dog": "bow wow",
+		"Cat": "meow",
+		"Cow": "moo",
+	}
+
+	fmt.Println(maps.Keys(animals))                         // [Dog Cat Cow]
+	fmt.Println(maps.Values(animals))                       // [bowwow meow moo]
+	fmt.Println(slices.Contains(maps.Keys(animals), "Cow")) // moo
+}
+
+```
+
+
 スライスを比較
 https://qiita.com/Sekky0905/items/1ff4979d80b163e0aeb6
 ```go
