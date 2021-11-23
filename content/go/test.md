@@ -31,8 +31,22 @@ $ go test ./mypkg/ -run TestSample
 ```
 
 ### Coverage
+
+Output coverage to a terminal
 ```shell
-$ go test ./... -cover
+$ go test -cover ./...
+```
+
+Output the coverage profile to a file and view it in a browser
+```shell
+$ go test -coverprofile=cover.out ./...
+$ go tool cover -html=cover.out
+```
+
+Output the coverage profile to a file and convert it to a html file
+```shell
+$ go test -coverprofile=cover.out ./...
+$ o tool cover -html=cover.out -o cover.html
 ```
 
 ### Clean test cache
