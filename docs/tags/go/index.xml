@@ -3,4 +3,5 @@ $ go run main.go $ go run . $ go run pkgname コンパイルしてバイナリ�
 $ go build main.go $ go build . $ go build pkgname 静的解析によるミスの検出 # バグと思われるミスを検出 # go test 実行時に自動で実行される The Go Playground でも実行される
 $ go vet main.</description></item><item><title>Go Test</title><link>https://exaream.github.io/tech-blog/go/test/</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><guid>https://exaream.github.io/tech-blog/go/test/</guid><description>Go Test # Unit Test # Run # Run all unit tests # $ go test ./... Show detailed information
 $ go test ./... -v Disable test cache
-$ go test ./... -count=1 Run a method of a unit test # $ go test ./mypkg/ -run TestSample Coverage # $ go test ./... -cover Clean test cache # If you see (cached) in results of unit tests</description></item></channel></rss>
+$ go test ./... -count=1 Run a method of a unit test # $ go test ./mypkg/ -run TestSample Coverage # Output coverage to a terminal
+$ go test -cover ./... Output the coverage profile to a file and view it in a browser</description></item></channel></rss>
