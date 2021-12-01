@@ -100,3 +100,5 @@ func TestSample(t *testing.T) {
 }
 ```
 
+## References
+* [非公開（unexported）な機能を使ったテスト](https://engineering.mercari.com/blog/entry/2018-08-08-080000/)
