@@ -8,6 +8,7 @@
 * [私がGoのソースコードを読むときのTips](https://devblog.thebase.in/entry/go-code-reading)
 * [Goの標準ライブラリのコードリーディングのすすめ](https://future-architect.github.io/articles/20200310/)
 * [インタフェースの実装パターン](https://tenntenn.dev/ja/posts/qiita-eac962a49c56b2b15ee8/)
+* [Goのinterfaceをデータ構造から理解する](https://zenn.dev/sivchari/articles/be6cc55d313b12?s=09)
 * [Go First Step](https://docs.microsoft.com/ja-jp/learn/paths/go-first-steps/)
 * [The Go Playground](https://play.golang.org/)
 * [A Tour of Go](https://tour.golang.org/welcome/1)
