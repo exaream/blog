@@ -775,6 +775,16 @@ less -N sample.txt
 wc -l sample.txt
 ```
 
+#### ファイルの単語数を出力
+```shell
+wc -w sample.txt
+```
+
+#### ファイルのバイト数を出力
+```shell
+wc -c sample.txt
+```
+
 #### ファイルの空行の行数を出力
 ```shell
 grep -c '^$' sample.txt
