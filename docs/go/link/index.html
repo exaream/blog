@@ -2,10 +2,10 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Go Link #   Go Github Go Spec Go Release Go Download Go First Step The Go Playground A Tour of Go Effective Go Packages Project Layout (Directory Structure) Error handling and Go Context  ">
+<meta name=description content="Go Link #   Go Github Go Spec Go Release Go Download Go の命名規則 私がGoのソースコードを読むときのTips Goの標準ライブラリのコードリーディングのすすめ インタフェースの実装パターン Goのinterfaceをデータ構造から理解する Go First Step The Go Playground A Tour of Go Effective Go Packages Project Layout (Directory Structure) Error handling and Go Context  Book #   エキスパートたちのGo言語 一流のコードから応用力を学ぶ  https://cs.opensource.google/go/go/+/master:src/strings/ https://cs.opensource.google/go/go/+/master:src/errors/ https://cs.opensource.google/go/go/+/master:src/errors/wrap.go;l=104">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="Go Link #   Go Github Go Spec Go Release Go Download Go First Step The Go Playground A Tour of Go Effective Go Packages Project Layout (Directory Structure) Error handling and Go Context  ">
+<meta property="og:description" content="Go Link #   Go Github Go Spec Go Release Go Download Go の命名規則 私がGoのソースコードを読むときのTips Goの標準ライブラリのコードリーディングのすすめ インタフェースの実装パターン Goのinterfaceをデータ構造から理解する Go First Step The Go Playground A Tour of Go Effective Go Packages Project Layout (Directory Structure) Error handling and Go Context  Book #   エキスパートたちのGo言語 一流のコードから応用力を学ぶ  https://cs.opensource.google/go/go/+/master:src/strings/ https://cs.opensource.google/go/go/+/master:src/errors/ https://cs.opensource.google/go/go/+/master:src/errors/wrap.go;l=104">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://exaream.github.io/tech-blog/go/link/"><meta property="article:section" content="go">
 <title>Link | Tech Blog</title>
@@ -13,7 +13,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.4944a240c46d7765e4332a41d225ee13464caa633f4b84869232d60e2b118f03.css integrity="sha256-SUSiQMRtd2XkMypB0iXuE0ZMqmM/S4SGkjLWDisRjwM=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.921efcab13c09ba392a43f245ba85365bd122af65bc8738ccd647b8af3490083.js integrity="sha256-kh78qxPAm6OSpD8kW6hTZb0SKvZbyHOMzWR7ivNJAIM=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.734d1f40f59e984c6ac5a10e8b392388d23554b0a56e8f12c11c89f932a19763.js integrity="sha256-c00fQPWemExqxaEOizkjiNI1VLClbo8SwRyJ+TKhl2M=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -122,7 +122,11 @@ Menu
 <aside class="hidden clearfix">
 <h2>Tags</h2>
 <h2>Table of Contents</h2>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#book>Book</a></li>
+</ul>
+</nav>
 </aside>
 </header>
 <ol class=breadcrumb>
@@ -145,6 +149,11 @@ Go Link
 <li><a href=https://golang.org/ref/spec/>Go Spec</a></li>
 <li><a href=https://dev.golang.org/release/>Go Release</a></li>
 <li><a href=https://golang.org/dl/>Go Download</a></li>
+<li><a href=https://micnncim.com/posts/ja/go-naming-convention>Go の命名規則</a></li>
+<li><a href=https://devblog.thebase.in/entry/go-code-reading>私がGoのソースコードを読むときのTips</a></li>
+<li><a href=https://future-architect.github.io/articles/20200310/>Goの標準ライブラリのコードリーディングのすすめ</a></li>
+<li><a href=https://tenntenn.dev/ja/posts/qiita-eac962a49c56b2b15ee8/>インタフェースの実装パターン</a></li>
+<li><a href="https://zenn.dev/sivchari/articles/be6cc55d313b12?s=09">Goのinterfaceをデータ構造から理解する</a></li>
 <li><a href=https://docs.microsoft.com/ja-jp/learn/paths/go-first-steps/>Go First Step</a></li>
 <li><a href=https://play.golang.org/>The Go Playground</a></li>
 <li><a href=https://tour.golang.org/welcome/1>A Tour of Go</a></li>
@@ -154,6 +163,16 @@ Go Link
 <li><a href=https://go.dev/blog/error-handling-and-go>Error handling and Go</a></li>
 <li><a href=https://go.dev/blog/context>Context</a></li>
 </ul>
+<h2 id=book>
+Book
+<a class=anchor href=#book>#</a>
+</h2>
+<ul>
+<li><a href=https://www.amazon.co.jp/dp/4297125196>エキスパートたちのGo言語 一流のコードから応用力を学ぶ</a></li>
+</ul>
+<p><a href=https://cs.opensource.google/go/go/+/master:src/strings/>https://cs.opensource.google/go/go/+/master:src/strings/</a>
+<a href=https://cs.opensource.google/go/go/+/master:src/errors/>https://cs.opensource.google/go/go/+/master:src/errors/</a>
+<a href="https://cs.opensource.google/go/go/+/master:src/errors/wrap.go;l=104">https://cs.opensource.google/go/go/+/master:src/errors/wrap.go;l=104</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
@@ -168,7 +187,11 @@ Go Link
 <div class=book-toc-content>
 <h2>Tags</h2>
 <h2>Table of Contents</h2>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#book>Book</a></li>
+</ul>
+</nav>
 </div>
 </aside>
 </main>
