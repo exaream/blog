@@ -7,7 +7,9 @@ tags: ["Cron", "crontab"]
 
 # Cron
 
-## 月日時の指定
+## 日時・時刻・インターバルの指定
+
+### 記述方法
 ```
 時，日，月，曜日，実行コマンド
 ```
@@ -95,3 +97,7 @@ PATH=/usr/local/bin:/usr/bin:/bin
 
 ### 0分ちょうどの指定
 * 毎時0分に設定すると他の cronジョブと時間が重なってしまうケースが多いため避けたほうがベター
+
+
+## パーサー
+* [PHP Cron Expression Parser](https://github.com/dragonmantank/cron-expression)
