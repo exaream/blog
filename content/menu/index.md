@@ -16,9 +16,11 @@ headless: true
 * **Go**
   - [Go Memo]({{< ref "go/memo">}})
   - [Go Test]({{< ref "go/test">}})
+  - [Go Lind]({{< ref "go/link">}})
 * **Linux**
   - [Linux Memo]({{< ref "linux/memo" >}})
   - [Ubuntu]({{< ref "linux/ubuntu" >}})
+  - [Alpine Linux]({{< ref "linux/alpine-linux" >}})
 * **Python**
   - [Python Memo]({{< ref "python/memo">}})
   - [Python OCR]({{< ref "python/ocr" >}})
