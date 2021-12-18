@@ -12,6 +12,21 @@ tags: ["iTerm2"]
 * iTerm2 is a terminal emulator for macOS  
 https://iterm2.com/
 
+## Shortcuts
+
+|command|description|
+|---|---|
+|`command` + `N`|New Window|
+|`command` + `T`|New Tab|
+|`command` + `return`|Maximize Window|
+|`command` + (`◀` or `▶`)|Move Tab|
+|`shift` + `command` + `D`|Split Horizontally with Current Profile|
+|`command` + `D`|Split Vertically with Current Profile|
+|`command` + `F`|Find|
+|`option` + `command` + `F`|Replace|
+|`shift` + `command` + `F`|Find in Files|
+|`shift` + `command` + `H`|Replace in Files|
+
 ## How to increase scrollback lines
 * `iTerm2` > `Preferences` > `Profiles`
 * Select a profile from `Profile Name`
