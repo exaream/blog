@@ -15,7 +15,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.4944a240c46d7765e4332a41d225ee13464caa633f4b84869232d60e2b118f03.css integrity="sha256-SUSiQMRtd2XkMypB0iXuE0ZMqmM/S4SGkjLWDisRjwM=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.e1067977978fe0e0a3422e677074138c25d78fe97ce75d851d0b11a6cc6c1dbf.js integrity="sha256-4QZ5d5eP4OCjQi5ncHQTjCXXj+l8512FHQsRpsxsHb8=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.ac1e2e2d59be72ade00c4a1d17dca8ce6f776f653bdb78ed3491bd3285c32e88.js integrity="sha256-rB4uLVm+cq3gDEodF9yozm93b2U723jtNJG9MoXDLog=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -102,6 +102,7 @@ Menu
 </ul>
 <ul>
 <li><a href=https://exaream.github.io/tech-blog/tool/mac/>Mac</a></li>
+<li><a href=https://exaream.github.io/tech-blog/tool/iterm2/>iTerm2</a></li>
 <li><a href=https://exaream.github.io/tech-blog/tool/hugo/>Hugo</a></li>
 <li><a href=https://exaream.github.io/tech-blog/node/memo/>Node</a></li>
 <li><a href=https://exaream.github.io/tech-blog/tool/vscode/>VS Code</a></li>
@@ -130,14 +131,6 @@ Menu
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#iterm2>iTerm2</a>
-<ul>
-<li><a href=#whats-iterm2>What&rsquo;s iTerm2</a></li>
-<li><a href=#how-to-input-to-multiple-consoles-at-the-same-time>How to input to multiple consoles at the same time</a></li>
-<li><a href=#how-to-output-console-log-automatically>How to output console log automatically</a></li>
-<li><a href=#how-to-change-the-background-color-of-iterm2-for-each-environment>How to change the background color of iTerm2 for each environment</a></li>
-</ul>
-</li>
 <li><a href=#box-drive>Box Drive</a></li>
 <li><a href=#siri>Siri</a>
 <ul>
@@ -165,57 +158,7 @@ Menu
 Mac
 <a class=anchor href=#mac>#</a>
 </h1>
-<h2 id=iterm2>
-iTerm2
-<a class=anchor href=#iterm2>#</a>
-</h2>
-<h3 id=whats-iterm2>
-What&rsquo;s iTerm2
-<a class=anchor href=#whats-iterm2>#</a>
-</h3>
-<ul>
-<li>iTerm2 is a terminal emulator for macOS<br>
-<a href=https://iterm2.com/>https://iterm2.com/</a></li>
-</ul>
-<h3 id=how-to-input-to-multiple-consoles-at-the-same-time>
-How to input to multiple consoles at the same time
-<a class=anchor href=#how-to-input-to-multiple-consoles-at-the-same-time>#</a>
-</h3>
-<ul>
-<li><code>Shell</code> > <code>Broadcast Input</code> > <code>Broadcast input to All Panes in Current Tab</code></li>
-</ul>
-<h3 id=how-to-output-console-log-automatically>
-How to output console log automatically
-<a class=anchor href=#how-to-output-console-log-automatically>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ mkdir -p /Users/<span style=color:#e6db74>`</span>whoami<span style=color:#e6db74>`</span>/iTerm2/
-</code></pre></div><ul>
-<li><code>iTerm2</code> > <code>Preferences</code> > <code>Profiles</code></li>
-<li>Select <code>Profile Name</code> for which you want to set the console log</li>
-<li>Click <code>Session</code> tab</li>
-<li>Check <code>Automatically log session input to files in:</code></li>
-<li>Check <code>log plain text</code></li>
-<li>Input the directory path</li>
-</ul>
-<h3 id=how-to-change-the-background-color-of-iterm2-for-each-environment>
-How to change the background color of iTerm2 for each environment
-<a class=anchor href=#how-to-change-the-background-color-of-iterm2-for-each-environment>#</a>
-</h3>
-<ul>
-<li>Add color schemes to iTerm2 by referring to the following URL.<br>
-<a href=https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/README.md>https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/README.md</a></li>
-<li><code>iTerm2</code> > <code>Preferences</code> > <code>Profiles</code> > <code>General tab</code></li>
-<li>Click <code>+</code></li>
-<li>Name <code>MyDefault</code></li>
-<li>Click <code>Colors tab</code></li>
-<li>Select from <code>Color Presets...</code></li>
-</ul>
-<h4 id=if-you-change-the-color-schema-using-shell-script>
-If you change the color schema using shell script
-<a class=anchor href=#if-you-change-the-color-schema-using-shell-script>#</a>
-</h4>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo -ne <span style=color:#e6db74>&#34;\033]1337;SetProfile=MyDefault\a&#34;</span>
-</code></pre></div><h2 id=box-drive>
+<h2 id=box-drive>
 Box Drive
 <a class=anchor href=#box-drive>#</a>
 </h2>
@@ -263,14 +206,6 @@ How to use two Mac apps side by side in Split View
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#iterm2>iTerm2</a>
-<ul>
-<li><a href=#whats-iterm2>What&rsquo;s iTerm2</a></li>
-<li><a href=#how-to-input-to-multiple-consoles-at-the-same-time>How to input to multiple consoles at the same time</a></li>
-<li><a href=#how-to-output-console-log-automatically>How to output console log automatically</a></li>
-<li><a href=#how-to-change-the-background-color-of-iterm2-for-each-environment>How to change the background color of iTerm2 for each environment</a></li>
-</ul>
-</li>
 <li><a href=#box-drive>Box Drive</a></li>
 <li><a href=#siri>Siri</a>
 <ul>
