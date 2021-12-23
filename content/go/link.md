@@ -5,6 +5,7 @@
 * [Go Release](https://dev.golang.org/release/)
 * [Go Download](https://golang.org/dl/)
 * [Go の命名規則](https://micnncim.com/posts/ja/go-naming-convention)
+* [Goのロギングライブラリ 2021年冬](https://zenn.dev/moriyoshi/articles/1af0659e29d727)
 * [私がGoのソースコードを読むときのTips](https://devblog.thebase.in/entry/go-code-reading)
 * [Goの標準ライブラリのコードリーディングのすすめ](https://future-architect.github.io/articles/20200310/)
 * [インタフェースの実装パターン](https://tenntenn.dev/ja/posts/qiita-eac962a49c56b2b15ee8/)

@@ -16,7 +16,7 @@ headless: true
 * **Go**
   - [Go Memo]({{< ref "go/memo">}})
   - [Go Test]({{< ref "go/test">}})
-  - [Go Lind]({{< ref "go/link">}})
+  - [Go Link]({{< ref "go/link">}})
 * **Linux**
   - [Linux Memo]({{< ref "linux/memo" >}})
   - [Ubuntu]({{< ref "linux/ubuntu" >}})
