@@ -2,10 +2,16 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="H">
+<meta name=description content="Go Memo #  macOS でパスを通す方法 #  echo &#34;export GOPATH=$HOME/go&#34; >> ~/.bash_profile echo &#34;export PATH=$PATH:$GOPATH/bin&#34; >> ~/.bash_profile source ~/.bash_profile コンパイル, バイナリ #  コンパイルして実行 #  バイナリ（実行可能ファイル）の生成なし
+$ go run main.go $ go run . $ go run pkgname コンパイルしてバイナリを生成 #  バイナリ（実行可能ファイル）の生成あり
+$ go build main.go $ go build . $ go build pkgname 静的解析によるミスの検出 #  バグと思われるミスを検出 #  go test 実行時に自動で実行される The Go Playground でも実行される
+$ go vet main.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="Go Memo">
-<meta property="og:description" content="H">
+<meta property="og:description" content="Go Memo #  macOS でパスを通す方法 #  echo &#34;export GOPATH=$HOME/go&#34; >> ~/.bash_profile echo &#34;export PATH=$PATH:$GOPATH/bin&#34; >> ~/.bash_profile source ~/.bash_profile コンパイル, バイナリ #  コンパイルして実行 #  バイナリ（実行可能ファイル）の生成なし
+$ go run main.go $ go run . $ go run pkgname コンパイルしてバイナリを生成 #  バイナリ（実行可能ファイル）の生成あり
+$ go build main.go $ go build . $ go build pkgname 静的解析によるミスの検出 #  バグと思われるミスを検出 #  go test 実行時に自動で実行される The Go Playground でも実行される
+$ go vet main.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://exaream.github.io/tech-blog/go/memo/"><meta property="article:section" content="go">
 <meta property="article:published_time" content="2021-07-31T00:00:00+00:00">
@@ -15,7 +21,7 @@
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.4944a240c46d7765e4332a41d225ee13464caa633f4b84869232d60e2b118f03.css integrity="sha256-SUSiQMRtd2XkMypB0iXuE0ZMqmM/S4SGkjLWDisRjwM=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.03a55c6864f0f23d170d5471ce17e931298952503030c6fdbde8a9b82fba8a6f.js integrity="sha256-A6VcaGTw8j0XDVRxzhfpMSmJUlAwMMb9veipuC+6im8=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.8dbb873c35bed8e1e1dee4680ab3ed13a0ceedf9b8c5510dbc07bb6d41d96bfc.js integrity="sha256-jbuHPDW+2OHh3uRoCrPtE6DO7fm4xVENvAe7bUHZa/w=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
