@@ -2,7 +2,7 @@
 date: 2021-07-31
 lastmod: ["lastmod"]
 title: Go Memo
-description: "H"
+description: ""
 tags: ["Go", "Golang", "Memo"]
 ---
 

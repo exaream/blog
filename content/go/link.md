@@ -1,3 +1,11 @@
+---
+date: 2021-07-31
+lastmod: ["lastmod"]
+title: Go Link
+description: ""
+tags: ["Go", "Golang", "Link"]
+---
+
 # Go Link
 
 * [Go Github](https://github.com/golang/)
