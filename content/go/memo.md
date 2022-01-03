@@ -1546,3 +1546,4 @@ println(n, ok) // ゼロ値と false を返却
 * https://qiita.com/hnishi/items/a9217249d7832ed2c035
 * https://qiita.com/fetaro/items/31b02b940ce9ec579baf
 * https://qiita.com/tchnkmr/items/f3c94abb3e3a47e993ab
+* [A tool to check for vulnerabilities in your Golang dependencies](https://github.com/sonatype-nexus-community/nancy)

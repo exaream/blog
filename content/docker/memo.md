@@ -187,3 +187,4 @@ docker run -v [absolute path in host]:[absolute path in container] [image name]:
 ## References
 * https://docs.docker.com/engine/reference/commandline/inspect/
 * https://qiita.com/gold-kou/items/44860fbda1a34a001fc1
+* [Dockerfileのベストプラクティス](https://qiita.com/Tsuyozo/items/c706a04848c3fbbaf055)
