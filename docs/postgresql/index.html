@@ -2,20 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="PostgreSQL Memo #  PostgreSQL&rsquo;s Information #  Table Schema #  SELECT col.table_name, col.ordinal_position, -- No.  col.column_name, col.data_type, col.character_maximum_length, -- 文字数(文字列型)  col.character_octet_length, -- バイト数(文字列型)  col.numeric_precision, -- 桁数(数値型)  col.numeric_scale, -- 小数部(数値型)  col.datetime_precision, -- ミリ秒以下(日付型)  col.interval_type, -- インターバルの単位(日付型)  col.is_nullable, -- NULLを許可するか否か  col.column_default -- 初期値 FROM information_schema.columns col WHERE col.table_name = 'sample_table' -- 対象テーブル名を指定 ORDER BY col.table_name, col.ordinal_position ">
+<meta name=description content>
 <meta name=theme-color content="#FFFFFF">
-<meta name=color-scheme content="light dark"><meta property="og:title" content="PostgreSQL Memo">
-<meta property="og:description" content="PostgreSQL Memo #  PostgreSQL&rsquo;s Information #  Table Schema #  SELECT col.table_name, col.ordinal_position, -- No.  col.column_name, col.data_type, col.character_maximum_length, -- 文字数(文字列型)  col.character_octet_length, -- バイト数(文字列型)  col.numeric_precision, -- 桁数(数値型)  col.numeric_scale, -- 小数部(数値型)  col.datetime_precision, -- ミリ秒以下(日付型)  col.interval_type, -- インターバルの単位(日付型)  col.is_nullable, -- NULLを許可するか否か  col.column_default -- 初期値 FROM information_schema.columns col WHERE col.table_name = 'sample_table' -- 対象テーブル名を指定 ORDER BY col.table_name, col.ordinal_position ">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://exaream.github.io/tech-blog/postgresql/"><meta property="article:section" content>
-<meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
-<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00">
-<title>PostgreSQL Memo | Tech Blog</title>
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Postgresql">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://exaream.github.io/tech-blog/postgresql/">
+<title>Postgresql | Tech Blog</title>
 <link rel=manifest href=/tech-blog/manifest.json>
 <link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/tech-blog/book.min.4944a240c46d7765e4332a41d225ee13464caa633f4b84869232d60e2b118f03.css integrity="sha256-SUSiQMRtd2XkMypB0iXuE0ZMqmM/S4SGkjLWDisRjwM=" crossorigin=anonymous>
 <script defer src=/tech-blog/flexsearch.min.js></script>
-<script defer src=/tech-blog/en.search.min.7fc40d3ee58fab420df6ff8d7be50f960d760b1234028c72bc5ff3314cd6f1ef.js integrity="sha256-f8QNPuWPq0IN9v+Ne+UPlg12CxI0AoxyvF/zMUzW8e8=" crossorigin=anonymous></script>
+<script defer src=/tech-blog/en.search.min.8b9c08d67c0b83e23e4b77e02f50bf942d518c59d9b38ab0ea2be2277be6c691.js integrity="sha256-i5wI1nwLg+I+S3fgL1C/lC1RjFnZs4qw6iviJ3vmxpE=" crossorigin=anonymous></script>
+<link rel=alternate type=application/rss+xml href=https://exaream.github.io/tech-blog/postgresql/index.xml title="Tech Blog">
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -69,8 +68,8 @@ Menu
 </li>
 <li><strong>SQL</strong>
 <ul>
-<li><a href=https://exaream.github.io/tech-blog/mysql/>MySQL Memo</a></li>
-<li><a href=https://exaream.github.io/tech-blog/postgresql/>PostgreSQL Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/mysql/memo/>MySQL Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/postgresql/memo/>PostgreSQL Memo</a></li>
 </ul>
 </li>
 <li><strong>Go</strong>
@@ -120,24 +119,14 @@ Menu
 <label for=menu-control>
 <img src=/tech-blog/svg/menu.svg class=book-icon alt=Menu>
 </label>
-<strong>PostgreSQL Memo</strong>
+<strong>Postgresql</strong>
 <label for=toc-control>
 <img src=/tech-blog/svg/toc.svg class=book-icon alt="Table of Contents">
 </label>
 </div>
 <aside class="hidden clearfix">
 <h2>Tags</h2>
-<ul class=tags><li><a href=/tech-blog/tags/sql>SQL</a><li><a href=/tech-blog/tags/postgresql>PostgreSQL</a><li><a href=/tech-blog/tags/memo>Memo</a></ul>
 <h2>Table of Contents</h2>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#postgresqls-information>PostgreSQL&rsquo;s Information</a>
-<ul>
-<li><a href=#table-schema>Table Schema</a></li>
-</ul>
-</li>
-</ul>
-</nav>
 </aside>
 </header>
 <ol class=breadcrumb>
@@ -145,65 +134,21 @@ Menu
 <a href=https://exaream.github.io/tech-blog/>Tech Blog</a>
 </li>
 <li class=active>
-<a href=https://exaream.github.io/tech-blog/postgresql/>PostgreSQL Memo</a>
+<a href=https://exaream.github.io/tech-blog/postgresql/>Postgresql</a>
 </li>
 </ol>
-<article class=markdown><h1 id=postgresql-memo>
-PostgreSQL Memo
-<a class=anchor href=#postgresql-memo>#</a>
-</h1>
-<h2 id=postgresqls-information>
-PostgreSQL&rsquo;s Information
-<a class=anchor href=#postgresqls-information>#</a>
-</h2>
-<h3 id=table-schema>
-Table Schema
-<a class=anchor href=#table-schema>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-postgresql data-lang=postgresql><span style=color:#66d9ef>SELECT</span>
-    col<span style=color:#ae81ff>.</span>table_name,
-    col<span style=color:#ae81ff>.</span>ordinal_position, <span style=color:#75715e>-- No.
-</span><span style=color:#75715e></span>    col<span style=color:#ae81ff>.</span>column_name,
-    col<span style=color:#ae81ff>.</span>data_type,
-    col<span style=color:#ae81ff>.</span>character_maximum_length, <span style=color:#75715e>-- 文字数(文字列型)
-</span><span style=color:#75715e></span>    col<span style=color:#ae81ff>.</span>character_octet_length, <span style=color:#75715e>-- バイト数(文字列型)
-</span><span style=color:#75715e></span>    col<span style=color:#ae81ff>.</span>numeric_precision, <span style=color:#75715e>-- 桁数(数値型)
-</span><span style=color:#75715e></span>    col<span style=color:#ae81ff>.</span>numeric_scale, <span style=color:#75715e>-- 小数部(数値型)
-</span><span style=color:#75715e></span>    col<span style=color:#ae81ff>.</span>datetime_precision, <span style=color:#75715e>-- ミリ秒以下(日付型)
-</span><span style=color:#75715e></span>    col<span style=color:#ae81ff>.</span>interval_type, <span style=color:#75715e>-- インターバルの単位(日付型)
-</span><span style=color:#75715e></span>    col<span style=color:#ae81ff>.</span>is_nullable, <span style=color:#75715e>-- NULLを許可するか否か
-</span><span style=color:#75715e></span>    col<span style=color:#ae81ff>.</span>column_default <span style=color:#75715e>-- 初期値
-</span><span style=color:#75715e></span><span style=color:#66d9ef>FROM</span>
-    information_schema<span style=color:#ae81ff>.</span>columns col
-<span style=color:#66d9ef>WHERE</span>
-    col<span style=color:#ae81ff>.</span>table_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;sample_table&#39;</span> <span style=color:#75715e>-- 対象テーブル名を指定
-</span><span style=color:#75715e></span><span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span>
-    col<span style=color:#ae81ff>.</span>table_name,
-    col<span style=color:#ae81ff>.</span>ordinal_position
-</code></pre></div></article>
+<article class=markdown></article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 </div>
 <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 </footer>
-<div class=book-comments>
-</div>
 <label for=menu-control class="hidden book-menu-overlay"></label>
 </div>
 <aside class=book-toc>
 <div class=book-toc-content>
 <h2>Tags</h2>
-<ul class=tags><li><a href=/tech-blog/tags/sql>SQL</a><li><a href=/tech-blog/tags/postgresql>PostgreSQL</a><li><a href=/tech-blog/tags/memo>Memo</a></ul>
 <h2>Table of Contents</h2>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#postgresqls-information>PostgreSQL&rsquo;s Information</a>
-<ul>
-<li><a href=#table-schema>Table Schema</a></li>
-</ul>
-</li>
-</ul>
-</nav>
 </div>
 </aside>
 </main>
