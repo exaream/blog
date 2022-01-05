@@ -11,8 +11,8 @@ headless: true
   - [Docker Compose]({{< ref "docker/docker-compose" >}})
   - [Docker Swarm]({{< ref "docker/docker-swarm" >}})
 * **SQL**
-  - [MySQL Memo]({{< ref "mysql" >}})
-  - [PostgreSQL Memo]({{< ref "postgresql" >}})
+  - [MySQL Memo]({{< ref "mysql/memo" >}})
+  - [PostgreSQL Memo]({{< ref "postgresql/memo" >}})
 * **Go**
   - [Go Memo]({{< ref "go/memo">}})
   - [Go Test]({{< ref "go/test">}})

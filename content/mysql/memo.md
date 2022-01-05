@@ -1143,7 +1143,7 @@ SELECT @HOGE, @FOO;
 +-------+--------+
 ```
 
-### SELECT したデータを INSERT
+### SELECT/INSERT (SELECT したデータを INSERT)
 ```mysql
 INSERT INTO
     sample_table_1 (sample_column_1, sample_column_2, sample_column_3)
@@ -1164,6 +1164,31 @@ SELECT
     'hoge' AS sample_column_3
 FROM
     sample_table_2;
+```
+
+
+### SELECT/UPDATE (SELECT したデータを UPDATE)
+```mysql
+UPDATE
+    sample_table_2 dest,
+    (
+        SELECT
+            first_name,
+            last_name,
+            birthday,
+            email
+        FROM
+            sample_table_1
+        WHERE
+            updated_at > '2021-01-01 00:00:00'
+    ) src
+SET
+    dest.fullname = CONCAT(src.first_name, ' ', src.last_name),
+    dest.birthday = src.birthday,
+    dest.email = src.email
+WHERE
+    dest.email = src.email
+;
 ```
 ### 特定のカラムの値が重複しているレコードを抽出 HAVING/GROUP BY
 ```mysql {hl_lines=["6-9"],linenostart=1}
