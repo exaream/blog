@@ -1,7 +1,7 @@
 ---
 date: 2020-01-01
 lastmod: ["lastmod"]
-title: Mac
+title: iTerm2
 description: How to use iTerm2
 tags: ["iTerm2"]
 ---
