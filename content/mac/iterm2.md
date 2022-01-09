@@ -35,6 +35,7 @@ https://iterm2.com/
 
 ## How to input to multiple consoles at the same time
 * `Shell` > `Broadcast Input` > `Broadcast input to All Panes in Current Tab`
+![This is a image](../static/iterm2-broadcast-all-panes.png)
 
 ## How to output console log automatically
 ```shell

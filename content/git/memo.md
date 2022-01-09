@@ -785,6 +785,22 @@ I = F^   = B^3^    = A^^3^
 J = F^2  = B^3^2   = A^^3^2
 ```
 
+## バージョンアップ
+
+### macOS
+
+```shell
+$ git --version
+$ brew ls | grep git
+nothing
+$ brew install git
+$ brew link --overwrite git
+$ which git
+/usr/local/bin/git
+$ ls -la /usr/local/bin/git
+$ git --version
+```
+
 ## References
 * https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0
 * https://qiita.com/jesus_isao/items/63557eba36819faa4ad9

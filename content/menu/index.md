@@ -27,8 +27,8 @@ headless: true
 * **PHP**
   - [PHPUnit]({{< ref "php/phpunit" >}})
   - [PhpMetrics]({{< ref "php/phpmetrics" >}})
-- [Mac]({{< ref "tool/mac" >}})
-- [iTerm2]({{< ref "tool/iterm2" >}})
+- [Mac]({{< ref "mac/memo" >}})
+- [iTerm2]({{< ref "mac/iterm2" >}})
 - [Hugo]({{< ref "tool/hugo" >}})
 - [Node]({{< ref "node/memo">}})
 - [VS Code]({{< ref "tool/vscode" >}})
