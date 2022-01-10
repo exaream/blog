@@ -6,7 +6,7 @@ description: How to use macOS
 tags: ["Mac"]
 ---
 
-# Mac
+# Mac Memo
 
 ## Proxy Settings of Safari
 Switch On
