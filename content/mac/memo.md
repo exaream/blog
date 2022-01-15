@@ -8,22 +8,35 @@ tags: ["Mac"]
 
 # Mac Memo
 
-## Proxy Settings of Safari
-Switch On
-1. Safari > Preferences  
+## Safari
+
+### Empty Caches
+
+1. `Safari` > `Preferences`  
   ![This is a image](../static/safari-preferences.png)
-2. Advanced > Change Settings...  
+2. `Advanced`
+3. Check `Show Develop menu in menu bar`
+  ![This is a image](../static/safari-develo-menu.png)
+4. `Develop` > `Empty caches`  
+  ![This is a image](../static/safari-empty-cache.png)
+
+### Proxy Settings
+Switch On
+1. `Safari` > `Preferences`  
+  ![This is a image](../static/safari-preferences.png)
+2. `Advanced`  
+3. `Change Settings...`
   ![This is a image](../static/safari-change-settings.png)
-3. Select "Proxies" tab
-    1. Check "Web Proxy (HTTP)" and enter "proxy domain" : "proxy port"
-    2. Check "Secure Web Proxy (HTTP)" and enter "proxy domain" : "proxy port"
-    3. Click OK
+4. Select `Proxies` tab
+    1. Check `Web Proxy (HTTP)` and enter `proxy domain` : `proxy port`
+    2. Check `Secure Web Proxy (HTTP)` and enter `proxy domain` : `proxy port`
+    3. Click `OK`
     ![This is a image](../static/mac-proxy-settings.png)
 
-4. Click "Apply"  
+5. Click `Apply`  
   ![This is a image](../static/mac-proxy-apply.png)
-5. Quit Safari and start it again  
-  (It will take some time for the changes to take effect)
+6. Restart `Safari`  
+  (It will take some time for the change to take effect)
 
 
 ## Box Drive
