@@ -16,9 +16,9 @@ tags: ["Mac"]
   ![This is a image](../static/safari-preferences.png)
 2. `Advanced`
 3. Check `Show Develop menu in menu bar`
-  ![This is a image](../static/safari-develo-menu.png)
+  ![This is a image](../static/safari-develop-menu.png)
 4. `Develop` > `Empty caches`  
-  ![This is a image](../static/safari-empty-cache.png)
+  ![This is a image](../static/safari-empty-caches.png)
 
 ### Proxy Settings
 Switch On
