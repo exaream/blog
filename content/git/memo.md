@@ -230,7 +230,7 @@ $ git checkout -- <file>
 $ git reset HEAD -- <file>
 ```
 
-### 以前にコミットしたことのあるファイルだけをすべてインデックスに登録
+### 以前にコミットしたことのあるファイルだけを全てインデックスに登録
 
 ```shell
 $ git add -u
@@ -534,7 +534,7 @@ $ git checkout <branch>
 * ```repository``` には ```remote add``` コマンドで追加したリポジトリ名以外にURLを直接指定可
 * ```repository``` を省略した場合, 追跡しているリモートリポジトリを指定
 * ```refspec``` はブランチ名などを指定可
-* ```refspec``` を省略した場合, デフォルトではすべてのブランチが対象
+* ```refspec``` を省略した場合, デフォルトでは全てのブランチが対象
 
 ```shell
 $ git push <repository> <refspec>
@@ -547,7 +547,7 @@ $ git push <repository> <refspec>
 * ```repository``` には ```remote add``` コマンドで追加したリポジトリ名以外にURLを直接指定可
 * ```repository``` を省略した場合, 追跡しているリモートリポジトリを指定
 * ```refspec``` はブランチ名などを指定可
-* ```refspec``` を省略した場合, デフォルトではすべてのブランチが対象
+* ```refspec``` を省略した場合, デフォルトでは全てのブランチが対象
 
 
 ```shell
@@ -572,7 +572,7 @@ $ git remote prune <repository>
 * ```repository``` には ```remote add``` コマンドで追加したリポジトリ名以外にURLを直接指定可
 * ```repository``` を省略した場合, 追跡しているリモートリポジトリを指定
 * ```refspec``` はブランチ名などを指定可
-* ```refspec``` を省略した場合, デフォルトではすべてのブランチが対象
+* ```refspec``` を省略した場合, デフォルトでは全てのブランチが対象
 
 ```shell
 $ git pull <repository> <refspec>
@@ -725,7 +725,7 @@ $ git tag --delete <tag name>
 $ git push origin <tag name>
 ```
 
-すべてのタグをリモート・リポジトリ ```origin``` にプッシュ
+全てのタグをリモート・リポジトリ ```origin``` にプッシュ
 ```shell
 $ git push origin --tags
 ```
