@@ -1121,4 +1121,5 @@ echo $LOGIN_USER
 * [grepでこういう時はどうする?](https://qiita.com/hirohiro77/items/771ffb64dddceabf69a3)
 * [Man page of GREP](https://linuxjm.osdn.jp/html/GNU_grep/man1/grep.1.html)
 * [gzip ファイルを操作](https://www.atmarkit.co.jp/ait/articles/1810/18/news014.html)
+* [【 env 】コマンド――環境変数を指定してコマンドを実行する](https://atmarkit.itmedia.co.jp/ait/articles/1801/18/news016.html)
 * [【 tree 】コマンド――ディレクトリをツリー状に表示する](https://atmarkit.itmedia.co.jp/ait/articles/1802/01/news025.html)
