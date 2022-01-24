@@ -15,3 +15,4 @@
 |`-w`|`--strip`|コメントと空白文字を削除してソースを表示, `-r` との同時の使用は不可|
 
 * https://qiita.com/akiko-pusu/items/93dc4cf63d23a1bb9bdb
+* https://www.php.net/manual/ja/features.commandline.options.php
