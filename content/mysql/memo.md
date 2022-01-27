@@ -882,6 +882,11 @@ ORDER BY
 
 [MySQL Reference Manual - Date and Time Functions](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html)
 
+### 日時フォーマット
+```mysql
+SELECT DATE_FORMAT(CURRENT_TIME(), '%Y-%m-%d %k:%i:%s'); -- 2020-01-04 13:30:10
+```
+
 ### 現在時刻
 ```mysql
 SELECT NOW(); -- 2020-01-05 13:30:10
