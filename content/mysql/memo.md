@@ -678,6 +678,7 @@ CREATE USER 'sample_user'@'localhost' IDENTIFIED BY 'sample_password';
 ### ユーザーのパスワードの設定
 
 #### ログイン中ユーザーのパスワードの設定
+MySQL 5.5 & 5.6
 ```mysql
 -- ログイン中のユーザーを確認
 SELECT CURRENT_USER();
@@ -685,11 +686,40 @@ SELECT CURRENT_USER();
 SET PASSWORD = PASSWORD('sample_password');
 ```
 
-#### 特定のユーザーのパスワードの設定
+MySQL 5.7
 ```mysql
-SET PASSWORD FOR 'sample_user'@'localhost' = PASSWORD('sample_password');
+-- ログイン中のユーザーを確認
+SELECT CURRENT_USER();
+-- パスワードを設定
+SET PASSWORD = 'sample_password';
 ```
 
+MySQL 6
+```mysql
+ALTER USER USER() IDENTIFIED BY 'password';
+```
+
+#### 特定のユーザーのパスワードの設定
+
+via Command Line
+```shell
+mysqladmin -u sample_user -h sample_host_name password "sample_password"
+```
+
+MySQL 5.5 & 5.6
+```mysql
+SET PASSWORD FOR 'sample_user'@'sample_host_name' = PASSWORD('sample_password');
+```
+
+MySQL 5.7
+```mysql
+SET PASSWORD FOR 'sample_user'@'sample_host_name' = 'sample_password';
+```
+
+MySQL 8
+```mysql
+ALTER USER 'sample_user'@'sample_host_name' IDENTIFIED BY 'sample_password';
+```
 ### ユーザーの権限の設定
 
 #### データベース権限
