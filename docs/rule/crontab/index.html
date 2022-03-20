@@ -1,0 +1,247 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Crontab #  変数の設定 #   シェルの種類が記載されていること
+crontab 実行時のシェルの種類の初期値は /bin/sh e.g. SHELL=/bin/bash  エラー発生時のメール送信宛先 MAILTO=foo@bar.com が設定されていること コマンド実行時に必要な変数は key=value フォーマットで上部にまとめて設定されていること 各変数の使用用途と設定値のサンプルがコメントに記載されていること  日時の設定 #   分 時 日 月 曜日 のフォーマットで設定されていること 存在する日時/曜日が設定されていること 日 と 曜日 は同時に設定しないこと
+同時に設定されている場合 AND 条件ではなく OR 条件で実行されるため  コマンドの設定 #   実行コマンド内の % が \（バックスラッシュ）でエスケープされていること
+コマンド内にエスケープされていない ％ がある場合、％ が改行文字に置換されそれ以降のコマンドが標準入力として渡されるため ファイルを指定する場合は絶対パスを使用すること
+crontab のコマンド実行時のカレントディレクトリは　ユーザー　のホームディレクトリとなるため /usr/bin、/bin 以外の箇所にあるコマンドを実行したい場合は絶対パスを使用すること crontab 実行時のPATH環境変数は /usr/bin:/bin しか指定されていないため ログが /dev/null に捨てられず、書き込み可能な箇所に出力されていること 実行ログを破棄してしまうと障害発生時の調査が難しくなるため  Docker 関連の設定 #   dockerコンテナを利用したコマンドを実行する際は、rootユーザー権限で実行しないこと dockerコンテナを利用したコマンドを実行する際は、実行対象のコンテナを特定すること  ">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="Crontab #  変数の設定 #   シェルの種類が記載されていること
+crontab 実行時のシェルの種類の初期値は /bin/sh e.g. SHELL=/bin/bash  エラー発生時のメール送信宛先 MAILTO=foo@bar.com が設定されていること コマンド実行時に必要な変数は key=value フォーマットで上部にまとめて設定されていること 各変数の使用用途と設定値のサンプルがコメントに記載されていること  日時の設定 #   分 時 日 月 曜日 のフォーマットで設定されていること 存在する日時/曜日が設定されていること 日 と 曜日 は同時に設定しないこと
+同時に設定されている場合 AND 条件ではなく OR 条件で実行されるため  コマンドの設定 #   実行コマンド内の % が \（バックスラッシュ）でエスケープされていること
+コマンド内にエスケープされていない ％ がある場合、％ が改行文字に置換されそれ以降のコマンドが標準入力として渡されるため ファイルを指定する場合は絶対パスを使用すること
+crontab のコマンド実行時のカレントディレクトリは　ユーザー　のホームディレクトリとなるため /usr/bin、/bin 以外の箇所にあるコマンドを実行したい場合は絶対パスを使用すること crontab 実行時のPATH環境変数は /usr/bin:/bin しか指定されていないため ログが /dev/null に捨てられず、書き込み可能な箇所に出力されていること 実行ログを破棄してしまうと障害発生時の調査が難しくなるため  Docker 関連の設定 #   dockerコンテナを利用したコマンドを実行する際は、rootユーザー権限で実行しないこと dockerコンテナを利用したコマンドを実行する際は、実行対象のコンテナを特定すること  ">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://exaream.github.io/tech-blog/rule/crontab/"><meta property="article:section" content="rule">
+<title>Crontab | Tech Blog</title>
+<link rel=manifest href=/tech-blog/manifest.json>
+<link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/tech-blog/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
+<script defer src=/tech-blog/flexsearch.min.js></script>
+<script defer src=/tech-blog/en.search.min.1eec46d1ced6d3604b58e40b9a56062aaf8373ed0f4d739d3b171828457b5fdf.js integrity="sha256-HuxG0c7W02BLWOQLmlYGKq+Dc+0PTXOdOxcYKEV7X98=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/tech-blog/><span>Tech Blog</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<div class=book-languages tabindex=0 aria-haspopup=true>
+<ul>
+<li class="flex align-center">
+<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
+English
+</li>
+</ul>
+<ul class=book-languages-list>
+<li>
+<a href=https://exaream.github.io/tech-blog/ja/ class="flex align-center">
+<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
+日本語
+</a>
+</li>
+</ul>
+</div>
+<h3 id=menu>
+Menu
+<a class=anchor href=#menu>#</a>
+</h3>
+<ul>
+<li><strong>Git</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/git/memo/>Git Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/git/tool/>Git Tool</a></li>
+</ul>
+</li>
+<li><strong>Docker</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/docker/memo/>Docker Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/docker/docker-compose/>Docker Compose</a></li>
+<li><a href=https://exaream.github.io/tech-blog/docker/docker-swarm/>Docker Swarm</a></li>
+</ul>
+</li>
+<li><strong>SQL</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/mysql/memo/>MySQL Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/postgresql/memo/>PostgreSQL Memo</a></li>
+</ul>
+</li>
+<li><strong>Go</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/go/memo/>Go Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/go/test/>Go Test</a></li>
+<li><a href=https://exaream.github.io/tech-blog/go/link/>Go Link</a></li>
+</ul>
+</li>
+<li><strong>Linux</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/linux/memo/>Linux Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/linux/ubuntu/>Ubuntu</a></li>
+<li><a href=https://exaream.github.io/tech-blog/linux/alpine-linux/>Alpine Linux</a></li>
+</ul>
+</li>
+<li><strong>Python</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/python/memo/>Python Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/python/ocr/>Python OCR</a></li>
+</ul>
+</li>
+<li><strong>PHP</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/php/phpunit/>PHPUnit</a></li>
+<li><a href=https://exaream.github.io/tech-blog/php/phpmetrics/>PhpMetrics</a></li>
+</ul>
+</li>
+<li><strong>Mac</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/mac/memo/>Mac Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/mac/iterm2/>iTerm2</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/shellscript/memo/>Shellscript</a></li>
+<li><a href=https://exaream.github.io/tech-blog/tool/hugo/>Hugo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/node/memo/>Node</a></li>
+<li><a href=https://exaream.github.io/tech-blog/tool/vscode/>VS Code</a></li>
+<li><a href=https://exaream.github.io/tech-blog/tool/excel/>Excel</a></li>
+<li><a href=https://exaream.github.io/tech-blog/tool/mailcatcher/>MailCatcher</a></li>
+<li><a href=https://exaream.github.io/tech-blog/glossary/>Glossary</a></li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/tech-blog/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Crontab</strong>
+<label for=toc-control>
+<img src=/tech-blog/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<h2>Tags</h2>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#変数の設定>変数の設定</a></li>
+<li><a href=#日時の設定>日時の設定</a></li>
+<li><a href=#コマンドの設定>コマンドの設定</a></li>
+<li><a href=#docker-関連の設定>Docker 関連の設定</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<ol class=breadcrumb>
+<li>
+<a href=https://exaream.github.io/tech-blog/>Tech Blog</a>
+</li>
+<li>
+<a href=https://exaream.github.io/tech-blog/rule/>Rule</a>
+</li>
+<li class=active>
+<a href=https://exaream.github.io/tech-blog/rule/crontab/></a>
+</li>
+</ol>
+<article class=markdown><h1 id=crontab>
+Crontab
+<a class=anchor href=#crontab>#</a>
+</h1>
+<h3 id=変数の設定>
+変数の設定
+<a class=anchor href=#%e5%a4%89%e6%95%b0%e3%81%ae%e8%a8%ad%e5%ae%9a>#</a>
+</h3>
+<ul>
+<li>シェルの種類が記載されていること<br>
+crontab 実行時のシェルの種類の初期値は <code>/bin/sh</code>
+e.g.
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>SHELL<span style=color:#f92672>=</span>/bin/bash
+</code></pre></div></li>
+<li>エラー発生時のメール送信宛先 <code>MAILTO=foo@bar.com</code> が設定されていること</li>
+<li>コマンド実行時に必要な変数は <code>key=value</code> フォーマットで上部にまとめて設定されていること</li>
+<li>各変数の使用用途と設定値のサンプルがコメントに記載されていること</li>
+</ul>
+<h3 id=日時の設定>
+日時の設定
+<a class=anchor href=#%e6%97%a5%e6%99%82%e3%81%ae%e8%a8%ad%e5%ae%9a>#</a>
+</h3>
+<ul>
+<li><code>分 時 日 月 曜日</code> のフォーマットで設定されていること</li>
+<li>存在する日時/曜日が設定されていること</li>
+<li><code>日</code> と <code>曜日</code> は同時に設定しないこと<br>
+同時に設定されている場合 <code>AND</code> 条件ではなく <code>OR</code> 条件で実行されるため</li>
+</ul>
+<h3 id=コマンドの設定>
+コマンドの設定
+<a class=anchor href=#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e8%a8%ad%e5%ae%9a>#</a>
+</h3>
+<ul>
+<li>実行コマンド内の <code>%</code> が <code>\</code>（バックスラッシュ）でエスケープされていること<br>
+コマンド内にエスケープされていない <code>％</code> がある場合、<code>％</code> が改行文字に置換されそれ以降のコマンドが標準入力として渡されるため</li>
+<li>ファイルを指定する場合は絶対パスを使用すること<br>
+<code>crontab</code> のコマンド実行時のカレントディレクトリは　ユーザー　のホームディレクトリとなるため</li>
+<li><code>/usr/bin</code>、<code>/bin</code> 以外の箇所にあるコマンドを実行したい場合は絶対パスを使用すること
+<code>crontab</code> 実行時のPATH環境変数は <code>/usr/bin:/bin</code> しか指定されていないため</li>
+<li>ログが <code>/dev/null</code> に捨てられず、書き込み可能な箇所に出力されていること
+実行ログを破棄してしまうと障害発生時の調査が難しくなるため</li>
+</ul>
+<h3 id=docker-関連の設定>
+Docker 関連の設定
+<a class=anchor href=#docker-%e9%96%a2%e9%80%a3%e3%81%ae%e8%a8%ad%e5%ae%9a>#</a>
+</h3>
+<ul>
+<li>dockerコンテナを利用したコマンドを実行する際は、rootユーザー権限で実行しないこと</li>
+<li>dockerコンテナを利用したコマンドを実行する際は、実行対象のコンテナを特定すること</li>
+</ul>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<h2>Tags</h2>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#変数の設定>変数の設定</a></li>
+<li><a href=#日時の設定>日時の設定</a></li>
+<li><a href=#コマンドの設定>コマンドの設定</a></li>
+<li><a href=#docker-関連の設定>Docker 関連の設定</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

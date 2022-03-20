@@ -1,0 +1,943 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="PHPUnit #  事前準備 #  インストール #  composer.json
+&#34;require-dev&#34;: { &#34;fzaninotto/faker&#34;: &#34;*&#34;, &#34;mikey179/vfsstream&#34;: &#34;*&#34;, &#34;mockery/mockery&#34;: &#34;*&#34;, &#34;phpunit/phpunit&#34;: &#34;*&#34; }, $ composer install バージョンの確認 #  $ ./vendor/bin/phpunit --version 基本 #  <?php use Aaa\ClassA; use Bbb\ClassB; use Eee\ExceptionA; use Mockery; use PHPUnit\Framework\TestCase; /** * @coversDefaultClass Aaa\ClassA */ class ClassATest extends TestCase { // Omitted  /** * This method is called before class.　TestCaseクラス実行前の処理。 * * @return void */ public static function setUpBeforeClass(): void { parent::setUpBeforeClass(); // static 変数を使用（static メソッドのため）  self::$hoge = 'some value'; } /** * This method is called before each test.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="PHPUnit">
+<meta property="og:description" content="PHPUnit #  事前準備 #  インストール #  composer.json
+&#34;require-dev&#34;: { &#34;fzaninotto/faker&#34;: &#34;*&#34;, &#34;mikey179/vfsstream&#34;: &#34;*&#34;, &#34;mockery/mockery&#34;: &#34;*&#34;, &#34;phpunit/phpunit&#34;: &#34;*&#34; }, $ composer install バージョンの確認 #  $ ./vendor/bin/phpunit --version 基本 #  <?php use Aaa\ClassA; use Bbb\ClassB; use Eee\ExceptionA; use Mockery; use PHPUnit\Framework\TestCase; /** * @coversDefaultClass Aaa\ClassA */ class ClassATest extends TestCase { // Omitted  /** * This method is called before class.　TestCaseクラス実行前の処理。 * * @return void */ public static function setUpBeforeClass(): void { parent::setUpBeforeClass(); // static 変数を使用（static メソッドのため）  self::$hoge = 'some value'; } /** * This method is called before each test.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://exaream.github.io/tech-blog/php/phpunit/"><meta property="article:section" content="php">
+<meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
+<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00">
+<title>PHPUnit | Tech Blog</title>
+<link rel=manifest href=/tech-blog/manifest.json>
+<link rel=icon href=/tech-blog/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/tech-blog/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
+<script defer src=/tech-blog/flexsearch.min.js></script>
+<script defer src=/tech-blog/en.search.min.1eec46d1ced6d3604b58e40b9a56062aaf8373ed0f4d739d3b171828457b5fdf.js integrity="sha256-HuxG0c7W02BLWOQLmlYGKq+Dc+0PTXOdOxcYKEV7X98=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/tech-blog/><span>Tech Blog</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<div class=book-languages tabindex=0 aria-haspopup=true>
+<ul>
+<li class="flex align-center">
+<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
+English
+</li>
+</ul>
+<ul class=book-languages-list>
+<li>
+<a href=https://exaream.github.io/tech-blog/ja/ class="flex align-center">
+<img src=/tech-blog/svg/translate.svg class=book-icon alt=Languages>
+日本語
+</a>
+</li>
+</ul>
+</div>
+<h3 id=menu>
+Menu
+<a class=anchor href=#menu>#</a>
+</h3>
+<ul>
+<li><strong>Git</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/git/memo/>Git Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/git/tool/>Git Tool</a></li>
+</ul>
+</li>
+<li><strong>Docker</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/docker/memo/>Docker Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/docker/docker-compose/>Docker Compose</a></li>
+<li><a href=https://exaream.github.io/tech-blog/docker/docker-swarm/>Docker Swarm</a></li>
+</ul>
+</li>
+<li><strong>SQL</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/mysql/memo/>MySQL Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/postgresql/memo/>PostgreSQL Memo</a></li>
+</ul>
+</li>
+<li><strong>Go</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/go/memo/>Go Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/go/test/>Go Test</a></li>
+<li><a href=https://exaream.github.io/tech-blog/go/link/>Go Link</a></li>
+</ul>
+</li>
+<li><strong>Linux</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/linux/memo/>Linux Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/linux/ubuntu/>Ubuntu</a></li>
+<li><a href=https://exaream.github.io/tech-blog/linux/alpine-linux/>Alpine Linux</a></li>
+</ul>
+</li>
+<li><strong>Python</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/python/memo/>Python Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/python/ocr/>Python OCR</a></li>
+</ul>
+</li>
+<li><strong>PHP</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/php/phpunit/>PHPUnit</a></li>
+<li><a href=https://exaream.github.io/tech-blog/php/phpmetrics/>PhpMetrics</a></li>
+</ul>
+</li>
+<li><strong>Mac</strong>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/mac/memo/>Mac Memo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/mac/iterm2/>iTerm2</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href=https://exaream.github.io/tech-blog/shellscript/memo/>Shellscript</a></li>
+<li><a href=https://exaream.github.io/tech-blog/tool/hugo/>Hugo</a></li>
+<li><a href=https://exaream.github.io/tech-blog/node/memo/>Node</a></li>
+<li><a href=https://exaream.github.io/tech-blog/tool/vscode/>VS Code</a></li>
+<li><a href=https://exaream.github.io/tech-blog/tool/excel/>Excel</a></li>
+<li><a href=https://exaream.github.io/tech-blog/tool/mailcatcher/>MailCatcher</a></li>
+<li><a href=https://exaream.github.io/tech-blog/glossary/>Glossary</a></li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/tech-blog/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>PHPUnit</strong>
+<label for=toc-control>
+<img src=/tech-blog/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<h2>Tags</h2>
+<ul class=tags><li><a href=/tech-blog/tags/phpunit>PHPUnit</a><li><a href=/tech-blog/tags/laravel>Laravel</a><li><a href=/tech-blog/tags/test>Test</a></ul>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#事前準備>事前準備</a>
+<ul>
+<li><a href=#インストール>インストール</a></li>
+<li><a href=#バージョンの確認>バージョンの確認</a></li>
+</ul>
+</li>
+<li><a href=#基本>基本</a></li>
+<li><a href=#アノテーション>アノテーション</a>
+<ul>
+<li><a href=#デフォルトのテスト対象クラスをテストクラスのアノテーションで指定>デフォルトのテスト対象クラスをテスト・クラスのアノテーションで指定</a></li>
+<li><a href=#未実装のテストをスキップする>未実装のテストをスキップする</a></li>
+<li><a href=#アサーションがないテストをリスキーと見なさない>アサーションがないテストをリスキーと見なさない</a></li>
+<li><a href=#php-code-sniffer-で警告が発生するのを-以下のアノテーションで回避>PHP Code Sniffer で警告が発生するのを 以下のアノテーションで回避</a></li>
+</ul>
+</li>
+<li><a href=#例外>例外</a>
+<ul>
+<li><a href=#例外が発生することをテスト>例外が発生することをテスト</a></li>
+<li><a href=#例外が発生しないことをテスト>例外が発生しないことをテスト</a></li>
+</ul>
+</li>
+<li><a href=#public-メソッドプロパティ>public メソッド,プロパティ</a>
+<ul>
+<li><a href=#publicメソッドのモックを作ってテスト>publicメソッドのモックを作ってテスト</a></li>
+<li><a href=#publicプロパティのモックを作ってテスト>publicプロパティのモックを作ってテスト</a></li>
+<li><a href=#public-staticメソッドのモックを作ってテスト>public staticメソッドのモックを作ってテスト</a></li>
+<li><a href=#publicメソッドのモックを作ってテストクラス名がハードコーディングされている場合>publicメソッドのモックを作ってテスト（クラス名がハードコーディングされている場合）</a></li>
+<li><a href=#自クラスのpublicメソッドのモックを作ってテスト>自クラスのpublicメソッドのモックを作ってテスト</a></li>
+<li><a href=#依存クラスのコンストラクタ呼び出しをモックしてテスト>依存クラスのコンストラクタ呼び出しをモックしてテスト</a></li>
+<li><a href=#チェインしたpublicメソッドのモックを作ってテスト>チェインしたpublicメソッドのモックを作ってテスト</a></li>
+<li><a href=#laravel-ファサードのpublicメソッドのモックを作ってテスト>[Laravel] ファサードのpublicメソッドのモックを作ってテスト</a></li>
+<li><a href=#laravel-eloquentのpublicメソッドのモックを作ってテスト>[Laravel] Eloquentのpublicメソッドのモックを作ってテスト</a></li>
+<li><a href=#laravel-eloquentのpublicプロパティのモックを作ってテスト>[Laravel] Eloquentのpublicプロパティのモックを作ってテスト</a></li>
+</ul>
+</li>
+<li><a href=#privateprotected>private/protected</a>
+<ul>
+<li><a href=#privateprotectedメソッドをテスト>private/protectedメソッドをテスト</a></li>
+<li><a href=#privateprotectedプロパティの値を書き換えてテスト>private/protectedプロパティの値を書き換えてテスト</a></li>
+<li><a href=#privateprotectedプロパティの値をテスト>private/protectedプロパティの値をテスト</a></li>
+</ul>
+</li>
+<li><a href=#ファイル>ファイル</a>
+<ul>
+<li><a href=#仮想ファイルを使ってファイルの読み書きをテスト>仮想ファイルを使ってファイルの読み書きをテスト</a></li>
+</ul>
+</li>
+<li><a href=#その他>その他</a>
+<ul>
+<li><a href=#無名クラスを使ってトレイトをテスト>無名クラスを使ってトレイトをテスト</a></li>
+</ul>
+</li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</aside>
+</header>
+<ol class=breadcrumb>
+<li>
+<a href=https://exaream.github.io/tech-blog/>Tech Blog</a>
+</li>
+<li>
+<a href=https://exaream.github.io/tech-blog/php/>Php</a>
+</li>
+<li class=active>
+<a href=https://exaream.github.io/tech-blog/php/phpunit/>PHPUnit</a>
+</li>
+</ol>
+<article class=markdown><h1 id=phpunit>
+PHPUnit
+<a class=anchor href=#phpunit>#</a>
+</h1>
+<h2 id=事前準備>
+事前準備
+<a class=anchor href=#%e4%ba%8b%e5%89%8d%e6%ba%96%e5%82%99>#</a>
+</h2>
+<h3 id=インストール>
+インストール
+<a class=anchor href=#%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab>#</a>
+</h3>
+<p><code>composer.json</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>&#34;require-dev&#34;: </span>{
+<span style=display:block;width:100%;background-color:#3c3d38>    <span style=color:#f92672>&#34;fzaninotto/faker&#34;: </span><span style=color:#e6db74>&#34;*&#34;</span>,
+</span><span style=display:block;width:100%;background-color:#3c3d38>    <span style=color:#f92672>&#34;mikey179/vfsstream&#34;: </span><span style=color:#e6db74>&#34;*&#34;</span>,
+</span><span style=display:block;width:100%;background-color:#3c3d38>    <span style=color:#f92672>&#34;mockery/mockery&#34;: </span><span style=color:#e6db74>&#34;*&#34;</span>,
+</span><span style=display:block;width:100%;background-color:#3c3d38>    <span style=color:#f92672>&#34;phpunit/phpunit&#34;: </span><span style=color:#e6db74>&#34;*&#34;</span>
+</span>},
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ composer install
+</code></pre></div><h3 id=バージョンの確認>
+バージョンの確認
+<a class=anchor href=#%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%81%ae%e7%a2%ba%e8%aa%8d>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ ./vendor/bin/phpunit --version
+</code></pre></div><h2 id=基本>
+基本
+<a class=anchor href=#%e5%9f%ba%e6%9c%ac>#</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Bbb\ClassB</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Eee\ExceptionA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Mockery</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>PHPUnit\Framework\TestCase</span>;
+
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * @coversDefaultClass Aaa\ClassA
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ClassATest</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>TestCase</span>
+{
+
+    <span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span>    <span style=color:#e6db74>/**
+</span><span style=color:#e6db74>     * This method is called before class.　TestCaseクラス実行前の処理。
+</span><span style=color:#e6db74>     *
+</span><span style=color:#e6db74>     * @return void
+</span><span style=color:#e6db74>     */</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setUpBeforeClass</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+    {
+        <span style=color:#66d9ef>parent</span><span style=color:#f92672>::</span><span style=color:#a6e22e>setUpBeforeClass</span>();
+    
+        <span style=color:#75715e>// static 変数を使用（static メソッドのため）
+</span><span style=color:#75715e></span>        <span style=color:#a6e22e>self</span><span style=color:#f92672>::</span>$hoge <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;some value&#39;</span>;
+    }
+    
+    
+    <span style=color:#e6db74>/**
+</span><span style=color:#e6db74>     * This method is called before each test.　各テストのメソッドが実行される前の処理。
+</span><span style=color:#e6db74>     *
+</span><span style=color:#e6db74>     * @return void
+</span><span style=color:#e6db74>     */</span>
+    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setUp</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+    {
+        <span style=color:#66d9ef>parent</span><span style=color:#f92672>::</span><span style=color:#a6e22e>setUp</span>();
+
+        <span style=color:#75715e>// インスタンス変数
+</span><span style=color:#75715e></span>        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>classA</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>();
+    }
+    
+        
+    <span style=color:#e6db74>/**
+</span><span style=color:#e6db74>     * This method is called after each test. 各テストのメソッドが実行された後の処理。
+</span><span style=color:#e6db74>     *
+</span><span style=color:#e6db74>     * @return void
+</span><span style=color:#e6db74>     */</span>
+    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>tearDown</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+    {
+        <span style=color:#66d9ef>parent</span><span style=color:#f92672>::</span><span style=color:#a6e22e>tearDown</span>();
+    }
+    
+    
+    <span style=color:#e6db74>/**
+</span><span style=color:#e6db74>     * Test ClassA::method1
+</span><span style=color:#e6db74>     *
+</span><span style=color:#e6db74>     * @covers ::method1  カバレッジを算出する際に使用。テスト対象のクラス名（名前空間を含む）とメソッド名を記載。
+</span><span style=color:#e6db74>     * @return void
+</span><span style=color:#e6db74>     */</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testMethod1ExpectedValue</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span> <span style=color:#75715e>// メソッド名の命名規則：lowerCamelCase  test[TargetFunctionName][Description|ExpectedValue]
+</span><span style=color:#75715e></span>    {
+        $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>();
+        $actualValue <span style=color:#f92672>=</span> $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1</span>();
+        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>assertEquals</span>($expectedValue, $actualValue); <span style=color:#75715e>// 引数は期待値、実際の値の順番
+</span><span style=color:#75715e></span>    }
+}
+</code></pre></div><h2 id=アノテーション>
+アノテーション
+<a class=anchor href=#%e3%82%a2%e3%83%8e%e3%83%86%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h2>
+<h3 id=デフォルトのテスト対象クラスをテストクラスのアノテーションで指定>
+デフォルトのテスト対象クラスをテスト・クラスのアノテーションで指定
+<a class=anchor href=#%e3%83%87%e3%83%95%e3%82%a9%e3%83%ab%e3%83%88%e3%81%ae%e3%83%86%e3%82%b9%e3%83%88%e5%af%be%e8%b1%a1%e3%82%af%e3%83%a9%e3%82%b9%e3%82%92%e3%83%86%e3%82%b9%e3%83%88%e3%82%af%e3%83%a9%e3%82%b9%e3%81%ae%e3%82%a2%e3%83%8e%e3%83%86%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a7%e6%8c%87%e5%ae%9a>#</a>
+</h3>
+<p>メソッドのアノテーションでクラス名の記述を省略しクラス名のタイポを未然に防止
+<code>@coversDefaultClass</code>
+<a href=https://phpunit.readthedocs.io/en/latest/annotations.html#coversdefaultclass>https://phpunit.readthedocs.io/en/latest/annotations.html#coversdefaultclass</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>PHPUnit\Framework\TestCase</span>;
+
+<span style=color:#e6db74>/**
+</span><span style=display:block;width:100%;background-color:#3c3d38><span style=color:#e6db74> * @coversDefaultClass \Foo\CoveredClass
+</span></span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CoversDefaultClassTest</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>TestCase</span>
+{
+    <span style=color:#e6db74>/**
+</span><span style=display:block;width:100%;background-color:#3c3d38><span style=color:#e6db74>     * @covers ::publicMethod
+</span></span><span style=color:#e6db74>     */</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSomething</span>()
+    {
+        $o <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Foo\CoveredClass</span>;
+        $o<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>publicMethod</span>();
+    }
+}
+</code></pre></div><h3 id=未実装のテストをスキップする>
+未実装のテストをスキップする
+<a class=anchor href=#%e6%9c%aa%e5%ae%9f%e8%a3%85%e3%81%ae%e3%83%86%e3%82%b9%e3%83%88%e3%82%92%e3%82%b9%e3%82%ad%e3%83%83%e3%83%97%e3%81%99%e3%82%8b>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Skip unimplemented tests
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>markTestIncomplete</span>(<span style=color:#e6db74>&#39;This test has not been implemented yet.&#39;</span>);
+</span>}
+</code></pre></div><h3 id=アサーションがないテストをリスキーと見なさない>
+アサーションがないテストをリスキーと見なさない
+<a class=anchor href=#%e3%82%a2%e3%82%b5%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%8c%e3%81%aa%e3%81%84%e3%83%86%e3%82%b9%e3%83%88%e3%82%92%e3%83%aa%e3%82%b9%e3%82%ad%e3%83%bc%e3%81%a8%e8%a6%8b%e3%81%aa%e3%81%95%e3%81%aa%e3%81%84>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Do not consider a test without an assertion as risky
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=display:block;width:100%;background-color:#3c3d38><span style=color:#e6db74> * @doesNotPerformAssertions
+</span></span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+    <span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span>}
+</code></pre></div><h3 id=php-code-sniffer-で警告が発生するのを-以下のアノテーションで回避>
+PHP Code Sniffer で警告が発生するのを 以下のアノテーションで回避
+<a class=anchor href=#php-code-sniffer-%e3%81%a7%e8%ad%a6%e5%91%8a%e3%81%8c%e7%99%ba%e7%94%9f%e3%81%99%e3%82%8b%e3%81%ae%e3%82%92-%e4%bb%a5%e4%b8%8b%e3%81%ae%e3%82%a2%e3%83%8e%e3%83%86%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a7%e5%9b%9e%e9%81%bf>#</a>
+</h3>
+<p>コールバック関数で使用する引数が未使用扱いとなり PHP Code Sniffer で警告が発生するのを 以下のアノテーションで回避</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getSample</span>() <span style=color:#f92672>:</span> <span style=color:#a6e22e>callable</span>
+{
+    <span style=color:#75715e>// PHP Code Sniffer で警告が発生するのを 以下のアノテーションで回避
+</span><span style=display:block;width:100%;background-color:#3c3d38><span style=color:#75715e></span>    <span style=color:#75715e>// @codingStandardsIgnoreStart
+</span></span><span style=color:#75715e></span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>function</span> ($sample) {
+        <span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span>    }
+<span style=display:block;width:100%;background-color:#3c3d38>    <span style=color:#75715e>// @codingStandardsIgnoreEnd
+</span></span><span style=color:#75715e></span>}
+</code></pre></div><h2 id=例外>
+例外
+<a class=anchor href=#%e4%be%8b%e5%a4%96>#</a>
+</h2>
+<h3 id=例外が発生することをテスト>
+例外が発生することをテスト
+<a class=anchor href=#%e4%be%8b%e5%a4%96%e3%81%8c%e7%99%ba%e7%94%9f%e3%81%99%e3%82%8b%e3%81%93%e3%81%a8%e3%82%92%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<h4 id=phpunit-8>
+PHPUnit 8+
+<a class=anchor href=#phpunit-8>#</a>
+</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Eee\ExceptionA</span>
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test that ExceptionA occurs
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>expectException</span>(<span style=color:#a6e22e>ExceptionA</span><span style=color:#f92672>::</span><span style=color:#a6e22e>class</span>);　<span style=color:#75715e>// 　クラス名（名前空間を含む）の文字列を使用する場合は クラス名::class を使用
+</span></span><span style=color:#75715e></span>    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>();
+    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h4 id=phpunit-7>
+PHPUnit 7
+<a class=anchor href=#phpunit-7>#</a>
+</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Eee\ExceptionA</span>
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test that Exception occurs
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=display:block;width:100%;background-color:#3c3d38><span style=color:#e6db74> * @expectedException Eee\ExceptionA
+</span></span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>();
+    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h3 id=例外が発生しないことをテスト>
+例外が発生しないことをテスト
+<a class=anchor href=#%e4%be%8b%e5%a4%96%e3%81%8c%e7%99%ba%e7%94%9f%e3%81%97%e3%81%aa%e3%81%84%e3%81%93%e3%81%a8%e3%82%92%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Eee\ExceptionA</span>
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test that no ExceptionA occurs
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>();
+<span style=display:block;width:100%;background-color:#3c3d38>    <span style=color:#66d9ef>try</span> {
+</span><span style=display:block;width:100%;background-color:#3c3d38>        $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+</span><span style=display:block;width:100%;background-color:#3c3d38>    } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>ExceptionA</span> $e) {
+</span><span style=display:block;width:100%;background-color:#3c3d38>        $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>fail</span>();
+</span><span style=display:block;width:100%;background-color:#3c3d38>    }
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>assertTrue</span>(<span style=color:#66d9ef>true</span>);
+</span>}
+</code></pre></div><h2 id=public-メソッドプロパティ>
+public メソッド,プロパティ
+<a class=anchor href=#public-%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%83%97%e3%83%ad%e3%83%91%e3%83%86%e3%82%a3>#</a>
+</h2>
+<h3 id=publicメソッドのモックを作ってテスト>
+publicメソッドのモックを作ってテスト
+<a class=anchor href=#public%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%81%ae%e3%83%a2%e3%83%83%e3%82%af%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Bbb\ClassB</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Eee\ExceptionA</span>
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Mockery</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test using a mock of public method
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>   $mockClassB <span style=color:#f92672>=</span> <span style=color:#a6e22e>Mockery</span><span style=color:#f92672>::</span><span style=color:#a6e22e>mock</span>(<span style=color:#a6e22e>ClassB</span><span style=color:#f92672>::</span><span style=color:#a6e22e>class</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>   <span style=color:#75715e>// 引数は with() で指定、返り値は andReturn() で指定
+</span></span><span style=display:block;width:100%;background-color:#3c3d38><span style=color:#75715e></span>   $mockClassB<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>shouldReceive</span>(<span style=color:#e6db74>&#39;method1ClassB&#39;</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>with</span>(<span style=color:#e6db74>&#39;argument value 1&#39;</span>, <span style=color:#e6db74>&#39;argument value 2&#39;</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>andReturn</span>(<span style=color:#e6db74>&#39;some value&#39;</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>   $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>($mockClassB);
+</span>   $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h3 id=publicプロパティのモックを作ってテスト>
+publicプロパティのモックを作ってテスト
+<a class=anchor href=#public%e3%83%97%e3%83%ad%e3%83%91%e3%83%86%e3%82%a3%e3%81%ae%e3%83%a2%e3%83%83%e3%82%af%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Bbb\ClassB</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Mockery</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test using a mock of public property
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $mockClassB <span style=color:#f92672>=</span> <span style=color:#a6e22e>Mockery</span><span style=color:#f92672>::</span><span style=color:#a6e22e>mock</span>(<span style=color:#a6e22e>ClassB</span><span style=color:#f92672>::</span><span style=color:#a6e22e>class</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $mockClassB<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>property1ClassB</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;some value&#39;</span>;
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>($mockClassB);
+</span>    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h3 id=public-staticメソッドのモックを作ってテスト>
+public staticメソッドのモックを作ってテスト
+<a class=anchor href=#public-static%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%81%ae%e3%83%a2%e3%83%83%e3%82%af%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<p><code>@runInSeparateProcess</code> そのテストを個別の PHP プロセスで実行するように指示する</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Bbb\ClassB</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Mockery</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test using a mock of public static method
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @runInSeparateProcess
+</span><span style=color:#e6db74> * @preserveGlobalState disabled
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $mockClassB <span style=color:#f92672>=</span> <span style=color:#a6e22e>Mockery</span><span style=color:#f92672>::</span><span style=color:#a6e22e>mock</span>(<span style=color:#e6db74>&#39;alias:&#39;</span> <span style=color:#f92672>.</span> <span style=color:#a6e22e>ClassB</span><span style=color:#f92672>::</span><span style=color:#a6e22e>class</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $mockClassB<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>shouldReceive</span>(<span style=color:#e6db74>&#39;method1ClassB&#39;</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>andReturn</span>(<span style=color:#e6db74>&#39;some value&#39;</span>);
+</span>    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>();
+    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h3 id=publicメソッドのモックを作ってテストクラス名がハードコーディングされている場合>
+publicメソッドのモックを作ってテスト（クラス名がハードコーディングされている場合）
+<a class=anchor href=#public%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%81%ae%e3%83%a2%e3%83%83%e3%82%af%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%83%86%e3%82%b9%e3%83%88%e3%82%af%e3%83%a9%e3%82%b9%e5%90%8d%e3%81%8c%e3%83%8f%e3%83%bc%e3%83%89%e3%82%b3%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%b0%e3%81%95%e3%82%8c%e3%81%a6%e3%81%84%e3%82%8b%e5%a0%b4%e5%90%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Bbb\ClassB</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Mockery</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test using a mock of public method if a class name is hard coded
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @runInSeparateProcess
+</span><span style=color:#e6db74> * @preserveGlobalState disabled
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $mockClassB <span style=color:#f92672>=</span> <span style=color:#a6e22e>Mockery</span><span style=color:#f92672>::</span><span style=color:#a6e22e>mock</span>(<span style=color:#e6db74>&#39;overload:&#39;</span> <span style=color:#f92672>.</span> <span style=color:#a6e22e>ClassB</span><span style=color:#f92672>::</span><span style=color:#a6e22e>class</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $mockClassB<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>shouldReceive</span>(<span style=color:#e6db74>&#39;method1ClassB&#39;</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>andReturn</span>(<span style=color:#e6db74>&#39;some value&#39;</span>);
+</span>    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>();
+    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h3 id=自クラスのpublicメソッドのモックを作ってテスト>
+自クラスのpublicメソッドのモックを作ってテスト
+<a class=anchor href=#%e8%87%aa%e3%82%af%e3%83%a9%e3%82%b9%e3%81%aepublic%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%81%ae%e3%83%a2%e3%83%83%e3%82%af%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Mockery</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test using a mock of public method of the class itself
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $partialMockClassA <span style=color:#f92672>=</span> <span style=color:#a6e22e>Mockery</span><span style=color:#f92672>::</span><span style=color:#a6e22e>mock</span>(<span style=color:#a6e22e>ClassA</span><span style=color:#f92672>::</span><span style=color:#a6e22e>class</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>makePartial</span>();
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $partialMockClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>shouldReceive</span>(<span style=color:#e6db74>&#39;method2ClassA&#39;</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>andReturn</span>(<span style=color:#e6db74>&#39;some value&#39;</span>);
+</span>    $partialMockClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h3 id=依存クラスのコンストラクタ呼び出しをモックしてテスト>
+依存クラスのコンストラクタ呼び出しをモックしてテスト
+<a class=anchor href=#%e4%be%9d%e5%ad%98%e3%82%af%e3%83%a9%e3%82%b9%e3%81%ae%e3%82%b3%e3%83%b3%e3%82%b9%e3%83%88%e3%83%a9%e3%82%af%e3%82%bf%e5%91%bc%e3%81%b3%e5%87%ba%e3%81%97%e3%82%92%e3%83%a2%e3%83%83%e3%82%af%e3%81%97%e3%81%a6%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>namespace</span> <span style=color:#a6e22e>Aaa</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Bbb\ClassB</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ClassA</span>
+{
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>method1ClassA</span>()
+    {
+<span style=display:block;width:100%;background-color:#3c3d38>        $classB <span style=color:#f92672>=</span> $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>newClassB</span>();
+</span>        <span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span>    }
+ 
+    <span style=color:#e6db74>/**
+</span><span style=color:#e6db74>     * Wrap the instance generation process because the mock of the constructor cannot be created
+</span><span style=color:#e6db74>     * コンストラクタのモックは作れないのでインスタンス生成処理をラップする
+</span><span style=color:#e6db74>     */</span>
+<span style=display:block;width:100%;background-color:#3c3d38>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>newClassB</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>ClassB</span>
+</span><span style=display:block;width:100%;background-color:#3c3d38>    {
+</span><span style=display:block;width:100%;background-color:#3c3d38>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassB</span>();
+</span><span style=display:block;width:100%;background-color:#3c3d38>    }
+</span>}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Bbb\ClassB</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Mockery</span>;
+
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span>
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Mock constructor call of a dependent class and test
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $mockClassB <span style=color:#f92672>=</span> <span style=color:#a6e22e>Mockery</span><span style=color:#f92672>::</span><span style=color:#a6e22e>mock</span>(<span style=color:#a6e22e>ClassB</span><span style=color:#f92672>::</span><span style=color:#a6e22e>class</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $partialMockClassA <span style=color:#f92672>=</span> <span style=color:#a6e22e>Mockery</span><span style=color:#f92672>::</span><span style=color:#a6e22e>mock</span>(<span style=color:#a6e22e>ClassA</span><span style=color:#f92672>::</span><span style=color:#a6e22e>class</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>makePartial</span>();
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $partialMockClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>shouldReceive</span>(<span style=color:#e6db74>&#39;newClassB&#39;</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>andReturn</span>($mockClassB);
+</span>    $partialMockClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h3 id=チェインしたpublicメソッドのモックを作ってテスト>
+チェインしたpublicメソッドのモックを作ってテスト
+<a class=anchor href=#%e3%83%81%e3%82%a7%e3%82%a4%e3%83%b3%e3%81%97%e3%81%9fpublic%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%81%ae%e3%83%a2%e3%83%83%e3%82%af%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<p>チェーンしたメソッドが引数をとる場合は1つずつ Mockery でモック化する必要あり</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Bbb\ClassB</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Mockery</span>;
+
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span>
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test using a mock of chained public method
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $mockClassB <span style=color:#f92672>=</span> <span style=color:#a6e22e>Mockery</span><span style=color:#f92672>::</span><span style=color:#a6e22e>mock</span>(<span style=color:#a6e22e>ClassB</span><span style=color:#f92672>::</span><span style=color:#a6e22e>class</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $mockClassB<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>shouldReceive</span>(<span style=color:#e6db74>&#39;method1ClassB-&gt;method2ClassB&#39;</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>andReturn</span>(<span style=color:#e6db74>&#39;some value&#39;</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>($mockClassB);
+</span>    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h3 id=laravel-ファサードのpublicメソッドのモックを作ってテスト>
+[Laravel] ファサードのpublicメソッドのモックを作ってテスト
+<a class=anchor href=#laravel-%e3%83%95%e3%82%a1%e3%82%b5%e3%83%bc%e3%83%89%e3%81%aepublic%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%81%ae%e3%83%a2%e3%83%83%e3%82%af%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Fff\FacadeA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Mockery</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test using a mock of a public method of Laravel Facade
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    <span style=color:#a6e22e>FacadeA</span><span style=color:#f92672>::</span><span style=color:#a6e22e>shouldReceive</span>(<span style=color:#e6db74>&#39;method1FacadeA&#39;</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>andReturn</span>(<span style=color:#e6db74>&#39;some value&#39;</span>);
+</span>    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>();
+    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h3 id=laravel-eloquentのpublicメソッドのモックを作ってテスト>
+[Laravel] Eloquentのpublicメソッドのモックを作ってテスト
+<a class=anchor href=#laravel-eloquent%e3%81%aepublic%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%81%ae%e3%83%a2%e3%83%83%e3%82%af%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Eee\EloquentA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Mockery</span>;
+
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span>
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test using a mock of a public method of Laravel Eloquent
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $mockEloquentA <span style=color:#f92672>=</span> <span style=color:#a6e22e>Mockery</span><span style=color:#f92672>::</span><span style=color:#a6e22e>mock</span>(<span style=color:#a6e22e>EloquentA</span><span style=color:#f92672>::</span><span style=color:#a6e22e>class</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $mockEloquentA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>shouldReceive</span>(<span style=color:#e6db74>&#39;method1EloquentA&#39;</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>andReturn</span>(<span style=color:#e6db74>&#39;some value&#39;</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>($mockEloquentA);
+</span>    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h3 id=laravel-eloquentのpublicプロパティのモックを作ってテスト>
+[Laravel] Eloquentのpublicプロパティのモックを作ってテスト
+<a class=anchor href=#laravel-eloquent%e3%81%aepublic%e3%83%97%e3%83%ad%e3%83%91%e3%83%86%e3%82%a3%e3%81%ae%e3%83%a2%e3%83%83%e3%82%af%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Eee\EloquentA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Mockery</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test using a mock of a public property of Laravel Eloquent
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $mockEloquentA <span style=color:#f92672>=</span> <span style=color:#a6e22e>Mockery</span><span style=color:#f92672>::</span><span style=color:#a6e22e>mock</span>(<span style=color:#a6e22e>EloquentA</span><span style=color:#f92672>::</span><span style=color:#a6e22e>class</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>makePartial</span>();
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $mockEloquentA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>property1EloquentA</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;some value&#39;</span>;
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>($mockEloquentA);
+</span>    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h2 id=privateprotected>
+private/protected
+<a class=anchor href=#privateprotected>#</a>
+</h2>
+<h3 id=privateprotectedメソッドをテスト>
+private/protectedメソッドをテスト
+<a class=anchor href=#privateprotected%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%82%92%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>ReflectionMethod</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test private/protected methods
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>();
+<span style=display:block;width:100%;background-color:#3c3d38>    $reflectionMethod1ClassA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ReflectionMethod</span>($classA, <span style=color:#e6db74>&#39;method1ClassA&#39;</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $reflectionMethod1ClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>setAccessible</span>(<span style=color:#66d9ef>true</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $reflectionMethod1ClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>invoke</span>($classA);
+</span>}
+</code></pre></div><h3 id=privateprotectedプロパティの値を書き換えてテスト>
+private/protectedプロパティの値を書き換えてテスト
+<a class=anchor href=#privateprotected%e3%83%97%e3%83%ad%e3%83%91%e3%83%86%e3%82%a3%e3%81%ae%e5%80%a4%e3%82%92%e6%9b%b8%e3%81%8d%e6%8f%9b%e3%81%88%e3%81%a6%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>ReflectionClass</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Rewrite private/protected property value and test
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>();
+<span style=display:block;width:100%;background-color:#3c3d38>    $reflectionClassA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ReflectionClass</span>($classA);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $reflectionProperty1ClassA <span style=color:#f92672>=</span> $reflectionClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>getProperty</span>(<span style=color:#e6db74>&#39;property1ClassA&#39;</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $reflectionProperty1ClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>setAccessible</span>(<span style=color:#66d9ef>true</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $reflectionProperty1ClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>setValue</span>($classA, <span style=color:#e6db74>&#39;some value&#39;</span>);
+</span>    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+}
+</code></pre></div><h3 id=privateprotectedプロパティの値をテスト>
+private/protectedプロパティの値をテスト
+<a class=anchor href=#privateprotected%e3%83%97%e3%83%ad%e3%83%91%e3%83%86%e3%82%a3%e3%81%ae%e5%80%a4%e3%82%92%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>ReflectionClass</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test private/protected property value
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>();
+    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>();
+<span style=display:block;width:100%;background-color:#3c3d38>    $reflectionClassA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ReflectionClass</span>($classA);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $reflectionProperty1ClassA <span style=color:#f92672>=</span> $reflectionClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>getProperty</span>(<span style=color:#e6db74>&#39;property1ClassA&#39;</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $reflectionProperty1ClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>setAccessible</span>(<span style=color:#66d9ef>true</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $valueReflectionProperty1ClassA <span style=color:#f92672>=</span> $reflectionProperty1ClassA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>getValue</span>($classA);
+</span>    $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>assertEquals</span>(<span style=color:#e6db74>&#39;some value&#39;</span>, $valueReflectionProperty1ClassA);
+}
+</code></pre></div><h2 id=ファイル>
+ファイル
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab>#</a>
+</h2>
+<h3 id=仮想ファイルを使ってファイルの読み書きをテスト>
+仮想ファイルを使ってファイルの読み書きをテスト
+<a class=anchor href=#%e4%bb%ae%e6%83%b3%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e8%aa%ad%e3%81%bf%e6%9b%b8%e3%81%8d%e3%82%92%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>org\bovigo\vfs\vfsStream</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test reading and writing a file using a virtual file
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $root <span style=color:#f92672>=</span> <span style=color:#a6e22e>vfsStream</span><span style=color:#f92672>::</span><span style=color:#a6e22e>setup</span>(<span style=color:#e6db74>&#39;root&#39;</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    <span style=color:#a6e22e>vfsStream</span><span style=color:#f92672>::</span><span style=color:#a6e22e>newFile</span>(<span style=color:#e6db74>&#39;file&#39;</span>)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>at</span>($root)<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>setContent</span>(<span style=color:#e6db74>&#39;some contents&#39;</span>);
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $path <span style=color:#f92672>=</span> <span style=color:#a6e22e>vfsStream</span><span style=color:#f92672>::</span><span style=color:#a6e22e>url</span>(<span style=color:#e6db74>&#39;root/file&#39;</span>);
+</span>    $classA <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ClassA</span>($path);
+    $classA<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1ClassA</span>(); 
+}
+</code></pre></div><h2 id=その他>
+その他
+<a class=anchor href=#%e3%81%9d%e3%81%ae%e4%bb%96>#</a>
+</h2>
+<h3 id=無名クラスを使ってトレイトをテスト>
+無名クラスを使ってトレイトをテスト
+<a class=anchor href=#%e7%84%a1%e5%90%8d%e3%82%af%e3%83%a9%e3%82%b9%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%88%e3%83%ac%e3%82%a4%e3%83%88%e3%82%92%e3%83%86%e3%82%b9%e3%83%88>#</a>
+</h3>
+<p>トレイトとは<br>
+<a href=https://www.php.net/manual/ja/language.oop5.traits.php>https://www.php.net/manual/ja/language.oop5.traits.php</a><br>
+PHPのような単一継承言語でコードを再利用するための仕組みの一つ。<br>
+トレイトは単にいくつかの機能をまとめるためだけのもの。<br>
+トレイト自身のインスタンスを作成することはできない。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Aaa\ClassA</span>;
+<span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Ttt\TraitA</span>;
+ 
+<span style=color:#75715e>// Omitted
+</span><span style=color:#75715e></span> 
+<span style=color:#e6db74>/**
+</span><span style=color:#e6db74> * Test a trait using an anonymous class
+</span><span style=color:#e6db74> *
+</span><span style=color:#e6db74> * @covers Aaa\ClassA::method1ClassA
+</span><span style=color:#e6db74> * @return void
+</span><span style=color:#e6db74> */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>testSampleMethod</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>void</span>
+{
+<span style=display:block;width:100%;background-color:#3c3d38>    $classUsingTrait <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>class</span>($property) {
+</span><span style=display:block;width:100%;background-color:#3c3d38>        <span style=color:#66d9ef>use</span> <span style=color:#a6e22e>TraitA</span>;
+</span><span style=display:block;width:100%;background-color:#3c3d38> 
+</span><span style=display:block;width:100%;background-color:#3c3d38>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>function</span> __construct($property)
+</span><span style=display:block;width:100%;background-color:#3c3d38>        {
+</span><span style=display:block;width:100%;background-color:#3c3d38>             $this<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method1TraitA</span>($property);
+</span><span style=display:block;width:100%;background-color:#3c3d38>        }
+</span><span style=display:block;width:100%;background-color:#3c3d38>    };
+</span><span style=display:block;width:100%;background-color:#3c3d38>    $classUsingTrait<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>method2TraitA</span>();
+</span>}
+</code></pre></div><h2 id=references>
+References
+<a class=anchor href=#references>#</a>
+</h2>
+<ul>
+<li>PHPUnit のイディオム <a href=https://qiita.com/ngmy/items/08af9f74f6308ef6281c>https://qiita.com/ngmy/items/08af9f74f6308ef6281c</a></li>
+<li>PHPUnit のアノテーション <a href=https://phpunit.readthedocs.io/ja/latest/annotations.html>https://phpunit.readthedocs.io/ja/latest/annotations.html</a></li>
+<li>Mockery のクラス指定 <a href=https://qiita.com/prex-uchida/items/7563f7f33153da463802>https://qiita.com/prex-uchida/items/7563f7f33153da463802</a></li>
+<li>Mockery <a href=https://qiita.com/ttn_tt/items/a35638ab12d4dc2ea488>https://qiita.com/ttn_tt/items/a35638ab12d4dc2ea488</a></li>
+<li>Mockery（モック化用ライブラリ） <a href=https://github.com/mockery/mockery>https://github.com/mockery/mockery</a></li>
+<li>vfsStream（ファイル操作用ライブラリ） <a href=https://github.com/bovigo/vfsStream>https://github.com/bovigo/vfsStream</a></li>
+<li>Trait <a href=https://www.php.net/manual/ja/language.oop5.traits.php>https://www.php.net/manual/ja/language.oop5.traits.php</a></li>
+</ul>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<h2>Tags</h2>
+<ul class=tags><li><a href=/tech-blog/tags/phpunit>PHPUnit</a><li><a href=/tech-blog/tags/laravel>Laravel</a><li><a href=/tech-blog/tags/test>Test</a></ul>
+<h2>Table of Contents</h2>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#事前準備>事前準備</a>
+<ul>
+<li><a href=#インストール>インストール</a></li>
+<li><a href=#バージョンの確認>バージョンの確認</a></li>
+</ul>
+</li>
+<li><a href=#基本>基本</a></li>
+<li><a href=#アノテーション>アノテーション</a>
+<ul>
+<li><a href=#デフォルトのテスト対象クラスをテストクラスのアノテーションで指定>デフォルトのテスト対象クラスをテスト・クラスのアノテーションで指定</a></li>
+<li><a href=#未実装のテストをスキップする>未実装のテストをスキップする</a></li>
+<li><a href=#アサーションがないテストをリスキーと見なさない>アサーションがないテストをリスキーと見なさない</a></li>
+<li><a href=#php-code-sniffer-で警告が発生するのを-以下のアノテーションで回避>PHP Code Sniffer で警告が発生するのを 以下のアノテーションで回避</a></li>
+</ul>
+</li>
+<li><a href=#例外>例外</a>
+<ul>
+<li><a href=#例外が発生することをテスト>例外が発生することをテスト</a></li>
+<li><a href=#例外が発生しないことをテスト>例外が発生しないことをテスト</a></li>
+</ul>
+</li>
+<li><a href=#public-メソッドプロパティ>public メソッド,プロパティ</a>
+<ul>
+<li><a href=#publicメソッドのモックを作ってテスト>publicメソッドのモックを作ってテスト</a></li>
+<li><a href=#publicプロパティのモックを作ってテスト>publicプロパティのモックを作ってテスト</a></li>
+<li><a href=#public-staticメソッドのモックを作ってテスト>public staticメソッドのモックを作ってテスト</a></li>
+<li><a href=#publicメソッドのモックを作ってテストクラス名がハードコーディングされている場合>publicメソッドのモックを作ってテスト（クラス名がハードコーディングされている場合）</a></li>
+<li><a href=#自クラスのpublicメソッドのモックを作ってテスト>自クラスのpublicメソッドのモックを作ってテスト</a></li>
+<li><a href=#依存クラスのコンストラクタ呼び出しをモックしてテスト>依存クラスのコンストラクタ呼び出しをモックしてテスト</a></li>
+<li><a href=#チェインしたpublicメソッドのモックを作ってテスト>チェインしたpublicメソッドのモックを作ってテスト</a></li>
+<li><a href=#laravel-ファサードのpublicメソッドのモックを作ってテスト>[Laravel] ファサードのpublicメソッドのモックを作ってテスト</a></li>
+<li><a href=#laravel-eloquentのpublicメソッドのモックを作ってテスト>[Laravel] Eloquentのpublicメソッドのモックを作ってテスト</a></li>
+<li><a href=#laravel-eloquentのpublicプロパティのモックを作ってテスト>[Laravel] Eloquentのpublicプロパティのモックを作ってテスト</a></li>
+</ul>
+</li>
+<li><a href=#privateprotected>private/protected</a>
+<ul>
+<li><a href=#privateprotectedメソッドをテスト>private/protectedメソッドをテスト</a></li>
+<li><a href=#privateprotectedプロパティの値を書き換えてテスト>private/protectedプロパティの値を書き換えてテスト</a></li>
+<li><a href=#privateprotectedプロパティの値をテスト>private/protectedプロパティの値をテスト</a></li>
+</ul>
+</li>
+<li><a href=#ファイル>ファイル</a>
+<ul>
+<li><a href=#仮想ファイルを使ってファイルの読み書きをテスト>仮想ファイルを使ってファイルの読み書きをテスト</a></li>
+</ul>
+</li>
+<li><a href=#その他>その他</a>
+<ul>
+<li><a href=#無名クラスを使ってトレイトをテスト>無名クラスを使ってトレイトをテスト</a></li>
+</ul>
+</li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
