@@ -117,4 +117,4 @@ tags: ["Go", "Golang", "Check Sheet"]
 ## その他
 - ssh.IsTerminal
 - Timing-Dependent Tests https://speakerdeck.com/mitchellh/advanced-testing-with-go?slide=62
-
+- 1行で Go Playground のURLを生成 `tree -Ffi --gitignore --noreport -I TODO.md | grep -v /$ | xargs gp share`
