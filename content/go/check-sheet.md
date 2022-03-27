@@ -53,19 +53,21 @@ tags: ["Go", "Golang", "Check Sheet"]
   - 同じ処理を複数回かかないこと
   - 適切に関数に切り出していること
 - 標準/準標準パッケージの機能を充分に活用
-  - bufio
-  - bytes
-  - exec
-  - fmt
-  - fs
-  - io
-  - os
-  - path, filepath
-  - strings
+  - `bufio`
+  - `bytes`
+  - `exec`
+  - `fmt`
+  - `fs`
+  - `io`
+  - `os`
+  - `path`, `filepath`
+  - `strings`
 - ディレクトリ区切り
-  - path.Join pathパッケージの区切りは全てスラッシュ
-  - filepath.FromSlash, filepath.ToSlash
+  - Linux, Mac, Windows etc どのOSでも動作するようメソッドを選択
+  - `path.Join` `path` パッケージの区切りは全てスラッシュ
+  - `filepath.FromSlash`, `filepath.ToSlash`
 - エラー処理
+  - `log.Fatal` は内部で `os.Exit(1)` を呼んでいるためパッケージ側では使用しないこと
   - エラーメッセージ https://github.com/golang/go/wiki/CodeReviewComments#error-strings
     - 簡潔に記述
     - 先頭は小文字
