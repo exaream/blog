@@ -84,14 +84,27 @@ tags: ["Go", "Golang", "Check Sheet"]
     - https://engineering.mercari.com/en/blog/entry/20211221-a-deep-dive-into-table-driven-testing-in-golang/
   - テーブルを簡潔に記述
     - テーブルのケースは可読性を考慮し横1行で記述
-    - 名前の長い定数や変数を再定義
-    - 型エイリアスを使用
-    - デフォルト値を用意
-    - ヘルパー関数を活用
-      - ヘルパー関数はエラーを返却しないこと
+      - 名前の長い定数や変数を再定義
+      - 型エイリアスを使用
+      - デフォルト値を用意
+      - ヘルパー関数を活用
+        - ヘルパー関数はエラーを返却しないこと
+    - 構造体リテラルからフィールド名を削除
+    - 構造体の入力と期待値の間に1行空行を挿入（可読性を考慮）
+```go
+cases := map[string]struct {
+	foo string
+	bar int
+
+  want string
+}{
+```
     - 可変長引数をうまく活用した関数を作成　strings.NewReplacer
 - エラー処理
   - t.Error と t.Fatal の使い分け
+  - エラーがおきるかどうかは bool 値で判断
+  - 関数の違いは `errors.As` や `errors.Is` を使用
+  - 文言をチェックしたい場合は golden test で差分比較
 - 非公開な機能(Unexported)
   - https://engineering.mercari.com/blog/entry/2018-08-08-080000/
 - 並列化(Parallelization)
