@@ -4,3 +4,9 @@
 [submodule "themes/LoveIt"]
 	path = themes/LoveIt
 	url = https://github.com/dillonzq/LoveIt.git
+[submodule "themes/ace-documentation"]
+	path = themes/ace-documentation
+	url = https://github.com/vantagedesign/ace-documentation.git
+[submodule "themes/hugo-theme-learn"]
+	path = themes/hugo-theme-learn
+	url = https://github.com/matcornic/hugo-theme-learn.git
