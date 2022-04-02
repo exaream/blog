@@ -8,21 +8,21 @@ defaultContentLanguage = "en"
 # defaultContentLanguageInSubdir = true
 pluralizeListTitles = false
 
-[languages]
-  [languages.en]
-    languageName = "English"
-    languageCode = "en"
-    # contentDir = "content/en"
-    weight = 1
-    #[languages.en.params]
-    #  key1 = value1
-  [languages.ja]
-    languageName = "日本語"
-    languageCode = "ja"
-    # contentDir = "content/ja"
-    weight = 2
-    #[languages.ja.params]
-    #  key1 = value1
+#[languages]
+#  [languages.en]
+#    languageName = "English"
+#    languageCode = "en"
+#    contentDir = "content/en"
+#    weight = 1
+#    #[languages.en.params]
+#    #  key1 = value1
+#  [languages.ja]
+#    languageName = "日本語"
+#    languageCode = "ja"
+#    contentDir = "content/ja"
+#    weight = 2
+#    #[languages.ja.params]
+#    #  key1 = value1
 
 [params]
   BookMenuBundle = '/menu'
