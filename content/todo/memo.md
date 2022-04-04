@@ -15,6 +15,7 @@ tags: ["TODO"]
     * https://github.com/koirand/pulp/pull/3/files
   * Fuzzy search
     * https://koirand.github.io/blog/2018/pulp-search2/
+    * https://github.com/koirand/pulp/blob/master/assets/js/search.js
 
 ## Topic
 * Container
