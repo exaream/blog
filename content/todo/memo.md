@@ -7,6 +7,15 @@ tags: ["TODO"]
 
 # TODO
 
+## Improvement
+
+* Hugo
+  * Full text search
+    * https://koirand.github.io/blog/2018/pulp-search/
+    * https://github.com/koirand/pulp/pull/3/files
+  * Fuzzy search
+    * https://koirand.github.io/blog/2018/pulp-search2/
+
 ## Topic
 * Container
   * Docker★
