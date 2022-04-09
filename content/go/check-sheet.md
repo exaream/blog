@@ -1,5 +1,5 @@
 ---
-date: 2021-07-31
+date: 2022-03-31
 lastmod: ["lastmod"]
 title: Go Memo
 description: ""
@@ -66,6 +66,11 @@ tags: ["Go", "Golang", "Check Sheet"]
   - Linux, Mac, Windows etc どのOSでも動作するようメソッドを選択
   - `path.Join` `path` パッケージの区切りは全てスラッシュ
   - `filepath.FromSlash`, `filepath.ToSlash`
+- Export
+  - メソッドと返り値で公開と非公開を統一（捻じれが生じないようにすること）
+- 初期化
+  - 初期化には make を使用したほうが間違いが少ない）
+    `map[int]int{}` -> `make(map[int]int)`
 - エラー処理
   - `log.Fatal` は内部で `os.Exit(1)` を呼んでいるためパッケージ側では使用しないこと
   - エラーメッセージ https://github.com/golang/go/wiki/CodeReviewComments#error-strings
@@ -75,9 +80,10 @@ tags: ["Go", "Golang", "Check Sheet"]
   - 通常のエラー処理は panic を使用せず error を複数戻り値で使用　https://github.com/golang/go/wiki/CodeReviewComments#dont-panic
 
 ## 解析
-- エラー処理 errcheck https://github.com/kisielk/errcheck
-- セキュリティ gosec https://github.com/securego/gosec
-- 他 tennvet https://github.com/tenntenn/tennvet
+- errcheck https://github.com/kisielk/errcheck
+- gosec https://github.com/securego/gosec
+- tennvet https://github.com/tenntenn/tennvet
+- fieldalignment https://mattn.kaoriya.net/software/lang/go/20220127151742.htm
 
 ## テスト
 - テーブル駆動テスト
@@ -118,6 +124,7 @@ cases := map[string]struct {
 - 出力先の切替
   - fmt.Fprintln(writer, xxx), io.Writer, os.Stdout, bytes.Buffer
 - テストデータ
+  - 可能であればテストヘルパーでデータを作成
   - 一時ディレクトリを使用 t.TempDir()
   - strings.Repeat 同じ文字列をリピートして生成
   - io.LimitedReader 指定したバイト数のデータを生成
