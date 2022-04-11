@@ -9,6 +9,24 @@ tags: ["Git","Log","Configuration","Memo"]
 
 ## 実用的なコマンド
 
+### 頻繁に使うコマンド
+
+```shell
+$ git branch -a
+$ git checkout -b sample_branch_name
+# Edit source code
+$ git status
+$ git add .
+$ git commit -m "message"
+$ git push origin sample_branch_name
+```
+
+```shell
+git tag sample_tag_name
+git tag -n
+git push origin sample_tag_name
+```
+
 ### 指定したフォーマットでコミット・ログを表示
 
 ```shell
@@ -29,11 +47,6 @@ $ git diff --stat <Commit A> <Commit B>
 ファイル名のみ表示する場合
 ```shell
 $ git diff --stat --name-only <Commit A> <Commit B>
-```
-### タグの一覧を表示
-
-```shell
-$ git tag -n
 ```
 
 ## Git 設定
@@ -657,6 +670,11 @@ $ git tag
 ```
 
 タグ名と注釈
+
+```shell
+$ git tag -n
+```
+
 * ```-n``` 表示する注釈の行数
 ```shell
 $ git tag -n1
