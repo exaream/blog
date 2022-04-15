@@ -45,3 +45,7 @@
 * Tool
   * [cronの代替になりそうなジョブ管理ツールのまとめ](https://qiita.com/shrkw/items/5c3d53358b0016a09504)
   * [Workspace Cleanup（Jenkins の workspace お掃除プラグイン）](https://plugins.jenkins.io/ws-cleanup/)
+* Deep Tech
+  * 透明太陽電池
+    * [窓ガラスでの発電](https://newswitch.jp/p/31463)
+    * [京都大学化学研究所の坂本雅典 准教授の解説](https://www.youtube.com/watch?v=R87fs1OilJA)

@@ -26,7 +26,7 @@ tags: ["Go", "Golang", "Link"]
 * [Project Layout (Directory Structure)](https://github.com/golang-standards/project-layout)
 * [Error handling and Go](https://go.dev/blog/error-handling-and-go)
 * [Context](https://go.dev/blog/context)
-
+* [go-safeweb](https://github.com/google/go-safeweb) SQL Injection, XSS, XSRF etc.
 
 ## Book
 
