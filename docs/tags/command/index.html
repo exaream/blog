@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css" integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9e974a933e91bb42755a49e65e1be40ee1d7724dece1a24c0166ae06a3dc76e9.js" integrity="sha256-npdKkz6Ru0J1WknmXhvkDuHXck3s4aJMAWauBqPcduk=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.3d986d97238530495b8f278049cdf2a52e530157504da0dc16ee6b2e700ecf21.js" integrity="sha256-PZhtlyOFMElbjyeASc3ypS5TAVdQTaDcFu5rLnAOzyE=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://exaream.dev/tags/command/index.xml" title="Tech" />
 <!--
 Made with Book Theme
@@ -80,7 +80,7 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><strong>Linux</strong>
 <ul>
-<li><a href="https://exaream.dev/linux/main/">Linux</a></li>
+<li><a href="https://exaream.dev/linux/command/">Linux Command</a></li>
 <li><a href="https://exaream.dev/linux/ubuntu/">Ubuntu</a></li>
 </ul>
 </li>
@@ -495,7 +495,7 @@ https://github.com/alex-shpak/hugo-book
   
   <article class="markdown book-post">
     <h2>
-      <a href="/linux/main/">Linux</a>
+      <a href="/linux/command/">Linux Command</a>
     </h2>
     
   <h5>January 1, 2020</h5>
@@ -515,12 +515,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    <p>Linux #  コマンド入力履歴 #  history コマンドの主なオプション #     option description     整数値 履歴の末尾から指定した行数分を表示   -c 履歴一覧から全ての項目を削除   -d 番号 指定した番号の履歴項目を削除   -a 履歴ファイルに現在のセッションの履歴を追加   -n 履歴ファイルからまだ読み込まれていない行を全て読み込み   -r 履歴ファイルを読み込み、内容を履歴一覧に追加   -w 現在の履歴を履歴ファイルに上書き    コマンド入力履歴を表示 #  履歴を末尾から10件分表示
-$ history 10 コマンドライン上で !番号 と入力することで指定したコマンドを実行
-例) 履歴の末尾から5件目のコマンドを実行する場合
-!5 履歴の件数が多い場合 head コマンドで冒頭のみ表示
-$ history | head コマンド入力履歴を削除 #  指定した番号の履歴を削除 例) 5番の履歴を削除
-        <a href="/linux/main/">...</a>
+    <p>Linux Command #  便利なコマンド #  文字列の置換 #  ディレクトリ配下を再帰的に走査しファイルの文字列を置換 e.g. 拡張子が .txt のファイル内の文字列 Before を After に置換
+LC_ALL=C find . -type f -name &#39;*.txt&#39; -exec sed -i &#39;&#39; s/Before/After/g {} + コマンド入力履歴 #  history コマンドの主なオプション #     option description     整数値 履歴の末尾から指定した行数分を表示   -c 履歴一覧から全ての項目を削除   -d 番号 指定した番号の履歴項目を削除   -a 履歴ファイルに現在のセッションの履歴を追加   -n 履歴ファイルからまだ読み込まれていない行を全て読み込み   -r 履歴ファイルを読み込み、内容を履歴一覧に追加   -w 現在の履歴を履歴ファイルに上書き    コマンド入力履歴を表示 #  履歴を末尾から10件分表示
+        <a href="/linux/command/">...</a>
       
     </p>
   </article>

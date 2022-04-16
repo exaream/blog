@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Linux">
+<meta name="description" content="Linux Command">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Linux" />
-<meta property="og:description" content="Linux" />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Linux Command" />
+<meta property="og:description" content="Linux Command" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://exaream.dev/linux/main/" /><meta property="article:section" content="linux" />
+<meta property="og:url" content="https://exaream.dev/linux/command/" /><meta property="article:section" content="linux" />
 <meta property="article:published_time" content="2020-01-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-01-01T00:00:00+00:00" />
 
-<title>Linux | Tech</title>
+<title>Linux Command | Tech</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css" integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9e974a933e91bb42755a49e65e1be40ee1d7724dece1a24c0166ae06a3dc76e9.js" integrity="sha256-npdKkz6Ru0J1WknmXhvkDuHXck3s4aJMAWauBqPcduk=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.3d986d97238530495b8f278049cdf2a52e530157504da0dc16ee6b2e700ecf21.js" integrity="sha256-PZhtlyOFMElbjyeASc3ypS5TAVdQTaDcFu5rLnAOzyE=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -81,7 +81,7 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li><strong>Linux</strong>
 <ul>
-<li><a href="https://exaream.dev/linux/main/">Linux</a></li>
+<li><a href="https://exaream.dev/linux/command/">Linux Command</a></li>
 <li><a href="https://exaream.dev/linux/ubuntu/">Ubuntu</a></li>
 </ul>
 </li>
@@ -145,7 +145,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Linux</strong>
+  <strong>Linux Command</strong>
 
   <label for="toc-control">
     
@@ -166,6 +166,11 @@ https://github.com/alex-shpak/hugo-book
 <h2>Table of Contents</h2>
 <nav id="TableOfContents">
   <ul>
+    <li><a href="#便利なコマンド">便利なコマンド</a>
+      <ul>
+        <li><a href="#文字列の置換">文字列の置換</a></li>
+      </ul>
+    </li>
     <li><a href="#コマンド入力履歴">コマンド入力履歴</a>
       <ul>
         <li><a href="#history-コマンドの主なオプション"><code>history</code> コマンドの主なオプション</a></li>
@@ -408,18 +413,29 @@ https://github.com/alex-shpak/hugo-book
 
 
 <li class="active">
-  <a href="https://exaream.dev/linux/main/">Main</a>
+  <a href="https://exaream.dev/linux/command/">Command</a>
 </li>
 
 </ol>
 
 
       
-  <article class="markdown"><h1 id="linux">
-  Linux
-  <a class="anchor" href="#linux">#</a>
+  <article class="markdown"><h1 id="linux-command">
+  Linux Command
+  <a class="anchor" href="#linux-command">#</a>
 </h1>
-<h2 id="コマンド入力履歴">
+<h2 id="便利なコマンド">
+  便利なコマンド
+  <a class="anchor" href="#%e4%be%bf%e5%88%a9%e3%81%aa%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89">#</a>
+</h2>
+<h3 id="文字列の置換">
+  文字列の置換
+  <a class="anchor" href="#%e6%96%87%e5%ad%97%e5%88%97%e3%81%ae%e7%bd%ae%e6%8f%9b">#</a>
+</h3>
+<p>ディレクトリ配下を再帰的に走査しファイルの文字列を置換
+e.g. 拡張子が <code>.txt</code> のファイル内の文字列 Before を After に置換</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">LC_ALL<span style="color:#f92672">=</span>C find . -type f -name <span style="color:#e6db74">&#39;*.txt&#39;</span> -exec sed -i <span style="color:#e6db74">&#39;&#39;</span> s/Before/After/g <span style="color:#f92672">{}</span> +
+</code></pre></div><h2 id="コマンド入力履歴">
   コマンド入力履歴
   <a class="anchor" href="#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4">#</a>
 </h2>
@@ -472,7 +488,7 @@ https://github.com/alex-shpak/hugo-book
 <p>履歴を末尾から10件分表示</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ history <span style="color:#ae81ff">10</span>
 </code></pre></div><p>コマンドライン上で <code>!番号</code> と入力することで指定したコマンドを実行<br>
-例) 履歴の末尾から5件目のコマンドを実行する場合</p>
+e.g. 履歴の末尾から5件目のコマンドを実行する場合</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">!5
 </code></pre></div><p>履歴の件数が多い場合 <code>head</code> コマンドで冒頭のみ表示</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ history | head
@@ -481,7 +497,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e5%89%8a%e9%99%a4">#</a>
 </h3>
 <p>指定した番号の履歴を削除
-例) 5番の履歴を削除</p>
+e.g. 5番の履歴を削除</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ history -d <span style="color:#ae81ff">5</span>
 </code></pre></div><p>全ての履歴を削除</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ history -c
@@ -489,13 +505,13 @@ https://github.com/alex-shpak/hugo-book
   現在のコマンド入力履歴を履歴ファイルに上書き
   <a class="anchor" href="#%e7%8f%be%e5%9c%a8%e3%81%ae%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e5%b1%a5%e6%ad%b4%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ab%e4%b8%8a%e6%9b%b8%e3%81%8d">#</a>
 </h3>
-<p>例) 現在の履歴を <code>sample.txt</code> に上書き</p>
+<p>e.g. 現在の履歴を <code>sample.txt</code> に上書き</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ history -w sample.txt
 </code></pre></div><h3 id="履歴ファイルを読み込み">
   履歴ファイルを読み込み
   <a class="anchor" href="#%e5%b1%a5%e6%ad%b4%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e8%aa%ad%e3%81%bf%e8%be%bc%e3%81%bf">#</a>
 </h3>
-<p>例) <code>sample.txt</code> の内容を履歴として読み込み</p>
+<p>e.g. <code>sample.txt</code> の内容を履歴として読み込み</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ history -r sample.txt
 </code></pre></div><h2 id="画面操作">
   画面操作
@@ -2868,7 +2884,7 @@ JST +0900
 </h3>
 <p>環境変数を指定してコマンドを実行</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">env 環境変数名<span style="color:#f92672">=</span>値 コマンド
-</code></pre></div><p>例）
+</code></pre></div><p>e.g.<br>
 環境変数を一覧表示</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ env
 </code></pre></div><p>環境変数を指定しないで実行</p>
@@ -2986,6 +3002,11 @@ echo $LOGIN_USER
 <h2>Table of Contents</h2>
 <nav id="TableOfContents">
   <ul>
+    <li><a href="#便利なコマンド">便利なコマンド</a>
+      <ul>
+        <li><a href="#文字列の置換">文字列の置換</a></li>
+      </ul>
+    </li>
     <li><a href="#コマンド入力履歴">コマンド入力履歴</a>
       <ul>
         <li><a href="#history-コマンドの主なオプション"><code>history</code> コマンドの主なオプション</a></li>
