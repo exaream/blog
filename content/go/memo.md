@@ -3,6 +3,7 @@ date: 2021-07-31
 lastmod: ["lastmod"]
 title: Go Memo
 description: ""
+draft: true
 tags: ["Go", "Golang", "Memo"]
 ---
 
