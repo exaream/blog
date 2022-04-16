@@ -207,6 +207,15 @@
     </item>
     
     <item>
+      <title>Docker Compose</title>
+      <link>https://exaream.dev/tags/docker-compose/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.dev/tags/docker-compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>docker stack</title>
       <link>https://exaream.dev/tags/docker-stack/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
@@ -221,15 +230,6 @@
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://exaream.dev/tags/docker-swarm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker-compose</title>
-      <link>https://exaream.dev/tags/docker-compose/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://exaream.dev/tags/docker-compose/</guid>
       <description></description>
     </item>
     

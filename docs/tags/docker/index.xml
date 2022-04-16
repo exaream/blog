@@ -18,21 +18,21 @@
     </item>
     
     <item>
+      <title>Docker Compose</title>
+      <link>https://exaream.dev/container/docker-compose/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.dev/container/docker-compose/</guid>
+      <description>Docker Compose #  Basic operation #  Run containers #   カレントディレクトリの docker-compose.yml に記載したコンテナ群を起動 初回起動時にコンテナ群をつなぐユーザ定義・ブリッジ・ネットワークも自動生成 フォアグラウンドモードで起動する場合(ターミナルにコンテナログを出力)  $ docker-compose up  バックグラウンドモードで起動する場合  $ docker-compose up -d Stop containers #   フォアグラウンドモードで起動した場合  ターミナルで Ctrl+C 押下   バックグラウンドモードで起動した場合  $ docker-compose stop Rebuild an image #  $ docker-compose build Remove containers and networks #  $ docker-compose down Stop and remove all (containers, images, volumes, networks) 滅びの呪文 #  docker-compose down --rmi all --volumes --remove-orphans </description>
+    </item>
+    
+    <item>
       <title>Docker Swarm</title>
       <link>https://exaream.dev/container/docker-swarm/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://exaream.dev/container/docker-swarm/</guid>
       <description>Docker Swarm #  Swarm クラスタを初期化 #  docker swarm init [options] Swarm クラスタに node もしくは manager を追加 #  docker swarm join [options] managerホスト:ポート Swarm クラスタから node もしくは manager を離脱 #  docker swarm leave [options] Swarm クラスタに Stack をデプロイ #  docker stack deploy [options] Stack名 Swarm クラスタにデプロイされている Stack 一覧を表示 #  docker stack (ls|list) [options] Stack 内で実行されているタスクを表示 #  docker stack ps [options] Stack名 Swarm クラスタからStackを削除 #  docker stack (rm|remove|down) [options] Stack名.</description>
-    </item>
-    
-    <item>
-      <title>docker-compose</title>
-      <link>https://exaream.dev/container/docker-compose/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://exaream.dev/container/docker-compose/</guid>
-      <description>Docker Compose #  Basic operation #  Run containers #   カレントディレクトリの docker-compose.yml に記載したコンテナ群を起動 初回起動時にコンテナ群をつなぐユーザ定義・ブリッジ・ネットワークも自動生成 フォアグラウンドモードで起動する場合(ターミナルにコンテナログを出力)  $ docker-compose up  バックグラウンドモードで起動する場合  $ docker-compose up -d Stop containers #   フォアグラウンドモードで起動した場合  ターミナルで Ctrl+C 押下   バックグラウンドモードで起動した場合  $ docker-compose stop Rebuild an image #  $ docker-compose build Remove containers and networks #  $ docker-compose down Stop and remove all (containers, images, volumes, networks) 滅びの呪文 #  docker-compose down --rmi all --volumes --remove-orphans </description>
     </item>
     
   </channel>

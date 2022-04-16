@@ -119,6 +119,12 @@
     <loc>https://exaream.dev/container/docker/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://exaream.dev/tags/docker-compose/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://exaream.dev/container/docker-compose/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://exaream.dev/tags/docker-stack/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -126,12 +132,6 @@
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/docker-swarm/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/tags/docker-compose/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/container/docker-compose/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/excel/</loc>

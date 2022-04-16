@@ -1,10 +1,10 @@
 ---
 date: 2020-01-01
 lastmod: ["lastmod"]
-title: docker-compose
-linkTitle: docker-compose
-description: docker-compose
-tags: ["docker-compose", "Docker", "Container"]
+title: Docker Compose
+linkTitle: Docker Compose
+description: Docker Compose
+tags: ["Docker Compose", "Docker", "Container"]
 ---
 # Docker Compose
 
