@@ -1,13 +1,23 @@
 ---
 date: 2020-01-01
 lastmod: ["lastmod"]
-title: Linux
-linkTitle: Main
-description: Linux
+title: Linux Command
+linkTitle: Command
+description: Linux Command
 tags: ["Linux","Command"]
 ---
 
-# Linux
+# Linux Command
+
+## 便利なコマンド
+
+### 文字列の置換
+
+ディレクトリ配下を再帰的に走査しファイルの文字列を置換
+e.g. 拡張子が `.txt` のファイル内の文字列 Before を After に置換
+```shell
+LC_ALL=C find . -type f -name '*.txt' -exec sed -i '' s/Before/After/g {} +
+```
 
 ## コマンド入力履歴
 
@@ -30,7 +40,7 @@ tags: ["Linux","Command"]
 $ history 10
 ```
 コマンドライン上で `!番号` と入力することで指定したコマンドを実行  
-例) 履歴の末尾から5件目のコマンドを実行する場合
+e.g. 履歴の末尾から5件目のコマンドを実行する場合
 ```shell
 !5
 ```
@@ -41,7 +51,7 @@ $ history | head
 
 ### コマンド入力履歴を削除
 指定した番号の履歴を削除
-例) 5番の履歴を削除
+e.g. 5番の履歴を削除
 ```shell
 $ history -d 5
 ```
@@ -51,13 +61,13 @@ $ history -c
 ```
 
 ### 現在のコマンド入力履歴を履歴ファイルに上書き
-例) 現在の履歴を `sample.txt` に上書き
+e.g. 現在の履歴を `sample.txt` に上書き
 ```shell
 $ history -w sample.txt
 ```
 
 ### 履歴ファイルを読み込み
-例) `sample.txt` の内容を履歴として読み込み
+e.g. `sample.txt` の内容を履歴として読み込み
 ```shell
 $ history -r sample.txt
 ```
@@ -1073,7 +1083,7 @@ sort -k 5n -t , sample.csv
 env 環境変数名=値 コマンド
 ```
 
-例）
+e.g.  
 環境変数を一覧表示
 
 ```shell

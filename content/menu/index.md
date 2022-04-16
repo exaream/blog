@@ -18,7 +18,7 @@ headless: true
   - [Go Test]({{< ref "go/test">}})
   - [Go Link]({{< ref "go/link">}})
 * **Linux**
-  - [Linux]({{< ref "linux/main" >}})
+  - [Linux Command]({{< ref "linux/command" >}})
   - [Ubuntu]({{< ref "linux/ubuntu" >}})
 * **Python**
   - [Python]({{< ref "python/main">}})
