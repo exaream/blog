@@ -13,7 +13,7 @@ tags: ["Linux","Command"]
 
 ### 文字列の置換
 
-ディレクトリ配下を再帰的に走査しファイルの文字列を置換
+ディレクトリ配下を再帰的に走査しファイルの文字列を置換  
 e.g. 拡張子が `.txt` のファイル内の文字列 Before を After に置換
 ```shell
 LC_ALL=C find . -type f -name '*.txt' -exec sed -i '' s/Before/After/g {} +
@@ -50,7 +50,7 @@ $ history | head
 ```
 
 ### コマンド入力履歴を削除
-指定した番号の履歴を削除
+指定した番号の履歴を削除  
 e.g. 5番の履歴を削除
 ```shell
 $ history -d 5
