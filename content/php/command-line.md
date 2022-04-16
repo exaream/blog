@@ -1,3 +1,12 @@
+---
+date: 2020-01-01
+lastmod: ["lastmod"]
+title: PHP Command Line Option
+LinkTitle: Command Line Option
+description: PHP Command Line Option
+tags: ["PHP", "Command Line"]
+---
+
 # PHP Command Line Option
 
 |option||description|
@@ -14,5 +23,6 @@
 |`-v`|`--version`|バージョン情報を表示|
 |`-w`|`--strip`|コメントと空白文字を削除してソースを表示, `-r` との同時の使用は不可|
 
+## References
 * https://qiita.com/akiko-pusu/items/93dc4cf63d23a1bb9bdb
 * https://www.php.net/manual/ja/features.commandline.options.php

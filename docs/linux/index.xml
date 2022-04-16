@@ -1,5 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Tech</title><link>https://exaream.dev/linux/</link><description>Recent content in Linux on Tech</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>exaream</copyright><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://exaream.dev/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Alpine Linux</title><link>https://exaream.dev/linux/alpine-linux/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://exaream.dev/linux/alpine-linux/</guid><description>Alpine Linux # Improvement of date command # Before # $ LAST_MONTH=`date -d &amp;#34;1970.01.01-00:00:$(( $( date +\%s ) - $(( 24 * 60 * 60 * 30 )) ))&amp;#34; +%Y%m` $ echo $LAST_MONTH Add coreutils package # apk add --update coreutils &amp;amp;&amp;amp; rm -rf /var/cache/apk/* After # $ LAST_MONTH=`date +\%Y\%m -d &amp;#39;last month&amp;#39;` $ echo $LAST_MONTH</description></item><item><title>Linux Memo</title><link>https://exaream.dev/linux/memo/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://exaream.dev/linux/memo/</guid><description>Linux Memo # コマンド入力履歴 # history コマンドの主なオプション # option description 整数値 履歴の末尾から指定した行数分を表示 -c 履歴一覧から全ての項目を削除 -d 番号 指定した番号の履歴項目を削除 -a 履歴ファイルに現在のセッションの履歴を追加 -n 履歴ファイルからまだ読み込まれていない行を全て読み込み -r 履歴ファイルを読み込み、内容を履歴一覧に追加 -w 現在の履歴を履歴ファイルに上書き コマンド入力履歴を表示 # 履歴を末尾から10件分表示
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Tech</title>
+    <link>https://exaream.dev/linux/</link>
+    <description>Recent content in Linux on Tech</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>exaream</copyright>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://exaream.dev/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>https://exaream.dev/linux/main/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.dev/linux/main/</guid>
+      <description>Linux #  コマンド入力履歴 #  history コマンドの主なオプション #     option description     整数値 履歴の末尾から指定した行数分を表示   -c 履歴一覧から全ての項目を削除   -d 番号 指定した番号の履歴項目を削除   -a 履歴ファイルに現在のセッションの履歴を追加   -n 履歴ファイルからまだ読み込まれていない行を全て読み込み   -r 履歴ファイルを読み込み、内容を履歴一覧に追加   -w 現在の履歴を履歴ファイルに上書き    コマンド入力履歴を表示 #  履歴を末尾から10件分表示
 $ history 10 コマンドライン上で !番号 と入力することで指定したコマンドを実行
 例) 履歴の末尾から5件目のコマンドを実行する場合
 !5 履歴の件数が多い場合 head コマンドで冒頭のみ表示
-$ history | head コマンド入力履歴を削除 # 指定した番号の履歴を削除 例) 5番の履歴を削除</description></item><item><title>Ubuntu</title><link>https://exaream.dev/linux/ubuntu/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://exaream.dev/linux/ubuntu/</guid><description>Ubuntu # apt-get # command description apt-get install &amp;lt;package&amp;gt; 指定パッケージのインストールと更新 apt-get update パッケージ・リストを更新 apt-get upgrade インストール済パッケージを更新 apt-get dist-upgrade 追加で必要なパッケージをインストール、不要パッケージを削除、ディストリビューションのバージョンを更新(セキュリティパッチをあてる場合などにも使用) apt-get remove &amp;lt;package&amp;gt; 指定パッケージを削除 apt-get autoremove 未使用パッケージを削除 (設定ファイルは削除しない) apt-get purge &amp;lt;package&amp;gt; 未使用パッケージを削除 (設定ファイルも削除する) apt-get clean パッケージをインストールした際のアーカイブ・ファイル(*.tar.gzなど)を削除 apt-get autoclean 未使用パッケージのアーカイブ・ファイルを削除 apt-cache # command description apt-cache search &amp;lt;query&amp;gt; パッケージを検索 (パッケージ名と説明が &amp;lt;query&amp;gt; の対象) apt-cache policy &amp;lt;query&amp;gt; パッケージを検索 (インストール可能なバージョンの表示) apt-cache madison &amp;lt;query&amp;gt; パッケージを検索 (インストール可能なバージョンの一覧) dpkg # command description dpkg -l &amp;lt;package&amp;gt; インストール済パッケージの一覧を表示、&amp;lt;package&amp;gt; を省略した場合 全パッケージを表示 dpkg -L &amp;lt;package&amp;gt; インストール時のファイルの一覧を表示 References # Ubuntu apt-get まとめ</description></item></channel></rss>
+$ history | head コマンド入力履歴を削除 #  指定した番号の履歴を削除 例) 5番の履歴を削除</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>https://exaream.dev/linux/ubuntu/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.dev/linux/ubuntu/</guid>
+      <description>Ubuntu #  apt-get #     command description     apt-get install &amp;lt;package&amp;gt; 指定パッケージのインストールと更新   apt-get update パッケージ・リストを更新   apt-get upgrade インストール済パッケージを更新   apt-get dist-upgrade 追加で必要なパッケージをインストール、不要パッケージを削除、ディストリビューションのバージョンを更新(セキュリティパッチをあてる場合などにも使用)   apt-get remove &amp;lt;package&amp;gt; 指定パッケージを削除   apt-get autoremove 未使用パッケージを削除 (設定ファイルは削除しない)   apt-get purge &amp;lt;package&amp;gt; 未使用パッケージを削除 (設定ファイルも削除する)   apt-get clean パッケージをインストールした際のアーカイブ・ファイル(*.tar.gzなど)を削除   apt-get autoclean 未使用パッケージのアーカイブ・ファイルを削除    apt-cache #     command description     apt-cache search &amp;lt;query&amp;gt; パッケージを検索 (パッケージ名と説明が &amp;lt;query&amp;gt; の対象)   apt-cache policy &amp;lt;query&amp;gt; パッケージを検索 (インストール可能なバージョンの表示)   apt-cache madison &amp;lt;query&amp;gt; パッケージを検索 (インストール可能なバージョンの一覧)    dpkg #     command description     dpkg -l &amp;lt;package&amp;gt; インストール済パッケージの一覧を表示、&amp;lt;package&amp;gt; を省略した場合 全パッケージを表示   dpkg -L &amp;lt;package&amp;gt; インストール時のファイルの一覧を表示    References #   Ubuntu apt-get まとめ  </description>
+    </item>
+    
+  </channel>
+</rss>

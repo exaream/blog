@@ -1,7 +1,8 @@
 ---
 date: 2020-01-01
 lastmod: ["lastmod"]
-title: "VS Code"
+title: VS Code
+LinkTitle: VS Code
 tags: ["Visual Studio Code","VS Code","Shortcut"]
 ---
 

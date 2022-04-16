@@ -2,8 +2,9 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: Hugo
+LinkTitle: Hugo
 description: How to build a blog using Hugo that is a fast and flexible static site generator made of Golang.
-tags: ["Hugo", "Golang", "static contents"]
+tags: ["Hugo", "Go", "Golang", "static contents"]
 ---
 
 # Hugo

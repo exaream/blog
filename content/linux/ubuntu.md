@@ -2,6 +2,8 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: Ubuntu
+linkTitle: Ubuntu
+description: Ubuntu
 tags: ["Linux","Ubuntu","apt-get"]
 ---
 

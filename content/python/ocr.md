@@ -2,6 +2,7 @@
 date: 2021-07-31
 lastmod: ["lastmod"]
 title: Python OCR
+LinkTitle: OCR
 description: "How to get text from an image using Tesseract which is an OCR (Optical Character Recognition) engine and Python."
 tags: ["Python", "OCR", "Tesseract"]
 ---

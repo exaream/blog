@@ -2,8 +2,9 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: MailCatcher
+LinkTitle: MailCatcher
 description: How to test emails on your local environment.
-tags: ["MailCatcher", ""]
+tags: ["MailCatcher", "Ruby"]
 ---
 
 # MailCatcher

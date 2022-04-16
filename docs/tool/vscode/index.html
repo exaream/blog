@@ -1,189 +1,260 @@
-<!doctype html><html lang=en-us dir=ltr>
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
 <head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="VS Code (Visual Studio Code) #  設定 #  設定を開く #   Macの場合：Code > Preferences... > Settings  ファイルを常に新しいタブで開く方法 #   workbench.editor.enablePreview　を検索しチェックを解除  プロジェクトを常に新しいウィンドウで開く方法 #   window.openFoldersInNewWindow を検索し on を選択  ショートカット #  開く・閉じる #     内容 Mac Windows     設定を開く command + , ctrl + ,   コマンドパレットを開く command + shift + p ctrl + shift + p   新しいウィンドウを開く command + shift + n ctrl + shift + n   ファイル名を指定して開く command + p ctrl + p   アクティブなファイルを閉じる command + w ctrl + w   全てのファイル閉じる command + k w ctrl + k w    拡大・縮小 #     内容 Mac Windows     拡大(ズームイン) command + = ctrl + =   縮小(ズームアウト) command + - ctrl + -   全画面表示 command + control + - F11    コピー・切り取り・削除 #     内容 Mac Windows     行末尾のスペースを削除 command + k x ctrl + k x   行のインデントを追加 command + ] ctrl + ]   行のインデントを削除 command + [ ctrl + [   行のコピー(未選択時) command + c ctrl + c   行の切り取り(未選択時) command + x ctrl + x   ファイルの相対パスをコピー shift + option + command + c -   ファイルの絶対パスをコピー option + command + c -   コメント化/コメント解除 option + shift + a ctrl + /    選択 #     内容 Mac Windows     矩形選択 shift + option + マウス・ドラッグ shift + alt + マウス・ドラッグ    検索 #     内容 Mac Windows     プロジェクト全体を検索 command + shift + f ctrl + shift + f    移動 #     内容 Mac Windows     カーソル行を下に移動 option + ↓ alt + ↓   カーソル行を下に移動 option + ↑ alt + ↑   ファイル履歴を表示し移動 control + tab ctrl + tab   サイドバーにフォーカスを移動 command + 0 ctrl + 0   指定行に移動 control + g ctrl + g   最後に編集した箇所に移動 command + k q ctrl + k q   対応するカッコに移動 command + shift + \ ctrl + shift + ¥   前に移動(戻る) option + ← alt + ←   次に移動(進む) option + → alt + →    参考 #   https://qiita.">
-<meta name=theme-color content="#FFFFFF">
-<meta name=color-scheme content="light dark"><meta property="og:title" content="VS Code">
-<meta property="og:description" content="VS Code (Visual Studio Code) #  設定 #  設定を開く #   Macの場合：Code > Preferences... > Settings  ファイルを常に新しいタブで開く方法 #   workbench.editor.enablePreview　を検索しチェックを解除  プロジェクトを常に新しいウィンドウで開く方法 #   window.openFoldersInNewWindow を検索し on を選択  ショートカット #  開く・閉じる #     内容 Mac Windows     設定を開く command + , ctrl + ,   コマンドパレットを開く command + shift + p ctrl + shift + p   新しいウィンドウを開く command + shift + n ctrl + shift + n   ファイル名を指定して開く command + p ctrl + p   アクティブなファイルを閉じる command + w ctrl + w   全てのファイル閉じる command + k w ctrl + k w    拡大・縮小 #     内容 Mac Windows     拡大(ズームイン) command + = ctrl + =   縮小(ズームアウト) command + - ctrl + -   全画面表示 command + control + - F11    コピー・切り取り・削除 #     内容 Mac Windows     行末尾のスペースを削除 command + k x ctrl + k x   行のインデントを追加 command + ] ctrl + ]   行のインデントを削除 command + [ ctrl + [   行のコピー(未選択時) command + c ctrl + c   行の切り取り(未選択時) command + x ctrl + x   ファイルの相対パスをコピー shift + option + command + c -   ファイルの絶対パスをコピー option + command + c -   コメント化/コメント解除 option + shift + a ctrl + /    選択 #     内容 Mac Windows     矩形選択 shift + option + マウス・ドラッグ shift + alt + マウス・ドラッグ    検索 #     内容 Mac Windows     プロジェクト全体を検索 command + shift + f ctrl + shift + f    移動 #     内容 Mac Windows     カーソル行を下に移動 option + ↓ alt + ↓   カーソル行を下に移動 option + ↑ alt + ↑   ファイル履歴を表示し移動 control + tab ctrl + tab   サイドバーにフォーカスを移動 command + 0 ctrl + 0   指定行に移動 control + g ctrl + g   最後に編集した箇所に移動 command + k q ctrl + k q   対応するカッコに移動 command + shift + \ ctrl + shift + ¥   前に移動(戻る) option + ← alt + ←   次に移動(進む) option + → alt + →    参考 #   https://qiita.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://exaream.dev/tool/vscode/"><meta property="article:section" content="tool">
-<meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
-<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="VS Code (Visual Studio Code) #  設定 #  設定を開く #   Macの場合：Code &gt; Preferences... &gt; Settings  ファイルを常に新しいタブで開く方法 #   workbench.editor.enablePreview　を検索しチェックを解除  プロジェクトを常に新しいウィンドウで開く方法 #   window.openFoldersInNewWindow を検索し on を選択  ショートカット #  開く・閉じる #     内容 Mac Windows     設定を開く command &#43; , ctrl &#43; ,   コマンドパレットを開く command &#43; shift &#43; p ctrl &#43; shift &#43; p   新しいウィンドウを開く command &#43; shift &#43; n ctrl &#43; shift &#43; n   ファイル名を指定して開く command &#43; p ctrl &#43; p   アクティブなファイルを閉じる command &#43; w ctrl &#43; w   全てのファイル閉じる command &#43; k w ctrl &#43; k w    拡大・縮小 #     内容 Mac Windows     拡大(ズームイン) command &#43; = ctrl &#43; =   縮小(ズームアウト) command &#43; - ctrl &#43; -   全画面表示 command &#43; control &#43; - F11    コピー・切り取り・削除 #     内容 Mac Windows     行末尾のスペースを削除 command &#43; k x ctrl &#43; k x   行のインデントを追加 command &#43; ] ctrl &#43; ]   行のインデントを削除 command &#43; [ ctrl &#43; [   行のコピー(未選択時) command &#43; c ctrl &#43; c   行の切り取り(未選択時) command &#43; x ctrl &#43; x   ファイルの相対パスをコピー shift &#43; option &#43; command &#43; c -   ファイルの絶対パスをコピー option &#43; command &#43; c -   コメント化/コメント解除 option &#43; shift &#43; a ctrl &#43; /    選択 #     内容 Mac Windows     矩形選択 shift &#43; option &#43; マウス・ドラッグ shift &#43; alt &#43; マウス・ドラッグ    検索 #     内容 Mac Windows     プロジェクト全体を検索 command &#43; shift &#43; f ctrl &#43; shift &#43; f    移動 #     内容 Mac Windows     カーソル行を下に移動 option &#43; ↓ alt &#43; ↓   カーソル行を下に移動 option &#43; ↑ alt &#43; ↑   ファイル履歴を表示し移動 control &#43; tab ctrl &#43; tab   サイドバーにフォーカスを移動 command &#43; 0 ctrl &#43; 0   指定行に移動 control &#43; g ctrl &#43; g   最後に編集した箇所に移動 command &#43; k q ctrl &#43; k q   対応するカッコに移動 command &#43; shift &#43; \ ctrl &#43; shift &#43; ¥   前に移動(戻る) option &#43; ← alt &#43; ←   次に移動(進む) option &#43; → alt &#43; →    参考 #   https://qiita.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="VS Code" />
+<meta property="og:description" content="VS Code (Visual Studio Code) #  設定 #  設定を開く #   Macの場合：Code &gt; Preferences... &gt; Settings  ファイルを常に新しいタブで開く方法 #   workbench.editor.enablePreview　を検索しチェックを解除  プロジェクトを常に新しいウィンドウで開く方法 #   window.openFoldersInNewWindow を検索し on を選択  ショートカット #  開く・閉じる #     内容 Mac Windows     設定を開く command &#43; , ctrl &#43; ,   コマンドパレットを開く command &#43; shift &#43; p ctrl &#43; shift &#43; p   新しいウィンドウを開く command &#43; shift &#43; n ctrl &#43; shift &#43; n   ファイル名を指定して開く command &#43; p ctrl &#43; p   アクティブなファイルを閉じる command &#43; w ctrl &#43; w   全てのファイル閉じる command &#43; k w ctrl &#43; k w    拡大・縮小 #     内容 Mac Windows     拡大(ズームイン) command &#43; = ctrl &#43; =   縮小(ズームアウト) command &#43; - ctrl &#43; -   全画面表示 command &#43; control &#43; - F11    コピー・切り取り・削除 #     内容 Mac Windows     行末尾のスペースを削除 command &#43; k x ctrl &#43; k x   行のインデントを追加 command &#43; ] ctrl &#43; ]   行のインデントを削除 command &#43; [ ctrl &#43; [   行のコピー(未選択時) command &#43; c ctrl &#43; c   行の切り取り(未選択時) command &#43; x ctrl &#43; x   ファイルの相対パスをコピー shift &#43; option &#43; command &#43; c -   ファイルの絶対パスをコピー option &#43; command &#43; c -   コメント化/コメント解除 option &#43; shift &#43; a ctrl &#43; /    選択 #     内容 Mac Windows     矩形選択 shift &#43; option &#43; マウス・ドラッグ shift &#43; alt &#43; マウス・ドラッグ    検索 #     内容 Mac Windows     プロジェクト全体を検索 command &#43; shift &#43; f ctrl &#43; shift &#43; f    移動 #     内容 Mac Windows     カーソル行を下に移動 option &#43; ↓ alt &#43; ↓   カーソル行を下に移動 option &#43; ↑ alt &#43; ↑   ファイル履歴を表示し移動 control &#43; tab ctrl &#43; tab   サイドバーにフォーカスを移動 command &#43; 0 ctrl &#43; 0   指定行に移動 control &#43; g ctrl &#43; g   最後に編集した箇所に移動 command &#43; k q ctrl &#43; k q   対応するカッコに移動 command &#43; shift &#43; \ ctrl &#43; shift &#43; ¥   前に移動(戻る) option &#43; ← alt &#43; ←   次に移動(進む) option &#43; → alt &#43; →    参考 #   https://qiita." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://exaream.dev/tool/vscode/" /><meta property="article:section" content="tool" />
+<meta property="article:published_time" content="2020-01-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00" />
+
 <title>VS Code | Tech</title>
-<link rel=manifest href=/manifest.json>
-<link rel=icon href=/favicon.png type=image/x-icon>
-<link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
-<script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.677208964324a97004de54a331138e20876fa30c21d0c774f0f85408e96521fc.js integrity="sha256-Z3IIlkMkqXAE3lSjMROOIIdvowwh0Md08PhUCOllIfw=" crossorigin=anonymous></script>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css" integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.9e974a933e91bb42755a49e65e1be40ee1d7724dece1a24c0166ae06a3dc76e9.js" integrity="sha256-npdKkz6Ru0J1WknmXhvkDuHXck3s4aJMAWauBqPcduk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
 </head>
-<body dir=ltr>
-<input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control>
-<main class="container flex">
-<aside class=book-menu>
-<div class=book-menu-content>
-<nav>
-<h2 class=book-brand>
-<a class="flex align-center" href=/><span>Tech</span>
-</a>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Tech</span>
+  </a>
 </h2>
-<h3 id=menu>
-Menu
-<a class=anchor href=#menu>#</a>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="menu">
+  Menu
+  <a class="anchor" href="#menu">#</a>
 </h3>
 <ul>
 <li><strong>Git</strong>
 <ul>
-<li><a href=https://exaream.dev/git/memo/>Git Memo</a></li>
-<li><a href=https://exaream.dev/git/tool/>Git Tool</a></li>
+<li><a href="https://exaream.dev/git/main/">Git</a></li>
+<li><a href="https://exaream.dev/git/tool/">Git Tool</a></li>
 </ul>
 </li>
 <li><strong>Docker</strong>
 <ul>
-<li><a href=https://exaream.dev/docker/memo/>Docker Memo</a></li>
-<li><a href=https://exaream.dev/docker/docker-compose/>Docker Compose</a></li>
-<li><a href=https://exaream.dev/docker/docker-swarm/>Docker Swarm</a></li>
+<li><a href="https://exaream.dev/docker/main/">Docker</a></li>
+<li><a href="https://exaream.dev/docker/docker-compose/">Docker Compose</a></li>
+<li><a href="https://exaream.dev/docker/docker-swarm/">Docker Swarm</a></li>
 </ul>
 </li>
 <li><strong>SQL</strong>
 <ul>
-<li><a href=https://exaream.dev/mysql/memo/>MySQL Memo</a></li>
-<li><a href=https://exaream.dev/postgresql/memo/>PostgreSQL Memo</a></li>
+<li><a href="https://exaream.dev/mysql/main/">MySQL</a></li>
+<li><a href="https://exaream.dev/postgresql/main/">PostgreSQL</a></li>
 </ul>
 </li>
 <li><strong>Go</strong>
 <ul>
-<li><a href=https://exaream.dev/go/check-list/>Go Check List</a></li>
-<li><a href=https://exaream.dev/go/test/>Go Test</a></li>
-<li><a href=https://exaream.dev/go/link/>Go Link</a></li>
+<li><a href="https://exaream.dev/go/check-list/">Go Check List</a></li>
+<li><a href="https://exaream.dev/go/test/">Go Test</a></li>
+<li><a href="https://exaream.dev/go/link/">Go Link</a></li>
 </ul>
 </li>
 <li><strong>Linux</strong>
 <ul>
-<li><a href=https://exaream.dev/linux/memo/>Linux Memo</a></li>
-<li><a href=https://exaream.dev/linux/ubuntu/>Ubuntu</a></li>
-<li><a href=https://exaream.dev/linux/alpine-linux/>Alpine Linux</a></li>
+<li><a href="https://exaream.dev/linux/main/">Linux</a></li>
+<li><a href="https://exaream.dev/linux/ubuntu/">Ubuntu</a></li>
 </ul>
 </li>
 <li><strong>Python</strong>
 <ul>
-<li><a href=https://exaream.dev/python/memo/>Python Memo</a></li>
-<li><a href=https://exaream.dev/python/ocr/>Python OCR</a></li>
+<li><a href="https://exaream.dev/python/main/">Python</a></li>
+<li><a href="https://exaream.dev/python/ocr/">Python OCR</a></li>
 </ul>
 </li>
 <li><strong>PHP</strong>
 <ul>
-<li><a href=https://exaream.dev/php/phpunit/>PHPUnit</a></li>
-<li><a href=https://exaream.dev/php/phpmetrics/>PhpMetrics</a></li>
+<li><a href="https://exaream.dev/php/phpunit/">PHPUnit</a></li>
+<li><a href="https://exaream.dev/php/phpmetrics/">PhpMetrics</a></li>
 </ul>
 </li>
 <li><strong>Mac</strong>
 <ul>
-<li><a href=https://exaream.dev/mac/memo/>Mac Memo</a></li>
-<li><a href=https://exaream.dev/mac/iterm2/>iTerm2</a></li>
+<li><a href="https://exaream.dev/mac/main/">Mac</a></li>
+<li><a href="https://exaream.dev/mac/iterm2/">iTerm2</a></li>
+</ul>
+</li>
+<li><strong>Other</strong>
+<ul>
+<li><a href="https://exaream.dev/shellscript/main/">Shellscript</a></li>
+<li><a href="https://exaream.dev/tool/hugo/">Hugo</a></li>
+<li><a href="https://exaream.dev/nodejs/main/">Node</a></li>
+<li><a href="https://exaream.dev/tool/vscode/">VS Code</a></li>
+<li><a href="https://exaream.dev/tool/excel/">Excel</a></li>
+<li><a href="https://exaream.dev/tool/mailcatcher/">MailCatcher</a></li>
+<li><a href="https://exaream.dev/glossary/">Glossary</a></li>
 </ul>
 </li>
 </ul>
-<ul>
-<li><a href=https://exaream.dev/shellscript/memo/>Shellscript</a></li>
-<li><a href=https://exaream.dev/tool/hugo/>Hugo</a></li>
-<li><a href=https://exaream.dev/node/memo/>Node</a></li>
-<li><a href=https://exaream.dev/tool/vscode/>VS Code</a></li>
-<li><a href=https://exaream.dev/tool/excel/>Excel</a></li>
-<li><a href=https://exaream.dev/tool/mailcatcher/>MailCatcher</a></li>
-<li><a href=https://exaream.dev/glossary/>Glossary</a></li>
-</ul>
+
+
+
+
+
+
+
+
+
+
 </nav>
-<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>VS Code</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
 </div>
-</aside>
-<div class=book-page>
-<header class=book-header>
-<div class="flex align-center justify-between">
-<label for=menu-control>
-<img src=/svg/menu.svg class=book-icon alt=Menu>
-</label>
-<strong>VS Code</strong>
-<label for=toc-control>
-<img src=/svg/toc.svg class=book-icon alt="Table of Contents">
-</label>
-</div>
-<aside class="hidden clearfix">
-<h2>Tags</h2>
-<ul class=tags><li><a href=/tags/visual-studio-code>Visual Studio Code</a><li><a href=/tags/vs-code>VS Code</a><li><a href=/tags/shortcut>Shortcut</a></ul>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <h2>Tags</h2>
+
+
+  <ul class="tags"><li><a href="/tags/visual-studio-code">Visual Studio Code</a><li><a href="/tags/vs-code">VS Code</a><li><a href="/tags/shortcut">Shortcut</a></ul>
+
 <h2>Table of Contents</h2>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#設定>設定</a>
-<ul>
-<li><a href=#設定を開く>設定を開く</a></li>
-<li><a href=#ファイルを常に新しいタブで開く方法>ファイルを常に新しいタブで開く方法</a></li>
-<li><a href=#プロジェクトを常に新しいウィンドウで開く方法>プロジェクトを常に新しいウィンドウで開く方法</a></li>
-</ul>
-</li>
-<li><a href=#ショートカット>ショートカット</a>
-<ul>
-<li><a href=#開く閉じる>開く・閉じる</a></li>
-<li><a href=#拡大縮小>拡大・縮小</a></li>
-<li><a href=#コピー切り取り削除>コピー・切り取り・削除</a></li>
-<li><a href=#選択>選択</a></li>
-<li><a href=#検索>検索</a></li>
-<li><a href=#移動>移動</a></li>
-</ul>
-</li>
-<li><a href=#参考>参考</a></li>
-</ul>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#設定">設定</a>
+      <ul>
+        <li><a href="#設定を開く">設定を開く</a></li>
+        <li><a href="#ファイルを常に新しいタブで開く方法">ファイルを常に新しいタブで開く方法</a></li>
+        <li><a href="#プロジェクトを常に新しいウィンドウで開く方法">プロジェクトを常に新しいウィンドウで開く方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#ショートカット">ショートカット</a>
+      <ul>
+        <li><a href="#開く閉じる">開く・閉じる</a></li>
+        <li><a href="#拡大縮小">拡大・縮小</a></li>
+        <li><a href="#コピー切り取り削除">コピー・切り取り・削除</a></li>
+        <li><a href="#選択">選択</a></li>
+        <li><a href="#検索">検索</a></li>
+        <li><a href="#移動">移動</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
 </nav>
-</aside>
-</header>
-<ol class=breadcrumb>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      <ol  class="breadcrumb">
+    
+
+
+
+
+
 <li>
-<a href=https://exaream.dev/>Tech</a>
+  <a href="https://exaream.dev/">Tech</a>
 </li>
+
+
 <li>
-<a href=https://exaream.dev/tool/>Tool</a>
+  <a href="https://exaream.dev/tool/">Tool</a>
 </li>
-<li class=active>
-<a href=https://exaream.dev/tool/vscode/>VS Code</a>
+
+
+<li class="active">
+  <a href="https://exaream.dev/tool/vscode/">VS Code</a>
 </li>
+
 </ol>
-<article class=markdown><h1 id=vs-code-visual-studio-code>
-VS Code (Visual Studio Code)
-<a class=anchor href=#vs-code-visual-studio-code>#</a>
+
+
+      
+  <article class="markdown"><h1 id="vs-code-visual-studio-code">
+  VS Code (Visual Studio Code)
+  <a class="anchor" href="#vs-code-visual-studio-code">#</a>
 </h1>
-<h2 id=設定>
-設定
-<a class=anchor href=#%e8%a8%ad%e5%ae%9a>#</a>
+<h2 id="設定">
+  設定
+  <a class="anchor" href="#%e8%a8%ad%e5%ae%9a">#</a>
 </h2>
-<h3 id=設定を開く>
-設定を開く
-<a class=anchor href=#%e8%a8%ad%e5%ae%9a%e3%82%92%e9%96%8b%e3%81%8f>#</a>
+<h3 id="設定を開く">
+  設定を開く
+  <a class="anchor" href="#%e8%a8%ad%e5%ae%9a%e3%82%92%e9%96%8b%e3%81%8f">#</a>
 </h3>
 <ul>
-<li>Macの場合：<code>Code</code> > <code>Preferences...</code> > <code>Settings</code></li>
+<li>Macの場合：<code>Code</code> &gt; <code>Preferences...</code> &gt; <code>Settings</code></li>
 </ul>
-<h3 id=ファイルを常に新しいタブで開く方法>
-ファイルを常に新しいタブで開く方法
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e5%b8%b8%e3%81%ab%e6%96%b0%e3%81%97%e3%81%84%e3%82%bf%e3%83%96%e3%81%a7%e9%96%8b%e3%81%8f%e6%96%b9%e6%b3%95>#</a>
+<h3 id="ファイルを常に新しいタブで開く方法">
+  ファイルを常に新しいタブで開く方法
+  <a class="anchor" href="#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e5%b8%b8%e3%81%ab%e6%96%b0%e3%81%97%e3%81%84%e3%82%bf%e3%83%96%e3%81%a7%e9%96%8b%e3%81%8f%e6%96%b9%e6%b3%95">#</a>
 </h3>
 <ul>
 <li>workbench.editor.enablePreview　を検索しチェックを解除</li>
 </ul>
-<h3 id=プロジェクトを常に新しいウィンドウで開く方法>
-プロジェクトを常に新しいウィンドウで開く方法
-<a class=anchor href=#%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%82%92%e5%b8%b8%e3%81%ab%e6%96%b0%e3%81%97%e3%81%84%e3%82%a6%e3%82%a3%e3%83%b3%e3%83%89%e3%82%a6%e3%81%a7%e9%96%8b%e3%81%8f%e6%96%b9%e6%b3%95>#</a>
+<h3 id="プロジェクトを常に新しいウィンドウで開く方法">
+  プロジェクトを常に新しいウィンドウで開く方法
+  <a class="anchor" href="#%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%82%92%e5%b8%b8%e3%81%ab%e6%96%b0%e3%81%97%e3%81%84%e3%82%a6%e3%82%a3%e3%83%b3%e3%83%89%e3%82%a6%e3%81%a7%e9%96%8b%e3%81%8f%e6%96%b9%e6%b3%95">#</a>
 </h3>
 <ul>
 <li>window.openFoldersInNewWindow を検索し on を選択</li>
 </ul>
-<h2 id=ショートカット>
-ショートカット
-<a class=anchor href=#%e3%82%b7%e3%83%a7%e3%83%bc%e3%83%88%e3%82%ab%e3%83%83%e3%83%88>#</a>
+<h2 id="ショートカット">
+  ショートカット
+  <a class="anchor" href="#%e3%82%b7%e3%83%a7%e3%83%bc%e3%83%88%e3%82%ab%e3%83%83%e3%83%88">#</a>
 </h2>
-<h3 id=開く閉じる>
-開く・閉じる
-<a class=anchor href=#%e9%96%8b%e3%81%8f%e9%96%89%e3%81%98%e3%82%8b>#</a>
+<h3 id="開く閉じる">
+  開く・閉じる
+  <a class="anchor" href="#%e9%96%8b%e3%81%8f%e9%96%89%e3%81%98%e3%82%8b">#</a>
 </h3>
 <table>
 <thead>
@@ -226,9 +297,9 @@ VS Code (Visual Studio Code)
 </tr>
 </tbody>
 </table>
-<h3 id=拡大縮小>
-拡大・縮小
-<a class=anchor href=#%e6%8b%a1%e5%a4%a7%e7%b8%ae%e5%b0%8f>#</a>
+<h3 id="拡大縮小">
+  拡大・縮小
+  <a class="anchor" href="#%e6%8b%a1%e5%a4%a7%e7%b8%ae%e5%b0%8f">#</a>
 </h3>
 <table>
 <thead>
@@ -256,9 +327,9 @@ VS Code (Visual Studio Code)
 </tr>
 </tbody>
 </table>
-<h3 id=コピー切り取り削除>
-コピー・切り取り・削除
-<a class=anchor href=#%e3%82%b3%e3%83%94%e3%83%bc%e5%88%87%e3%82%8a%e5%8f%96%e3%82%8a%e5%89%8a%e9%99%a4>#</a>
+<h3 id="コピー切り取り削除">
+  コピー・切り取り・削除
+  <a class="anchor" href="#%e3%82%b3%e3%83%94%e3%83%bc%e5%88%87%e3%82%8a%e5%8f%96%e3%82%8a%e5%89%8a%e9%99%a4">#</a>
 </h3>
 <table>
 <thead>
@@ -311,9 +382,9 @@ VS Code (Visual Studio Code)
 </tr>
 </tbody>
 </table>
-<h3 id=選択>
-選択
-<a class=anchor href=#%e9%81%b8%e6%8a%9e>#</a>
+<h3 id="選択">
+  選択
+  <a class="anchor" href="#%e9%81%b8%e6%8a%9e">#</a>
 </h3>
 <table>
 <thead>
@@ -331,9 +402,9 @@ VS Code (Visual Studio Code)
 </tr>
 </tbody>
 </table>
-<h3 id=検索>
-検索
-<a class=anchor href=#%e6%a4%9c%e7%b4%a2>#</a>
+<h3 id="検索">
+  検索
+  <a class="anchor" href="#%e6%a4%9c%e7%b4%a2">#</a>
 </h3>
 <table>
 <thead>
@@ -351,9 +422,9 @@ VS Code (Visual Studio Code)
 </tr>
 </tbody>
 </table>
-<h3 id=移動>
-移動
-<a class=anchor href=#%e7%a7%bb%e5%8b%95>#</a>
+<h3 id="移動">
+  移動
+  <a class="anchor" href="#%e7%a7%bb%e5%8b%95">#</a>
 </h3>
 <table>
 <thead>
@@ -411,52 +482,99 @@ VS Code (Visual Studio Code)
 </tr>
 </tbody>
 </table>
-<h2 id=参考>
-参考
-<a class=anchor href=#%e5%8f%82%e8%80%83>#</a>
+<h2 id="参考">
+  参考
+  <a class="anchor" href="#%e5%8f%82%e8%80%83">#</a>
 </h2>
 <ul>
-<li><a href=https://qiita.com/TakahiRoyte/items/cdab6fca64da386a690b>https://qiita.com/TakahiRoyte/items/cdab6fca64da386a690b</a></li>
+<li><a href="https://qiita.com/TakahiRoyte/items/cdab6fca64da386a690b">https://qiita.com/TakahiRoyte/items/cdab6fca64da386a690b</a></li>
 </ul>
 </article>
-<footer class=book-footer>
-<div class="flex flex-wrap justify-between">
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
 </div>
-<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-</footer>
-<div class=book-comments>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
 </div>
-<label for=menu-control class="hidden book-menu-overlay"></label>
-</div>
-<aside class=book-toc>
-<div class=book-toc-content>
-<h2>Tags</h2>
-<ul class=tags><li><a href=/tags/visual-studio-code>Visual Studio Code</a><li><a href=/tags/vs-code>VS Code</a><li><a href=/tags/shortcut>Shortcut</a></ul>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  <h2>Tags</h2>
+
+
+  <ul class="tags"><li><a href="/tags/visual-studio-code">Visual Studio Code</a><li><a href="/tags/vs-code">VS Code</a><li><a href="/tags/shortcut">Shortcut</a></ul>
+
 <h2>Table of Contents</h2>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#設定>設定</a>
-<ul>
-<li><a href=#設定を開く>設定を開く</a></li>
-<li><a href=#ファイルを常に新しいタブで開く方法>ファイルを常に新しいタブで開く方法</a></li>
-<li><a href=#プロジェクトを常に新しいウィンドウで開く方法>プロジェクトを常に新しいウィンドウで開く方法</a></li>
-</ul>
-</li>
-<li><a href=#ショートカット>ショートカット</a>
-<ul>
-<li><a href=#開く閉じる>開く・閉じる</a></li>
-<li><a href=#拡大縮小>拡大・縮小</a></li>
-<li><a href=#コピー切り取り削除>コピー・切り取り・削除</a></li>
-<li><a href=#選択>選択</a></li>
-<li><a href=#検索>検索</a></li>
-<li><a href=#移動>移動</a></li>
-</ul>
-</li>
-<li><a href=#参考>参考</a></li>
-</ul>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#設定">設定</a>
+      <ul>
+        <li><a href="#設定を開く">設定を開く</a></li>
+        <li><a href="#ファイルを常に新しいタブで開く方法">ファイルを常に新しいタブで開く方法</a></li>
+        <li><a href="#プロジェクトを常に新しいウィンドウで開く方法">プロジェクトを常に新しいウィンドウで開く方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#ショートカット">ショートカット</a>
+      <ul>
+        <li><a href="#開く閉じる">開く・閉じる</a></li>
+        <li><a href="#拡大縮小">拡大・縮小</a></li>
+        <li><a href="#コピー切り取り削除">コピー・切り取り・削除</a></li>
+        <li><a href="#選択">選択</a></li>
+        <li><a href="#検索">検索</a></li>
+        <li><a href="#移動">移動</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
 </nav>
-</div>
-</aside>
-</main>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,13 @@
+---
+date: 2020-01-01
+lastmod: ["lastmod"]
+title: MySQL Error
+LinkTitle: Error
+description: MySQL Error
+#tags: ["MySQL", "Error"]
+draft: true
+---
+
 # MySQL Error
 
 ## ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction

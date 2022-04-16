@@ -4,36 +4,36 @@ headless: true
 
 ### Menu
 * **Git**
-  - [Git Memo]({{< ref "git/memo" >}})
+  - [Git]({{< ref "git/main" >}})
   - [Git Tool]({{< ref "git/tool" >}})
 * **Docker**
-  - [Docker Memo]({{< ref "docker/memo" >}})
+  - [Docker]({{< ref "docker/main" >}})
   - [Docker Compose]({{< ref "docker/docker-compose" >}})
   - [Docker Swarm]({{< ref "docker/docker-swarm" >}})
 * **SQL**
-  - [MySQL Memo]({{< ref "mysql/memo" >}})
-  - [PostgreSQL Memo]({{< ref "postgresql/memo" >}})
+  - [MySQL]({{< ref "mysql/main" >}})
+  - [PostgreSQL]({{< ref "postgresql/main" >}})
 * **Go**
   - [Go Check List]({{< ref "go/check-list" >}})
   - [Go Test]({{< ref "go/test">}})
   - [Go Link]({{< ref "go/link">}})
 * **Linux**
-  - [Linux Memo]({{< ref "linux/memo" >}})
+  - [Linux]({{< ref "linux/main" >}})
   - [Ubuntu]({{< ref "linux/ubuntu" >}})
-  - [Alpine Linux]({{< ref "linux/alpine-linux" >}})
 * **Python**
-  - [Python Memo]({{< ref "python/memo">}})
+  - [Python]({{< ref "python/main">}})
   - [Python OCR]({{< ref "python/ocr" >}})
 * **PHP**
   - [PHPUnit]({{< ref "php/phpunit" >}})
   - [PhpMetrics]({{< ref "php/phpmetrics" >}})
 * **Mac**
-  - [Mac Memo]({{< ref "mac/memo" >}})
+  - [Mac]({{< ref "mac/main" >}})
   - [iTerm2]({{< ref "mac/iterm2" >}})
-- [Shellscript]({{< ref "shellscript/memo">}})
-- [Hugo]({{< ref "tool/hugo" >}})
-- [Node]({{< ref "node/memo">}})
-- [VS Code]({{< ref "tool/vscode" >}})
-- [Excel]({{< ref "tool/excel" >}})
-- [MailCatcher]({{< ref "tool/mailcatcher" >}})
-- [Glossary]({{< ref "glossary" >}})
+* **Other**
+  - [Shellscript]({{< ref "shellscript/main">}})
+  - [Hugo]({{< ref "tool/hugo" >}})
+  - [Node]({{< ref "nodejs/main">}})
+  - [VS Code]({{< ref "tool/vscode" >}})
+  - [Excel]({{< ref "tool/excel" >}})
+  - [MailCatcher]({{< ref "tool/mailcatcher" >}})
+  - [Glossary]({{< ref "glossary" >}})

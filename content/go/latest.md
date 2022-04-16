@@ -2,8 +2,10 @@
 date: 2021-07-31
 lastmod: ["lastmod"]
 title: Golang latest version
-description: ""
-tags: ["Go", "Golang", "latest version"]
+linkTitle: Latest Version
+description: Golang latest version
+#tags: ["Go", "Golang", "latest version"]
+draft: true
 ---
 
 # Golang latest version

@@ -2,7 +2,8 @@
 date: 2021-07-31
 lastmod: ["lastmod"]
 title: Go Link
-description: ""
+linkTitle: Link
+description: Go Link
 tags: ["Go", "Golang", "Link"]
 ---
 

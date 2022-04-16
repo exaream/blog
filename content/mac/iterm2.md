@@ -2,6 +2,7 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: iTerm2
+linkTitle: iTerm2
 description: How to use iTerm2
 tags: ["iTerm2"]
 ---

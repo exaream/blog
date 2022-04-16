@@ -2,6 +2,8 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: Excel
+LinkTitle: Excel
+description: Excel
 tags: ["Excel"]
 ---
 

@@ -2,6 +2,8 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: Git Tool
+linkTitle: Tool
+description: Git Tool
 tags: ["Git","git-split-diffs","Tool"]
 ---
 

@@ -2,7 +2,9 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: PhpMetrics
-tags: ["PhpMetrics","Metrics"]
+LinkTitle: PhpMetrics
+description: PhpMetrics
+tags: ["PHP", "PhpMetrics","Metrics"]
 ---
 
 # PhpMetrics

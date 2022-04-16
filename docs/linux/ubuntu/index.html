@@ -1,146 +1,217 @@
-<!doctype html><html lang=en-us dir=ltr>
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
 <head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Ubuntu #  apt-get #     command description     apt-get install <package> 指定パッケージのインストールと更新   apt-get update パッケージ・リストを更新   apt-get upgrade インストール済パッケージを更新   apt-get dist-upgrade 追加で必要なパッケージをインストール、不要パッケージを削除、ディストリビューションのバージョンを更新(セキュリティパッチをあてる場合などにも使用)   apt-get remove <package> 指定パッケージを削除   apt-get autoremove 未使用パッケージを削除 (設定ファイルは削除しない)   apt-get purge <package> 未使用パッケージを削除 (設定ファイルも削除する)   apt-get clean パッケージをインストールした際のアーカイブ・ファイル(*.tar.gzなど)を削除   apt-get autoclean 未使用パッケージのアーカイブ・ファイルを削除    apt-cache #     command description     apt-cache search <query> パッケージを検索 (パッケージ名と説明が <query> の対象)   apt-cache policy <query> パッケージを検索 (インストール可能なバージョンの表示)   apt-cache madison <query> パッケージを検索 (インストール可能なバージョンの一覧)    dpkg #     command description     dpkg -l <package> インストール済パッケージの一覧を表示、<package> を省略した場合 全パッケージを表示   dpkg -L <package> インストール時のファイルの一覧を表示    References #   Ubuntu apt-get まとめ  ">
-<meta name=theme-color content="#FFFFFF">
-<meta name=color-scheme content="light dark"><meta property="og:title" content="Ubuntu">
-<meta property="og:description" content="Ubuntu #  apt-get #     command description     apt-get install <package> 指定パッケージのインストールと更新   apt-get update パッケージ・リストを更新   apt-get upgrade インストール済パッケージを更新   apt-get dist-upgrade 追加で必要なパッケージをインストール、不要パッケージを削除、ディストリビューションのバージョンを更新(セキュリティパッチをあてる場合などにも使用)   apt-get remove <package> 指定パッケージを削除   apt-get autoremove 未使用パッケージを削除 (設定ファイルは削除しない)   apt-get purge <package> 未使用パッケージを削除 (設定ファイルも削除する)   apt-get clean パッケージをインストールした際のアーカイブ・ファイル(*.tar.gzなど)を削除   apt-get autoclean 未使用パッケージのアーカイブ・ファイルを削除    apt-cache #     command description     apt-cache search <query> パッケージを検索 (パッケージ名と説明が <query> の対象)   apt-cache policy <query> パッケージを検索 (インストール可能なバージョンの表示)   apt-cache madison <query> パッケージを検索 (インストール可能なバージョンの一覧)    dpkg #     command description     dpkg -l <package> インストール済パッケージの一覧を表示、<package> を省略した場合 全パッケージを表示   dpkg -L <package> インストール時のファイルの一覧を表示    References #   Ubuntu apt-get まとめ  ">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://exaream.dev/linux/ubuntu/"><meta property="article:section" content="linux">
-<meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
-<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ubuntu">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Ubuntu" />
+<meta property="og:description" content="Ubuntu" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://exaream.dev/linux/ubuntu/" /><meta property="article:section" content="linux" />
+<meta property="article:published_time" content="2020-01-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00" />
+
 <title>Ubuntu | Tech</title>
-<link rel=manifest href=/manifest.json>
-<link rel=icon href=/favicon.png type=image/x-icon>
-<link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
-<script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.677208964324a97004de54a331138e20876fa30c21d0c774f0f85408e96521fc.js integrity="sha256-Z3IIlkMkqXAE3lSjMROOIIdvowwh0Md08PhUCOllIfw=" crossorigin=anonymous></script>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css" integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.9e974a933e91bb42755a49e65e1be40ee1d7724dece1a24c0166ae06a3dc76e9.js" integrity="sha256-npdKkz6Ru0J1WknmXhvkDuHXck3s4aJMAWauBqPcduk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
 </head>
-<body dir=ltr>
-<input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control>
-<main class="container flex">
-<aside class=book-menu>
-<div class=book-menu-content>
-<nav>
-<h2 class=book-brand>
-<a class="flex align-center" href=/><span>Tech</span>
-</a>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Tech</span>
+  </a>
 </h2>
-<h3 id=menu>
-Menu
-<a class=anchor href=#menu>#</a>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="menu">
+  Menu
+  <a class="anchor" href="#menu">#</a>
 </h3>
 <ul>
 <li><strong>Git</strong>
 <ul>
-<li><a href=https://exaream.dev/git/memo/>Git Memo</a></li>
-<li><a href=https://exaream.dev/git/tool/>Git Tool</a></li>
+<li><a href="https://exaream.dev/git/main/">Git</a></li>
+<li><a href="https://exaream.dev/git/tool/">Git Tool</a></li>
 </ul>
 </li>
 <li><strong>Docker</strong>
 <ul>
-<li><a href=https://exaream.dev/docker/memo/>Docker Memo</a></li>
-<li><a href=https://exaream.dev/docker/docker-compose/>Docker Compose</a></li>
-<li><a href=https://exaream.dev/docker/docker-swarm/>Docker Swarm</a></li>
+<li><a href="https://exaream.dev/docker/main/">Docker</a></li>
+<li><a href="https://exaream.dev/docker/docker-compose/">Docker Compose</a></li>
+<li><a href="https://exaream.dev/docker/docker-swarm/">Docker Swarm</a></li>
 </ul>
 </li>
 <li><strong>SQL</strong>
 <ul>
-<li><a href=https://exaream.dev/mysql/memo/>MySQL Memo</a></li>
-<li><a href=https://exaream.dev/postgresql/memo/>PostgreSQL Memo</a></li>
+<li><a href="https://exaream.dev/mysql/main/">MySQL</a></li>
+<li><a href="https://exaream.dev/postgresql/main/">PostgreSQL</a></li>
 </ul>
 </li>
 <li><strong>Go</strong>
 <ul>
-<li><a href=https://exaream.dev/go/check-list/>Go Check List</a></li>
-<li><a href=https://exaream.dev/go/test/>Go Test</a></li>
-<li><a href=https://exaream.dev/go/link/>Go Link</a></li>
+<li><a href="https://exaream.dev/go/check-list/">Go Check List</a></li>
+<li><a href="https://exaream.dev/go/test/">Go Test</a></li>
+<li><a href="https://exaream.dev/go/link/">Go Link</a></li>
 </ul>
 </li>
 <li><strong>Linux</strong>
 <ul>
-<li><a href=https://exaream.dev/linux/memo/>Linux Memo</a></li>
-<li><a href=https://exaream.dev/linux/ubuntu/>Ubuntu</a></li>
-<li><a href=https://exaream.dev/linux/alpine-linux/>Alpine Linux</a></li>
+<li><a href="https://exaream.dev/linux/main/">Linux</a></li>
+<li><a href="https://exaream.dev/linux/ubuntu/">Ubuntu</a></li>
 </ul>
 </li>
 <li><strong>Python</strong>
 <ul>
-<li><a href=https://exaream.dev/python/memo/>Python Memo</a></li>
-<li><a href=https://exaream.dev/python/ocr/>Python OCR</a></li>
+<li><a href="https://exaream.dev/python/main/">Python</a></li>
+<li><a href="https://exaream.dev/python/ocr/">Python OCR</a></li>
 </ul>
 </li>
 <li><strong>PHP</strong>
 <ul>
-<li><a href=https://exaream.dev/php/phpunit/>PHPUnit</a></li>
-<li><a href=https://exaream.dev/php/phpmetrics/>PhpMetrics</a></li>
+<li><a href="https://exaream.dev/php/phpunit/">PHPUnit</a></li>
+<li><a href="https://exaream.dev/php/phpmetrics/">PhpMetrics</a></li>
 </ul>
 </li>
 <li><strong>Mac</strong>
 <ul>
-<li><a href=https://exaream.dev/mac/memo/>Mac Memo</a></li>
-<li><a href=https://exaream.dev/mac/iterm2/>iTerm2</a></li>
+<li><a href="https://exaream.dev/mac/main/">Mac</a></li>
+<li><a href="https://exaream.dev/mac/iterm2/">iTerm2</a></li>
+</ul>
+</li>
+<li><strong>Other</strong>
+<ul>
+<li><a href="https://exaream.dev/shellscript/main/">Shellscript</a></li>
+<li><a href="https://exaream.dev/tool/hugo/">Hugo</a></li>
+<li><a href="https://exaream.dev/nodejs/main/">Node</a></li>
+<li><a href="https://exaream.dev/tool/vscode/">VS Code</a></li>
+<li><a href="https://exaream.dev/tool/excel/">Excel</a></li>
+<li><a href="https://exaream.dev/tool/mailcatcher/">MailCatcher</a></li>
+<li><a href="https://exaream.dev/glossary/">Glossary</a></li>
 </ul>
 </li>
 </ul>
-<ul>
-<li><a href=https://exaream.dev/shellscript/memo/>Shellscript</a></li>
-<li><a href=https://exaream.dev/tool/hugo/>Hugo</a></li>
-<li><a href=https://exaream.dev/node/memo/>Node</a></li>
-<li><a href=https://exaream.dev/tool/vscode/>VS Code</a></li>
-<li><a href=https://exaream.dev/tool/excel/>Excel</a></li>
-<li><a href=https://exaream.dev/tool/mailcatcher/>MailCatcher</a></li>
-<li><a href=https://exaream.dev/glossary/>Glossary</a></li>
-</ul>
+
+
+
+
+
+
+
+
+
+
 </nav>
-<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Ubuntu</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
 </div>
-</aside>
-<div class=book-page>
-<header class=book-header>
-<div class="flex align-center justify-between">
-<label for=menu-control>
-<img src=/svg/menu.svg class=book-icon alt=Menu>
-</label>
-<strong>Ubuntu</strong>
-<label for=toc-control>
-<img src=/svg/toc.svg class=book-icon alt="Table of Contents">
-</label>
-</div>
-<aside class="hidden clearfix">
-<h2>Tags</h2>
-<ul class=tags><li><a href=/tags/linux>Linux</a><li><a href=/tags/ubuntu>Ubuntu</a><li><a href=/tags/apt-get>apt-get</a></ul>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <h2>Tags</h2>
+
+
+  <ul class="tags"><li><a href="/tags/linux">Linux</a><li><a href="/tags/ubuntu">Ubuntu</a><li><a href="/tags/apt-get">apt-get</a></ul>
+
 <h2>Table of Contents</h2>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#apt-get><code>apt-get</code></a></li>
-<li><a href=#apt-cache><code>apt-cache</code></a></li>
-<li><a href=#dpkg><code>dpkg</code></a></li>
-<li><a href=#references>References</a></li>
-</ul>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#apt-get"><code>apt-get</code></a></li>
+    <li><a href="#apt-cache"><code>apt-cache</code></a></li>
+    <li><a href="#dpkg"><code>dpkg</code></a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
 </nav>
-</aside>
-</header>
-<ol class=breadcrumb>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      <ol  class="breadcrumb">
+    
+
+
+
+
+
 <li>
-<a href=https://exaream.dev/>Tech</a>
+  <a href="https://exaream.dev/">Tech</a>
 </li>
+
+
 <li>
-<a href=https://exaream.dev/linux/>Linux</a>
+  <a href="https://exaream.dev/linux/">Linux</a>
 </li>
-<li class=active>
-<a href=https://exaream.dev/linux/ubuntu/>Ubuntu</a>
+
+
+<li class="active">
+  <a href="https://exaream.dev/linux/ubuntu/">Ubuntu</a>
 </li>
+
 </ol>
-<article class=markdown><h1 id=ubuntu>
-Ubuntu
-<a class=anchor href=#ubuntu>#</a>
+
+
+      
+  <article class="markdown"><h1 id="ubuntu">
+  Ubuntu
+  <a class="anchor" href="#ubuntu">#</a>
 </h1>
-<h2 id=apt-get>
-<code>apt-get</code>
-<a class=anchor href=#apt-get>#</a>
+<h2 id="apt-get">
+  <code>apt-get</code>
+  <a class="anchor" href="#apt-get">#</a>
 </h2>
 <table>
 <thead>
@@ -151,7 +222,7 @@ Ubuntu
 </thead>
 <tbody>
 <tr>
-<td><code>apt-get install &lt;package></code></td>
+<td><code>apt-get install &lt;package&gt;</code></td>
 <td>指定パッケージのインストールと更新</td>
 </tr>
 <tr>
@@ -167,7 +238,7 @@ Ubuntu
 <td>追加で必要なパッケージをインストール、不要パッケージを削除、ディストリビューションのバージョンを更新(セキュリティパッチをあてる場合などにも使用)</td>
 </tr>
 <tr>
-<td><code>apt-get remove &lt;package></code></td>
+<td><code>apt-get remove &lt;package&gt;</code></td>
 <td>指定パッケージを削除</td>
 </tr>
 <tr>
@@ -175,7 +246,7 @@ Ubuntu
 <td>未使用パッケージを削除 (設定ファイルは削除しない)</td>
 </tr>
 <tr>
-<td><code>apt-get purge &lt;package></code></td>
+<td><code>apt-get purge &lt;package&gt;</code></td>
 <td>未使用パッケージを削除 (設定ファイルも削除する)</td>
 </tr>
 <tr>
@@ -188,9 +259,9 @@ Ubuntu
 </tr>
 </tbody>
 </table>
-<h2 id=apt-cache>
-<code>apt-cache</code>
-<a class=anchor href=#apt-cache>#</a>
+<h2 id="apt-cache">
+  <code>apt-cache</code>
+  <a class="anchor" href="#apt-cache">#</a>
 </h2>
 <table>
 <thead>
@@ -201,22 +272,22 @@ Ubuntu
 </thead>
 <tbody>
 <tr>
-<td><code>apt-cache search &lt;query></code></td>
-<td>パッケージを検索 (パッケージ名と説明が <code>&lt;query></code> の対象)</td>
+<td><code>apt-cache search &lt;query&gt;</code></td>
+<td>パッケージを検索 (パッケージ名と説明が <code>&lt;query&gt;</code> の対象)</td>
 </tr>
 <tr>
-<td><code>apt-cache policy &lt;query></code></td>
+<td><code>apt-cache policy &lt;query&gt;</code></td>
 <td>パッケージを検索 (インストール可能なバージョンの表示)</td>
 </tr>
 <tr>
-<td><code>apt-cache madison &lt;query></code></td>
+<td><code>apt-cache madison &lt;query&gt;</code></td>
 <td>パッケージを検索 (インストール可能なバージョンの一覧)</td>
 </tr>
 </tbody>
 </table>
-<h2 id=dpkg>
-<code>dpkg</code>
-<a class=anchor href=#dpkg>#</a>
+<h2 id="dpkg">
+  <code>dpkg</code>
+  <a class="anchor" href="#dpkg">#</a>
 </h2>
 <table>
 <thead>
@@ -227,47 +298,94 @@ Ubuntu
 </thead>
 <tbody>
 <tr>
-<td><code>dpkg -l &lt;package></code></td>
-<td>インストール済パッケージの一覧を表示、<code>&lt;package></code> を省略した場合 全パッケージを表示</td>
+<td><code>dpkg -l &lt;package&gt;</code></td>
+<td>インストール済パッケージの一覧を表示、<code>&lt;package&gt;</code> を省略した場合 全パッケージを表示</td>
 </tr>
 <tr>
-<td><code>dpkg -L &lt;package></code></td>
+<td><code>dpkg -L &lt;package&gt;</code></td>
 <td>インストール時のファイルの一覧を表示</td>
 </tr>
 </tbody>
 </table>
-<h2 id=references>
-References
-<a class=anchor href=#references>#</a>
+<h2 id="references">
+  References
+  <a class="anchor" href="#references">#</a>
 </h2>
 <ul>
-<li><a href=https://qiita.com/white_aspara25/items/723ae4ebf0bfefe2115c>Ubuntu apt-get まとめ</a></li>
+<li><a href="https://qiita.com/white_aspara25/items/723ae4ebf0bfefe2115c">Ubuntu apt-get まとめ</a></li>
 </ul>
 </article>
-<footer class=book-footer>
-<div class="flex flex-wrap justify-between">
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
 </div>
-<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-</footer>
-<div class=book-comments>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
 </div>
-<label for=menu-control class="hidden book-menu-overlay"></label>
-</div>
-<aside class=book-toc>
-<div class=book-toc-content>
-<h2>Tags</h2>
-<ul class=tags><li><a href=/tags/linux>Linux</a><li><a href=/tags/ubuntu>Ubuntu</a><li><a href=/tags/apt-get>apt-get</a></ul>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  <h2>Tags</h2>
+
+
+  <ul class="tags"><li><a href="/tags/linux">Linux</a><li><a href="/tags/ubuntu">Ubuntu</a><li><a href="/tags/apt-get">apt-get</a></ul>
+
 <h2>Table of Contents</h2>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#apt-get><code>apt-get</code></a></li>
-<li><a href=#apt-cache><code>apt-cache</code></a></li>
-<li><a href=#dpkg><code>dpkg</code></a></li>
-<li><a href=#references>References</a></li>
-</ul>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#apt-get"><code>apt-get</code></a></li>
+    <li><a href="#apt-cache"><code>apt-cache</code></a></li>
+    <li><a href="#dpkg"><code>dpkg</code></a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
 </nav>
-</div>
-</aside>
-</main>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

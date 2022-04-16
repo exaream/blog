@@ -2,6 +2,8 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: Docker Swarm
+linkTitle: Swarm
+description: Docker Swarm
 tags: ["Docker", "docker swarm", "docker stack"]
 ---
 # Docker Swarm

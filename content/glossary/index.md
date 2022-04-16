@@ -2,6 +2,8 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: Glossary
+linkTitle: Glossary
+description: Glossary
 tags: ["Glossary","用語集"]
 ---
 
@@ -9,7 +11,7 @@ tags: ["Glossary","用語集"]
 
 ## 技術
 
-### バッファ buffer 鑑賞記憶装置
+### バッファ buffer 緩衝記憶装置
 * IT分野では、コンピューターが処理しきれないデータを一時的に保持しておくための記憶領域を指し、「緩衝記憶領域」とも呼ばれる。コンピューター内部の入出力装置や制御装置などでは、装置ごとに処理速度の差があるため、装置間でデータをやりとりするとタイムラグが生じる。そこで、処理速度や転送速度の差を緩和させ、それぞれの処理速度に合わせたデータの保管や送信を行う必要があり、バッファはその役目を果たしている。
 https://e-words.jp/w/%E3%83%90%E3%83%83%E3%83%95%E3%82%A1.html
 https://www.otsuka-shokai.co.jp/words/buffer.html

@@ -1,8 +1,9 @@
 ---
 date: 2022-04-01
 lastmod: ["lastmod"]
-title: Link
-description: ""
+title: Career Link
+linkTitle: Link
+description: Career Link
 tags: ["Career", "Links"]
 ---
 

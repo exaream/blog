@@ -2,7 +2,10 @@
 date: 2020-01-01
 lastmod: ["lastmod"]
 title: gRPC
-tags: ["gRPC", "Remote Procedure Call"]
+linkTitle: gRPC
+description: gRPC
+#tags: ["gRPC", "Remote Procedure Call"]
+draft: true
 ---
 
 # gRPC
