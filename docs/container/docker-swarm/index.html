@@ -1,350 +1,233 @@
-<!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<!doctype html><html lang=en-us dir=ltr>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Docker Swarm">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Docker Swarm" />
-<meta property="og:description" content="Docker Swarm" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://exaream.dev/container/docker-swarm/" /><meta property="article:section" content="container" />
-<meta property="article:published_time" content="2020-01-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00" />
-
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Docker Swarm">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Docker Swarm">
+<meta property="og:description" content="Docker Swarm">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://exaream.dev/container/docker-swarm/"><meta property="article:section" content="container">
+<meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
+<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00">
 <title>Docker Swarm | Tech</title>
-<link rel="manifest" href="/manifest.json">
-<link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css" integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin="anonymous">
-  <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.f208c0fcde70689112d10f18e9c12c8a156488caf4b72e6b9fc0b6290f801eb9.js" integrity="sha256-8gjA/N5waJES0Q8Y6cEsihVkiMr0ty5rn8C2KQ&#43;AHrk=" crossorigin="anonymous"></script>
-<!--
-Made with Book Theme
-https://github.com/alex-shpak/hugo-book
--->
-  
+<link rel=manifest href=/manifest.json>
+<link rel=icon href=/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
+<script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.f208c0fcde70689112d10f18e9c12c8a156488caf4b72e6b9fc0b6290f801eb9.js integrity="sha256-8gjA/N5waJES0Q8Y6cEsihVkiMr0ty5rn8C2KQ+AHrk=" crossorigin=anonymous></script>
 </head>
-<body dir="ltr">
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
-  <main class="container flex">
-    <aside class="book-menu">
-      <div class="book-menu-content">
-        
-  <nav>
-<h2 class="book-brand">
-  <a class="flex align-center" href="/"><span>Tech</span>
-  </a>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/><span>Tech</span>
+</a>
 </h2>
-
-
-
-
-
-
-
-
-
-
-
-
-  <h3 id="menu">
-  Menu
-  <a class="anchor" href="#menu">#</a>
+<h3 id=menu>
+Menu
+<a class=anchor href=#menu>#</a>
 </h3>
 <ul>
-<li><strong><a href="https://exaream.dev/git/">Git</a></strong>
+<li><strong><a href=https://exaream.dev/git/>Git</a></strong>
 <ul>
-<li><a href="https://exaream.dev/git/basic/">Git Basic</a></li>
-<li><a href="https://exaream.dev/git/tool/">Git Tool</a></li>
+<li><a href=https://exaream.dev/git/basic/>Git Basic</a></li>
+<li><a href=https://exaream.dev/git/tool/>Git Tool</a></li>
 </ul>
 </li>
-<li><strong><a href="https://exaream.dev/container/">Container</a></strong>
+<li><strong><a href=https://exaream.dev/container/>Container</a></strong>
 <ul>
-<li><a href="https://exaream.dev/container/docker/">Docker</a></li>
-<li><a href="https://exaream.dev/container/docker-compose/">Docker Compose</a></li>
-<li><a href="https://exaream.dev/container/docker-swarm/">Docker Swarm</a></li>
+<li><a href=https://exaream.dev/container/docker/>Docker</a></li>
+<li><a href=https://exaream.dev/container/docker-compose/>Docker Compose</a></li>
+<li><a href=https://exaream.dev/container/docker-swarm/>Docker Swarm</a></li>
 </ul>
 </li>
-<li><strong><a href="https://exaream.dev/sql/">SQL</a></strong>
+<li><strong><a href=https://exaream.dev/sql/>SQL</a></strong>
 <ul>
-<li><a href="https://exaream.dev/sql/mysql/">MySQL</a></li>
-<li><a href="https://exaream.dev/sql/postgresql/">PostgreSQL</a></li>
+<li><a href=https://exaream.dev/sql/mysql/>MySQL</a></li>
+<li><a href=https://exaream.dev/sql/postgresql/>PostgreSQL</a></li>
 </ul>
 </li>
-<li><strong><a href="https://exaream.dev/go/">Go</a></strong>
+<li><strong><a href=https://exaream.dev/go/>Go</a></strong>
 <ul>
-<li><a href="https://exaream.dev/go/check-list/">Go Check List</a></li>
-<li><a href="https://exaream.dev/go/test/">Go Test</a></li>
-<li><a href="https://exaream.dev/go/link/">Go Link</a></li>
+<li><a href=https://exaream.dev/go/check-list/>Go Check List</a></li>
+<li><a href=https://exaream.dev/go/test/>Go Test</a></li>
+<li><a href=https://exaream.dev/go/link/>Go Link</a></li>
 </ul>
 </li>
-<li><strong><a href="https://exaream.dev/linux/">Linux</a></strong>
+<li><strong><a href=https://exaream.dev/linux/>Linux</a></strong>
 <ul>
-<li><a href="https://exaream.dev/linux/command/">Linux Command</a></li>
-<li><a href="https://exaream.dev/linux/ubuntu/">Ubuntu</a></li>
+<li><a href=https://exaream.dev/linux/command/>Linux Command</a></li>
+<li><a href=https://exaream.dev/linux/ubuntu/>Ubuntu</a></li>
 </ul>
 </li>
-<li><strong><a href="https://exaream.dev/python/">Python</a></strong>
+<li><strong><a href=https://exaream.dev/python/>Python</a></strong>
 <ul>
-<li><a href="https://exaream.dev/python/basic/">Python Basic</a></li>
-<li><a href="https://exaream.dev/python/ocr/">Python OCR</a></li>
+<li><a href=https://exaream.dev/python/basic/>Python Basic</a></li>
+<li><a href=https://exaream.dev/python/ocr/>Python OCR</a></li>
 </ul>
 </li>
-<li><strong><a href="https://exaream.dev/php/">PHP</a></strong>
+<li><strong><a href=https://exaream.dev/php/>PHP</a></strong>
 <ul>
-<li><a href="https://exaream.dev/php/phpunit/">PHPUnit</a></li>
-<li><a href="https://exaream.dev/php/phpmetrics/">PhpMetrics</a></li>
-<li><a href="https://exaream.dev/php/command-line/">PHP Command Line</a></li>
+<li><a href=https://exaream.dev/php/phpunit/>PHPUnit</a></li>
+<li><a href=https://exaream.dev/php/phpmetrics/>PhpMetrics</a></li>
+<li><a href=https://exaream.dev/php/command-line/>PHP Command Line</a></li>
 </ul>
 </li>
-<li><strong><a href="https://exaream.dev/javascript/">JavaScript</a></strong>
+<li><strong><a href=https://exaream.dev/javascript/>JavaScript</a></strong>
 <ul>
-<li><a href="https://exaream.dev/javascript/nodejs/">Node.js</a></li>
+<li><a href=https://exaream.dev/javascript/nodejs/>Node.js</a></li>
 </ul>
 </li>
-<li><strong><a href="https://exaream.dev/shellscript/">Shellscript</a></strong>
+<li><strong><a href=https://exaream.dev/shellscript/>Shellscript</a></strong>
 <ul>
-<li><a href="https://exaream.dev/shellscript/memo/">Shellscript Memo</a></li>
+<li><a href=https://exaream.dev/shellscript/memo/>Shellscript Memo</a></li>
 </ul>
 </li>
-<li><strong><a href="https://exaream.dev/mac/">Mac</a></strong>
+<li><strong><a href=https://exaream.dev/mac/>Mac</a></strong>
 <ul>
-<li><a href="https://exaream.dev/mac/setting/">Mac Setting</a></li>
-<li><a href="https://exaream.dev/mac/iterm2/">iTerm2</a></li>
+<li><a href=https://exaream.dev/mac/setting/>Mac Setting</a></li>
+<li><a href=https://exaream.dev/mac/iterm2/>iTerm2</a></li>
 </ul>
 </li>
-<li><strong><a href="https://exaream.dev/tool/">Tool</a></strong>
+<li><strong><a href=https://exaream.dev/tool/>Tool</a></strong>
 <ul>
-<li><a href="https://exaream.dev/tool/hugo/">Hugo</a></li>
-<li><a href="https://exaream.dev/tool/vscode/">VS Code</a></li>
-<li><a href="https://exaream.dev/tool/excel/">Excel</a></li>
-<li><a href="https://exaream.dev/tool/mailcatcher/">MailCatcher</a></li>
+<li><a href=https://exaream.dev/tool/hugo/>Hugo</a></li>
+<li><a href=https://exaream.dev/tool/vscode/>VS Code</a></li>
+<li><a href=https://exaream.dev/tool/excel/>Excel</a></li>
+<li><a href=https://exaream.dev/tool/mailcatcher/>MailCatcher</a></li>
 </ul>
 </li>
 </ul>
-
-
-
-
-
-
-
-
-
-
 </nav>
-
-
-
-
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-
-
- 
-      </div>
-    </aside>
-
-    <div class="book-page">
-      <header class="book-header">
-        
-  <div class="flex align-center justify-between">
-  <label for="menu-control">
-    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
-  </label>
-
-  <strong>Docker Swarm</strong>
-
-  <label for="toc-control">
-    
-    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
-    
-  </label>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 </div>
-
-
-  
-  <aside class="hidden clearfix">
-    
-  <h2>Tags</h2>
-
-
-  <ul class="tags"><li><a href="/tags/docker-swarm">docker swarm</a><li><a href="/tags/docker-stack">docker stack</a><li><a href="/tags/docker">Docker</a><li><a href="/tags/container">Container</a></ul>
-
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Docker Swarm</strong>
+<label for=toc-control>
+<img src=/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<h2>Tags</h2>
+<ul class=tags><li><a href=/tags/docker-swarm>docker swarm</a><li><a href=/tags/docker-stack>docker stack</a><li><a href=/tags/docker>Docker</a><li><a href=/tags/container>Container</a></ul>
 <h2>Table of Contents</h2>
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#swarm-クラスタを初期化">Swarm クラスタを初期化</a></li>
-        <li><a href="#swarm-クラスタに-node-もしくは-manager-を追加">Swarm クラスタに node もしくは manager を追加</a></li>
-        <li><a href="#swarm-クラスタから-node-もしくは-manager-を離脱">Swarm クラスタから node もしくは manager を離脱</a></li>
-        <li><a href="#swarm-クラスタに-stack-をデプロイ">Swarm クラスタに Stack をデプロイ</a></li>
-        <li><a href="#swarm-クラスタにデプロイされている-stack-一覧を表示">Swarm クラスタにデプロイされている Stack 一覧を表示</a></li>
-        <li><a href="#stack-内で実行されているタスクを表示">Stack 内で実行されているタスクを表示</a></li>
-        <li><a href="#swarm-クラスタからstackを削除">Swarm クラスタからStackを削除</a></li>
-        <li><a href="#stack-内のservice一覧を表示">Stack 内のService一覧を表示</a></li>
-      </ul>
-    </li>
-  </ul>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#swarm-クラスタを初期化>Swarm クラスタを初期化</a></li>
+<li><a href=#swarm-クラスタに-node-もしくは-manager-を追加>Swarm クラスタに node もしくは manager を追加</a></li>
+<li><a href=#swarm-クラスタから-node-もしくは-manager-を離脱>Swarm クラスタから node もしくは manager を離脱</a></li>
+<li><a href=#swarm-クラスタに-stack-をデプロイ>Swarm クラスタに Stack をデプロイ</a></li>
+<li><a href=#swarm-クラスタにデプロイされている-stack-一覧を表示>Swarm クラスタにデプロイされている Stack 一覧を表示</a></li>
+<li><a href=#stack-内で実行されているタスクを表示>Stack 内で実行されているタスクを表示</a></li>
+<li><a href=#swarm-クラスタからstackを削除>Swarm クラスタからStackを削除</a></li>
+<li><a href=#stack-内のservice一覧を表示>Stack 内のService一覧を表示</a></li>
+</ul>
+</li>
+</ul>
 </nav>
-
-
-
-  </aside>
-  
- 
-      </header>
-
-      <ol  class="breadcrumb">
-    
-
-
-
-
-
+</aside>
+</header>
+<ol class=breadcrumb>
 <li>
-  <a href="https://exaream.dev/">Home</a>
+<a href=https://exaream.dev/>Home</a>
 </li>
-
-
 <li>
-  <a href="https://exaream.dev/container/">Container</a>
+<a href=https://exaream.dev/container/>Container</a>
 </li>
-
-
-<li class="active">
-  <a href="https://exaream.dev/container/docker-swarm/">Docker Swarm</a>
+<li class=active>
+<a href=https://exaream.dev/container/docker-swarm/>Docker Swarm</a>
 </li>
-
 </ol>
-
-
-      
-  <article class="markdown"><h1 id="docker-swarm">
-  Docker Swarm
-  <a class="anchor" href="#docker-swarm">#</a>
+<article class=markdown><h1 id=docker-swarm>
+Docker Swarm
+<a class=anchor href=#docker-swarm>#</a>
 </h1>
-<h3 id="swarm-クラスタを初期化">
-  Swarm クラスタを初期化
-  <a class="anchor" href="#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%82%92%e5%88%9d%e6%9c%9f%e5%8c%96">#</a>
+<h3 id=swarm-クラスタを初期化>
+Swarm クラスタを初期化
+<a class=anchor href=#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%82%92%e5%88%9d%e6%9c%9f%e5%8c%96>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker swarm init <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
-</code></pre></div><h3 id="swarm-クラスタに-node-もしくは-manager-を追加">
-  Swarm クラスタに node もしくは manager を追加
-  <a class="anchor" href="#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%81%ab-node-%e3%82%82%e3%81%97%e3%81%8f%e3%81%af-manager-%e3%82%92%e8%bf%bd%e5%8a%a0">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker swarm init <span style=color:#f92672>[</span>options<span style=color:#f92672>]</span>
+</code></pre></div><h3 id=swarm-クラスタに-node-もしくは-manager-を追加>
+Swarm クラスタに node もしくは manager を追加
+<a class=anchor href=#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%81%ab-node-%e3%82%82%e3%81%97%e3%81%8f%e3%81%af-manager-%e3%82%92%e8%bf%bd%e5%8a%a0>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker swarm join <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span> managerホスト:ポート
-</code></pre></div><h3 id="swarm-クラスタから-node-もしくは-manager-を離脱">
-  Swarm クラスタから node もしくは manager を離脱
-  <a class="anchor" href="#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%81%8b%e3%82%89-node-%e3%82%82%e3%81%97%e3%81%8f%e3%81%af-manager-%e3%82%92%e9%9b%a2%e8%84%b1">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker swarm join <span style=color:#f92672>[</span>options<span style=color:#f92672>]</span> managerホスト:ポート
+</code></pre></div><h3 id=swarm-クラスタから-node-もしくは-manager-を離脱>
+Swarm クラスタから node もしくは manager を離脱
+<a class=anchor href=#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%81%8b%e3%82%89-node-%e3%82%82%e3%81%97%e3%81%8f%e3%81%af-manager-%e3%82%92%e9%9b%a2%e8%84%b1>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker swarm leave <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
-</code></pre></div><h3 id="swarm-クラスタに-stack-をデプロイ">
-  Swarm クラスタに Stack をデプロイ
-  <a class="anchor" href="#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%81%ab-stack-%e3%82%92%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker swarm leave <span style=color:#f92672>[</span>options<span style=color:#f92672>]</span>
+</code></pre></div><h3 id=swarm-クラスタに-stack-をデプロイ>
+Swarm クラスタに Stack をデプロイ
+<a class=anchor href=#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%81%ab-stack-%e3%82%92%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker stack deploy <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span> Stack名
-</code></pre></div><h3 id="swarm-クラスタにデプロイされている-stack-一覧を表示">
-  Swarm クラスタにデプロイされている Stack 一覧を表示
-  <a class="anchor" href="#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%81%ab%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4%e3%81%95%e3%82%8c%e3%81%a6%e3%81%84%e3%82%8b-stack-%e4%b8%80%e8%a6%a7%e3%82%92%e8%a1%a8%e7%a4%ba">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker stack deploy <span style=color:#f92672>[</span>options<span style=color:#f92672>]</span> Stack名
+</code></pre></div><h3 id=swarm-クラスタにデプロイされている-stack-一覧を表示>
+Swarm クラスタにデプロイされている Stack 一覧を表示
+<a class=anchor href=#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%81%ab%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4%e3%81%95%e3%82%8c%e3%81%a6%e3%81%84%e3%82%8b-stack-%e4%b8%80%e8%a6%a7%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker stack <span style="color:#f92672">(</span>ls|list<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
-</code></pre></div><h3 id="stack-内で実行されているタスクを表示">
-  Stack 内で実行されているタスクを表示
-  <a class="anchor" href="#stack-%e5%86%85%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%95%e3%82%8c%e3%81%a6%e3%81%84%e3%82%8b%e3%82%bf%e3%82%b9%e3%82%af%e3%82%92%e8%a1%a8%e7%a4%ba">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker stack <span style=color:#f92672>(</span>ls|list<span style=color:#f92672>)</span> <span style=color:#f92672>[</span>options<span style=color:#f92672>]</span>
+</code></pre></div><h3 id=stack-内で実行されているタスクを表示>
+Stack 内で実行されているタスクを表示
+<a class=anchor href=#stack-%e5%86%85%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%95%e3%82%8c%e3%81%a6%e3%81%84%e3%82%8b%e3%82%bf%e3%82%b9%e3%82%af%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker stack ps <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span> Stack名
-</code></pre></div><h3 id="swarm-クラスタからstackを削除">
-  Swarm クラスタからStackを削除
-  <a class="anchor" href="#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%81%8b%e3%82%89stack%e3%82%92%e5%89%8a%e9%99%a4">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker stack ps <span style=color:#f92672>[</span>options<span style=color:#f92672>]</span> Stack名
+</code></pre></div><h3 id=swarm-クラスタからstackを削除>
+Swarm クラスタからStackを削除
+<a class=anchor href=#swarm-%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%81%8b%e3%82%89stack%e3%82%92%e5%89%8a%e9%99%a4>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker stack <span style="color:#f92672">(</span>rm|remove|down<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span> Stack名...
-</code></pre></div><h3 id="stack-内のservice一覧を表示">
-  Stack 内のService一覧を表示
-  <a class="anchor" href="#stack-%e5%86%85%e3%81%aeservice%e4%b8%80%e8%a6%a7%e3%82%92%e8%a1%a8%e7%a4%ba">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker stack <span style=color:#f92672>(</span>rm|remove|down<span style=color:#f92672>)</span> <span style=color:#f92672>[</span>options<span style=color:#f92672>]</span> Stack名...
+</code></pre></div><h3 id=stack-内のservice一覧を表示>
+Stack 内のService一覧を表示
+<a class=anchor href=#stack-%e5%86%85%e3%81%aeservice%e4%b8%80%e8%a6%a7%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker stack services <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span> Stack名
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>docker stack services <span style=color:#f92672>[</span>options<span style=color:#f92672>]</span> Stack名
 </code></pre></div></article>
- 
-      
-
-      <footer class="book-footer">
-        
-  <div class="flex flex-wrap justify-between">
-
-
-
-
-
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
 </div>
-
-
-
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-
-
- 
-        
-      </footer>
-
-      
-  
-  <div class="book-comments">
-
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
 </div>
-  
- 
-
-      <label for="menu-control" class="hidden book-menu-overlay"></label>
-    </div>
-
-    
-    <aside class="book-toc">
-      <div class="book-toc-content">
-        
-  <h2>Tags</h2>
-
-
-  <ul class="tags"><li><a href="/tags/docker-swarm">docker swarm</a><li><a href="/tags/docker-stack">docker stack</a><li><a href="/tags/docker">Docker</a><li><a href="/tags/container">Container</a></ul>
-
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<h2>Tags</h2>
+<ul class=tags><li><a href=/tags/docker-swarm>docker swarm</a><li><a href=/tags/docker-stack>docker stack</a><li><a href=/tags/docker>Docker</a><li><a href=/tags/container>Container</a></ul>
 <h2>Table of Contents</h2>
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#swarm-クラスタを初期化">Swarm クラスタを初期化</a></li>
-        <li><a href="#swarm-クラスタに-node-もしくは-manager-を追加">Swarm クラスタに node もしくは manager を追加</a></li>
-        <li><a href="#swarm-クラスタから-node-もしくは-manager-を離脱">Swarm クラスタから node もしくは manager を離脱</a></li>
-        <li><a href="#swarm-クラスタに-stack-をデプロイ">Swarm クラスタに Stack をデプロイ</a></li>
-        <li><a href="#swarm-クラスタにデプロイされている-stack-一覧を表示">Swarm クラスタにデプロイされている Stack 一覧を表示</a></li>
-        <li><a href="#stack-内で実行されているタスクを表示">Stack 内で実行されているタスクを表示</a></li>
-        <li><a href="#swarm-クラスタからstackを削除">Swarm クラスタからStackを削除</a></li>
-        <li><a href="#stack-内のservice一覧を表示">Stack 内のService一覧を表示</a></li>
-      </ul>
-    </li>
-  </ul>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#swarm-クラスタを初期化>Swarm クラスタを初期化</a></li>
+<li><a href=#swarm-クラスタに-node-もしくは-manager-を追加>Swarm クラスタに node もしくは manager を追加</a></li>
+<li><a href=#swarm-クラスタから-node-もしくは-manager-を離脱>Swarm クラスタから node もしくは manager を離脱</a></li>
+<li><a href=#swarm-クラスタに-stack-をデプロイ>Swarm クラスタに Stack をデプロイ</a></li>
+<li><a href=#swarm-クラスタにデプロイされている-stack-一覧を表示>Swarm クラスタにデプロイされている Stack 一覧を表示</a></li>
+<li><a href=#stack-内で実行されているタスクを表示>Stack 内で実行されているタスクを表示</a></li>
+<li><a href=#swarm-クラスタからstackを削除>Swarm クラスタからStackを削除</a></li>
+<li><a href=#stack-内のservice一覧を表示>Stack 内のService一覧を表示</a></li>
+</ul>
+</li>
+</ul>
 </nav>
-
-
- 
-      </div>
-    </aside>
-    
-  </main>
-
-  
+</div>
+</aside>
+</main>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
