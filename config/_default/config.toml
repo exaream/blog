@@ -1,4 +1,4 @@
-baseURL = "https://exaream.dev/"
+baseURL = ""
 languageCode = "en-us"
 title = "Tech"
 publishDir = "docs"
@@ -7,6 +7,8 @@ copyright = "exaream"
 defaultContentLanguage = "en"
 # defaultContentLanguageInSubdir = true
 pluralizeListTitles = false
+
+googleAnalytics = ""
 
 #[languages]
 #  [languages.en]
