@@ -1,4 +1,4 @@
-baseURL = "https://exaream.github.io/tech-blog/"
+baseURL = "https://exaream.github.io/blog/"
 languageCode = "en-us"
 title = "Tech Blog"
 publishDir = "docs"
