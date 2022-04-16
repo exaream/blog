@@ -14,7 +14,7 @@ headless: true
   - [MySQL Memo]({{< ref "mysql/memo" >}})
   - [PostgreSQL Memo]({{< ref "postgresql/memo" >}})
 * **Go**
-  - [Go Memo]({{< ref "go/memo">}})
+  - [Go Check List]({{< ref "go/check-list" >}})
   - [Go Test]({{< ref "go/test">}})
   - [Go Link]({{< ref "go/link">}})
 * **Linux**
