@@ -7,14 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>exaream</copyright>
-    <lastBuildDate>Sat, 31 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://exaream.dev/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://exaream.dev/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Python</title>
-      <link>https://exaream.dev/python/main/</link>
+      <title>Python Basic</title>
+      <link>https://exaream.dev/python/basic/</link>
       <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://exaream.dev/python/main/</guid>
-      <description>Python #  Install macOS #  Check the default version of Python on macOS #  $ python --version Python 2.7.16 $ which python /usr/bin/python Install the latest version using Homebrew #   brew update Update Homebrew itself brew install Install package  $ brew update $ brew install python Add Python&amp;rsquo;s path #  $ vi ~/.bash_profile export PATH=&amp;#34;/usr/local/opt/python/libexec/bin:$PATH&amp;#34; $ source ~/.bash_profile Check that the latest version is available #  $ python --version Python 3.</description>
+      <guid>https://exaream.dev/python/basic/</guid>
+      <description>Python Basic #  Install macOS #  Check the default version of Python on macOS #  $ python --version Python 2.7.16 $ which python /usr/bin/python Install the latest version using Homebrew #   brew update Update Homebrew itself brew install Install package  $ brew update $ brew install python Add Python&amp;rsquo;s path #  $ vi ~/.bash_profile export PATH=&amp;#34;/usr/local/opt/python/libexec/bin:$PATH&amp;#34; $ source ~/.bash_profile Check that the latest version is available #  $ python --version Python 3.</description>
     </item>
     
     <item>

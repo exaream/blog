@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Php on Tech</title>
+    <title>PHP on Tech</title>
     <link>https://exaream.dev/php/</link>
-    <description>Recent content in Php on Tech</description>
+    <description>Recent content in PHP on Tech</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>exaream</copyright>

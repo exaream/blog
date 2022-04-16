@@ -19,5 +19,14 @@ $ npm install -g git-split-diffs or, if you use yarn
 $ yarn global add git-split-diffs Add configuration of git-split-diffs to .gitconfig #  $ git config --global core.pager &amp;#34;git-split-diffs --color | less -RFX&amp;#34; Check #  $ git log -p $ git diff &amp;lt;branch A&amp;gt; &amp;lt;branch B&amp;gt; Additional info #  If you want to use light theme</description>
     </item>
     
+    <item>
+      <title>Tool</title>
+      <link>https://exaream.dev/tool/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.dev/tool/</guid>
+      <description>Tool #   Hugo VS Code Excel MailCatcher  </description>
+    </item>
+    
   </channel>
 </rss>

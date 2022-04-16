@@ -3,37 +3,40 @@ headless: true
 ---
 
 ### Menu
-* **Git**
-  - [Git]({{< ref "git/main" >}})
+* **[Git]({{< ref "git" >}})**
+  - [Git Basic]({{< ref "git/basic" >}})
   - [Git Tool]({{< ref "git/tool" >}})
-* **Docker**
-  - [Docker]({{< ref "docker/main" >}})
-  - [Docker Compose]({{< ref "docker/docker-compose" >}})
-  - [Docker Swarm]({{< ref "docker/docker-swarm" >}})
-* **SQL**
-  - [MySQL]({{< ref "mysql/main" >}})
-  - [PostgreSQL]({{< ref "postgresql/main" >}})
-* **Go**
+* **[Container]({{< ref "container" >}})**
+  - [Docker]({{< ref "container/docker" >}})
+  - [Docker Compose]({{< ref "container/docker-compose" >}})
+  - [Docker Swarm]({{< ref "container/docker-swarm" >}})
+* **[SQL]({{< ref "sql" >}})**
+  - [MySQL]({{< ref "sql/mysql" >}})
+  - [PostgreSQL]({{< ref "sql/postgresql" >}})
+* **[Go]({{< ref "go" >}})**
   - [Go Check List]({{< ref "go/check-list" >}})
   - [Go Test]({{< ref "go/test">}})
   - [Go Link]({{< ref "go/link">}})
-* **Linux**
+* **[Linux]({{< ref "linux" >}})**
   - [Linux Command]({{< ref "linux/command" >}})
   - [Ubuntu]({{< ref "linux/ubuntu" >}})
-* **Python**
-  - [Python]({{< ref "python/main">}})
+* **[Python]({{< ref "python" >}})**
+  - [Python Basic]({{< ref "python/basic">}})
   - [Python OCR]({{< ref "python/ocr" >}})
-* **PHP**
+* **[PHP]({{< ref "php" >}})**
   - [PHPUnit]({{< ref "php/phpunit" >}})
   - [PhpMetrics]({{< ref "php/phpmetrics" >}})
-* **Mac**
-  - [Mac]({{< ref "mac/main" >}})
+  - [PHP Command Line]({{< ref "php/command-line" >}})
+* **[JavaScript]({{< ref "javascript" >}})**
+  - [Node.js]({{< ref "javascript/nodejs">}})
+* **[Shellscript]({{< ref "shellscript" >}})**
+  - [Shellscript Memo]({{< ref "shellscript/memo">}})
+* **[Mac]({{< ref "mac" >}})**
+  - [Mac Setting]({{< ref "mac/setting" >}})
   - [iTerm2]({{< ref "mac/iterm2" >}})
-* **Other**
-  - [Shellscript]({{< ref "shellscript/main">}})
+* **[Tool]({{< ref "tool" >}})**
   - [Hugo]({{< ref "tool/hugo" >}})
-  - [Node]({{< ref "nodejs/main">}})
   - [VS Code]({{< ref "tool/vscode" >}})
   - [Excel]({{< ref "tool/excel" >}})
   - [MailCatcher]({{< ref "tool/mailcatcher" >}})
-  - [Glossary]({{< ref "glossary" >}})
+

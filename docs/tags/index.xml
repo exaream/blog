@@ -54,11 +54,29 @@
     </item>
     
     <item>
+      <title>Basic</title>
+      <link>https://exaream.dev/tags/basic/</link>
+      <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.dev/tags/basic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Link</title>
       <link>https://exaream.dev/tags/link/</link>
       <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://exaream.dev/tags/link/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mac</title>
+      <link>https://exaream.dev/tags/mac/</link>
+      <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.dev/tags/mac/</guid>
       <description></description>
     </item>
     
@@ -104,15 +122,6 @@
       <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://exaream.dev/tags/testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>1on1</title>
-      <link>https://exaream.dev/tags/1on1/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://exaream.dev/tags/1on1/</guid>
       <description></description>
     </item>
     
@@ -288,6 +297,15 @@
     </item>
     
     <item>
+      <title>JavaScript</title>
+      <link>https://exaream.dev/tags/javascript/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.dev/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Laravel</title>
       <link>https://exaream.dev/tags/laravel/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
@@ -315,11 +333,11 @@
     </item>
     
     <item>
-      <title>Mac</title>
-      <link>https://exaream.dev/tags/mac/</link>
+      <title>macOS</title>
+      <link>https://exaream.dev/tags/macos/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://exaream.dev/tags/mac/</guid>
+      <guid>https://exaream.dev/tags/macos/</guid>
       <description></description>
     </item>
     
@@ -414,6 +432,15 @@
     </item>
     
     <item>
+      <title>Setting</title>
+      <link>https://exaream.dev/tags/setting/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.dev/tags/setting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Shellscript</title>
       <link>https://exaream.dev/tags/shellscript/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
@@ -446,15 +473,6 @@
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://exaream.dev/tags/static-contents/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Team</title>
-      <link>https://exaream.dev/tags/team/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://exaream.dev/tags/team/</guid>
       <description></description>
     </item>
     

@@ -17,9 +17,6 @@
     <loc>https://exaream.dev/tags/</loc>
     <lastmod>2022-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/</loc>
-    <lastmod>2022-04-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://exaream.dev/tags/check-list/</loc>
     <lastmod>2022-03-31T00:00:00+00:00</lastmod>
   </url><url>
@@ -29,11 +26,14 @@
     <loc>https://exaream.dev/tags/go/</loc>
     <lastmod>2022-03-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/go/</loc>
-    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://exaream.dev/tags/golang/</loc>
     <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://exaream.dev/tags/basic/</loc>
+    <lastmod>2021-07-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://exaream.dev/python/basic/</loc>
+    <lastmod>2021-07-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/link/</loc>
     <lastmod>2021-07-31T00:00:00+00:00</lastmod>
@@ -41,7 +41,10 @@
     <loc>https://exaream.dev/go/link/</loc>
     <lastmod>2021-07-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/python/main/</loc>
+    <loc>https://exaream.dev/tags/mac/</loc>
+    <lastmod>2021-07-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://exaream.dev/mac/</loc>
     <lastmod>2021-07-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/ocr/</loc>
@@ -51,9 +54,6 @@
     <lastmod>2021-07-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/python/</loc>
-    <lastmod>2021-07-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/python/</loc>
     <lastmod>2021-07-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/tesseract/</loc>
@@ -68,13 +68,10 @@
     <loc>https://exaream.dev/tags/testing/</loc>
     <lastmod>2021-07-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/tags/1on1/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/team/1on1/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://exaream.dev/tags/apt-get/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://exaream.dev/git/basic/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/cron/check-list/</loc>
@@ -98,6 +95,9 @@
     <loc>https://exaream.dev/tags/container/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://exaream.dev/container/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://exaream.dev/tags/cron/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -116,10 +116,13 @@
     <loc>https://exaream.dev/tags/docker/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/docker/</loc>
+    <loc>https://exaream.dev/container/docker/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/docker-stack/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://exaream.dev/container/docker-swarm/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/docker-swarm/</loc>
@@ -128,7 +131,7 @@
     <loc>https://exaream.dev/tags/docker-compose/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/docker/docker-compose/</loc>
+    <loc>https://exaream.dev/container/docker-compose/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/excel/</loc>
@@ -152,6 +155,12 @@
     <loc>https://exaream.dev/glossary/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://exaream.dev/go/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://exaream.dev/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://exaream.dev/tags/homebrew/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -167,6 +176,12 @@
     <loc>https://exaream.dev/mac/iterm2/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://exaream.dev/tags/javascript/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://exaream.dev/javascript/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://exaream.dev/tags/laravel/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -179,10 +194,7 @@
     <loc>https://exaream.dev/tags/log/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/tags/mac/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/mac/</loc>
+    <loc>https://exaream.dev/tags/macos/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/mailcatcher/</loc>
@@ -194,25 +206,7 @@
     <loc>https://exaream.dev/cron/main/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/docker/main/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/git/main/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/mac/main/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/mysql/main/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/nodejs/main/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/postgresql/main/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/shellscript/main/</loc>
+    <loc>https://exaream.dev/shellscript/memo/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/metrics/</loc>
@@ -221,16 +215,16 @@
     <loc>https://exaream.dev/tags/mysql/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/mysql/</loc>
+    <loc>https://exaream.dev/sql/mysql/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/node.js/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/tags/nodebrew/</loc>
+    <loc>https://exaream.dev/javascript/nodejs/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/nodejs/</loc>
+    <loc>https://exaream.dev/tags/nodebrew/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/php/</loc>
@@ -254,10 +248,19 @@
     <loc>https://exaream.dev/tags/postgresql/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/postgresql/</loc>
+    <loc>https://exaream.dev/sql/postgresql/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://exaream.dev/python/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/ruby/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://exaream.dev/tags/setting/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://exaream.dev/mac/setting/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/shellscript/</loc>
@@ -272,16 +275,10 @@
     <loc>https://exaream.dev/tags/sql/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://exaream.dev/sql/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://exaream.dev/tags/static-contents/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/docker/docker-swarm/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/tags/team/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://exaream.dev/team/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/todo/</loc>
@@ -296,10 +293,10 @@
     <loc>https://exaream.dev/tags/tool/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/tool/</loc>
+    <loc>https://exaream.dev/git/tool/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://exaream.dev/git/tool/</loc>
+    <loc>https://exaream.dev/tool/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://exaream.dev/tags/ubuntu/</loc>

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>exaream</copyright>
-    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://exaream.dev/mac/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://exaream.dev/mac/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iTerm2</title>
       <link>https://exaream.dev/mac/iterm2/</link>
@@ -19,12 +19,12 @@ https://iterm2.com/  Shortcuts #     command description     command + N New Win
     </item>
     
     <item>
-      <title>Mac</title>
-      <link>https://exaream.dev/mac/main/</link>
+      <title>Mac Setting</title>
+      <link>https://exaream.dev/mac/setting/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://exaream.dev/mac/main/</guid>
-      <description>Mac #  Safari #  Empty Caches #   Safari &amp;gt; Preferences
+      <guid>https://exaream.dev/mac/setting/</guid>
+      <description>Mac Setting #  Safari #  Empty Caches #   Safari &amp;gt; Preferences
  Advanced Check Show Develop menu in menu bar  Develop &amp;gt; Empty caches
   Proxy Settings #  Switch On
   Safari &amp;gt; Preferences

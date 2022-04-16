@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Python Basic">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Python Basic" />
+<meta property="og:description" content="Python Basic" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://exaream.dev/python/basic/" /><meta property="article:section" content="python" />
+<meta property="article:published_time" content="2021-07-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-31T00:00:00+00:00" />
+
+<title>Python Basic | Tech</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css" integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.6aff80504f82a099763238ce19d1cdbe0d8f3dbe5821d396e011895242ebb49c.js" integrity="sha256-av&#43;AUE&#43;CoJl2MjjOGdHNvg2PPb5YIdOW4BGJUkLrtJw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Tech</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="menu">
+  Menu
+  <a class="anchor" href="#menu">#</a>
+</h3>
+<ul>
+<li><strong><a href="https://exaream.dev/git/">Git</a></strong>
+<ul>
+<li><a href="https://exaream.dev/git/basic/">Git Basic</a></li>
+<li><a href="https://exaream.dev/git/tool/">Git Tool</a></li>
+</ul>
+</li>
+<li><strong><a href="https://exaream.dev/container/">Container</a></strong>
+<ul>
+<li><a href="https://exaream.dev/container/docker/">Docker</a></li>
+<li><a href="https://exaream.dev/container/docker-compose/">Docker Compose</a></li>
+<li><a href="https://exaream.dev/container/docker-swarm/">Docker Swarm</a></li>
+</ul>
+</li>
+<li><strong><a href="https://exaream.dev/sql/">SQL</a></strong>
+<ul>
+<li><a href="https://exaream.dev/sql/mysql/">MySQL</a></li>
+<li><a href="https://exaream.dev/sql/postgresql/">PostgreSQL</a></li>
+</ul>
+</li>
+<li><strong><a href="https://exaream.dev/go/">Go</a></strong>
+<ul>
+<li><a href="https://exaream.dev/go/check-list/">Go Check List</a></li>
+<li><a href="https://exaream.dev/go/test/">Go Test</a></li>
+<li><a href="https://exaream.dev/go/link/">Go Link</a></li>
+</ul>
+</li>
+<li><strong><a href="https://exaream.dev/linux/">Linux</a></strong>
+<ul>
+<li><a href="https://exaream.dev/linux/command/">Linux Command</a></li>
+<li><a href="https://exaream.dev/linux/ubuntu/">Ubuntu</a></li>
+</ul>
+</li>
+<li><strong><a href="https://exaream.dev/python/">Python</a></strong>
+<ul>
+<li><a href="https://exaream.dev/python/basic/">Python Basic</a></li>
+<li><a href="https://exaream.dev/python/ocr/">Python OCR</a></li>
+</ul>
+</li>
+<li><strong><a href="https://exaream.dev/php/">PHP</a></strong>
+<ul>
+<li><a href="https://exaream.dev/php/phpunit/">PHPUnit</a></li>
+<li><a href="https://exaream.dev/php/phpmetrics/">PhpMetrics</a></li>
+<li><a href="https://exaream.dev/php/command-line/">PHP Command Line</a></li>
+</ul>
+</li>
+<li><strong><a href="https://exaream.dev/javascript/">JavaScript</a></strong>
+<ul>
+<li><a href="https://exaream.dev/javascript/nodejs/">Node.js</a></li>
+</ul>
+</li>
+<li><strong><a href="https://exaream.dev/shellscript/">Shellscript</a></strong>
+<ul>
+<li><a href="https://exaream.dev/shellscript/memo/">Shellscript Memo</a></li>
+</ul>
+</li>
+<li><strong><a href="https://exaream.dev/mac/">Mac</a></strong>
+<ul>
+<li><a href="https://exaream.dev/mac/setting/">Mac Setting</a></li>
+<li><a href="https://exaream.dev/mac/iterm2/">iTerm2</a></li>
+</ul>
+</li>
+<li><strong><a href="https://exaream.dev/tool/">Tool</a></strong>
+<ul>
+<li><a href="https://exaream.dev/tool/hugo/">Hugo</a></li>
+<li><a href="https://exaream.dev/tool/vscode/">VS Code</a></li>
+<li><a href="https://exaream.dev/tool/excel/">Excel</a></li>
+<li><a href="https://exaream.dev/tool/mailcatcher/">MailCatcher</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Python Basic</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <h2>Tags</h2>
+
+
+  <ul class="tags"><li><a href="/tags/python">Python</a><li><a href="/tags/basic">Basic</a></ul>
+
+<h2>Table of Contents</h2>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-macos">Install macOS</a>
+      <ul>
+        <li><a href="#check-the-default-version-of-python-on-macos">Check the default version of Python on macOS</a></li>
+        <li><a href="#install-the-latest-version-using-homebrew">Install the latest version using Homebrew</a></li>
+        <li><a href="#add-pythons-path">Add Python&rsquo;s path</a></li>
+        <li><a href="#check-that-the-latest-version-is-available">Check that the latest version is available</a></li>
+        <li><a href="#if-you-want-to-update-python-on-macos-in-the-future">If you want to update Python on macOS in the future</a></li>
+      </ul>
+    </li>
+    <li><a href="#version">Version</a>
+      <ul>
+        <li><a href="#terminal">Terminal</a></li>
+        <li><a href="#source-code">Source code</a></li>
+      </ul>
+    </li>
+    <li><a href="#package">Package</a></li>
+    <li><a href="#argument">Argument</a>
+      <ul>
+        <li><a href="#sysargv"><code>sys.argv</code></a></li>
+        <li><a href="#argparse"><code>argparse</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#filedirectory">File/Directory</a>
+      <ul>
+        <li><a href="#move-to-current-directory">Move to current directory</a></li>
+        <li><a href="#get-an-absolute-path">Get an absolute path</a></li>
+        <li><a href="#check-if-it-is-an-absolute-path">Check if it is an absolute path</a></li>
+        <li><a href="#get-a-relative-path">Get a relative path</a></li>
+        <li><a href="#get-a-files-directory">Get a file&rsquo;s directory</a></li>
+        <li><a href="#get-a-file-name">Get a file name</a></li>
+        <li><a href="#get-a-files-stem">Get a file&rsquo;s stem</a></li>
+        <li><a href="#check-if-a-file-or-a-directory-exists">Check if a file or a directory exists</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      <ol  class="breadcrumb">
+    
+
+
+
+
+
+<li>
+  <a href="https://exaream.dev/">Home</a>
+</li>
+
+
+<li>
+  <a href="https://exaream.dev/python/">Python</a>
+</li>
+
+
+<li class="active">
+  <a href="https://exaream.dev/python/basic/">Basic</a>
+</li>
+
+</ol>
+
+
+      
+  <article class="markdown"><h1 id="python-basic">
+  Python Basic
+  <a class="anchor" href="#python-basic">#</a>
+</h1>
+<h2 id="install-macos">
+  Install macOS
+  <a class="anchor" href="#install-macos">#</a>
+</h2>
+<h3 id="check-the-default-version-of-python-on-macos">
+  Check the default version of Python on macOS
+  <a class="anchor" href="#check-the-default-version-of-python-on-macos">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python --version
+Python 2.7.16
+$ which python
+/usr/bin/python
+</code></pre></div><h3 id="install-the-latest-version-using-homebrew">
+  Install the latest version using Homebrew
+  <a class="anchor" href="#install-the-latest-version-using-homebrew">#</a>
+</h3>
+<ul>
+<li><code>brew update</code> Update Homebrew itself</li>
+<li><code>brew install</code> Install package</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew update
+$ brew install python
+</code></pre></div><h3 id="add-pythons-path">
+  Add Python&rsquo;s path
+  <a class="anchor" href="#add-pythons-path">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ vi ~/.bash_profile
+export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/local/opt/python/libexec/bin:</span>$PATH<span style="color:#e6db74">&#34;</span>
+$ source ~/.bash_profile
+</code></pre></div><h3 id="check-that-the-latest-version-is-available">
+  Check that the latest version is available
+  <a class="anchor" href="#check-that-the-latest-version-is-available">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python --version
+Python 3.9.7
+$ which python
+/usr/local/opt/python/libexec/bin/python
+</code></pre></div><h3 id="if-you-want-to-update-python-on-macos-in-the-future">
+  If you want to update Python on macOS in the future
+  <a class="anchor" href="#if-you-want-to-update-python-on-macos-in-the-future">#</a>
+</h3>
+<ul>
+<li><code>brew upgrade</code> Update if there is an update for the installed package</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew update
+$ brew upgrade python
+</code></pre></div><h2 id="version">
+  Version
+  <a class="anchor" href="#version">#</a>
+</h2>
+<h3 id="terminal">
+  Terminal
+  <a class="anchor" href="#terminal">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python --version
+Python 3.9.6
+</code></pre></div><p>Short option of <code>--version</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python -V
+Python 3.9.6
+</code></pre></div><p>More detailed information</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python -VV
+Python 3.9.6 <span style="color:#f92672">(</span>default, Jul <span style="color:#ae81ff">22</span> 2021, 15:16:20<span style="color:#f92672">)</span> 
+<span style="color:#f92672">[</span>GCC 8.3.0<span style="color:#f92672">]</span>
+</code></pre></div><h3 id="source-code">
+  Source code
+  <a class="anchor" href="#source-code">#</a>
+</h3>
+<h4 id="sys">
+  <code>sys</code>
+  <a class="anchor" href="#sys">#</a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
+
+print(sys<span style="color:#f92672">.</span>version)
+<span style="color:#75715e"># 3.9.6 (default, Jul 22 2021, 15:16:20) </span>
+<span style="color:#75715e"># [GCC 8.3.0]</span>
+print(type(sys<span style="color:#f92672">.</span>version))
+<span style="color:#75715e"># &lt;class &#39;str&#39;&gt;</span>
+
+print(sys<span style="color:#f92672">.</span>version_info)
+<span style="color:#75715e"># sys.version_info(major=3, minor=9, micro=6, releaselevel=&#39;final&#39;, serial=0)</span>
+print(type(sys<span style="color:#f92672">.</span>version_info))
+<span style="color:#75715e"># &lt;class &#39;sys.version_info&#39;&gt;</span>
+
+print(sys<span style="color:#f92672">.</span>version_info[<span style="color:#ae81ff">0</span>])
+<span style="color:#75715e"># 3</span>
+print(sys<span style="color:#f92672">.</span>version_info[<span style="color:#ae81ff">1</span>])
+<span style="color:#75715e"># 9</span>
+print(sys<span style="color:#f92672">.</span>version_info[<span style="color:#ae81ff">2</span>])
+<span style="color:#75715e"># 6</span>
+
+print(sys<span style="color:#f92672">.</span>version_info<span style="color:#f92672">.</span>major)
+<span style="color:#75715e"># 3</span>
+print(sys<span style="color:#f92672">.</span>version_info<span style="color:#f92672">.</span>minor)
+<span style="color:#75715e"># 9</span>
+print(sys<span style="color:#f92672">.</span>version_info<span style="color:#f92672">.</span>micro)
+<span style="color:#75715e"># 6</span>
+</code></pre></div><h4 id="platform">
+  <code>platform</code>
+  <a class="anchor" href="#platform">#</a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> platform
+
+print(platform<span style="color:#f92672">.</span>python_version())
+<span style="color:#75715e"># 3.9.6</span>
+print(type(platform<span style="color:#f92672">.</span>python_version()))
+<span style="color:#75715e"># &lt;class &#39;str&#39;&gt;</span>
+print(platform<span style="color:#f92672">.</span>python_version_tuple())
+<span style="color:#75715e"># (&#39;3&#39;, &#39;9&#39;, &#39;6&#39;)</span>
+print(type(platform<span style="color:#f92672">.</span>python_version_tuple()))
+<span style="color:#75715e"># &lt;class &#39;tuple&#39;&gt;</span>
+</code></pre></div><h2 id="package">
+  Package
+  <a class="anchor" href="#package">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ pip list
+</code></pre></div><table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-o</code></td>
+<td><code>--outdated</code></td>
+<td>List outdated packages.</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td><code>--uptodate</code></td>
+<td>List update packages.</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td><code>--editable</code></td>
+<td>List editable projects.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--format &lt;list_format&gt;</code></td>
+<td>Select the output format among: columns (default), freeze, or json.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--not-required</code></td>
+<td>List packages that are not dependencies of installed packages.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ pip freeze
+</code></pre></div><p><code>pip list --format freeze</code> equals <code>pip freeze --all</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ pip show &lt;installed package&gt;
+</code></pre></div><p>e.g.)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ pip show numpy
+</code></pre></div><h2 id="argument">
+  Argument
+  <a class="anchor" href="#argument">#</a>
+</h2>
+<h3 id="sysargv">
+  <code>sys.argv</code>
+  <a class="anchor" href="#sysargv">#</a>
+</h3>
+<p><code>sample.py</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
+
+args <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>argv
+
+print(args)
+print(args[<span style="color:#ae81ff">1</span>])
+print(args[<span style="color:#ae81ff">2</span>])
+</code></pre></div><p>Run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python simple.py aaa <span style="color:#ae81ff">123</span>
+<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;sample.py&#39;</span>, <span style="color:#e6db74">&#39;aaa&#39;</span>, <span style="color:#e6db74">&#39;123&#39;</span><span style="color:#f92672">]</span>
+aaa
+</code></pre></div><h3 id="argparse">
+  <code>argparse</code>
+  <a class="anchor" href="#argparse">#</a>
+</h3>
+<h4 id="simple-sample">
+  Simple sample
+  <a class="anchor" href="#simple-sample">#</a>
+</h4>
+<p><code>sample.py</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> argparse
+
+description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A description of this program.&#39;</span>
+parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser(description<span style="color:#f92672">=</span>description)
+parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;foo&#39;</span>, type<span style="color:#f92672">=</span>str, help<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;First argument.&#39;</span>)
+parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;bar&#39;</span>, type<span style="color:#f92672">=</span>int, help<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Second argument.&#39;</span>)
+args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+
+print(args)
+print(args<span style="color:#f92672">.</span>foo)
+print(args<span style="color:#f92672">.</span>bar)
+</code></pre></div><p>Run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python sample.py aaa <span style="color:#ae81ff">123</span>
+Namespace<span style="color:#f92672">(</span>foo<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;aaa&#39;</span>, bar<span style="color:#f92672">=</span>123<span style="color:#f92672">)</span>
+aaa
+<span style="color:#ae81ff">123</span>
+</code></pre></div><p>Check help using  <code>-h</code> or <code>---help</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python sample.py --help
+usage: sample.py <span style="color:#f92672">[</span>-h<span style="color:#f92672">]</span> foo bar
+
+A description of this program.
+
+positional arguments:
+  foo         First argument.
+  bar         Second argument.
+
+optional arguments:
+  -h, --help  show this help message and exit
+</code></pre></div><h4 id="advanced-sample">
+  Advanced sample
+  <a class="anchor" href="#advanced-sample">#</a>
+</h4>
+<p><code>sample.py</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> argparse
+
+description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A description of this program.&#39;</span>
+parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser(description<span style="color:#f92672">=</span>description)
+
+help <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A required named argument.&#39;</span>
+parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;--named_arg1&#39;</span>, type<span style="color:#f92672">=</span>str, required<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, help<span style="color:#f92672">=</span>help)
+
+help <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;An optional named argument.&#39;</span>
+parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;--named_arg2&#39;</span>, type<span style="color:#f92672">=</span>int, help<span style="color:#f92672">=</span>help)
+
+help <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;True is specified automatically if you set this.&#39;</span>
+parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;--flag1&#39;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;store_true&#39;</span>, help<span style="color:#f92672">=</span>help)
+
+help <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;False is specified automatically if you set this.&#39;</span>
+parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;--flag2&#39;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;store_false&#39;</span>, help<span style="color:#f92672">=</span>help)
+
+args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+
+print(args)
+
+print(args<span style="color:#f92672">.</span>named_arg1)
+print(args<span style="color:#f92672">.</span>named_arg2)
+print(args<span style="color:#f92672">.</span>flag1)
+print(args<span style="color:#f92672">.</span>flag2)
+</code></pre></div><p>Run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python sample.py --named_arg1 aaa --named_arg2 <span style="color:#ae81ff">123</span> --flag1 --flag2
+Namespace<span style="color:#f92672">(</span>named_arg1<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;aaa&#39;</span>, named_arg2<span style="color:#f92672">=</span>123, flag1<span style="color:#f92672">=</span>True, flag2<span style="color:#f92672">=</span>False<span style="color:#f92672">)</span>
+aaa
+<span style="color:#ae81ff">123</span>
+True
+False
+</code></pre></div><h2 id="filedirectory">
+  File/Directory
+  <a class="anchor" href="#filedirectory">#</a>
+</h2>
+<h3 id="move-to-current-directory">
+  Move to current directory
+  <a class="anchor" href="#move-to-current-directory">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+os<span style="color:#f92672">.</span>getcwd()
+</code></pre></div><h3 id="get-an-absolute-path">
+  Get an absolute path
+  <a class="anchor" href="#get-an-absolute-path">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+absolute_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>abspath(path)
+</code></pre></div><h3 id="check-if-it-is-an-absolute-path">
+  Check if it is an absolute path
+  <a class="anchor" href="#check-if-it-is-an-absolute-path">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>isabs(path)
+</code></pre></div><h3 id="get-a-relative-path">
+  Get a relative path
+  <a class="anchor" href="#get-a-relative-path">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+relative_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>relpath(path)
+</code></pre></div><h3 id="get-a-files-directory">
+  Get a file&rsquo;s directory
+  <a class="anchor" href="#get-a-files-directory">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+dir_name <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(file_path)
+</code></pre></div><h3 id="get-a-file-name">
+  Get a file name
+  <a class="anchor" href="#get-a-file-name">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+file_name <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>basename(file_path)
+</code></pre></div><h3 id="get-a-files-stem">
+  Get a file&rsquo;s stem
+  <a class="anchor" href="#get-a-files-stem">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+file_stem <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>splitext(file_name)[<span style="color:#ae81ff">0</span>] <span style="color:#75715e"># sample.png -&gt; sample</span>
+</code></pre></div><h3 id="check-if-a-file-or-a-directory-exists">
+  Check if a file or a directory exists
+  <a class="anchor" href="#check-if-a-file-or-a-directory-exists">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/foo/bar/sample.png&#34;</span>
+os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(path)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/foo/bar/sample.png&#34;</span>
+os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>isfile(path)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/foo/bar/&#34;</span>
+os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>isdir(path)
+</code></pre></div><h2 id="references">
+  References
+  <a class="anchor" href="#references">#</a>
+</h2>
+<ul>
+<li><a href="https://docs.python.org/ja/3.9/library/argparse.html">https://docs.python.org/ja/3.9/library/argparse.html</a></li>
+<li><a href="https://qiita.com/kzkadc/items/e4fc7bc9c003de1eb6d0">https://qiita.com/kzkadc/items/e4fc7bc9c003de1eb6d0</a></li>
+<li><a href="https://www.delftstack.com/ja/howto/python/python-get-filename-without-extension-from-path/">https://www.delftstack.com/ja/howto/python/python-get-filename-without-extension-from-path/</a></li>
+<li><a href="https://note.nkmk.me/python-os-basename-dirname-split-splitext/">https://note.nkmk.me/python-os-basename-dirname-split-splitext/</a></li>
+<li><a href="https://note.nkmk.me/python-sys-platform-version-info/">https://note.nkmk.me/python-sys-platform-version-info/</a></li>
+<li><a href="https://pip.pypa.io/en/stable/cli/pip_list/">https://pip.pypa.io/en/stable/cli/pip_list/</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  <h2>Tags</h2>
+
+
+  <ul class="tags"><li><a href="/tags/python">Python</a><li><a href="/tags/basic">Basic</a></ul>
+
+<h2>Table of Contents</h2>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-macos">Install macOS</a>
+      <ul>
+        <li><a href="#check-the-default-version-of-python-on-macos">Check the default version of Python on macOS</a></li>
+        <li><a href="#install-the-latest-version-using-homebrew">Install the latest version using Homebrew</a></li>
+        <li><a href="#add-pythons-path">Add Python&rsquo;s path</a></li>
+        <li><a href="#check-that-the-latest-version-is-available">Check that the latest version is available</a></li>
+        <li><a href="#if-you-want-to-update-python-on-macos-in-the-future">If you want to update Python on macOS in the future</a></li>
+      </ul>
+    </li>
+    <li><a href="#version">Version</a>
+      <ul>
+        <li><a href="#terminal">Terminal</a></li>
+        <li><a href="#source-code">Source code</a></li>
+      </ul>
+    </li>
+    <li><a href="#package">Package</a></li>
+    <li><a href="#argument">Argument</a>
+      <ul>
+        <li><a href="#sysargv"><code>sys.argv</code></a></li>
+        <li><a href="#argparse"><code>argparse</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#filedirectory">File/Directory</a>
+      <ul>
+        <li><a href="#move-to-current-directory">Move to current directory</a></li>
+        <li><a href="#get-an-absolute-path">Get an absolute path</a></li>
+        <li><a href="#check-if-it-is-an-absolute-path">Check if it is an absolute path</a></li>
+        <li><a href="#get-a-relative-path">Get a relative path</a></li>
+        <li><a href="#get-a-files-directory">Get a file&rsquo;s directory</a></li>
+        <li><a href="#get-a-file-name">Get a file name</a></li>
+        <li><a href="#get-a-files-stem">Get a file&rsquo;s stem</a></li>
+        <li><a href="#check-if-a-file-or-a-directory-exists">Check if a file or a directory exists</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
