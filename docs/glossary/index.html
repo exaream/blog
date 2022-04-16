@@ -9,15 +9,15 @@
 <meta property="og:description" content="用語集 #  技術 #  バッファ buffer 鑑賞記憶装置 #   IT分野では、コンピューターが処理しきれないデータを一時的に保持しておくための記憶領域を指し、「緩衝記憶領域」とも呼ばれる。コンピューター内部の入出力装置や制御装置などでは、装置ごとに処理速度の差があるため、装置間でデータをやりとりするとタイムラグが生じる。そこで、処理速度や転送速度の差を緩和させ、それぞれの処理速度に合わせたデータの保管や送信を行う必要があり、バッファはその役目を果たしている。 https://e-words.jp/w/%E3%83%90%E3%83%83%E3%83%95%E3%82%A1.html https://www.otsuka-shokai.co.jp/words/buffer.html  静的解析 #   コードを実行せずにおこなう検証。  凝集度 #   クラスやメソッドがそのクラスの責任に集中しているかを示す尺度。 凝集度が低いケース：メソッドが、クラスの責任範囲と関連性の低い様々な処理をおこなったり、関連性の低いデータを扱っている場合、修正が複数のクラスにまたがって影響する可能性が高まり、保守性が低下。  結合度 #   クラスやメソッドを利用・保守しやすいよう、その内容が整理・分割できているかを示す尺度。 結合度が高いケース：利用する側のクラスやメソッドが、利用される側のクラスやメソッドの内容を把握（依存）している割合が高いほど、保守性やテスト容易性が低下。  ACID #  Wikipedia ACID
  信頼性のあるトランザクションシステムの持つべき性質  不可分性(atomicity): トランザクションに含まれるタスクが全て実行されるか、あるいは全く実行されないことを保証する性質。 一貫性(consistency): トランザクション開始と終了時にあらかじめ与えられた整合性を満たすことを保証する性質を指す。すなわち、データベースのルール、つまり整合性条件を満たさない状態を起こすようなトランザクションは実行が中断される。日本語では整合性とも呼ばれる。 独立性(isolation): トランザクション中に行われる操作の過程が他の操作から隠蔽されることを指す。日本語では分離性、独立性または隔離性ともいう。 永続性(durability): トランザクション操作の完了通知をユーザが受けた時点で、その操作は永続的となり、結果が失われないことを指す。持続性ともいう。    金融 #   口座振替：公共料金やクレジットカードなどのサービスへの支払い代金が、預金口座から自動で引き落とされる仕組みの決済サービス。  主体：金融機関（定期的かつ自動的） 具体例：水道光熱費, 携帯料金等 手数料：振替の都度、お金を受け取る側が払う   口座振込：自分の口座にある資金を、第三者の口座宛てに払い込むこと。  主体：消費者自ら 具体例：商品代金の支払い等 手数料：振込の都度、お金を送る側が払う    参考 #   口座振替と口座振込の違い https://www.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://exaream.github.io/blog/glossary/"><meta property="article:section" content>
+<meta property="og:url" content="https://exaream.dev/glossary/"><meta property="article:section" content>
 <meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
 <meta property="article:modified_time" content="2020-01-01T00:00:00+00:00">
 <title>Glossary | Tech Blog</title>
-<link rel=manifest href=/blog/manifest.json>
-<link rel=icon href=/blog/favicon.png type=image/x-icon>
-<link rel=stylesheet href=/blog/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
-<script defer src=/blog/flexsearch.min.js></script>
-<script defer src=/blog/en.search.min.26a75d1d75ccfcd393a040e8f98cd3cf3d77c0c35b2761f558df8db235fc327e.js integrity="sha256-JqddHXXM/NOToEDo+YzTzz13wMNbJ2H1WN+NsjX8Mn4=" crossorigin=anonymous></script>
+<link rel=manifest href=/manifest.json>
+<link rel=icon href=/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
+<script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.76915a8f9eb8056ca356f278b3cd60dc7956e523b41ad9d8ab828e3566986623.js integrity="sha256-dpFaj564BWyjVvJ4s81g3HlW5SO0GtnYq4KONWaYZiM=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -27,7 +27,7 @@
 <div class=book-menu-content>
 <nav>
 <h2 class=book-brand>
-<a class="flex align-center" href=/blog/><span>Tech Blog</span>
+<a class="flex align-center" href=/><span>Tech Blog</span>
 </a>
 </h2>
 <h3 id=menu>
@@ -37,64 +37,64 @@ Menu
 <ul>
 <li><strong>Git</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/git/memo/>Git Memo</a></li>
-<li><a href=https://exaream.github.io/blog/git/tool/>Git Tool</a></li>
+<li><a href=https://exaream.dev/git/memo/>Git Memo</a></li>
+<li><a href=https://exaream.dev/git/tool/>Git Tool</a></li>
 </ul>
 </li>
 <li><strong>Docker</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/docker/memo/>Docker Memo</a></li>
-<li><a href=https://exaream.github.io/blog/docker/docker-compose/>Docker Compose</a></li>
-<li><a href=https://exaream.github.io/blog/docker/docker-swarm/>Docker Swarm</a></li>
+<li><a href=https://exaream.dev/docker/memo/>Docker Memo</a></li>
+<li><a href=https://exaream.dev/docker/docker-compose/>Docker Compose</a></li>
+<li><a href=https://exaream.dev/docker/docker-swarm/>Docker Swarm</a></li>
 </ul>
 </li>
 <li><strong>SQL</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/mysql/memo/>MySQL Memo</a></li>
-<li><a href=https://exaream.github.io/blog/postgresql/memo/>PostgreSQL Memo</a></li>
+<li><a href=https://exaream.dev/mysql/memo/>MySQL Memo</a></li>
+<li><a href=https://exaream.dev/postgresql/memo/>PostgreSQL Memo</a></li>
 </ul>
 </li>
 <li><strong>Go</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/go/check-list/>Go Check List</a></li>
-<li><a href=https://exaream.github.io/blog/go/test/>Go Test</a></li>
-<li><a href=https://exaream.github.io/blog/go/link/>Go Link</a></li>
+<li><a href=https://exaream.dev/go/check-list/>Go Check List</a></li>
+<li><a href=https://exaream.dev/go/test/>Go Test</a></li>
+<li><a href=https://exaream.dev/go/link/>Go Link</a></li>
 </ul>
 </li>
 <li><strong>Linux</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/linux/memo/>Linux Memo</a></li>
-<li><a href=https://exaream.github.io/blog/linux/ubuntu/>Ubuntu</a></li>
-<li><a href=https://exaream.github.io/blog/linux/alpine-linux/>Alpine Linux</a></li>
+<li><a href=https://exaream.dev/linux/memo/>Linux Memo</a></li>
+<li><a href=https://exaream.dev/linux/ubuntu/>Ubuntu</a></li>
+<li><a href=https://exaream.dev/linux/alpine-linux/>Alpine Linux</a></li>
 </ul>
 </li>
 <li><strong>Python</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/python/memo/>Python Memo</a></li>
-<li><a href=https://exaream.github.io/blog/python/ocr/>Python OCR</a></li>
+<li><a href=https://exaream.dev/python/memo/>Python Memo</a></li>
+<li><a href=https://exaream.dev/python/ocr/>Python OCR</a></li>
 </ul>
 </li>
 <li><strong>PHP</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/php/phpunit/>PHPUnit</a></li>
-<li><a href=https://exaream.github.io/blog/php/phpmetrics/>PhpMetrics</a></li>
+<li><a href=https://exaream.dev/php/phpunit/>PHPUnit</a></li>
+<li><a href=https://exaream.dev/php/phpmetrics/>PhpMetrics</a></li>
 </ul>
 </li>
 <li><strong>Mac</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/mac/memo/>Mac Memo</a></li>
-<li><a href=https://exaream.github.io/blog/mac/iterm2/>iTerm2</a></li>
+<li><a href=https://exaream.dev/mac/memo/>Mac Memo</a></li>
+<li><a href=https://exaream.dev/mac/iterm2/>iTerm2</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href=https://exaream.github.io/blog/shellscript/memo/>Shellscript</a></li>
-<li><a href=https://exaream.github.io/blog/tool/hugo/>Hugo</a></li>
-<li><a href=https://exaream.github.io/blog/node/memo/>Node</a></li>
-<li><a href=https://exaream.github.io/blog/tool/vscode/>VS Code</a></li>
-<li><a href=https://exaream.github.io/blog/tool/excel/>Excel</a></li>
-<li><a href=https://exaream.github.io/blog/tool/mailcatcher/>MailCatcher</a></li>
-<li><a href=https://exaream.github.io/blog/glossary/>Glossary</a></li>
+<li><a href=https://exaream.dev/shellscript/memo/>Shellscript</a></li>
+<li><a href=https://exaream.dev/tool/hugo/>Hugo</a></li>
+<li><a href=https://exaream.dev/node/memo/>Node</a></li>
+<li><a href=https://exaream.dev/tool/vscode/>VS Code</a></li>
+<li><a href=https://exaream.dev/tool/excel/>Excel</a></li>
+<li><a href=https://exaream.dev/tool/mailcatcher/>MailCatcher</a></li>
+<li><a href=https://exaream.dev/glossary/>Glossary</a></li>
 </ul>
 </nav>
 <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
@@ -104,16 +104,16 @@ Menu
 <header class=book-header>
 <div class="flex align-center justify-between">
 <label for=menu-control>
-<img src=/blog/svg/menu.svg class=book-icon alt=Menu>
+<img src=/svg/menu.svg class=book-icon alt=Menu>
 </label>
 <strong>Glossary</strong>
 <label for=toc-control>
-<img src=/blog/svg/toc.svg class=book-icon alt="Table of Contents">
+<img src=/svg/toc.svg class=book-icon alt="Table of Contents">
 </label>
 </div>
 <aside class="hidden clearfix">
 <h2>Tags</h2>
-<ul class=tags><li><a href=/blog/tags/glossary>Glossary</a><li><a href=/blog/tags/%E7%94%A8%E8%AA%9E%E9%9B%86>用語集</a></ul>
+<ul class=tags><li><a href=/tags/glossary>Glossary</a><li><a href=/tags/%E7%94%A8%E8%AA%9E%E9%9B%86>用語集</a></ul>
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
@@ -134,10 +134,10 @@ Menu
 </header>
 <ol class=breadcrumb>
 <li>
-<a href=https://exaream.github.io/blog/>Tech Blog</a>
+<a href=https://exaream.dev/>Tech Blog</a>
 </li>
 <li class=active>
-<a href=https://exaream.github.io/blog/glossary/>Glossary</a>
+<a href=https://exaream.dev/glossary/>Glossary</a>
 </li>
 </ol>
 <article class=markdown><h1 id=用語集>
@@ -238,7 +238,7 @@ ACID
 <aside class=book-toc>
 <div class=book-toc-content>
 <h2>Tags</h2>
-<ul class=tags><li><a href=/blog/tags/glossary>Glossary</a><li><a href=/blog/tags/%E7%94%A8%E8%AA%9E%E9%9B%86>用語集</a></ul>
+<ul class=tags><li><a href=/tags/glossary>Glossary</a><li><a href=/tags/%E7%94%A8%E8%AA%9E%E9%9B%86>用語集</a></ul>
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
