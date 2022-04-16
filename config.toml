@@ -1,6 +1,6 @@
 baseURL = "https://exaream.dev/"
 languageCode = "en-us"
-title = "Tech Blog"
+title = "Tech"
 publishDir = "docs"
 theme = "hugo-book"
 copyright = "exaream"

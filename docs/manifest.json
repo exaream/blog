@@ -1,6 +1,6 @@
 {
-  "name": "Tech Blog",
-  "short_name": "Tech Blog",
+  "name": "Tech",
+  "short_name": "Tech",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
