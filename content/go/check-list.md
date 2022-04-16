@@ -2,7 +2,8 @@
 date: 2022-03-31
 lastmod: ["lastmod"]
 title: Go Check List
-description: ""
+linkTitle: Check List
+description: "Go Check List"
 tags: ["Go", "Golang", "Check List"]
 ---
 

@@ -2,16 +2,10 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Go Check Sheet #  設計 #   パッケージ管理  Go Modules (go.mod) Workspace mode https://zenn.dev/kimuson13/articles/go-workspace-mode-impressions   分割  ファイルを適切に分割  main.go は極力薄くすること   パッケージを適切に分割   命名  1単語 アッパーキャメル、スネークなし 気持ちの良い命名は良い設計ができた証拠 長ったらしい説明有頂な名前は設計がうまくいっていない証拠   適切に型定義すること   多くの引数を引き回さないこと
-  何でもかんでも構造体にしないこと
- e.g. go/token.Pos int ソースコード上の場所を表す型　大小を演算子で比較できる token.FileSet は構造体　構造体ではメソッド化が必要になるため面倒    型同士がお互いを知りすぎていると密結合になるため注意
-   過度の抽象化をおこなわないこと  メソッドの数が多すぎるインターフェイス テストの事情を背負いすぎているインターフェイス   internal ディレクトリ  公開したくない機能を隠蔽 internal 以下は内部パッケージ internal ディレクトリ以下のパッケージのみ参照可 internal 以下でエクスポートしても外のパッケージから参照不可   大規模データの入力を考慮  処理できる範囲を仕様として明確化 大きすぎる入力はエラーとして処理 (大規模データの入力を想定せずに落ちるのはNG) メモリが溢れないこと 処理に時間がかかりすぎないこと 再帰呼び出ししすぎてスタックオーバーフローをおこさないこと   テスト可用性  パッケージ変数は極力使用しないこと t.">
+<meta name=description content="Go Check List">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="Go Check List">
-<meta property="og:description" content="Go Check Sheet #  設計 #   パッケージ管理  Go Modules (go.mod) Workspace mode https://zenn.dev/kimuson13/articles/go-workspace-mode-impressions   分割  ファイルを適切に分割  main.go は極力薄くすること   パッケージを適切に分割   命名  1単語 アッパーキャメル、スネークなし 気持ちの良い命名は良い設計ができた証拠 長ったらしい説明有頂な名前は設計がうまくいっていない証拠   適切に型定義すること   多くの引数を引き回さないこと
-  何でもかんでも構造体にしないこと
- e.g. go/token.Pos int ソースコード上の場所を表す型　大小を演算子で比較できる token.FileSet は構造体　構造体ではメソッド化が必要になるため面倒    型同士がお互いを知りすぎていると密結合になるため注意
-   過度の抽象化をおこなわないこと  メソッドの数が多すぎるインターフェイス テストの事情を背負いすぎているインターフェイス   internal ディレクトリ  公開したくない機能を隠蔽 internal 以下は内部パッケージ internal ディレクトリ以下のパッケージのみ参照可 internal 以下でエクスポートしても外のパッケージから参照不可   大規模データの入力を考慮  処理できる範囲を仕様として明確化 大きすぎる入力はエラーとして処理 (大規模データの入力を想定せずに落ちるのはNG) メモリが溢れないこと 処理に時間がかかりすぎないこと 再帰呼び出ししすぎてスタックオーバーフローをおこさないこと   テスト可用性  パッケージ変数は極力使用しないこと t.">
+<meta property="og:description" content="Go Check List">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://exaream.dev/go/check-list/"><meta property="article:section" content="go">
 <meta property="article:published_time" content="2022-03-31T00:00:00+00:00">
@@ -138,7 +132,7 @@ Menu
 <a href=https://exaream.dev/go/>Go</a>
 </li>
 <li class=active>
-<a href=https://exaream.dev/go/check-list/>Go Check List</a>
+<a href=https://exaream.dev/go/check-list/>Check List</a>
 </li>
 </ol>
 <article class=markdown><h1 id=go-check-sheet>
