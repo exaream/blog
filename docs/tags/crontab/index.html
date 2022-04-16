@@ -1,619 +1,872 @@
-<!doctype html><html lang=en-us dir=ltr>
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
 <head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content>
-<meta name=theme-color content="#FFFFFF">
-<meta name=color-scheme content="light dark"><meta property="og:title" content="crontab">
-<meta property="og:description" content>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://exaream.github.io/blog/tags/crontab/">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="crontab" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://exaream.github.io/blog/tags/crontab/" />
+
 <title>crontab | Tech Blog</title>
-<link rel=manifest href=/blog/manifest.json>
-<link rel=icon href=/blog/favicon.png type=image/x-icon>
-<link rel=stylesheet href=/blog/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
-<script defer src=/blog/flexsearch.min.js></script>
-<script defer src=/blog/en.search.min.799d5ffdfb07563510f83b2e24c100ed983fc935af675e26221dcfb9b0b5429b.js integrity="sha256-eZ1f/fsHVjUQ+DsuJMEA7Zg/yTWvZ14mIh3PubC1Qps=" crossorigin=anonymous></script>
-<link rel=alternate type=application/rss+xml href=https://exaream.github.io/blog/tags/crontab/index.xml title="Tech Blog">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="icon" href="/blog/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/blog/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css" integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin="anonymous">
+  <script defer src="/blog/flexsearch.min.js"></script>
+  <script defer src="/blog/en.search.min.799d5ffdfb07563510f83b2e24c100ed983fc935af675e26221dcfb9b0b5429b.js" integrity="sha256-eZ1f/fsHVjUQ&#43;DsuJMEA7Zg/yTWvZ14mIh3PubC1Qps=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="https://exaream.github.io/blog/tags/crontab/index.xml" title="Tech Blog" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
 </head>
-<body dir=ltr>
-<input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control>
-<main class="container flex">
-<aside class=book-menu>
-<div class=book-menu-content>
-<nav>
-<h2 class=book-brand>
-<a class="flex align-center" href=/blog/><span>Tech Blog</span>
-</a>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/blog/"><span>Tech Blog</span>
+  </a>
 </h2>
-<h3 id=menu>
-Menu
-<a class=anchor href=#menu>#</a>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="menu">
+  Menu
+  <a class="anchor" href="#menu">#</a>
 </h3>
 <ul>
 <li><strong>Git</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/git/memo/>Git Memo</a></li>
-<li><a href=https://exaream.github.io/blog/git/tool/>Git Tool</a></li>
+<li><a href="https://exaream.github.io/blog/git/memo/">Git Memo</a></li>
+<li><a href="https://exaream.github.io/blog/git/tool/">Git Tool</a></li>
 </ul>
 </li>
 <li><strong>Docker</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/docker/memo/>Docker Memo</a></li>
-<li><a href=https://exaream.github.io/blog/docker/docker-compose/>Docker Compose</a></li>
-<li><a href=https://exaream.github.io/blog/docker/docker-swarm/>Docker Swarm</a></li>
+<li><a href="https://exaream.github.io/blog/docker/memo/">Docker Memo</a></li>
+<li><a href="https://exaream.github.io/blog/docker/docker-compose/">Docker Compose</a></li>
+<li><a href="https://exaream.github.io/blog/docker/docker-swarm/">Docker Swarm</a></li>
 </ul>
 </li>
 <li><strong>SQL</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/mysql/memo/>MySQL Memo</a></li>
-<li><a href=https://exaream.github.io/blog/postgresql/memo/>PostgreSQL Memo</a></li>
+<li><a href="https://exaream.github.io/blog/mysql/memo/">MySQL Memo</a></li>
+<li><a href="https://exaream.github.io/blog/postgresql/memo/">PostgreSQL Memo</a></li>
 </ul>
 </li>
 <li><strong>Go</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/go/check-list/>Go Check List</a></li>
-<li><a href=https://exaream.github.io/blog/go/test/>Go Test</a></li>
-<li><a href=https://exaream.github.io/blog/go/link/>Go Link</a></li>
+<li><a href="https://exaream.github.io/blog/go/check-list/">Go Check List</a></li>
+<li><a href="https://exaream.github.io/blog/go/test/">Go Test</a></li>
+<li><a href="https://exaream.github.io/blog/go/link/">Go Link</a></li>
 </ul>
 </li>
 <li><strong>Linux</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/linux/memo/>Linux Memo</a></li>
-<li><a href=https://exaream.github.io/blog/linux/ubuntu/>Ubuntu</a></li>
-<li><a href=https://exaream.github.io/blog/linux/alpine-linux/>Alpine Linux</a></li>
+<li><a href="https://exaream.github.io/blog/linux/memo/">Linux Memo</a></li>
+<li><a href="https://exaream.github.io/blog/linux/ubuntu/">Ubuntu</a></li>
+<li><a href="https://exaream.github.io/blog/linux/alpine-linux/">Alpine Linux</a></li>
 </ul>
 </li>
 <li><strong>Python</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/python/memo/>Python Memo</a></li>
-<li><a href=https://exaream.github.io/blog/python/ocr/>Python OCR</a></li>
+<li><a href="https://exaream.github.io/blog/python/memo/">Python Memo</a></li>
+<li><a href="https://exaream.github.io/blog/python/ocr/">Python OCR</a></li>
 </ul>
 </li>
 <li><strong>PHP</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/php/phpunit/>PHPUnit</a></li>
-<li><a href=https://exaream.github.io/blog/php/phpmetrics/>PhpMetrics</a></li>
+<li><a href="https://exaream.github.io/blog/php/phpunit/">PHPUnit</a></li>
+<li><a href="https://exaream.github.io/blog/php/phpmetrics/">PhpMetrics</a></li>
 </ul>
 </li>
 <li><strong>Mac</strong>
 <ul>
-<li><a href=https://exaream.github.io/blog/mac/memo/>Mac Memo</a></li>
-<li><a href=https://exaream.github.io/blog/mac/iterm2/>iTerm2</a></li>
+<li><a href="https://exaream.github.io/blog/mac/memo/">Mac Memo</a></li>
+<li><a href="https://exaream.github.io/blog/mac/iterm2/">iTerm2</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href=https://exaream.github.io/blog/shellscript/memo/>Shellscript</a></li>
-<li><a href=https://exaream.github.io/blog/tool/hugo/>Hugo</a></li>
-<li><a href=https://exaream.github.io/blog/node/memo/>Node</a></li>
-<li><a href=https://exaream.github.io/blog/tool/vscode/>VS Code</a></li>
-<li><a href=https://exaream.github.io/blog/tool/excel/>Excel</a></li>
-<li><a href=https://exaream.github.io/blog/tool/mailcatcher/>MailCatcher</a></li>
-<li><a href=https://exaream.github.io/blog/glossary/>Glossary</a></li>
+<li><a href="https://exaream.github.io/blog/shellscript/memo/">Shellscript</a></li>
+<li><a href="https://exaream.github.io/blog/tool/hugo/">Hugo</a></li>
+<li><a href="https://exaream.github.io/blog/node/memo/">Node</a></li>
+<li><a href="https://exaream.github.io/blog/tool/vscode/">VS Code</a></li>
+<li><a href="https://exaream.github.io/blog/tool/excel/">Excel</a></li>
+<li><a href="https://exaream.github.io/blog/tool/mailcatcher/">MailCatcher</a></li>
+<li><a href="https://exaream.github.io/blog/glossary/">Glossary</a></li>
 </ul>
+
+
+
+
+
+
+
+
+
+
 </nav>
-<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/blog/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>crontab</strong>
+
+  <label for="toc-control">
+    
+    <img src="/blog/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
 </div>
-</aside>
-<div class=book-page>
-<header class=book-header>
-<div class="flex align-center justify-between">
-<label for=menu-control>
-<img src=/blog/svg/menu.svg class=book-icon alt=Menu>
-</label>
-<strong>crontab</strong>
-<label for=toc-control>
-<img src=/blog/svg/toc.svg class=book-icon alt="Table of Contents">
-</label>
-</div>
-<aside class="hidden clearfix">
-<nav>
-<ul>
-<li class=book-section-flat>
-<strong>Categories</strong>
-<ul>
-</ul>
-</li>
-<li class=book-section-flat>
-<strong>Tags</strong>
-<ul>
-<li class="flex justify-between">
-<a href=/blog/tags/career/>Career</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/links/>Links</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/check-sheet/>Check Sheet</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/go/>Go</a>
-<span>4</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/golang/>Golang</a>
-<span>5</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/latest-version/>latest version</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/link/>Link</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/memo/>Memo</a>
-<span>5</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/ocr/>OCR</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/python/>Python</a>
-<span>2</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/tesseract/>Tesseract</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/test/>Test</a>
-<span>2</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/1on1/>1on1</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/alpine-linux/>Alpine Linux</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/apt-get/>apt-get</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/command/>Command</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/configuration/>Configuration</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/container/>Container</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/cron/>Cron</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/crontab/>crontab</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/docker/>Docker</a>
-<span>3</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/docker-stack/>docker stack</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/docker-swarm/>docker swarm</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/docker-compose/>docker-compose</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/excel/>Excel</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/git/>Git</a>
-<span>2</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/git-split-diffs/>git-split-diffs</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/glossary/>Glossary</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/grpc/>gRPC</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/homebrew/>Homebrew</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/hugo/>Hugo</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/iterm2/>iTerm2</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/laravel/>Laravel</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/linux/>Linux</a>
-<span>3</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/log/>Log</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/mac/>Mac</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/mailcatcher/>MailCatcher</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/metrics/>Metrics</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/mysql/>MySQL</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/node/>Node</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/node.js/>Node.js</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/nodebrew/>nodebrew</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/phpmetrics/>PhpMetrics</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/phpunit/>PHPUnit</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/postgresql/>PostgreSQL</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/remote-procedure-call/>Remote Procedure Call</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/shortcut/>Shortcut</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/sql/>SQL</a>
-<span>2</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/static-contents/>static contents</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/todo/>TODO</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/tool/>Tool</a>
-<span>2</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/ubuntu/>Ubuntu</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/visual-studio-code/>Visual Studio Code</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/vs-code/>VS Code</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/%E7%94%A8%E8%AA%9E%E9%9B%86/>用語集</a>
-<span>1</span>
-</li>
-</ul>
-</li>
-</ul>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav>
+  <ul>
+  
+    
+    <li class="book-section-flat">
+      <strong>Categories</strong>
+      <ul>
+      
+      </ul>
+    </li>
+    
+  
+    
+    <li class="book-section-flat">
+      <strong>Tags</strong>
+      <ul>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/career/">Career</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/links/">Links</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/check-sheet/">Check Sheet</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/go/">Go</a>
+          <span>4</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/golang/">Golang</a>
+          <span>5</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/latest-version/">latest version</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/link/">Link</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/memo/">Memo</a>
+          <span>5</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/ocr/">OCR</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/python/">Python</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/tesseract/">Tesseract</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/test/">Test</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/1on1/">1on1</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/alpine-linux/">Alpine Linux</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/apt-get/">apt-get</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/command/">Command</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/configuration/">Configuration</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/container/">Container</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/cron/">Cron</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/crontab/">crontab</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/docker/">Docker</a>
+          <span>3</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/docker-stack/">docker stack</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/docker-swarm/">docker swarm</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/docker-compose/">docker-compose</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/excel/">Excel</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/git/">Git</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/git-split-diffs/">git-split-diffs</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/glossary/">Glossary</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/grpc/">gRPC</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/homebrew/">Homebrew</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/hugo/">Hugo</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/iterm2/">iTerm2</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/laravel/">Laravel</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/linux/">Linux</a>
+          <span>3</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/log/">Log</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/mac/">Mac</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/mailcatcher/">MailCatcher</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/metrics/">Metrics</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/mysql/">MySQL</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/node/">Node</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/node.js/">Node.js</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/nodebrew/">nodebrew</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/phpmetrics/">PhpMetrics</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/phpunit/">PHPUnit</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/postgresql/">PostgreSQL</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/remote-procedure-call/">Remote Procedure Call</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/shortcut/">Shortcut</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/sql/">SQL</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/static-contents/">static contents</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/todo/">TODO</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/tool/">Tool</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/ubuntu/">Ubuntu</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/visual-studio-code/">Visual Studio Code</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/vs-code/">VS Code</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/%E7%94%A8%E8%AA%9E%E9%9B%86/">用語集</a>
+          <span>1</span>
+        </li>
+      
+      </ul>
+    </li>
+    
+  
+  </ul>
 </nav>
-</aside>
-</header>
-<ol class=breadcrumb>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      <ol  class="breadcrumb">
+    
+
+
+
+
+
 <li>
-<a href=https://exaream.github.io/blog/>Tech Blog</a>
+  <a href="https://exaream.github.io/blog/">Tech Blog</a>
 </li>
+
+
 <li>
-<a href=https://exaream.github.io/blog/tags/>Tags</a>
+  <a href="https://exaream.github.io/blog/tags/">Tags</a>
 </li>
-<li class=active>
-<a href=https://exaream.github.io/blog/tags/crontab/>crontab</a>
+
+
+<li class="active">
+  <a href="https://exaream.github.io/blog/tags/crontab/">crontab</a>
 </li>
+
 </ol>
-<article class="markdown book-post">
-<h2>
-<a href=/blog/cron/memo/>Cron Memo</a>
-</h2>
-<h5>January 1, 2020</h5>
-<div>
-<a href=/blog/tags/cron/>Cron</a>,
-<a href=/blog/tags/crontab/>crontab</a>
+
+
+      
+  
+  <article class="markdown book-post">
+    <h2>
+      <a href="/blog/cron/memo/">Cron Memo</a>
+    </h2>
+    
+  <h5>January 1, 2020</h5>
+
+
+
+  
+
+  
+  <div>
+    
+      <a href="/blog/tags/cron/">Cron</a>, 
+      <a href="/blog/tags/crontab/">crontab</a>
+  </div>
+  
+
+
+
+
+    <p>Cron #  日時・時刻・インターバルの指定 #  記述方法 #  時，日，月，曜日，実行コマンド 記号による指定 #     記号 内容     * 全範囲指定(ワイルドカード)   - 範囲指定   / インターバル指定   , 区切り指定    曜日の指定 #   略語または数字での指定が可能     略語 数字     sun 0   mon 1   tue 2   wed 3   thu 4   fri 5   sat 6    月の指定 #   略語または数字での指定が可能     略語 数字     jan 1   feb 2   mar 3   apr 4   may 5   jun 6   jul 7   aug 8   sep 9   oct 10   nov 11   dec 12    注意事項 #  実行ディレクトリ #   cron ジョブ実行時のカレントディレクトリ = ユーザのホームディレクトリ 実行コマンドの指定は「絶対パスを指定」または「実行ディレクトリにcdで移動」すること  環境変数 #   cron ジョブ実行時は最低限の環境変数のみセットされた状態、パスが通っていないケースがあるため注意 shell内での指定と異なり、右辺の環境変数が展開されないため注意  # NG PATH=/usr/local/bin:$PATH # OK PATH=/usr/local/bin:/usr/bin:/bin 毎分指定 #   日次のバッチを誤って毎分実行しないよう注意  # NG * 5 * * * /path/to/backup.
+        <a href="/blog/cron/memo/">...</a>
+      
+    </p>
+  </article>
+  
+
+  
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
 </div>
-<p>Cron # 日時・時刻・インターバルの指定 # 記述方法 # 時，日，月，曜日，実行コマンド 記号による指定 # 記号 内容 * 全範囲指定(ワイルドカード) - 範囲指定 / インターバル指定 , 区切り指定 曜日の指定 # 略語または数字での指定が可能 略語 数字 sun 0 mon 1 tue 2 wed 3 thu 4 fri 5 sat 6 月の指定 # 略語または数字での指定が可能 略語 数字 jan 1 feb 2 mar 3 apr 4 may 5 jun 6 jul 7 aug 8 sep 9 oct 10 nov 11 dec 12 注意事項 # 実行ディレクトリ # cron ジョブ実行時のカレントディレクトリ = ユーザのホームディレクトリ 実行コマンドの指定は「絶対パスを指定」または「実行ディレクトリにcdで移動」すること 環境変数 # cron ジョブ実行時は最低限の環境変数のみセットされた状態、パスが通っていないケースがあるため注意 shell内での指定と異なり、右辺の環境変数が展開されないため注意 # NG PATH=/usr/local/bin:$PATH # OK PATH=/usr/local/bin:/usr/bin:/bin 毎分指定 # 日次のバッチを誤って毎分実行しないよう注意 # NG * 5 * * * /path/to/backup.
-<a href=/blog/cron/memo/>...</a>
-</p>
-</article>
-<footer class=book-footer>
-<div class="flex flex-wrap justify-between">
-</div>
-<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-</footer>
-<label for=menu-control class="hidden book-menu-overlay"></label>
-</div>
-<aside class=book-toc>
-<div class=book-toc-content>
-<nav>
-<ul>
-<li class=book-section-flat>
-<strong>Categories</strong>
-<ul>
-</ul>
-</li>
-<li class=book-section-flat>
-<strong>Tags</strong>
-<ul>
-<li class="flex justify-between">
-<a href=/blog/tags/career/>Career</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/links/>Links</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/check-sheet/>Check Sheet</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/go/>Go</a>
-<span>4</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/golang/>Golang</a>
-<span>5</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/latest-version/>latest version</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/link/>Link</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/memo/>Memo</a>
-<span>5</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/ocr/>OCR</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/python/>Python</a>
-<span>2</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/tesseract/>Tesseract</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/test/>Test</a>
-<span>2</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/1on1/>1on1</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/alpine-linux/>Alpine Linux</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/apt-get/>apt-get</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/command/>Command</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/configuration/>Configuration</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/container/>Container</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/cron/>Cron</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/crontab/>crontab</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/docker/>Docker</a>
-<span>3</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/docker-stack/>docker stack</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/docker-swarm/>docker swarm</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/docker-compose/>docker-compose</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/excel/>Excel</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/git/>Git</a>
-<span>2</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/git-split-diffs/>git-split-diffs</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/glossary/>Glossary</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/grpc/>gRPC</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/homebrew/>Homebrew</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/hugo/>Hugo</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/iterm2/>iTerm2</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/laravel/>Laravel</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/linux/>Linux</a>
-<span>3</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/log/>Log</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/mac/>Mac</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/mailcatcher/>MailCatcher</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/metrics/>Metrics</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/mysql/>MySQL</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/node/>Node</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/node.js/>Node.js</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/nodebrew/>nodebrew</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/phpmetrics/>PhpMetrics</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/phpunit/>PHPUnit</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/postgresql/>PostgreSQL</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/remote-procedure-call/>Remote Procedure Call</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/shortcut/>Shortcut</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/sql/>SQL</a>
-<span>2</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/static-contents/>static contents</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/todo/>TODO</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/tool/>Tool</a>
-<span>2</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/ubuntu/>Ubuntu</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/visual-studio-code/>Visual Studio Code</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/vs-code/>VS Code</a>
-<span>1</span>
-</li>
-<li class="flex justify-between">
-<a href=/blog/tags/%E7%94%A8%E8%AA%9E%E9%9B%86/>用語集</a>
-<span>1</span>
-</li>
-</ul>
-</li>
-</ul>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  <nav>
+  <ul>
+  
+    
+    <li class="book-section-flat">
+      <strong>Categories</strong>
+      <ul>
+      
+      </ul>
+    </li>
+    
+  
+    
+    <li class="book-section-flat">
+      <strong>Tags</strong>
+      <ul>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/career/">Career</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/links/">Links</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/check-sheet/">Check Sheet</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/go/">Go</a>
+          <span>4</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/golang/">Golang</a>
+          <span>5</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/latest-version/">latest version</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/link/">Link</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/memo/">Memo</a>
+          <span>5</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/ocr/">OCR</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/python/">Python</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/tesseract/">Tesseract</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/test/">Test</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/1on1/">1on1</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/alpine-linux/">Alpine Linux</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/apt-get/">apt-get</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/command/">Command</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/configuration/">Configuration</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/container/">Container</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/cron/">Cron</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/crontab/">crontab</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/docker/">Docker</a>
+          <span>3</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/docker-stack/">docker stack</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/docker-swarm/">docker swarm</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/docker-compose/">docker-compose</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/excel/">Excel</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/git/">Git</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/git-split-diffs/">git-split-diffs</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/glossary/">Glossary</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/grpc/">gRPC</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/homebrew/">Homebrew</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/hugo/">Hugo</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/iterm2/">iTerm2</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/laravel/">Laravel</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/linux/">Linux</a>
+          <span>3</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/log/">Log</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/mac/">Mac</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/mailcatcher/">MailCatcher</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/metrics/">Metrics</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/mysql/">MySQL</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/node/">Node</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/node.js/">Node.js</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/nodebrew/">nodebrew</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/phpmetrics/">PhpMetrics</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/phpunit/">PHPUnit</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/postgresql/">PostgreSQL</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/remote-procedure-call/">Remote Procedure Call</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/shortcut/">Shortcut</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/sql/">SQL</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/static-contents/">static contents</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/todo/">TODO</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/tool/">Tool</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/ubuntu/">Ubuntu</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/visual-studio-code/">Visual Studio Code</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/vs-code/">VS Code</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/blog/tags/%E7%94%A8%E8%AA%9E%E9%9B%86/">用語集</a>
+          <span>1</span>
+        </li>
+      
+      </ul>
+    </li>
+    
+  
+  </ul>
 </nav>
-</div>
-</aside>
-</main>
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

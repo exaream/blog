@@ -1,2 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Microservices on Tech Blog</title><link>https://exaream.github.io/blog/microservices/</link><description>Recent content in Microservices on Tech Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>exaream</copyright><atom:link href="https://exaream.github.io/blog/microservices/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://exaream.github.io/blog/microservices/link/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://exaream.github.io/blog/microservices/link/</guid><description>Links of Microservices Architecture # Transaction # https://microservices.io/patterns/data/transactional-outbox.html https://github.com/obsidiandynamics/goharvest https://github.com/torongu/golang-outbox-example https://microservices.io/patterns/data/cqrs.html Clean transactions in Golang hexagon Go Microservice with Clean Architecture: Transaction Support</description></item><item><title/><link>https://exaream.github.io/blog/microservices/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://exaream.github.io/blog/microservices/memo/</guid><description>[WIP] Microservices Architecture # Microservices Patterns
-https://microservices.io/patterns/microservices.html 英語のページ https://github.com/microservices-patterns/ftgo-application 実装サンプル（Java） https://books.rakuten.co.jp/rb/16239274/ 紙 https://book.impress.co.jp/books/1118101063 紙 or 電子版 サービス境界を超えるオブジェクトの参照を削減 サービス境界を超えるデータ整合を維持するためにSagaパターンを使用 1つのアグリゲートとは、複数のオブジェクトをまとめあげた1つのクラスタ（1つのユニット） 他のアグリゲートを参照する際は主キーを使用 Transaction scriptパターン リクエストごとに1つづつ手続き型のトランザクションスクリプトを下記、トランザクションスクリプトのコレうションとしてビジネスモデルを構成する 動作を実装するクラス FooServiceクラス：リクエスト/システム操作ごとに1メソッド FooDao(data access object)クラス：動作はほとんど含まれない 状態を実装するクラス Domain model パターン 状態と動作をあわせ持つクラスによって構成されるオブジェクトモデルとビジネスロジックを構成する FooService 1つの大きなクラスではなく、それぞれ少数の仕事を分担する複数の小さなクラスによって設計 P172 （ドメインと呼んでいるのは）アグリゲート。アグリゲート削除するとアグリゲートに含まれる全てのオブジェクトが当該DBから削除される。 並行処理ではアグリゲートルートをロック。クライアントはアグリゲートルートのメソッドを呼び出さなければいけない。 DDDでドメインモデルを設計する際の重要なポイントは、アグリゲートとその境界、ルートを明らかにすること。 アグリゲートはトランザクションの範囲であるため 粒度はできるだけ小さいほうが良い P177　アグリゲートを使ったビジネスロジックの設計例 ルール アグリゲートの外部からはアグリゲートルートだけを参照する アグリゲート間の参照では主キー（オブジェクト参照ではなく）ID）のみを使用しなければならない P175　1つのトランザクションで1つのアグリゲートを作成または更新 P165 inbound adapter クライアントからのリクエストを処理しビジネスロジックを呼び出す outbound adapter ビジネスロジックから呼び出され、他のサービスやアプリケーションを呼び出す P169 エンティティ、ファクトリ、リポジトリ、サービスというクラスの説明 ドメインイベント ●どのようなことでドメインイベントが使用されるか CQRS（Command Query Responsibility Segregation） レプリカを持っているサービスに、レプリカのソースデータが変わったことを通知する ビジネスプロセスの次のステップに進むためにWebhookやメッセージブローカーを介して他のアプリケーションに通知する Elasticsearchを更新したりWebブラウザに通知する等、同じアプリケーションの別のコンポーネントに通知する ユーザーへの通知 監視しアプリケーションの正常動作を確認 ●P179 実際のクラスの例 ●イベントのコンシューマーが必要とする情報をイベント内に持たせる メッセージブローカー：メッセージの仲介者、Apache Kafkaなど　https://hogetech.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microservices on Tech Blog</title>
+    <link>https://exaream.github.io/blog/microservices/</link>
+    <description>Recent content in Microservices on Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>exaream</copyright><atom:link href="https://exaream.github.io/blog/microservices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://exaream.github.io/blog/microservices/link/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.github.io/blog/microservices/link/</guid>
+      <description>Links of Microservices Architecture #  Transaction #   https://microservices.io/patterns/data/transactional-outbox.html  https://github.com/obsidiandynamics/goharvest https://github.com/torongu/golang-outbox-example   https://microservices.io/patterns/data/cqrs.html Clean transactions in Golang hexagon Go Microservice with Clean Architecture: Transaction Support  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://exaream.github.io/blog/microservices/memo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.github.io/blog/microservices/memo/</guid>
+      <description>[WIP] Microservices Architecture #  Microservices Patterns
+ https://microservices.io/patterns/microservices.html 英語のページ https://github.com/microservices-patterns/ftgo-application 実装サンプル（Java） https://books.rakuten.co.jp/rb/16239274/ 紙 https://book.impress.co.jp/books/1118101063 紙 or 電子版  サービス境界を超えるオブジェクトの参照を削減 サービス境界を超えるデータ整合を維持するためにSagaパターンを使用 1つのアグリゲートとは、複数のオブジェクトをまとめあげた1つのクラスタ（1つのユニット） 他のアグリゲートを参照する際は主キーを使用 Transaction scriptパターン リクエストごとに1つづつ手続き型のトランザクションスクリプトを下記、トランザクションスクリプトのコレうションとしてビジネスモデルを構成する 動作を実装するクラス FooServiceクラス：リクエスト/システム操作ごとに1メソッド FooDao(data access object)クラス：動作はほとんど含まれない 状態を実装するクラス Domain model パターン 状態と動作をあわせ持つクラスによって構成されるオブジェクトモデルとビジネスロジックを構成する FooService 1つの大きなクラスではなく、それぞれ少数の仕事を分担する複数の小さなクラスによって設計 P172 （ドメインと呼んでいるのは）アグリゲート。アグリゲート削除するとアグリゲートに含まれる全てのオブジェクトが当該DBから削除される。 並行処理ではアグリゲートルートをロック。クライアントはアグリゲートルートのメソッドを呼び出さなければいけない。 DDDでドメインモデルを設計する際の重要なポイントは、アグリゲートとその境界、ルートを明らかにすること。 アグリゲートはトランザクションの範囲であるため 粒度はできるだけ小さいほうが良い P177　アグリゲートを使ったビジネスロジックの設計例 ルール アグリゲートの外部からはアグリゲートルートだけを参照する アグリゲート間の参照では主キー（オブジェクト参照ではなく）ID）のみを使用しなければならない P175　1つのトランザクションで1つのアグリゲートを作成または更新 P165 inbound adapter クライアントからのリクエストを処理しビジネスロジックを呼び出す outbound adapter ビジネスロジックから呼び出され、他のサービスやアプリケーションを呼び出す P169 エンティティ、ファクトリ、リポジトリ、サービスというクラスの説明 ドメインイベント ●どのようなことでドメインイベントが使用されるか CQRS（Command Query Responsibility Segregation） レプリカを持っているサービスに、レプリカのソースデータが変わったことを通知する ビジネスプロセスの次のステップに進むためにWebhookやメッセージブローカーを介して他のアプリケーションに通知する Elasticsearchを更新したりWebブラウザに通知する等、同じアプリケーションの別のコンポーネントに通知する ユーザーへの通知 監視しアプリケーションの正常動作を確認 ●P179 実際のクラスの例 ●イベントのコンシューマーが必要とする情報をイベント内に持たせる メッセージブローカー：メッセージの仲介者、Apache Kafkaなど　https://hogetech.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -4,7 +4,6 @@ lastmod: ["lastmod"]
 title: Go Memo
 description: ""
 draft: true
-tags: ["Go", "Golang", "Memo"]
 ---
 
 # Go Memo

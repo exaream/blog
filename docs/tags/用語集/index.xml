@@ -1,2 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>用語集 on Tech Blog</title><link>https://exaream.github.io/blog/tags/%E7%94%A8%E8%AA%9E%E9%9B%86/</link><description>Recent content in 用語集 on Tech Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>exaream</copyright><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://exaream.github.io/blog/tags/%E7%94%A8%E8%AA%9E%E9%9B%86/index.xml" rel="self" type="application/rss+xml"/><item><title>Glossary</title><link>https://exaream.github.io/blog/glossary/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://exaream.github.io/blog/glossary/</guid><description>用語集 # 技術 # バッファ buffer 鑑賞記憶装置 # IT分野では、コンピューターが処理しきれないデータを一時的に保持しておくための記憶領域を指し、「緩衝記憶領域」とも呼ばれる。コンピューター内部の入出力装置や制御装置などでは、装置ごとに処理速度の差があるため、装置間でデータをやりとりするとタイムラグが生じる。そこで、処理速度や転送速度の差を緩和させ、それぞれの処理速度に合わせたデータの保管や送信を行う必要があり、バッファはその役目を果たしている。 https://e-words.jp/w/%E3%83%90%E3%83%83%E3%83%95%E3%82%A1.html https://www.otsuka-shokai.co.jp/words/buffer.html 静的解析 # コードを実行せずにおこなう検証。 凝集度 # クラスやメソッドがそのクラスの責任に集中しているかを示す尺度。 凝集度が低いケース：メソッドが、クラスの責任範囲と関連性の低い様々な処理をおこなったり、関連性の低いデータを扱っている場合、修正が複数のクラスにまたがって影響する可能性が高まり、保守性が低下。 結合度 # クラスやメソッドを利用・保守しやすいよう、その内容が整理・分割できているかを示す尺度。 結合度が高いケース：利用する側のクラスやメソッドが、利用される側のクラスやメソッドの内容を把握（依存）している割合が高いほど、保守性やテスト容易性が低下。 ACID # Wikipedia ACID
-信頼性のあるトランザクションシステムの持つべき性質 不可分性(atomicity): トランザクションに含まれるタスクが全て実行されるか、あるいは全く実行されないことを保証する性質。 一貫性(consistency): トランザクション開始と終了時にあらかじめ与えられた整合性を満たすことを保証する性質を指す。すなわち、データベースのルール、つまり整合性条件を満たさない状態を起こすようなトランザクションは実行が中断される。日本語では整合性とも呼ばれる。 独立性(isolation): トランザクション中に行われる操作の過程が他の操作から隠蔽されることを指す。日本語では分離性、独立性または隔離性ともいう。 永続性(durability): トランザクション操作の完了通知をユーザが受けた時点で、その操作は永続的となり、結果が失われないことを指す。持続性ともいう。 金融 # 口座振替：公共料金やクレジットカードなどのサービスへの支払い代金が、預金口座から自動で引き落とされる仕組みの決済サービス。 主体：金融機関（定期的かつ自動的） 具体例：水道光熱費, 携帯料金等 手数料：振替の都度、お金を受け取る側が払う 口座振込：自分の口座にある資金を、第三者の口座宛てに払い込むこと。 主体：消費者自ら 具体例：商品代金の支払い等 手数料：振込の都度、お金を送る側が払う 参考 # 口座振替と口座振込の違い https://www.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>用語集 on Tech Blog</title>
+    <link>https://exaream.github.io/blog/tags/%E7%94%A8%E8%AA%9E%E9%9B%86/</link>
+    <description>Recent content in 用語集 on Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>exaream</copyright>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://exaream.github.io/blog/tags/%E7%94%A8%E8%AA%9E%E9%9B%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Glossary</title>
+      <link>https://exaream.github.io/blog/glossary/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://exaream.github.io/blog/glossary/</guid>
+      <description>用語集 #  技術 #  バッファ buffer 鑑賞記憶装置 #   IT分野では、コンピューターが処理しきれないデータを一時的に保持しておくための記憶領域を指し、「緩衝記憶領域」とも呼ばれる。コンピューター内部の入出力装置や制御装置などでは、装置ごとに処理速度の差があるため、装置間でデータをやりとりするとタイムラグが生じる。そこで、処理速度や転送速度の差を緩和させ、それぞれの処理速度に合わせたデータの保管や送信を行う必要があり、バッファはその役目を果たしている。 https://e-words.jp/w/%E3%83%90%E3%83%83%E3%83%95%E3%82%A1.html https://www.otsuka-shokai.co.jp/words/buffer.html  静的解析 #   コードを実行せずにおこなう検証。  凝集度 #   クラスやメソッドがそのクラスの責任に集中しているかを示す尺度。 凝集度が低いケース：メソッドが、クラスの責任範囲と関連性の低い様々な処理をおこなったり、関連性の低いデータを扱っている場合、修正が複数のクラスにまたがって影響する可能性が高まり、保守性が低下。  結合度 #   クラスやメソッドを利用・保守しやすいよう、その内容が整理・分割できているかを示す尺度。 結合度が高いケース：利用する側のクラスやメソッドが、利用される側のクラスやメソッドの内容を把握（依存）している割合が高いほど、保守性やテスト容易性が低下。  ACID #  Wikipedia ACID
+ 信頼性のあるトランザクションシステムの持つべき性質  不可分性(atomicity): トランザクションに含まれるタスクが全て実行されるか、あるいは全く実行されないことを保証する性質。 一貫性(consistency): トランザクション開始と終了時にあらかじめ与えられた整合性を満たすことを保証する性質を指す。すなわち、データベースのルール、つまり整合性条件を満たさない状態を起こすようなトランザクションは実行が中断される。日本語では整合性とも呼ばれる。 独立性(isolation): トランザクション中に行われる操作の過程が他の操作から隠蔽されることを指す。日本語では分離性、独立性または隔離性ともいう。 永続性(durability): トランザクション操作の完了通知をユーザが受けた時点で、その操作は永続的となり、結果が失われないことを指す。持続性ともいう。    金融 #   口座振替：公共料金やクレジットカードなどのサービスへの支払い代金が、預金口座から自動で引き落とされる仕組みの決済サービス。  主体：金融機関（定期的かつ自動的） 具体例：水道光熱費, 携帯料金等 手数料：振替の都度、お金を受け取る側が払う   口座振込：自分の口座にある資金を、第三者の口座宛てに払い込むこと。  主体：消費者自ら 具体例：商品代金の支払い等 手数料：振込の都度、お金を送る側が払う    参考 #   口座振替と口座振込の違い https://www.</description>
+    </item>
+    
+  </channel>
+</rss>
