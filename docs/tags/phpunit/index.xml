@@ -1,22 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>PHPUnit on Tech Blog</title>
-    <link>https://exaream.github.io/blog/tags/phpunit/</link>
-    <description>Recent content in PHPUnit on Tech Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>exaream</copyright>
-    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://exaream.github.io/blog/tags/phpunit/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>PHPUnit</title>
-      <link>https://exaream.github.io/blog/php/phpunit/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://exaream.github.io/blog/php/phpunit/</guid>
-      <description>PHPUnit #  事前準備 #  インストール #  composer.json
-&amp;#34;require-dev&amp;#34;: { &amp;#34;fzaninotto/faker&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;mikey179/vfsstream&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;mockery/mockery&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;phpunit/phpunit&amp;#34;: &amp;#34;*&amp;#34; }, $ composer install バージョンの確認 #  $ ./vendor/bin/phpunit --version 基本 #  &amp;lt;?php use Aaa\ClassA; use Bbb\ClassB; use Eee\ExceptionA; use Mockery; use PHPUnit\Framework\TestCase; /** * @coversDefaultClass Aaa\ClassA */ class ClassATest extends TestCase { // Omitted  /** * This method is called before class.　TestCaseクラス実行前の処理。 * * @return void */ public static function setUpBeforeClass(): void { parent::setUpBeforeClass(); // static 変数を使用（static メソッドのため）  self::$hoge = &amp;#39;some value&amp;#39;; } /** * This method is called before each test.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PHPUnit on Tech Blog</title><link>https://exaream.github.io/blog/tags/phpunit/</link><description>Recent content in PHPUnit on Tech Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>exaream</copyright><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://exaream.github.io/blog/tags/phpunit/index.xml" rel="self" type="application/rss+xml"/><item><title>PHPUnit</title><link>https://exaream.github.io/blog/php/phpunit/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://exaream.github.io/blog/php/phpunit/</guid><description>PHPUnit # 事前準備 # インストール # composer.json
+&amp;#34;require-dev&amp;#34;: { &amp;#34;fzaninotto/faker&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;mikey179/vfsstream&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;mockery/mockery&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;phpunit/phpunit&amp;#34;: &amp;#34;*&amp;#34; }, $ composer install バージョンの確認 # $ ./vendor/bin/phpunit --version 基本 # &amp;lt;?php use Aaa\ClassA; use Bbb\ClassB; use Eee\ExceptionA; use Mockery; use PHPUnit\Framework\TestCase; /** * @coversDefaultClass Aaa\ClassA */ class ClassATest extends TestCase { // Omitted /** * This method is called before class.　TestCaseクラス実行前の処理。 * * @return void */ public static function setUpBeforeClass(): void { parent::setUpBeforeClass(); // static 変数を使用（static メソッドのため） self::$hoge = &amp;#39;some value&amp;#39;; } /** * This method is called before each test.</description></item></channel></rss>

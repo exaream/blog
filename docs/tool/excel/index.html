@@ -1,291 +1,221 @@
-<!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<!doctype html><html lang=en-us dir=ltr>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Excel #  便利 #  表示されているセルの合計(非表示のセルを除く) #  109 は固定値
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Excel #  便利 #  表示されているセルの合計(非表示のセルを除く) #  109 は固定値
 =SUBTOTAL(109,A1:B10) 検索 #  VLOOKUP(検索値,範囲,列位置,FALSE) #  e.g.) A1 の値が sample シートの範囲(A1:A10) にある場合 B 列の値を出力
-=VLOOKUP(A1,sample!$A$1:$B$10,2,FALSE) 特定の値があるか判定 #  =IF(COUNTIF(A1:B10,&#34;aaa&#34;)&gt;0,&#34;Yes&#34;,&#34;No&#34;) 日付・時刻 #  曜日 #  e.g.) A1 の日時を日本語の曜日の短縮形で表示。
+=VLOOKUP(A1,sample!$A$1:$B$10,2,FALSE) 特定の値があるか判定 #  =IF(COUNTIF(A1:B10,&#34;aaa&#34;)>0,&#34;Yes&#34;,&#34;No&#34;) 日付・時刻 #  曜日 #  e.g.) A1 の日時を日本語の曜日の短縮形で表示。
 =TEXT(A1,&#34;aaa&#34;)    第2引数 description     aaaa 日本語の曜日   aaa 日本語の曜日の短縮形   dddd 英語の曜日   ddd 英語の曜日の曜日の短縮形    時間の差分 #  時間(差分が24時間未満の場合のみ) #  =TEXT(B1-A1,&#34;hh:mm:ss&#34;) 日数 #  =DATEDIF(A1,B1,&#34;d&#34;) 週数 #  =DATEDIF(A1,B1,&#34;d&#34;)/7 月数 #  =DATEDIF(A1,B1,&#34;m&#34;) 年数 #  =DATEDIF(A1,B1,&#34;y&#34;) ハイパーリンク #  シートへのリンク #  B1 に記載されたシート内の A1 へ移動">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Excel" />
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Excel">
 <meta property="og:description" content="Excel #  便利 #  表示されているセルの合計(非表示のセルを除く) #  109 は固定値
 =SUBTOTAL(109,A1:B10) 検索 #  VLOOKUP(検索値,範囲,列位置,FALSE) #  e.g.) A1 の値が sample シートの範囲(A1:A10) にある場合 B 列の値を出力
-=VLOOKUP(A1,sample!$A$1:$B$10,2,FALSE) 特定の値があるか判定 #  =IF(COUNTIF(A1:B10,&#34;aaa&#34;)&gt;0,&#34;Yes&#34;,&#34;No&#34;) 日付・時刻 #  曜日 #  e.g.) A1 の日時を日本語の曜日の短縮形で表示。
-=TEXT(A1,&#34;aaa&#34;)    第2引数 description     aaaa 日本語の曜日   aaa 日本語の曜日の短縮形   dddd 英語の曜日   ddd 英語の曜日の曜日の短縮形    時間の差分 #  時間(差分が24時間未満の場合のみ) #  =TEXT(B1-A1,&#34;hh:mm:ss&#34;) 日数 #  =DATEDIF(A1,B1,&#34;d&#34;) 週数 #  =DATEDIF(A1,B1,&#34;d&#34;)/7 月数 #  =DATEDIF(A1,B1,&#34;m&#34;) 年数 #  =DATEDIF(A1,B1,&#34;y&#34;) ハイパーリンク #  シートへのリンク #  B1 に記載されたシート内の A1 へ移動" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://exaream.github.io/blog/tool/excel/" /><meta property="article:section" content="tool" />
-<meta property="article:published_time" content="2020-01-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00" />
-
+=VLOOKUP(A1,sample!$A$1:$B$10,2,FALSE) 特定の値があるか判定 #  =IF(COUNTIF(A1:B10,&#34;aaa&#34;)>0,&#34;Yes&#34;,&#34;No&#34;) 日付・時刻 #  曜日 #  e.g.) A1 の日時を日本語の曜日の短縮形で表示。
+=TEXT(A1,&#34;aaa&#34;)    第2引数 description     aaaa 日本語の曜日   aaa 日本語の曜日の短縮形   dddd 英語の曜日   ddd 英語の曜日の曜日の短縮形    時間の差分 #  時間(差分が24時間未満の場合のみ) #  =TEXT(B1-A1,&#34;hh:mm:ss&#34;) 日数 #  =DATEDIF(A1,B1,&#34;d&#34;) 週数 #  =DATEDIF(A1,B1,&#34;d&#34;)/7 月数 #  =DATEDIF(A1,B1,&#34;m&#34;) 年数 #  =DATEDIF(A1,B1,&#34;y&#34;) ハイパーリンク #  シートへのリンク #  B1 に記載されたシート内の A1 へ移動">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://exaream.github.io/blog/tool/excel/"><meta property="article:section" content="tool">
+<meta property="article:published_time" content="2020-01-01T00:00:00+00:00">
+<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00">
 <title>Excel | Tech Blog</title>
-<link rel="manifest" href="/blog/manifest.json">
-<link rel="icon" href="/blog/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/blog/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css" integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin="anonymous">
-  <script defer src="/blog/flexsearch.min.js"></script>
-  <script defer src="/blog/en.search.min.799d5ffdfb07563510f83b2e24c100ed983fc935af675e26221dcfb9b0b5429b.js" integrity="sha256-eZ1f/fsHVjUQ&#43;DsuJMEA7Zg/yTWvZ14mIh3PubC1Qps=" crossorigin="anonymous"></script>
-<!--
-Made with Book Theme
-https://github.com/alex-shpak/hugo-book
--->
-  
+<link rel=manifest href=/blog/manifest.json>
+<link rel=icon href=/blog/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/blog/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
+<script defer src=/blog/flexsearch.min.js></script>
+<script defer src=/blog/en.search.min.26a75d1d75ccfcd393a040e8f98cd3cf3d77c0c35b2761f558df8db235fc327e.js integrity="sha256-JqddHXXM/NOToEDo+YzTzz13wMNbJ2H1WN+NsjX8Mn4=" crossorigin=anonymous></script>
 </head>
-<body dir="ltr">
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
-  <main class="container flex">
-    <aside class="book-menu">
-      <div class="book-menu-content">
-        
-  <nav>
-<h2 class="book-brand">
-  <a class="flex align-center" href="/blog/"><span>Tech Blog</span>
-  </a>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/blog/><span>Tech Blog</span>
+</a>
 </h2>
-
-
-
-
-
-
-
-
-
-
-
-
-  <h3 id="menu">
-  Menu
-  <a class="anchor" href="#menu">#</a>
+<h3 id=menu>
+Menu
+<a class=anchor href=#menu>#</a>
 </h3>
 <ul>
 <li><strong>Git</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/git/memo/">Git Memo</a></li>
-<li><a href="https://exaream.github.io/blog/git/tool/">Git Tool</a></li>
+<li><a href=https://exaream.github.io/blog/git/memo/>Git Memo</a></li>
+<li><a href=https://exaream.github.io/blog/git/tool/>Git Tool</a></li>
 </ul>
 </li>
 <li><strong>Docker</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/docker/memo/">Docker Memo</a></li>
-<li><a href="https://exaream.github.io/blog/docker/docker-compose/">Docker Compose</a></li>
-<li><a href="https://exaream.github.io/blog/docker/docker-swarm/">Docker Swarm</a></li>
+<li><a href=https://exaream.github.io/blog/docker/memo/>Docker Memo</a></li>
+<li><a href=https://exaream.github.io/blog/docker/docker-compose/>Docker Compose</a></li>
+<li><a href=https://exaream.github.io/blog/docker/docker-swarm/>Docker Swarm</a></li>
 </ul>
 </li>
 <li><strong>SQL</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/mysql/memo/">MySQL Memo</a></li>
-<li><a href="https://exaream.github.io/blog/postgresql/memo/">PostgreSQL Memo</a></li>
+<li><a href=https://exaream.github.io/blog/mysql/memo/>MySQL Memo</a></li>
+<li><a href=https://exaream.github.io/blog/postgresql/memo/>PostgreSQL Memo</a></li>
 </ul>
 </li>
 <li><strong>Go</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/go/check-list/">Go Check List</a></li>
-<li><a href="https://exaream.github.io/blog/go/test/">Go Test</a></li>
-<li><a href="https://exaream.github.io/blog/go/link/">Go Link</a></li>
+<li><a href=https://exaream.github.io/blog/go/check-list/>Go Check List</a></li>
+<li><a href=https://exaream.github.io/blog/go/test/>Go Test</a></li>
+<li><a href=https://exaream.github.io/blog/go/link/>Go Link</a></li>
 </ul>
 </li>
 <li><strong>Linux</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/linux/memo/">Linux Memo</a></li>
-<li><a href="https://exaream.github.io/blog/linux/ubuntu/">Ubuntu</a></li>
-<li><a href="https://exaream.github.io/blog/linux/alpine-linux/">Alpine Linux</a></li>
+<li><a href=https://exaream.github.io/blog/linux/memo/>Linux Memo</a></li>
+<li><a href=https://exaream.github.io/blog/linux/ubuntu/>Ubuntu</a></li>
+<li><a href=https://exaream.github.io/blog/linux/alpine-linux/>Alpine Linux</a></li>
 </ul>
 </li>
 <li><strong>Python</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/python/memo/">Python Memo</a></li>
-<li><a href="https://exaream.github.io/blog/python/ocr/">Python OCR</a></li>
+<li><a href=https://exaream.github.io/blog/python/memo/>Python Memo</a></li>
+<li><a href=https://exaream.github.io/blog/python/ocr/>Python OCR</a></li>
 </ul>
 </li>
 <li><strong>PHP</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/php/phpunit/">PHPUnit</a></li>
-<li><a href="https://exaream.github.io/blog/php/phpmetrics/">PhpMetrics</a></li>
+<li><a href=https://exaream.github.io/blog/php/phpunit/>PHPUnit</a></li>
+<li><a href=https://exaream.github.io/blog/php/phpmetrics/>PhpMetrics</a></li>
 </ul>
 </li>
 <li><strong>Mac</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/mac/memo/">Mac Memo</a></li>
-<li><a href="https://exaream.github.io/blog/mac/iterm2/">iTerm2</a></li>
+<li><a href=https://exaream.github.io/blog/mac/memo/>Mac Memo</a></li>
+<li><a href=https://exaream.github.io/blog/mac/iterm2/>iTerm2</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href="https://exaream.github.io/blog/shellscript/memo/">Shellscript</a></li>
-<li><a href="https://exaream.github.io/blog/tool/hugo/">Hugo</a></li>
-<li><a href="https://exaream.github.io/blog/node/memo/">Node</a></li>
-<li><a href="https://exaream.github.io/blog/tool/vscode/">VS Code</a></li>
-<li><a href="https://exaream.github.io/blog/tool/excel/">Excel</a></li>
-<li><a href="https://exaream.github.io/blog/tool/mailcatcher/">MailCatcher</a></li>
-<li><a href="https://exaream.github.io/blog/glossary/">Glossary</a></li>
+<li><a href=https://exaream.github.io/blog/shellscript/memo/>Shellscript</a></li>
+<li><a href=https://exaream.github.io/blog/tool/hugo/>Hugo</a></li>
+<li><a href=https://exaream.github.io/blog/node/memo/>Node</a></li>
+<li><a href=https://exaream.github.io/blog/tool/vscode/>VS Code</a></li>
+<li><a href=https://exaream.github.io/blog/tool/excel/>Excel</a></li>
+<li><a href=https://exaream.github.io/blog/tool/mailcatcher/>MailCatcher</a></li>
+<li><a href=https://exaream.github.io/blog/glossary/>Glossary</a></li>
 </ul>
-
-
-
-
-
-
-
-
-
-
 </nav>
-
-
-
-
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-
-
- 
-      </div>
-    </aside>
-
-    <div class="book-page">
-      <header class="book-header">
-        
-  <div class="flex align-center justify-between">
-  <label for="menu-control">
-    <img src="/blog/svg/menu.svg" class="book-icon" alt="Menu" />
-  </label>
-
-  <strong>Excel</strong>
-
-  <label for="toc-control">
-    
-    <img src="/blog/svg/toc.svg" class="book-icon" alt="Table of Contents" />
-    
-  </label>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 </div>
-
-
-  
-  <aside class="hidden clearfix">
-    
-  <h2>Tags</h2>
-
-
-  <ul class="tags"><li><a href="/blog/tags/excel">Excel</a></ul>
-
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/blog/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Excel</strong>
+<label for=toc-control>
+<img src=/blog/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<h2>Tags</h2>
+<ul class=tags><li><a href=/blog/tags/excel>Excel</a></ul>
 <h2>Table of Contents</h2>
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#便利">便利</a>
-      <ul>
-        <li><a href="#表示されているセルの合計非表示のセルを除く">表示されているセルの合計(非表示のセルを除く)</a></li>
-      </ul>
-    </li>
-    <li><a href="#検索">検索</a>
-      <ul>
-        <li><a href="#vlookup検索値範囲列位置false">VLOOKUP(検索値,範囲,列位置,FALSE)</a></li>
-        <li><a href="#特定の値があるか判定">特定の値があるか判定</a></li>
-      </ul>
-    </li>
-    <li><a href="#日付時刻">日付・時刻</a>
-      <ul>
-        <li><a href="#曜日">曜日</a></li>
-        <li><a href="#時間の差分">時間の差分</a></li>
-      </ul>
-    </li>
-    <li><a href="#ハイパーリンク">ハイパーリンク</a>
-      <ul>
-        <li><a href="#シートへのリンク">シートへのリンク</a></li>
-        <li><a href="#webへのリンク">Webへのリンク</a></li>
-      </ul>
-    </li>
-    <li><a href="#シート">シート</a>
-      <ul>
-        <li><a href="#シート名">シート名</a></li>
-        <li><a href="#シート名の一覧">シート名の一覧</a></li>
-      </ul>
-    </li>
-    <li><a href="#隣接したセルの値に加算">隣接したセルの値に加算</a>
-      <ul>
-        <li><a href="#そのセルの1つ上のセルの数字に-1-を加算">そのセルの1つ上のセルの数字に 1 を加算</a></li>
-        <li><a href="#そのセルの左隣のセルの数字に-1-を加算">そのセルの左隣のセルの数字に 1 を加算</a></li>
-      </ul>
-    </li>
-    <li><a href="#その他">その他</a>
-      <ul>
-        <li><a href="#数値を漢数字に変換">数値を漢数字に変換</a></li>
-        <li><a href="#桁数に満たない場合-任意の文字で埋める">桁数に満たない場合 任意の文字で埋める</a></li>
-      </ul>
-    </li>
-  </ul>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#便利>便利</a>
+<ul>
+<li><a href=#表示されているセルの合計非表示のセルを除く>表示されているセルの合計(非表示のセルを除く)</a></li>
+</ul>
+</li>
+<li><a href=#検索>検索</a>
+<ul>
+<li><a href=#vlookup検索値範囲列位置false>VLOOKUP(検索値,範囲,列位置,FALSE)</a></li>
+<li><a href=#特定の値があるか判定>特定の値があるか判定</a></li>
+</ul>
+</li>
+<li><a href=#日付時刻>日付・時刻</a>
+<ul>
+<li><a href=#曜日>曜日</a></li>
+<li><a href=#時間の差分>時間の差分</a></li>
+</ul>
+</li>
+<li><a href=#ハイパーリンク>ハイパーリンク</a>
+<ul>
+<li><a href=#シートへのリンク>シートへのリンク</a></li>
+<li><a href=#webへのリンク>Webへのリンク</a></li>
+</ul>
+</li>
+<li><a href=#シート>シート</a>
+<ul>
+<li><a href=#シート名>シート名</a></li>
+<li><a href=#シート名の一覧>シート名の一覧</a></li>
+</ul>
+</li>
+<li><a href=#隣接したセルの値に加算>隣接したセルの値に加算</a>
+<ul>
+<li><a href=#そのセルの1つ上のセルの数字に-1-を加算>そのセルの1つ上のセルの数字に 1 を加算</a></li>
+<li><a href=#そのセルの左隣のセルの数字に-1-を加算>そのセルの左隣のセルの数字に 1 を加算</a></li>
+</ul>
+</li>
+<li><a href=#その他>その他</a>
+<ul>
+<li><a href=#数値を漢数字に変換>数値を漢数字に変換</a></li>
+<li><a href=#桁数に満たない場合-任意の文字で埋める>桁数に満たない場合 任意の文字で埋める</a></li>
+</ul>
+</li>
+</ul>
 </nav>
-
-
-
-  </aside>
-  
- 
-      </header>
-
-      <ol  class="breadcrumb">
-    
-
-
-
-
-
+</aside>
+</header>
+<ol class=breadcrumb>
 <li>
-  <a href="https://exaream.github.io/blog/">Tech Blog</a>
+<a href=https://exaream.github.io/blog/>Tech Blog</a>
 </li>
-
-
 <li>
-  <a href="https://exaream.github.io/blog/tool/">Tool</a>
+<a href=https://exaream.github.io/blog/tool/>Tool</a>
 </li>
-
-
-<li class="active">
-  <a href="https://exaream.github.io/blog/tool/excel/">Excel</a>
+<li class=active>
+<a href=https://exaream.github.io/blog/tool/excel/>Excel</a>
 </li>
-
 </ol>
-
-
-      
-  <article class="markdown"><h1 id="excel">
-  Excel
-  <a class="anchor" href="#excel">#</a>
+<article class=markdown><h1 id=excel>
+Excel
+<a class=anchor href=#excel>#</a>
 </h1>
-<h2 id="便利">
-  便利
-  <a class="anchor" href="#%e4%be%bf%e5%88%a9">#</a>
+<h2 id=便利>
+便利
+<a class=anchor href=#%e4%be%bf%e5%88%a9>#</a>
 </h2>
-<h3 id="表示されているセルの合計非表示のセルを除く">
-  表示されているセルの合計(非表示のセルを除く)
-  <a class="anchor" href="#%e8%a1%a8%e7%a4%ba%e3%81%95%e3%82%8c%e3%81%a6%e3%81%84%e3%82%8b%e3%82%bb%e3%83%ab%e3%81%ae%e5%90%88%e8%a8%88%e9%9d%9e%e8%a1%a8%e7%a4%ba%e3%81%ae%e3%82%bb%e3%83%ab%e3%82%92%e9%99%a4%e3%81%8f">#</a>
+<h3 id=表示されているセルの合計非表示のセルを除く>
+表示されているセルの合計(非表示のセルを除く)
+<a class=anchor href=#%e8%a1%a8%e7%a4%ba%e3%81%95%e3%82%8c%e3%81%a6%e3%81%84%e3%82%8b%e3%82%bb%e3%83%ab%e3%81%ae%e5%90%88%e8%a8%88%e9%9d%9e%e8%a1%a8%e7%a4%ba%e3%81%ae%e3%82%bb%e3%83%ab%e3%82%92%e9%99%a4%e3%81%8f>#</a>
 </h3>
 <p><code>109</code> は固定値</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=SUBTOTAL(109,A1:B10)
-</code></pre></div><h2 id="検索">
-  検索
-  <a class="anchor" href="#%e6%a4%9c%e7%b4%a2">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=SUBTOTAL(109,A1:B10)
+</code></pre></div><h2 id=検索>
+検索
+<a class=anchor href=#%e6%a4%9c%e7%b4%a2>#</a>
 </h2>
-<h3 id="vlookup検索値範囲列位置false">
-  VLOOKUP(検索値,範囲,列位置,FALSE)
-  <a class="anchor" href="#vlookup%e6%a4%9c%e7%b4%a2%e5%80%a4%e7%af%84%e5%9b%b2%e5%88%97%e4%bd%8d%e7%bd%aefalse">#</a>
+<h3 id=vlookup検索値範囲列位置false>
+VLOOKUP(検索値,範囲,列位置,FALSE)
+<a class=anchor href=#vlookup%e6%a4%9c%e7%b4%a2%e5%80%a4%e7%af%84%e5%9b%b2%e5%88%97%e4%bd%8d%e7%bd%aefalse>#</a>
 </h3>
 <p>e.g.) <code>A1</code> の値が <code>sample</code> シートの範囲(<code>A1:A10</code>) にある場合 <code>B</code> 列の値を出力</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=VLOOKUP(A1,sample!$A$1:$B$10,2,FALSE)
-</code></pre></div><h3 id="特定の値があるか判定">
-  特定の値があるか判定
-  <a class="anchor" href="#%e7%89%b9%e5%ae%9a%e3%81%ae%e5%80%a4%e3%81%8c%e3%81%82%e3%82%8b%e3%81%8b%e5%88%a4%e5%ae%9a">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=VLOOKUP(A1,sample!$A$1:$B$10,2,FALSE)
+</code></pre></div><h3 id=特定の値があるか判定>
+特定の値があるか判定
+<a class=anchor href=#%e7%89%b9%e5%ae%9a%e3%81%ae%e5%80%a4%e3%81%8c%e3%81%82%e3%82%8b%e3%81%8b%e5%88%a4%e5%ae%9a>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=IF(COUNTIF(A1:B10,&#34;aaa&#34;)&gt;0,&#34;Yes&#34;,&#34;No&#34;)
-</code></pre></div><h2 id="日付時刻">
-  日付・時刻
-  <a class="anchor" href="#%e6%97%a5%e4%bb%98%e6%99%82%e5%88%bb">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=IF(COUNTIF(A1:B10,&#34;aaa&#34;)&gt;0,&#34;Yes&#34;,&#34;No&#34;)
+</code></pre></div><h2 id=日付時刻>
+日付・時刻
+<a class=anchor href=#%e6%97%a5%e4%bb%98%e6%99%82%e5%88%bb>#</a>
 </h2>
-<h3 id="曜日">
-  曜日
-  <a class="anchor" href="#%e6%9b%9c%e6%97%a5">#</a>
+<h3 id=曜日>
+曜日
+<a class=anchor href=#%e6%9b%9c%e6%97%a5>#</a>
 </h3>
 <p>e.g.) <code>A1</code> の日時を日本語の曜日の短縮形で表示。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=TEXT(A1,&#34;aaa&#34;)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=TEXT(A1,&#34;aaa&#34;)
 </code></pre></div><table>
 <thead>
 <tr>
@@ -312,62 +242,62 @@ https://github.com/alex-shpak/hugo-book
 </tr>
 </tbody>
 </table>
-<h3 id="時間の差分">
-  時間の差分
-  <a class="anchor" href="#%e6%99%82%e9%96%93%e3%81%ae%e5%b7%ae%e5%88%86">#</a>
+<h3 id=時間の差分>
+時間の差分
+<a class=anchor href=#%e6%99%82%e9%96%93%e3%81%ae%e5%b7%ae%e5%88%86>#</a>
 </h3>
-<h4 id="時間差分が24時間未満の場合のみ">
-  時間(差分が24時間未満の場合のみ)
-  <a class="anchor" href="#%e6%99%82%e9%96%93%e5%b7%ae%e5%88%86%e3%81%8c24%e6%99%82%e9%96%93%e6%9c%aa%e6%ba%80%e3%81%ae%e5%a0%b4%e5%90%88%e3%81%ae%e3%81%bf">#</a>
+<h4 id=時間差分が24時間未満の場合のみ>
+時間(差分が24時間未満の場合のみ)
+<a class=anchor href=#%e6%99%82%e9%96%93%e5%b7%ae%e5%88%86%e3%81%8c24%e6%99%82%e9%96%93%e6%9c%aa%e6%ba%80%e3%81%ae%e5%a0%b4%e5%90%88%e3%81%ae%e3%81%bf>#</a>
 </h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=TEXT(B1-A1,&#34;hh:mm:ss&#34;)
-</code></pre></div><h4 id="日数">
-  日数
-  <a class="anchor" href="#%e6%97%a5%e6%95%b0">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=TEXT(B1-A1,&#34;hh:mm:ss&#34;)
+</code></pre></div><h4 id=日数>
+日数
+<a class=anchor href=#%e6%97%a5%e6%95%b0>#</a>
 </h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=DATEDIF(A1,B1,&#34;d&#34;)
-</code></pre></div><h4 id="週数">
-  週数
-  <a class="anchor" href="#%e9%80%b1%e6%95%b0">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=DATEDIF(A1,B1,&#34;d&#34;)
+</code></pre></div><h4 id=週数>
+週数
+<a class=anchor href=#%e9%80%b1%e6%95%b0>#</a>
 </h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=DATEDIF(A1,B1,&#34;d&#34;)/7
-</code></pre></div><h4 id="月数">
-  月数
-  <a class="anchor" href="#%e6%9c%88%e6%95%b0">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=DATEDIF(A1,B1,&#34;d&#34;)/7
+</code></pre></div><h4 id=月数>
+月数
+<a class=anchor href=#%e6%9c%88%e6%95%b0>#</a>
 </h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=DATEDIF(A1,B1,&#34;m&#34;)
-</code></pre></div><h4 id="年数">
-  年数
-  <a class="anchor" href="#%e5%b9%b4%e6%95%b0">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=DATEDIF(A1,B1,&#34;m&#34;)
+</code></pre></div><h4 id=年数>
+年数
+<a class=anchor href=#%e5%b9%b4%e6%95%b0>#</a>
 </h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=DATEDIF(A1,B1,&#34;y&#34;)
-</code></pre></div><h2 id="ハイパーリンク">
-  ハイパーリンク
-  <a class="anchor" href="#%e3%83%8f%e3%82%a4%e3%83%91%e3%83%bc%e3%83%aa%e3%83%b3%e3%82%af">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=DATEDIF(A1,B1,&#34;y&#34;)
+</code></pre></div><h2 id=ハイパーリンク>
+ハイパーリンク
+<a class=anchor href=#%e3%83%8f%e3%82%a4%e3%83%91%e3%83%bc%e3%83%aa%e3%83%b3%e3%82%af>#</a>
 </h2>
-<h3 id="シートへのリンク">
-  シートへのリンク
-  <a class="anchor" href="#%e3%82%b7%e3%83%bc%e3%83%88%e3%81%b8%e3%81%ae%e3%83%aa%e3%83%b3%e3%82%af">#</a>
+<h3 id=シートへのリンク>
+シートへのリンク
+<a class=anchor href=#%e3%82%b7%e3%83%bc%e3%83%88%e3%81%b8%e3%81%ae%e3%83%aa%e3%83%b3%e3%82%af>#</a>
 </h3>
 <p><code>B1</code> に記載されたシート内の <code>A1</code> へ移動</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=HYPERLINK(&#34;#&#34;&amp;B1&amp;&#34;!A1&#34;,B1)
-</code></pre></div><h3 id="webへのリンク">
-  Webへのリンク
-  <a class="anchor" href="#web%e3%81%b8%e3%81%ae%e3%83%aa%e3%83%b3%e3%82%af">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=HYPERLINK(&#34;#&#34;&amp;B1&amp;&#34;!A1&#34;,B1)
+</code></pre></div><h3 id=webへのリンク>
+Webへのリンク
+<a class=anchor href=#web%e3%81%b8%e3%81%ae%e3%83%aa%e3%83%b3%e3%82%af>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=HYPERLINK(&#34;https://sample.com/&#34;,&#34;Sample&#34;)
-</code></pre></div><h2 id="シート">
-  シート
-  <a class="anchor" href="#%e3%82%b7%e3%83%bc%e3%83%88">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=HYPERLINK(&#34;https://sample.com/&#34;,&#34;Sample&#34;)
+</code></pre></div><h2 id=シート>
+シート
+<a class=anchor href=#%e3%82%b7%e3%83%bc%e3%83%88>#</a>
 </h2>
-<h3 id="シート名">
-  シート名
-  <a class="anchor" href="#%e3%82%b7%e3%83%bc%e3%83%88%e5%90%8d">#</a>
+<h3 id=シート名>
+シート名
+<a class=anchor href=#%e3%82%b7%e3%83%bc%e3%83%88%e5%90%8d>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=RIGHT(CELL(&#34;filename&#34;,A1),LEN(CELL(&#34;filename&#34;,A1))-FIND(&#34;]&#34;,CELL(&#34;filename&#34;,A1)))
-</code></pre></div><h3 id="シート名の一覧">
-  シート名の一覧
-  <a class="anchor" href="#%e3%82%b7%e3%83%bc%e3%83%88%e5%90%8d%e3%81%ae%e4%b8%80%e8%a6%a7">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=RIGHT(CELL(&#34;filename&#34;,A1),LEN(CELL(&#34;filename&#34;,A1))-FIND(&#34;]&#34;,CELL(&#34;filename&#34;,A1)))
+</code></pre></div><h3 id=シート名の一覧>
+シート名の一覧
+<a class=anchor href=#%e3%82%b7%e3%83%bc%e3%83%88%e5%90%8d%e3%81%ae%e4%b8%80%e8%a6%a7>#</a>
 </h3>
 <p><strong>1) VBA を使用</strong></p>
 <ol>
@@ -375,166 +305,119 @@ https://github.com/alex-shpak/hugo-book
 <li><code>Alt</code> を押下したまま <code>I</code> → <code>M</code> の順に押下し標準モジュールを挿入</li>
 <li>白画面に以下を貼り付け</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Sub test()
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Sub test()
 Dim i As Long
 For i = 1 To Sheets.Count
 Range(&#34;A&#34; &amp; i).Value = Worksheets(i).Name
 Next i
 End Sub
-</code></pre></div><ol start="4">
+</code></pre></div><ol start=4>
 <li><code>Alt</code>+ <code>F11</code> で通常画面を表示</li>
 <li>シート名の一覧を作成したいシートで<code>Alt</code>+ <code>FB</code>から <code>マクロ</code> を表示させ <code>test</code> を実行</li>
 </ol>
 <p><strong>2) 4.0マクロ関数を使用</strong></p>
-<ol start="6">
-<li>上部メニューの <code>挿入</code> &gt; <code>名前</code> &gt; <code>定義</code> から名前欄に任意の名前（仮に「シート一覧」）を記載</li>
+<ol start=6>
+<li>上部メニューの <code>挿入</code> > <code>名前</code> > <code>定義</code> から名前欄に任意の名前（仮に「シート一覧」）を記載</li>
 <li>参照範囲欄に以下を記載し <code>OK</code>押下</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=MID(GET.WORKBOOK(1),FIND(&#34;]&#34;,GET.WORKBOOK(1))+1,31)&amp;T(NOW())
-</code></pre></div><ol start="8">
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=MID(GET.WORKBOOK(1),FIND(&#34;]&#34;,GET.WORKBOOK(1))+1,31)&amp;T(NOW())
+</code></pre></div><ol start=8>
 <li>シート名を出力したいセルに以下を記載し下へコピー</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=IF(COLUMNS(シート一覧)&lt;ROW(A1),&#34;&#34;,INDEX(シート一覧,ROW(A1)))
-</code></pre></div><h2 id="隣接したセルの値に加算">
-  隣接したセルの値に加算
-  <a class="anchor" href="#%e9%9a%a3%e6%8e%a5%e3%81%97%e3%81%9f%e3%82%bb%e3%83%ab%e3%81%ae%e5%80%a4%e3%81%ab%e5%8a%a0%e7%ae%97">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=IF(COLUMNS(シート一覧)&lt;ROW(A1),&#34;&#34;,INDEX(シート一覧,ROW(A1)))
+</code></pre></div><h2 id=隣接したセルの値に加算>
+隣接したセルの値に加算
+<a class=anchor href=#%e9%9a%a3%e6%8e%a5%e3%81%97%e3%81%9f%e3%82%bb%e3%83%ab%e3%81%ae%e5%80%a4%e3%81%ab%e5%8a%a0%e7%ae%97>#</a>
 </h2>
-<h3 id="そのセルの1つ上のセルの数字に-1-を加算">
-  そのセルの1つ上のセルの数字に 1 を加算
-  <a class="anchor" href="#%e3%81%9d%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae1%e3%81%a4%e4%b8%8a%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e6%95%b0%e5%ad%97%e3%81%ab-1-%e3%82%92%e5%8a%a0%e7%ae%97">#</a>
+<h3 id=そのセルの1つ上のセルの数字に-1-を加算>
+そのセルの1つ上のセルの数字に 1 を加算
+<a class=anchor href=#%e3%81%9d%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae1%e3%81%a4%e4%b8%8a%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e6%95%b0%e5%ad%97%e3%81%ab-1-%e3%82%92%e5%8a%a0%e7%ae%97>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=MAX(INDIRECT(ADDRESS(1,COLUMN())&amp;&#34;:&#34;&amp;ADDRESS(ROW()-1,COLUMN())))+1
-</code></pre></div><h3 id="そのセルの左隣のセルの数字に-1-を加算">
-  そのセルの左隣のセルの数字に 1 を加算
-  <a class="anchor" href="#%e3%81%9d%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e5%b7%a6%e9%9a%a3%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e6%95%b0%e5%ad%97%e3%81%ab-1-%e3%82%92%e5%8a%a0%e7%ae%97">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=MAX(INDIRECT(ADDRESS(1,COLUMN())&amp;&#34;:&#34;&amp;ADDRESS(ROW()-1,COLUMN())))+1
+</code></pre></div><h3 id=そのセルの左隣のセルの数字に-1-を加算>
+そのセルの左隣のセルの数字に 1 を加算
+<a class=anchor href=#%e3%81%9d%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e5%b7%a6%e9%9a%a3%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e6%95%b0%e5%ad%97%e3%81%ab-1-%e3%82%92%e5%8a%a0%e7%ae%97>#</a>
 </h3>
 <p><code>$A$1</code> の箇所に「基準になる左端のセル」を指定</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=MAX(INDIRECT(ADDRESS(ROW(),$A$1)&amp;&#34;:&#34;&amp;ADDRESS(ROW(),COLUMN()-1)))+1
-</code></pre></div><h2 id="その他">
-  その他
-  <a class="anchor" href="#%e3%81%9d%e3%81%ae%e4%bb%96">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=MAX(INDIRECT(ADDRESS(ROW(),$A$1)&amp;&#34;:&#34;&amp;ADDRESS(ROW(),COLUMN()-1)))+1
+</code></pre></div><h2 id=その他>
+その他
+<a class=anchor href=#%e3%81%9d%e3%81%ae%e4%bb%96>#</a>
 </h2>
-<h3 id="数値を漢数字に変換">
-  数値を漢数字に変換
-  <a class="anchor" href="#%e6%95%b0%e5%80%a4%e3%82%92%e6%bc%a2%e6%95%b0%e5%ad%97%e3%81%ab%e5%a4%89%e6%8f%9b">#</a>
+<h3 id=数値を漢数字に変換>
+数値を漢数字に変換
+<a class=anchor href=#%e6%95%b0%e5%80%a4%e3%82%92%e6%bc%a2%e6%95%b0%e5%ad%97%e3%81%ab%e5%a4%89%e6%8f%9b>#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=NUMBERSTRING(A2,1)
-</code></pre></div><h3 id="桁数に満たない場合-任意の文字で埋める">
-  桁数に満たない場合 任意の文字で埋める
-  <a class="anchor" href="#%e6%a1%81%e6%95%b0%e3%81%ab%e6%ba%80%e3%81%9f%e3%81%aa%e3%81%84%e5%a0%b4%e5%90%88-%e4%bb%bb%e6%84%8f%e3%81%ae%e6%96%87%e5%ad%97%e3%81%a7%e5%9f%8b%e3%82%81%e3%82%8b">#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=NUMBERSTRING(A2,1)
+</code></pre></div><h3 id=桁数に満たない場合-任意の文字で埋める>
+桁数に満たない場合 任意の文字で埋める
+<a class=anchor href=#%e6%a1%81%e6%95%b0%e3%81%ab%e6%ba%80%e3%81%9f%e3%81%aa%e3%81%84%e5%a0%b4%e5%90%88-%e4%bb%bb%e6%84%8f%e3%81%ae%e6%96%87%e5%ad%97%e3%81%a7%e5%9f%8b%e3%82%81%e3%82%8b>#</a>
 </h3>
 <p>e.g.) 10桁ゼロ詰め<br>
 <code>A1</code> の値が <code>1234</code> の場合, <code>1234aaaaaa</code> と出力</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">=A1&amp;LEFT(REPT(&#34;a&#34;,&#34;10&#34;), 10-LEN(A1))
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>=A1&amp;LEFT(REPT(&#34;a&#34;,&#34;10&#34;), 10-LEN(A1))
 </code></pre></div></article>
- 
-      
-
-      <footer class="book-footer">
-        
-  <div class="flex flex-wrap justify-between">
-
-
-
-
-
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
 </div>
-
-
-
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-
-
- 
-        
-      </footer>
-
-      
-  
-  <div class="book-comments">
-
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
 </div>
-  
- 
-
-      <label for="menu-control" class="hidden book-menu-overlay"></label>
-    </div>
-
-    
-    <aside class="book-toc">
-      <div class="book-toc-content">
-        
-  <h2>Tags</h2>
-
-
-  <ul class="tags"><li><a href="/blog/tags/excel">Excel</a></ul>
-
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<h2>Tags</h2>
+<ul class=tags><li><a href=/blog/tags/excel>Excel</a></ul>
 <h2>Table of Contents</h2>
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#便利">便利</a>
-      <ul>
-        <li><a href="#表示されているセルの合計非表示のセルを除く">表示されているセルの合計(非表示のセルを除く)</a></li>
-      </ul>
-    </li>
-    <li><a href="#検索">検索</a>
-      <ul>
-        <li><a href="#vlookup検索値範囲列位置false">VLOOKUP(検索値,範囲,列位置,FALSE)</a></li>
-        <li><a href="#特定の値があるか判定">特定の値があるか判定</a></li>
-      </ul>
-    </li>
-    <li><a href="#日付時刻">日付・時刻</a>
-      <ul>
-        <li><a href="#曜日">曜日</a></li>
-        <li><a href="#時間の差分">時間の差分</a></li>
-      </ul>
-    </li>
-    <li><a href="#ハイパーリンク">ハイパーリンク</a>
-      <ul>
-        <li><a href="#シートへのリンク">シートへのリンク</a></li>
-        <li><a href="#webへのリンク">Webへのリンク</a></li>
-      </ul>
-    </li>
-    <li><a href="#シート">シート</a>
-      <ul>
-        <li><a href="#シート名">シート名</a></li>
-        <li><a href="#シート名の一覧">シート名の一覧</a></li>
-      </ul>
-    </li>
-    <li><a href="#隣接したセルの値に加算">隣接したセルの値に加算</a>
-      <ul>
-        <li><a href="#そのセルの1つ上のセルの数字に-1-を加算">そのセルの1つ上のセルの数字に 1 を加算</a></li>
-        <li><a href="#そのセルの左隣のセルの数字に-1-を加算">そのセルの左隣のセルの数字に 1 を加算</a></li>
-      </ul>
-    </li>
-    <li><a href="#その他">その他</a>
-      <ul>
-        <li><a href="#数値を漢数字に変換">数値を漢数字に変換</a></li>
-        <li><a href="#桁数に満たない場合-任意の文字で埋める">桁数に満たない場合 任意の文字で埋める</a></li>
-      </ul>
-    </li>
-  </ul>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#便利>便利</a>
+<ul>
+<li><a href=#表示されているセルの合計非表示のセルを除く>表示されているセルの合計(非表示のセルを除く)</a></li>
+</ul>
+</li>
+<li><a href=#検索>検索</a>
+<ul>
+<li><a href=#vlookup検索値範囲列位置false>VLOOKUP(検索値,範囲,列位置,FALSE)</a></li>
+<li><a href=#特定の値があるか判定>特定の値があるか判定</a></li>
+</ul>
+</li>
+<li><a href=#日付時刻>日付・時刻</a>
+<ul>
+<li><a href=#曜日>曜日</a></li>
+<li><a href=#時間の差分>時間の差分</a></li>
+</ul>
+</li>
+<li><a href=#ハイパーリンク>ハイパーリンク</a>
+<ul>
+<li><a href=#シートへのリンク>シートへのリンク</a></li>
+<li><a href=#webへのリンク>Webへのリンク</a></li>
+</ul>
+</li>
+<li><a href=#シート>シート</a>
+<ul>
+<li><a href=#シート名>シート名</a></li>
+<li><a href=#シート名の一覧>シート名の一覧</a></li>
+</ul>
+</li>
+<li><a href=#隣接したセルの値に加算>隣接したセルの値に加算</a>
+<ul>
+<li><a href=#そのセルの1つ上のセルの数字に-1-を加算>そのセルの1つ上のセルの数字に 1 を加算</a></li>
+<li><a href=#そのセルの左隣のセルの数字に-1-を加算>そのセルの左隣のセルの数字に 1 を加算</a></li>
+</ul>
+</li>
+<li><a href=#その他>その他</a>
+<ul>
+<li><a href=#数値を漢数字に変換>数値を漢数字に変換</a></li>
+<li><a href=#桁数に満たない場合-任意の文字で埋める>桁数に満たない場合 任意の文字で埋める</a></li>
+</ul>
+</li>
+</ul>
 </nav>
-
-
- 
-      </div>
-    </aside>
-    
-  </main>
-
-  
+</div>
+</aside>
+</main>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

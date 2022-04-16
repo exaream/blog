@@ -1,9 +1,9 @@
 ---
 date: 2022-03-31
 lastmod: ["lastmod"]
-title: Go Memo
+title: Go Check List
 description: ""
-tags: ["Go", "Golang", "Check Sheet"]
+tags: ["Go", "Golang", "Check List"]
 ---
 
 # Go Check Sheet

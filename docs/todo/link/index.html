@@ -1,231 +1,160 @@
-<!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<!doctype html><html lang=en-us dir=ltr>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Link #   アーキテクチャ  ID連携の標準化仕様紹介とセキュアな実装のためのアプローチ ~ 2021 良い技術的負債と悪い技術的負債 技術的負債は開発者体験を悪化させる レガシー化したData Pipelineの廃止 ― メルカリのData Architectのお仕事例   機密情報  GitHub上のsensitive dataを削除するための手順と道のり   他社  The Amazon Builders&#39; Library Amazon はソフトウェアをどのように構築し、運用するのか   Cloud  AWSの強い権限のクレデンシャル管理から転生した件   モブプロ/ペアプロ  モブプログラミングを導入し、チーム一丸となってタスクに取り組むようになった話  リソース効率性とフロー効率性について言及     SQL  MySQLとインデックスとPHPer   Container  インフラが苦手でも大丈夫！紙芝居Kubernetes Macで使うVS CodeとRemote Containerの性能を大幅改善 Kubernetesは、ITを「チケットドリブン」から「インテントドリブン」へ変えていく。Cloud Operator Days Tokyo基調講演   Shell  ShellSpec - シェルスクリプト用のフル機能のBDDユニットテストフレームワーク   統計  統計学習の指導のために 先生向け   振り返り  KPT アンチパターン 〜失敗事例紹介〜   組織  サイバーエージェントとメルカリにみる組織強化システムの構造的分解   Linux  よく使うcurlコマンドのオプション   PHP  PHPのリリース日とサポート期限   Python  Python Data Science Handbook 無料公開   Git  大きなGitリポジトリをクローンするときの工夫を図解します   Test  マイクロサービスの開発とテストファースト／テスト駆動開発   新人研修  新人の方によく展開している有益な情報 2021年のエンジニア新人研修の講義資料を公開しました テスト文字列に「うんこ」と入れるな   Tool  cronの代替になりそうなジョブ管理ツールのまとめ Workspace Cleanup（Jenkins の workspace お掃除プラグイン）   Deep Tech  透明太陽電池  窓ガラスでの発電 京都大学化学研究所の坂本雅典 准教授の解説      ">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="Link #   アーキテクチャ  ID連携の標準化仕様紹介とセキュアな実装のためのアプローチ ~ 2021 良い技術的負債と悪い技術的負債 技術的負債は開発者体験を悪化させる レガシー化したData Pipelineの廃止 ― メルカリのData Architectのお仕事例   機密情報  GitHub上のsensitive dataを削除するための手順と道のり   他社  The Amazon Builders&#39; Library Amazon はソフトウェアをどのように構築し、運用するのか   Cloud  AWSの強い権限のクレデンシャル管理から転生した件   モブプロ/ペアプロ  モブプログラミングを導入し、チーム一丸となってタスクに取り組むようになった話  リソース効率性とフロー効率性について言及     SQL  MySQLとインデックスとPHPer   Container  インフラが苦手でも大丈夫！紙芝居Kubernetes Macで使うVS CodeとRemote Containerの性能を大幅改善 Kubernetesは、ITを「チケットドリブン」から「インテントドリブン」へ変えていく。Cloud Operator Days Tokyo基調講演   Shell  ShellSpec - シェルスクリプト用のフル機能のBDDユニットテストフレームワーク   統計  統計学習の指導のために 先生向け   振り返り  KPT アンチパターン 〜失敗事例紹介〜   組織  サイバーエージェントとメルカリにみる組織強化システムの構造的分解   Linux  よく使うcurlコマンドのオプション   PHP  PHPのリリース日とサポート期限   Python  Python Data Science Handbook 無料公開   Git  大きなGitリポジトリをクローンするときの工夫を図解します   Test  マイクロサービスの開発とテストファースト／テスト駆動開発   新人研修  新人の方によく展開している有益な情報 2021年のエンジニア新人研修の講義資料を公開しました テスト文字列に「うんこ」と入れるな   Tool  cronの代替になりそうなジョブ管理ツールのまとめ Workspace Cleanup（Jenkins の workspace お掃除プラグイン）   Deep Tech  透明太陽電池  窓ガラスでの発電 京都大学化学研究所の坂本雅典 准教授の解説      " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://exaream.github.io/blog/todo/link/" /><meta property="article:section" content="todo" />
-
-
-
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Link #   アーキテクチャ  ID連携の標準化仕様紹介とセキュアな実装のためのアプローチ ~ 2021 良い技術的負債と悪い技術的負債 技術的負債は開発者体験を悪化させる レガシー化したData Pipelineの廃止 ― メルカリのData Architectのお仕事例   機密情報  GitHub上のsensitive dataを削除するための手順と道のり   他社  The Amazon Builders' Library Amazon はソフトウェアをどのように構築し、運用するのか   Cloud  AWSの強い権限のクレデンシャル管理から転生した件   モブプロ/ペアプロ  モブプログラミングを導入し、チーム一丸となってタスクに取り組むようになった話  リソース効率性とフロー効率性について言及     SQL  MySQLとインデックスとPHPer   Container  インフラが苦手でも大丈夫！紙芝居Kubernetes Macで使うVS CodeとRemote Containerの性能を大幅改善 Kubernetesは、ITを「チケットドリブン」から「インテントドリブン」へ変えていく。Cloud Operator Days Tokyo基調講演   Shell  ShellSpec - シェルスクリプト用のフル機能のBDDユニットテストフレームワーク   統計  統計学習の指導のために 先生向け   振り返り  KPT アンチパターン 〜失敗事例紹介〜   組織  サイバーエージェントとメルカリにみる組織強化システムの構造的分解   Linux  よく使うcurlコマンドのオプション   PHP  PHPのリリース日とサポート期限   Python  Python Data Science Handbook 無料公開   Git  大きなGitリポジトリをクローンするときの工夫を図解します   Test  マイクロサービスの開発とテストファースト／テスト駆動開発   新人研修  新人の方によく展開している有益な情報 2021年のエンジニア新人研修の講義資料を公開しました テスト文字列に「うんこ」と入れるな   Tool  cronの代替になりそうなジョブ管理ツールのまとめ Workspace Cleanup（Jenkins の workspace お掃除プラグイン）   Deep Tech  透明太陽電池  窓ガラスでの発電 京都大学化学研究所の坂本雅典 准教授の解説      ">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="Link #   アーキテクチャ  ID連携の標準化仕様紹介とセキュアな実装のためのアプローチ ~ 2021 良い技術的負債と悪い技術的負債 技術的負債は開発者体験を悪化させる レガシー化したData Pipelineの廃止 ― メルカリのData Architectのお仕事例   機密情報  GitHub上のsensitive dataを削除するための手順と道のり   他社  The Amazon Builders' Library Amazon はソフトウェアをどのように構築し、運用するのか   Cloud  AWSの強い権限のクレデンシャル管理から転生した件   モブプロ/ペアプロ  モブプログラミングを導入し、チーム一丸となってタスクに取り組むようになった話  リソース効率性とフロー効率性について言及     SQL  MySQLとインデックスとPHPer   Container  インフラが苦手でも大丈夫！紙芝居Kubernetes Macで使うVS CodeとRemote Containerの性能を大幅改善 Kubernetesは、ITを「チケットドリブン」から「インテントドリブン」へ変えていく。Cloud Operator Days Tokyo基調講演   Shell  ShellSpec - シェルスクリプト用のフル機能のBDDユニットテストフレームワーク   統計  統計学習の指導のために 先生向け   振り返り  KPT アンチパターン 〜失敗事例紹介〜   組織  サイバーエージェントとメルカリにみる組織強化システムの構造的分解   Linux  よく使うcurlコマンドのオプション   PHP  PHPのリリース日とサポート期限   Python  Python Data Science Handbook 無料公開   Git  大きなGitリポジトリをクローンするときの工夫を図解します   Test  マイクロサービスの開発とテストファースト／テスト駆動開発   新人研修  新人の方によく展開している有益な情報 2021年のエンジニア新人研修の講義資料を公開しました テスト文字列に「うんこ」と入れるな   Tool  cronの代替になりそうなジョブ管理ツールのまとめ Workspace Cleanup（Jenkins の workspace お掃除プラグイン）   Deep Tech  透明太陽電池  窓ガラスでの発電 京都大学化学研究所の坂本雅典 准教授の解説      ">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://exaream.github.io/blog/todo/link/"><meta property="article:section" content="todo">
 <title>Link | Tech Blog</title>
-<link rel="manifest" href="/blog/manifest.json">
-<link rel="icon" href="/blog/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/blog/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css" integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin="anonymous">
-  <script defer src="/blog/flexsearch.min.js"></script>
-  <script defer src="/blog/en.search.min.799d5ffdfb07563510f83b2e24c100ed983fc935af675e26221dcfb9b0b5429b.js" integrity="sha256-eZ1f/fsHVjUQ&#43;DsuJMEA7Zg/yTWvZ14mIh3PubC1Qps=" crossorigin="anonymous"></script>
-<!--
-Made with Book Theme
-https://github.com/alex-shpak/hugo-book
--->
-  
+<link rel=manifest href=/blog/manifest.json>
+<link rel=icon href=/blog/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/blog/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
+<script defer src=/blog/flexsearch.min.js></script>
+<script defer src=/blog/en.search.min.26a75d1d75ccfcd393a040e8f98cd3cf3d77c0c35b2761f558df8db235fc327e.js integrity="sha256-JqddHXXM/NOToEDo+YzTzz13wMNbJ2H1WN+NsjX8Mn4=" crossorigin=anonymous></script>
 </head>
-<body dir="ltr">
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
-  <main class="container flex">
-    <aside class="book-menu">
-      <div class="book-menu-content">
-        
-  <nav>
-<h2 class="book-brand">
-  <a class="flex align-center" href="/blog/"><span>Tech Blog</span>
-  </a>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/blog/><span>Tech Blog</span>
+</a>
 </h2>
-
-
-
-
-
-
-
-
-
-
-
-
-  <h3 id="menu">
-  Menu
-  <a class="anchor" href="#menu">#</a>
+<h3 id=menu>
+Menu
+<a class=anchor href=#menu>#</a>
 </h3>
 <ul>
 <li><strong>Git</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/git/memo/">Git Memo</a></li>
-<li><a href="https://exaream.github.io/blog/git/tool/">Git Tool</a></li>
+<li><a href=https://exaream.github.io/blog/git/memo/>Git Memo</a></li>
+<li><a href=https://exaream.github.io/blog/git/tool/>Git Tool</a></li>
 </ul>
 </li>
 <li><strong>Docker</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/docker/memo/">Docker Memo</a></li>
-<li><a href="https://exaream.github.io/blog/docker/docker-compose/">Docker Compose</a></li>
-<li><a href="https://exaream.github.io/blog/docker/docker-swarm/">Docker Swarm</a></li>
+<li><a href=https://exaream.github.io/blog/docker/memo/>Docker Memo</a></li>
+<li><a href=https://exaream.github.io/blog/docker/docker-compose/>Docker Compose</a></li>
+<li><a href=https://exaream.github.io/blog/docker/docker-swarm/>Docker Swarm</a></li>
 </ul>
 </li>
 <li><strong>SQL</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/mysql/memo/">MySQL Memo</a></li>
-<li><a href="https://exaream.github.io/blog/postgresql/memo/">PostgreSQL Memo</a></li>
+<li><a href=https://exaream.github.io/blog/mysql/memo/>MySQL Memo</a></li>
+<li><a href=https://exaream.github.io/blog/postgresql/memo/>PostgreSQL Memo</a></li>
 </ul>
 </li>
 <li><strong>Go</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/go/check-list/">Go Check List</a></li>
-<li><a href="https://exaream.github.io/blog/go/test/">Go Test</a></li>
-<li><a href="https://exaream.github.io/blog/go/link/">Go Link</a></li>
+<li><a href=https://exaream.github.io/blog/go/check-list/>Go Check List</a></li>
+<li><a href=https://exaream.github.io/blog/go/test/>Go Test</a></li>
+<li><a href=https://exaream.github.io/blog/go/link/>Go Link</a></li>
 </ul>
 </li>
 <li><strong>Linux</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/linux/memo/">Linux Memo</a></li>
-<li><a href="https://exaream.github.io/blog/linux/ubuntu/">Ubuntu</a></li>
-<li><a href="https://exaream.github.io/blog/linux/alpine-linux/">Alpine Linux</a></li>
+<li><a href=https://exaream.github.io/blog/linux/memo/>Linux Memo</a></li>
+<li><a href=https://exaream.github.io/blog/linux/ubuntu/>Ubuntu</a></li>
+<li><a href=https://exaream.github.io/blog/linux/alpine-linux/>Alpine Linux</a></li>
 </ul>
 </li>
 <li><strong>Python</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/python/memo/">Python Memo</a></li>
-<li><a href="https://exaream.github.io/blog/python/ocr/">Python OCR</a></li>
+<li><a href=https://exaream.github.io/blog/python/memo/>Python Memo</a></li>
+<li><a href=https://exaream.github.io/blog/python/ocr/>Python OCR</a></li>
 </ul>
 </li>
 <li><strong>PHP</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/php/phpunit/">PHPUnit</a></li>
-<li><a href="https://exaream.github.io/blog/php/phpmetrics/">PhpMetrics</a></li>
+<li><a href=https://exaream.github.io/blog/php/phpunit/>PHPUnit</a></li>
+<li><a href=https://exaream.github.io/blog/php/phpmetrics/>PhpMetrics</a></li>
 </ul>
 </li>
 <li><strong>Mac</strong>
 <ul>
-<li><a href="https://exaream.github.io/blog/mac/memo/">Mac Memo</a></li>
-<li><a href="https://exaream.github.io/blog/mac/iterm2/">iTerm2</a></li>
+<li><a href=https://exaream.github.io/blog/mac/memo/>Mac Memo</a></li>
+<li><a href=https://exaream.github.io/blog/mac/iterm2/>iTerm2</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href="https://exaream.github.io/blog/shellscript/memo/">Shellscript</a></li>
-<li><a href="https://exaream.github.io/blog/tool/hugo/">Hugo</a></li>
-<li><a href="https://exaream.github.io/blog/node/memo/">Node</a></li>
-<li><a href="https://exaream.github.io/blog/tool/vscode/">VS Code</a></li>
-<li><a href="https://exaream.github.io/blog/tool/excel/">Excel</a></li>
-<li><a href="https://exaream.github.io/blog/tool/mailcatcher/">MailCatcher</a></li>
-<li><a href="https://exaream.github.io/blog/glossary/">Glossary</a></li>
+<li><a href=https://exaream.github.io/blog/shellscript/memo/>Shellscript</a></li>
+<li><a href=https://exaream.github.io/blog/tool/hugo/>Hugo</a></li>
+<li><a href=https://exaream.github.io/blog/node/memo/>Node</a></li>
+<li><a href=https://exaream.github.io/blog/tool/vscode/>VS Code</a></li>
+<li><a href=https://exaream.github.io/blog/tool/excel/>Excel</a></li>
+<li><a href=https://exaream.github.io/blog/tool/mailcatcher/>MailCatcher</a></li>
+<li><a href=https://exaream.github.io/blog/glossary/>Glossary</a></li>
 </ul>
-
-
-
-
-
-
-
-
-
-
 </nav>
-
-
-
-
-  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-
-
- 
-      </div>
-    </aside>
-
-    <div class="book-page">
-      <header class="book-header">
-        
-  <div class="flex align-center justify-between">
-  <label for="menu-control">
-    <img src="/blog/svg/menu.svg" class="book-icon" alt="Menu" />
-  </label>
-
-  <strong>Link</strong>
-
-  <label for="toc-control">
-    
-    <img src="/blog/svg/toc.svg" class="book-icon" alt="Table of Contents" />
-    
-  </label>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 </div>
-
-
-  
-  <aside class="hidden clearfix">
-    
-  <h2>Tags</h2>
-
-
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/blog/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Link</strong>
+<label for=toc-control>
+<img src=/blog/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<h2>Tags</h2>
 <h2>Table of Contents</h2>
-<nav id="TableOfContents"></nav>
-
-
-
-  </aside>
-  
- 
-      </header>
-
-      <ol  class="breadcrumb">
-    
-
-
-
-
-
+<nav id=TableOfContents></nav>
+</aside>
+</header>
+<ol class=breadcrumb>
 <li>
-  <a href="https://exaream.github.io/blog/">Tech Blog</a>
+<a href=https://exaream.github.io/blog/>Tech Blog</a>
 </li>
-
-
 <li>
-  <a href="https://exaream.github.io/blog/todo/">Todo</a>
+<a href=https://exaream.github.io/blog/todo/>Todo</a>
 </li>
-
-
-<li class="active">
-  <a href="https://exaream.github.io/blog/todo/link/"></a>
+<li class=active>
+<a href=https://exaream.github.io/blog/todo/link/></a>
 </li>
-
 </ol>
-
-
-      
-  <article class="markdown"><h1 id="link">
-  Link
-  <a class="anchor" href="#link">#</a>
+<article class=markdown><h1 id=link>
+Link
+<a class=anchor href=#link>#</a>
 </h1>
 <ul>
 <li>アーキテクチャ
 <ul>
-<li><a href="https://ritou.hatenablog.com/entry/2021/09/05/100000">ID連携の標準化仕様紹介とセキュアな実装のためのアプローチ ~ 2021</a></li>
-<li><a href="https://qiita.com/e99h2121/items/98289b21c432a67f598c">良い技術的負債と悪い技術的負債</a></li>
-<li><a href="https://mtx2s.hatenablog.com/entry/2021/12/21/084227">技術的負債は開発者体験を悪化させる</a></li>
-<li><a href="https://note.com/mercari_data/n/n09145e3f4740">レガシー化したData Pipelineの廃止 ― メルカリのData Architectのお仕事例</a></li>
+<li><a href=https://ritou.hatenablog.com/entry/2021/09/05/100000>ID連携の標準化仕様紹介とセキュアな実装のためのアプローチ ~ 2021</a></li>
+<li><a href=https://qiita.com/e99h2121/items/98289b21c432a67f598c>良い技術的負債と悪い技術的負債</a></li>
+<li><a href=https://mtx2s.hatenablog.com/entry/2021/12/21/084227>技術的負債は開発者体験を悪化させる</a></li>
+<li><a href=https://note.com/mercari_data/n/n09145e3f4740>レガシー化したData Pipelineの廃止 ― メルカリのData Architectのお仕事例</a></li>
 </ul>
 </li>
 <li>機密情報
 <ul>
-<li><a href="https://engineering.mercari.com/blog/entry/20211207-removing-sensitive-data-from-github/">GitHub上のsensitive dataを削除するための手順と道のり</a></li>
+<li><a href=https://engineering.mercari.com/blog/entry/20211207-removing-sensitive-data-from-github/>GitHub上のsensitive dataを削除するための手順と道のり</a></li>
 </ul>
 </li>
 <li>他社
 <ul>
-<li><a href="https://aws.amazon.com/jp/builders-library/?cards-body.sort-by=item.additionalFields.sortDate&amp;cards-body.sort-order=desc&amp;awsf.filter-content-category=*all&amp;awsf.filter-content-type=*all&amp;awsf.filter-content-level=*all">The Amazon Builders' Library Amazon はソフトウェアをどのように構築し、運用するのか</a></li>
+<li><a href="https://aws.amazon.com/jp/builders-library/?cards-body.sort-by=item.additionalFields.sortDate&cards-body.sort-order=desc&awsf.filter-content-category=*all&awsf.filter-content-type=*all&awsf.filter-content-level=*all">The Amazon Builders' Library Amazon はソフトウェアをどのように構築し、運用するのか</a></li>
 </ul>
 </li>
 <li>Cloud
 <ul>
-<li><a href="https://qiita.com/ykato/items/36ef52b41ab7e8ac69e9">AWSの強い権限のクレデンシャル管理から転生した件</a></li>
+<li><a href=https://qiita.com/ykato/items/36ef52b41ab7e8ac69e9>AWSの強い権限のクレデンシャル管理から転生した件</a></li>
 </ul>
 </li>
 <li>モブプロ/ペアプロ
 <ul>
-<li><a href="https://engineering.mercari.com/blog/entry/20211130-52e6d96087/">モブプログラミングを導入し、チーム一丸となってタスクに取り組むようになった話</a>
+<li><a href=https://engineering.mercari.com/blog/entry/20211130-52e6d96087/>モブプログラミングを導入し、チーム一丸となってタスクに取り組むようになった話</a>
 <ul>
 <li>リソース効率性とフロー効率性について言及</li>
 </ul>
@@ -234,79 +163,79 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li>SQL
 <ul>
-<li><a href="https://speakerdeck.com/yoku0825/mysqltoindetukusutophper">MySQLとインデックスとPHPer</a></li>
+<li><a href=https://speakerdeck.com/yoku0825/mysqltoindetukusutophper>MySQLとインデックスとPHPer</a></li>
 </ul>
 </li>
 <li>Container
 <ul>
-<li><a href="https://speakerdeck.com/aoi1/inhuragaku-shou-demoda-zhang-fu-zhi-zhi-ju-kubernetes">インフラが苦手でも大丈夫！紙芝居Kubernetes</a></li>
-<li><a href="https://www.keisuke69.net/entry/2021/09/15/104532">Macで使うVS CodeとRemote Containerの性能を大幅改善</a></li>
-<li><a href="https://www.publickey1.jp/blog/21/kubernetesitcloud_operator_days_tokyo.html">Kubernetesは、ITを「チケットドリブン」から「インテントドリブン」へ変えていく。Cloud Operator Days Tokyo基調講演</a></li>
+<li><a href=https://speakerdeck.com/aoi1/inhuragaku-shou-demoda-zhang-fu-zhi-zhi-ju-kubernetes>インフラが苦手でも大丈夫！紙芝居Kubernetes</a></li>
+<li><a href=https://www.keisuke69.net/entry/2021/09/15/104532>Macで使うVS CodeとRemote Containerの性能を大幅改善</a></li>
+<li><a href=https://www.publickey1.jp/blog/21/kubernetesitcloud_operator_days_tokyo.html>Kubernetesは、ITを「チケットドリブン」から「インテントドリブン」へ変えていく。Cloud Operator Days Tokyo基調講演</a></li>
 </ul>
 </li>
 <li>Shell
 <ul>
-<li><a href="https://qiita.com/ko1nksm/items/2f01ff4f50e957ebf1de">ShellSpec - シェルスクリプト用のフル機能のBDDユニットテストフレームワーク</a></li>
+<li><a href=https://qiita.com/ko1nksm/items/2f01ff4f50e957ebf1de>ShellSpec - シェルスクリプト用のフル機能のBDDユニットテストフレームワーク</a></li>
 </ul>
 </li>
 <li>統計
 <ul>
-<li><a href="https://www.stat.go.jp/teacher/comp-learn-04.html">統計学習の指導のために 先生向け</a></li>
+<li><a href=https://www.stat.go.jp/teacher/comp-learn-04.html>統計学習の指導のために 先生向け</a></li>
 </ul>
 </li>
 <li>振り返り
 <ul>
-<li><a href="https://qiita.com/kubot64/items/3a9f6fdf0580eda6ecbc">KPT アンチパターン 〜失敗事例紹介〜</a></li>
+<li><a href=https://qiita.com/kubot64/items/3a9f6fdf0580eda6ecbc>KPT アンチパターン 〜失敗事例紹介〜</a></li>
 </ul>
 </li>
 <li>組織
 <ul>
-<li><a href="https://aboutproduct.jp/media/team-building/891/">サイバーエージェントとメルカリにみる組織強化システムの構造的分解</a></li>
+<li><a href=https://aboutproduct.jp/media/team-building/891/>サイバーエージェントとメルカリにみる組織強化システムの構造的分解</a></li>
 </ul>
 </li>
 <li>Linux
 <ul>
-<li><a href="https://qiita.com/ryuichi1208/items/e4e1b27ff7d54a66dcd9">よく使うcurlコマンドのオプション</a></li>
+<li><a href=https://qiita.com/ryuichi1208/items/e4e1b27ff7d54a66dcd9>よく使うcurlコマンドのオプション</a></li>
 </ul>
 </li>
 <li>PHP
 <ul>
-<li><a href="https://qiita.com/bezeklik/items/72d1ff8393f66673e2bc">PHPのリリース日とサポート期限</a></li>
+<li><a href=https://qiita.com/bezeklik/items/72d1ff8393f66673e2bc>PHPのリリース日とサポート期限</a></li>
 </ul>
 </li>
 <li>Python
 <ul>
-<li><a href="https://jakevdp.github.io/PythonDataScienceHandbook/">Python Data Science Handbook 無料公開</a></li>
+<li><a href=https://jakevdp.github.io/PythonDataScienceHandbook/>Python Data Science Handbook 無料公開</a></li>
 </ul>
 </li>
 <li>Git
 <ul>
-<li><a href="https://swet.dena.com/entry/2021/07/12/120000">大きなGitリポジトリをクローンするときの工夫を図解します</a></li>
+<li><a href=https://swet.dena.com/entry/2021/07/12/120000>大きなGitリポジトリをクローンするときの工夫を図解します</a></li>
 </ul>
 </li>
 <li>Test
 <ul>
-<li><a href="https://engineering.mercari.com/blog/entry/gears-microservices/">マイクロサービスの開発とテストファースト／テスト駆動開発</a></li>
+<li><a href=https://engineering.mercari.com/blog/entry/gears-microservices/>マイクロサービスの開発とテストファースト／テスト駆動開発</a></li>
 </ul>
 </li>
 <li>新人研修
 <ul>
-<li><a href="https://qiita.com/kazuo_reve/items/d1a3f0ee48e24bba38f1">新人の方によく展開している有益な情報</a></li>
-<li><a href="https://blog.cybozu.io/entry/2021/07/20/100000">2021年のエンジニア新人研修の講義資料を公開しました</a></li>
-<li><a href="https://www.slideshare.net/ketaiorg/ss-250149770">テスト文字列に「うんこ」と入れるな</a></li>
+<li><a href=https://qiita.com/kazuo_reve/items/d1a3f0ee48e24bba38f1>新人の方によく展開している有益な情報</a></li>
+<li><a href=https://blog.cybozu.io/entry/2021/07/20/100000>2021年のエンジニア新人研修の講義資料を公開しました</a></li>
+<li><a href=https://www.slideshare.net/ketaiorg/ss-250149770>テスト文字列に「うんこ」と入れるな</a></li>
 </ul>
 </li>
 <li>Tool
 <ul>
-<li><a href="https://qiita.com/shrkw/items/5c3d53358b0016a09504">cronの代替になりそうなジョブ管理ツールのまとめ</a></li>
-<li><a href="https://plugins.jenkins.io/ws-cleanup/">Workspace Cleanup（Jenkins の workspace お掃除プラグイン）</a></li>
+<li><a href=https://qiita.com/shrkw/items/5c3d53358b0016a09504>cronの代替になりそうなジョブ管理ツールのまとめ</a></li>
+<li><a href=https://plugins.jenkins.io/ws-cleanup/>Workspace Cleanup（Jenkins の workspace お掃除プラグイン）</a></li>
 </ul>
 </li>
 <li>Deep Tech
 <ul>
 <li>透明太陽電池
 <ul>
-<li><a href="https://newswitch.jp/p/31463">窓ガラスでの発電</a></li>
+<li><a href=https://newswitch.jp/p/31463>窓ガラスでの発電</a></li>
 <li><a href="https://www.youtube.com/watch?v=R87fs1OilJA">京都大学化学研究所の坂本雅典 准教授の解説</a></li>
 </ul>
 </li>
@@ -314,68 +243,22 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 </article>
- 
-      
-
-      <footer class="book-footer">
-        
-  <div class="flex flex-wrap justify-between">
-
-
-
-
-
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
 </div>
-
-
-
-  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-
-
- 
-        
-      </footer>
-
-      
-  
-  <div class="book-comments">
-
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
 </div>
-  
- 
-
-      <label for="menu-control" class="hidden book-menu-overlay"></label>
-    </div>
-
-    
-    <aside class="book-toc">
-      <div class="book-toc-content">
-        
-  <h2>Tags</h2>
-
-
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<h2>Tags</h2>
 <h2>Table of Contents</h2>
-<nav id="TableOfContents"></nav>
-
-
- 
-      </div>
-    </aside>
-    
-  </main>
-
-  
+<nav id=TableOfContents></nav>
+</div>
+</aside>
+</main>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
