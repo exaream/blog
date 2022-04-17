@@ -1,8 +1,14 @@
 # TODO
 
 ## Hugo
-- [x] Set custom domain and https
+- [x] Custom domain and HTTPS
+  - [x] SSL Server Test
+    - https://www.ssllabs.com/ssltest/
 - [x] Google Analytics
+  - [x] Ignore IP
+    - https://uenohidenori.com/analytics/
+- [ ] prev-next link
+  - https://maku77.github.io/hugo/template/prev-next-link.html
 - [ ] Disqus (Comment)
 - [ ] Full text search
   - https://koirand.github.io/blog/2018/pulp-search/
