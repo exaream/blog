@@ -453,21 +453,22 @@ graph LR
 ## Google Analytics
 
 `config/_default/config.toml`
-```toml {hl_lines=[3]}
+```shell {hl_lines=[3]}
 baseURL = ""
 # Omission
-googleAnalytics = ""
+googleAnalytics = "" # Set empty.
 ```
 
-`config/production/config.toml`
-```toml {hl_lines=[3]}
+`config/production/config.toml`  
+Set your Google Analytics ID `conf.toml` of production environment only.
+```shell {hl_lines=[3]}
 baseURL = "https://sample.com/"
 # Omission
-googleAnalytics = "G-XXXXXXXXXX"
+googleAnalytics = "G-XXXXXXXXXX" # Set your Google Analytics ID.
 ```
 
 `layouts/partials/analytics.html`
-```toml
+```html
 {{ if not .Site.IsServer }}
 {{ with .Site.GoogleAnalytics }}
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -483,7 +484,7 @@ googleAnalytics = "G-XXXXXXXXXX"
 {{ end }}
 ```
 `layouts/baseof.html` or `layouts/partials/head.html` etc.  
-Write the following in `<head>` tag of HTML.
+Write the following in `<head>` of HTML.
 ```toml
 {{ partial "analytics" . }}
 ```
