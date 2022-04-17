@@ -197,10 +197,10 @@ headless: true
 {{ if .p1.Parent }}
 {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
 {{ else if not .p1.IsHome }}
-{{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+{{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
 {{ end }}
 <li{{ if eq .p1 .p2 }} class="active"{{ end }}>
-  <a href="{{ .p1.Permalink }}">{{ .p1.Title }}</a>
+  <a href="{{ .p1.Permalink }}">{{ .p1.LinkTitle }}</a>
 </li>
 {{ end }}
 ```
@@ -449,6 +449,45 @@ graph LR
     B --> D{Rhombus}
     C --> D
 {{</mermaid>}}
+
+## Google Analytics
+
+`config/_default/config.toml`
+```shell {hl_lines=[3]}
+baseURL = ""
+# Omission
+googleAnalytics = "" # Set empty.
+```
+
+`config/production/config.toml`  
+Set your Google Analytics ID `conf.toml` of production environment only.
+```shell {hl_lines=[3]}
+baseURL = "https://sample.com/"
+# Omission
+googleAnalytics = "G-XXXXXXXXXX" # Set your Google Analytics ID.
+```
+
+`layouts/partials/analytics.html`
+```html
+{{ if not .Site.IsServer }}
+{{ with .Site.GoogleAnalytics }}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{ . }}');
+</script>
+{{ end }}
+{{ end }}
+```
+`layouts/baseof.html` or `layouts/partials/head.html` etc.  
+Write the following in `<head>` of HTML.
+```toml
+{{ partial "analytics" . }}
+```
 
 ## References
 

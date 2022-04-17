@@ -15,7 +15,7 @@
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.e6e6eb0de385009ca9cf2790870c1e95aeafd32b6055aacf361ac0448b159581.js integrity="sha256-5ubrDeOFAJypzyeQhwwela6v0ytgVarPNhrARIsVlYE=" crossorigin=anonymous></script>
+<script defer src=/en.search.min.69cc669728eb944846ae51172aeafe516531606ca257f037a0b1977d8a3e0355.js integrity="sha256-acxmlyjrlEhGrlEXKur+UWUxYGyiV/A3oLGXfYo+A1U=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-W638642WNE',{anonymize_ip:!1})}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
@@ -156,6 +156,7 @@ Menu
 <li><a href=#tags-of-a-page>Tags of a page</a></li>
 <li><a href=#syntax-highlighting>Syntax Highlighting</a></li>
 <li><a href=#mermaid-diagram>Mermaid Diagram</a></li>
+<li><a href=#google-analytics>Google Analytics</a></li>
 <li><a href=#references>References</a></li>
 </ul>
 </nav>
@@ -338,10 +339,10 @@ Breadcrumb
 <span style=color:#75715e>{{</span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>.p1.Parent</span> <span style=color:#75715e>}}</span>
 <span style=color:#75715e>{{</span> <span style=color:#66d9ef>template</span> <span style=color:#e6db74>&#34;breadcrumbnav&#34;</span> <span style=color:#f92672>(</span><span style=color:#a6e22e>dict</span> <span style=color:#e6db74>&#34;p1&#34;</span> <span style=color:#a6e22e>.p1.Parent</span> <span style=color:#e6db74>&#34;p2&#34;</span> <span style=color:#a6e22e>.p2</span> <span style=color:#f92672>)</span>  <span style=color:#75715e>}}</span>
 <span style=color:#75715e>{{</span> <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> <span style=color:#66d9ef>not</span> <span style=color:#a6e22e>.p1.IsHome</span> <span style=color:#75715e>}}</span>
-<span style=color:#75715e>{{</span> <span style=color:#66d9ef>template</span> <span style=color:#e6db74>&#34;breadcrumbnav&#34;</span> <span style=color:#f92672>(</span><span style=color:#a6e22e>dict</span> <span style=color:#e6db74>&#34;p1&#34;</span> <span style=color:#a6e22e>.p1.Site.Home</span> <span style=color:#e6db74>&#34;p2&#34;</span> <span style=color:#a6e22e>.p2</span> <span style=color:#f92672>)</span>  <span style=color:#75715e>}}</span>
+<span style=color:#75715e>{{</span> <span style=color:#66d9ef>template</span> <span style=color:#e6db74>&#34;breadcrumbnav&#34;</span> <span style=color:#f92672>(</span><span style=color:#a6e22e>dict</span> <span style=color:#e6db74>&#34;p1&#34;</span> <span style=color:#a6e22e>.p1.Parent</span> <span style=color:#e6db74>&#34;p2&#34;</span> <span style=color:#a6e22e>.p2</span> <span style=color:#f92672>)</span>  <span style=color:#75715e>}}</span>
 <span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
 &lt;<span style=color:#f92672>li</span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>if</span> <span style=color:#66d9ef>eq</span> <span style=color:#a6e22e>.p1</span> <span style=color:#a6e22e>.p2</span> <span style=color:#75715e>}}</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;active&#34;</span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>&gt;
-  &lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.p1.Permalink</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>&#34;</span>&gt;<span style=color:#75715e>{{</span> <span style=color:#a6e22e>.p1.Title</span> <span style=color:#75715e>}}</span>&lt;/<span style=color:#f92672>a</span>&gt;
+  &lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>.p1.Permalink</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>&#34;</span>&gt;<span style=color:#75715e>{{</span> <span style=color:#a6e22e>.p1.LinkTitle</span> <span style=color:#75715e>}}</span>&lt;/<span style=color:#f92672>a</span>&gt;
 &lt;/<span style=color:#f92672>li</span>&gt;
 <span style=color:#75715e>{{</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span>
 </code></pre></div><p><code>layouts/partials/docs/inject/content-before.html</code></p>
@@ -582,7 +583,37 @@ B --> D{Rhombus}
 C --> D
 </p>
 </p>
-<h2 id=references>
+<h2 id=google-analytics>
+Google Analytics
+<a class=anchor href=#google-analytics>#</a>
+</h2>
+<p><code>config/_default/config.toml</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>baseURL <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+<span style=color:#75715e># Omission</span>
+<span style=display:block;width:100%;background-color:#3c3d38>googleAnalytics <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span> <span style=color:#75715e># Set empty.</span>
+</span></code></pre></div><p><code>config/production/config.toml</code><br>
+Set your Google Analytics ID <code>conf.toml</code> of production environment only.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>baseURL <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://sample.com/&#34;</span>
+<span style=color:#75715e># Omission</span>
+<span style=display:block;width:100%;background-color:#3c3d38>googleAnalytics <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;G-XXXXXXXXXX&#34;</span> <span style=color:#75715e># Set your Google Analytics ID.</span>
+</span></code></pre></div><p><code>layouts/partials/analytics.html</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>{{ if not .Site.IsServer }}
+{{ with .Site.GoogleAnalytics }}
+<span style=color:#75715e>&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span>
+&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>async</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://www.googletagmanager.com/gtag/js?id={{ . }}&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
+&lt;<span style=color:#f92672>script</span>&gt;
+  window.<span style=color:#a6e22e>dataLayer</span> <span style=color:#f92672>=</span> window.<span style=color:#a6e22e>dataLayer</span> <span style=color:#f92672>||</span> [];
+  <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>gtag</span>(){<span style=color:#a6e22e>dataLayer</span>.<span style=color:#a6e22e>push</span>(<span style=color:#a6e22e>arguments</span>);}
+  <span style=color:#a6e22e>gtag</span>(<span style=color:#e6db74>&#39;js&#39;</span>, <span style=color:#66d9ef>new</span> Date());
+
+  <span style=color:#a6e22e>gtag</span>(<span style=color:#e6db74>&#39;config&#39;</span>, <span style=color:#e6db74>&#39;{{ . }}&#39;</span>);
+&lt;/<span style=color:#f92672>script</span>&gt;
+{{ end }}
+{{ end }}
+</code></pre></div><p><code>layouts/baseof.html</code> or <code>layouts/partials/head.html</code> etc.<br>
+Write the following in <code>&lt;head></code> of HTML.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml>{{ <span style=color:#a6e22e>partial</span> <span style=color:#e6db74>&#34;analytics&#34;</span> . }}
+</code></pre></div><h2 id=references>
 References
 <a class=anchor href=#references>#</a>
 </h2>
@@ -637,6 +668,7 @@ References
 <li><a href=#tags-of-a-page>Tags of a page</a></li>
 <li><a href=#syntax-highlighting>Syntax Highlighting</a></li>
 <li><a href=#mermaid-diagram>Mermaid Diagram</a></li>
+<li><a href=#google-analytics>Google Analytics</a></li>
 <li><a href=#references>References</a></li>
 </ul>
 </nav>

@@ -1,3 +1,13 @@
+---
+date: 2020-01-01
+lastmod: ["lastmod"]
+title: Link
+linkTitle: Link
+description: Link
+#tags: ["Link"]
+draft: true
+---
+
 # Link
 
 * アーキテクチャ
