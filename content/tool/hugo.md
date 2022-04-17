@@ -450,6 +450,44 @@ graph LR
     C --> D
 {{</mermaid>}}
 
+## Google Analytics
+
+`config/_default/config.toml`
+```toml {hl_lines=[3]}
+baseURL = ""
+# Omission
+googleAnalytics = ""
+```
+
+`config/production/config.toml`
+```toml {hl_lines=[3]}
+baseURL = "https://sample.com/"
+# Omission
+googleAnalytics = "G-XXXXXXXXXX"
+```
+
+`layouts/partials/analytics.html`
+```toml
+{{ if not .Site.IsServer }}
+{{ with .Site.GoogleAnalytics }}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{ . }}');
+</script>
+{{ end }}
+{{ end }}
+```
+`layouts/baseof.html` or `layouts/partials/head.html` etc.  
+Write the following in `<head>` tag of HTML.
+```toml
+{{ partial "analytics" . }}
+```
+
 ## References
 
 * https://gohugo.io/about/
