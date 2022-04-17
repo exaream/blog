@@ -158,15 +158,15 @@ $ git config --global http.proxy <プロキシサーバのアドレス>:<プロ�
 proxy = <プロキシサーバのアドレス>:<プロキシサーバのポート番号>
 ```
 
-### ユーザ認証の必要なプロキシサーバを経由してhttp接続
+### ユーザー認証の必要なプロキシサーバを経由してhttp接続
 
 ```shell
-$ git config --global http.proxy http://<ユーザ名>:<パスワード>@<プロキシサーバのアドレス>:<プロキシサーバのポート番号>
+$ git config --global http.proxy http://<ユーザ名ー>:<パスワード>@<プロキシサーバのアドレス>:<プロキシサーバのポート番号>
 ```
 * ```.gitconfig``` ファイルの http の項目に次の設定を直接追加することもできる
 ```vim
 [http]
-proxy = http://<ユーザ名>:<パスワード>@<プロキシサーバのアドレス>:<プロキシサーバのポート番号>
+proxy = http://<ユーザー名>:<パスワード>@<プロキシサーバのアドレス>:<プロキシサーバのポート番号>
 ```
 
 ## 基本操作
@@ -611,7 +611,7 @@ $ git push <repository> <tag name>
 $ git push --delete <repository> <tag name>
 ```
 
-### 登録済みのリモートリポジトリのアドレスを変更
+### 登録済のリモートリポジトリのアドレスを変更
 
 指定した名前で登録されているリモートリポジトリのアドレスを <newurl> のアドレスに変更
 
@@ -619,7 +619,7 @@ $ git push --delete <repository> <tag name>
 $ git remote set-url <name> <newurl>
 ```
 
-### 登録済みのリモートリポジトリの名前を変更
+### 登録済のリモートリポジトリの名前を変更
 
 ```shell
 $ git remote rename <old> <new>
@@ -759,6 +759,53 @@ $ git checkout <tag name>
 タグをチェックアウトすると同時にブランチを作成
 ```shell
 $ git checkout <tag name> -b <branch name>
+```
+
+## トラブル対応
+
+### 過去のコミットの編集者(Author)とコミッター(Committer)を変更
+
+編集者(Author)とコミッター(Committer)のユーザー名とメールを確認
+```shell
+$ git log --pretty=full
+commit XXXXXXXXXX (HEAD -> sample-branch, origin/sample-branch)
+Author: before-foo <before-foo@sample.com>
+Commit: before-bar <before-bar@sample.com>
+```
+
+過去の全コミットを変更
+```shell
+ $ git filter-branch -f --env-filter \
+     "GIT_AUTHOR_NAME='after-foo'; \
+     GIT_AUTHOR_EMAIL='after-foo@sample.com'; \
+     GIT_COMMITTER_NAME='after-bar'; \
+     GIT_COMMITTER_EMAIL='after-bar@sample.com';" \
+   HEAD
+```
+
+過去のコミットに反映されたことを確認
+```shell
+$ git log --pretty=full
+```
+
+リモートリポジトリへ強制的に反映
+```shell
+git push -f
+```
+
+特定の条件の過去のコミットのみ修正する場合
+```shell
+$ git filter-branch --commit-filter ' 
+    if [ "$GIT_COMMITTER_EMAIL" = "before-bar@sample.com" ];
+      then
+        GIT_AUTHOR_NAME="after-foo";
+        GIT_AUTHOR_EMAIL="after-foo@sample.com";
+        GIT_COMMITTER_NAME="after-bar";
+        GIT_COMMITTER_EMAIL="after-bar@sample.com";
+        git commit-tree "$@";
+    else
+        git commit-tree "$@";
+    fi'  HEAD
 ```
 
 ## その他
