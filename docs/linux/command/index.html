@@ -15,7 +15,7 @@
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.69cc669728eb944846ae51172aeafe516531606ca257f037a0b1977d8a3e0355.js integrity="sha256-acxmlyjrlEhGrlEXKur+UWUxYGyiV/A3oLGXfYo+A1U=" crossorigin=anonymous></script>
+<script defer src=/en.search.min.6cc78dfa5450bcaa4a4eb58f78801c4c106489e7c01ecfa96d043a2c43e46d12.js integrity="sha256-bMeN+lRQvKpKTrWPeIAcTBBkiefAHs+pbQQ6LEPkbRI=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-W638642WNE',{anonymize_ip:!1})}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
@@ -151,7 +151,7 @@ Menu
 <ul>
 <li><a href=#文字コードの値>文字コードの値</a></li>
 <li><a href=#文字コードを設定>文字コードを設定</a></li>
-<li><a href=#vim-内部で使用される文字コードを確認>vim 内部で使用される文字コードを確認</a></li>
+<li><a href=#vim-内部で使用される文字コードを確認shell>vim 内部で使用される文字コードを確認shell</a></li>
 <li><a href=#ファイルの文字コードを確認>ファイルの文字コードを確認</a></li>
 <li><a href=#ファイルの文字コードの自動判別設定を確認>ファイルの文字コードの自動判別設定を確認</a></li>
 <li><a href=#指定の文字コードでファイルを開き直し>指定の文字コードでファイルを開き直し</a></li>
@@ -613,7 +613,7 @@ e.g. 5番の履歴を削除</p>
 <tr>
 <td><code>encoding</code></td>
 <td><code>enc</code></td>
-<td>`vim``` の内部で使用されるエンコーディングを指定。</td>
+<td><code>vim</code> の内部で使用されるエンコーディングを指定。</td>
 </tr>
 <tr>
 <td><code>fileencoding</code></td>
@@ -627,14 +627,15 @@ e.g. 5番の履歴を削除</p>
 </tr>
 </tbody>
 </table>
-<h3 id=vim-内部で使用される文字コードを確認>
-vim 内部で使用される文字コードを確認
-<a class=anchor href=#vim-%e5%86%85%e9%83%a8%e3%81%a7%e4%bd%bf%e7%94%a8%e3%81%95%e3%82%8c%e3%82%8b%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+<h3 id=vim-内部で使用される文字コードを確認shell>
+vim 内部で使用される文字コードを確認shell
+<a class=anchor href=#vim-%e5%86%85%e9%83%a8%e3%81%a7%e4%bd%bf%e7%94%a8%e3%81%95%e3%82%8c%e3%82%8b%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e7%a2%ba%e8%aa%8dshell>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set encoding?
-</code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:se enc?
-</code></pre></div><h3 id=ファイルの文字コードを確認>
+<p>:set encoding?</p>
+<pre tabindex=0><code>or
+```shell
+:se enc?
+</code></pre><h3 id=ファイルの文字コードを確認>
 ファイルの文字コードを確認
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
 </h3>
@@ -695,17 +696,17 @@ vim 内部で使用される文字コードを確認
 </thead>
 <tbody>
 <tr>
-<td>LF(Line Feed) ```\n`</td>
+<td>LF(Line Feed) <code>\n</code></td>
 <td><code>unix</code></td>
 <td>Unix, Linux, Mac(OS10以降), Android</td>
 </tr>
 <tr>
-<td>CR(Carriage Return) ```\r`</td>
+<td>CR(Carriage Return) <code>\r</code></td>
 <td><code>mac</code></td>
 <td>古いMac(OS9以前)</td>
 </tr>
 <tr>
-<td>CRLF(Carriage Return/Line Feed) ```\r\n`</td>
+<td>CRLF(Carriage Return/Line Feed) <code>\r\n</code></td>
 <td><code>dos</code></td>
 <td>Windows</td>
 </tr>
@@ -1855,42 +1856,42 @@ tree コマンドのバージョンを確認
 </thead>
 <tbody>
 <tr>
-<td>-n</td>
-<td>&ndash;number</td>
+<td><code>-n</code></td>
+<td><code>--number</code></td>
 <td>行番号を付与</td>
 </tr>
 <tr>
-<td>-b</td>
-<td>&ndash;number-nonblank</td>
+<td><code>-b</code></td>
+<td><code>--number-nonblank</code></td>
 <td>行番号を付与(空白行以外)</td>
 </tr>
 <tr>
-<td>-s</td>
-<td>-squeeze-blank</td>
+<td><code>-s</code></td>
+<td><code>-squeeze-blank</code></td>
 <td>連続した空行を1行として表示</td>
 </tr>
 <tr>
-<td>-v</td>
-<td>&ndash;show-nonprinting</td>
+<td><code>-v</code></td>
+<td><code>--show-nonprinting</code></td>
 <td>タブ, 改行, 改ページ以外の非表示文字を表示</td>
 </tr>
 <tr>
-<td>-t</td>
+<td><code>-t</code></td>
 <td></td>
 <td>非表示文字を表示(タブを <code>^|</code>, 用紙送りを <code>^L</code> として表示</td>
 </tr>
 <tr>
-<td>-E</td>
-<td>&ndash;show-ends</td>
+<td><code>-E</code></td>
+<td><code>--show-ends</code></td>
 <td>行の最後に <code>$</code> を表示</td>
 </tr>
 <tr>
-<td>-A</td>
-<td>&ndash;show-all</td>
+<td><code>-A</code></td>
+<td><code>--show-all</code></td>
 <td>全ての非表示文字を表示(<code>-vET</code> と同じ)</td>
 </tr>
 <tr>
-<td>-e</td>
+<td><code>-e</code></td>
 <td></td>
 <td>タブを除く全ての非表示文字を表示(<code>-vE</code> と同じ)</td>
 </tr>
@@ -2200,8 +2201,8 @@ tree コマンドのバージョンを確認
 <td>暗号を解除したZIPファイルの保存先を指定。 (元のZIPファイルはそのまま残る。)</td>
 </tr>
 <tr>
-<td>`-b<code> </code>パス</td>
-<td>&ndash;temp-path`</td>
+<td><code>-b パス</code></td>
+<td><code>--temp-path</code></td>
 <td>一時作業用のディレクトリを指定。</td>
 </tr>
 <tr>
@@ -2498,58 +2499,58 @@ OSのバージョン情報確認コマンドを確認
 </thead>
 <tbody>
 <tr>
-<td>-S</td>
-<td>&ndash;separate-dirs</td>
+<td><code>-S</code></td>
+<td><code>--separate-dirs</code></td>
 <td>サブディレクトリのサイズを含めずに集計</td>
 </tr>
 <tr>
-<td>-s</td>
-<td>&ndash;summarize</td>
+<td><code>-s</code></td>
+<td><code>--summarize</code></td>
 <td>指定したディレクトリの合計のみ表示(サブディレクトリの行は非表示)</td>
 </tr>
 <tr>
-<td>-d深さ</td>
-<td>&ndash;max-depth=深さ</td>
+<td><code>-d 深さ</code></td>
+<td><code>--max-depth=深さ</code></td>
 <td>集計するディレクトリの深さを指定</td>
 </tr>
 <tr>
-<td>-P</td>
-<td>&ndash;no-dereference</td>
+<td><code>-P</code></td>
+<td><code>--no-dereference</code></td>
 <td>シンボリックをたどらずに集計(デフォルト)</td>
 </tr>
 <tr>
-<td>-L</td>
-<td>&ndash;dereference</td>
+<td><code>-L</code></td>
+<td>&ndash;dereference`</td>
 <td>全てのシンボリックをたどって集計</td>
 </tr>
 <tr>
-<td>-D,-H</td>
+<td><code>-D</code>, <code>-H</code></td>
 <td>&ndash;dereference-args</td>
 <td>コマンドラインで指定されたシンボリックのみたどって集計</td>
 </tr>
 <tr>
-<td>-x</td>
-<td>&ndash;one-file-system</td>
+<td><code>-x</code></td>
+<td><code>--one-file-system</code></td>
 <td>異なるファイルシステム(パーティーション)にあるディレクトリをスキップして集計</td>
 </tr>
 <tr>
-<td>-l</td>
-<td>&ndash;count-links</td>
+<td><code>-l</code></td>
+<td><code>--count-links</code></td>
 <td>ハードリンクがある場合、その個数分のサイズを数える</td>
 </tr>
 <tr>
 <td></td>
-<td>&ndash;exclude=パターン</td>
+<td><code>--exclude=パターン</code></td>
 <td>パターンと一致するファイルを除外して集計</td>
 </tr>
 <tr>
-<td>-Xファイル</td>
-<td>&ndash;exclude-from=ファイル</td>
+<td><code>-X ファイル</code></td>
+<td><code>--exclude-from=ファイル</code></td>
 <td>ファイルに含まれるパターンに一致するファイルを除外して集計</td>
 </tr>
 <tr>
 <td></td>
-<td>&ndash;files0-from=ファイル</td>
+<td><code>--files0-from=ファイル</code></td>
 <td>ファイルに指定されたリスト(NULL区切り)を対象に集計、<code>-</code> を指定した場合は標準入力から読み込み</td>
 </tr>
 </tbody>
@@ -2568,63 +2569,63 @@ OSのバージョン情報確認コマンドを確認
 </thead>
 <tbody>
 <tr>
-<td>-h</td>
-<td>&ndash;human-readable</td>
+<td><code>-h</code></td>
+<td><code>--human-readable</code></td>
 <td>サイズに応じて人間が読みやすい単位に変換して表示</td>
 </tr>
 <tr>
-<td>-H</td>
-<td>&ndash;si</td>
-<td>イズに応じて人間が読みやすい単位に変換して表示、ただし 1024単位ではなく 1000単位の値を使用</td>
+<td><code>-H</code></td>
+<td><code>--si</code></td>
+<td>サイズに応じて人間が読みやすい単位に変換して表示、ただし 1024単位ではなく 1000単位の値を使用</td>
 </tr>
 <tr>
-<td>-Bサイズ</td>
-<td>&ndash;block-size=サイズ</td>
+<td><code>-B サイズ</code></td>
+<td><code>--block-size=サイズ</code></td>
 <td>指定したサイズの倍数で表示、サイズは数値または単位で指定</td>
 </tr>
 <tr>
-<td>-k</td>
+<td><code>-k</code></td>
 <td></td>
-<td>&ndash;block-size=1K と同じ</td>
+<td><code>--block-size=1K</code> と同じ</td>
 </tr>
 <tr>
-<td>-m</td>
+<td><code>-m</code></td>
 <td></td>
-<td>&ndash;block-size=1M と同じ</td>
+<td><code>--block-size=1M</code> と同じ</td>
 </tr>
 <tr>
 <td></td>
-<td>&ndash;apparent-size</td>
+<td><code>--apparent-size</code></td>
 <td>ディスク使用量ではなく実際のサイズを表示</td>
 </tr>
 <tr>
-<td>-b</td>
-<td>&ndash;bytes</td>
+<td><code>-b</code></td>
+<td>`&ndash;bytes</td>
 <td>実際のサイズをバイト単位で表示（ <code>--apparent-size</code> または <code>--block-size=1</code> に相当）</td>
 </tr>
 <tr>
-<td>-c</td>
-<td>&ndash;total</td>
+<td><code>-c</code></td>
+<td><code>--total</code></td>
 <td>全体の合計も表示</td>
 </tr>
 <tr>
-<td>-0</td>
-<td>&ndash;null</td>
+<td><code>-0</code></td>
+<td><code>--null</code></td>
 <td>改行ではなく NULL で区切って表示</td>
 </tr>
 <tr>
 <td></td>
-<td>&ndash;time</td>
+<td><code>--time</code></td>
 <td>集計対象となったファイルの最終更新時間を対象ごとに表示</td>
 </tr>
 <tr>
 <td></td>
-<td>&ndash;time=表示</td>
+<td><code>--time=表示</code></td>
 <td>表示の値に指定した <code>atime</code> <code>access</code> <code>use</code> <code>ctime</code> <code>status</code> の時間を表示</td>
 </tr>
 <tr>
 <td></td>
-<td>&ndash;time-style=スタイル</td>
+<td><code>--time-style=スタイル</code></td>
 <td>時間の表示スタイルとして <code>full-iso</code> <code>long-iso</code> <code>iso</code> <code>+FORMAT</code> を指定、<code>+FORMAT</code> は <code>date</code> コマンドのフォーマット指定と共通</td>
 </tr>
 </tbody>
@@ -2937,7 +2938,7 @@ References
 <ul>
 <li><a href=#文字コードの値>文字コードの値</a></li>
 <li><a href=#文字コードを設定>文字コードを設定</a></li>
-<li><a href=#vim-内部で使用される文字コードを確認>vim 内部で使用される文字コードを確認</a></li>
+<li><a href=#vim-内部で使用される文字コードを確認shell>vim 内部で使用される文字コードを確認shell</a></li>
 <li><a href=#ファイルの文字コードを確認>ファイルの文字コードを確認</a></li>
 <li><a href=#ファイルの文字コードの自動判別設定を確認>ファイルの文字コードの自動判別設定を確認</a></li>
 <li><a href=#指定の文字コードでファイルを開き直し>指定の文字コードでファイルを開き直し</a></li>
