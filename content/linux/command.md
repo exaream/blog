@@ -118,12 +118,11 @@ $ history -r sample.txt
 
 |long|short|description|
 |---|---|---|
-|`encoding`|`enc`|`vim``` の内部で使用されるエンコーディングを指定。|
+|`encoding`|`enc`|`vim` の内部で使用されるエンコーディングを指定。|
 |`fileencoding`|`fenc`|編集時のバッファファイルのエンコーディングを指定。encodingと異なる値が設定されていた場合、ファイルの読み書き時に文字コードを変換。fenc が空の場合、変換なし。|
 |`fileencodings`|`fencs`|既存ファイル編集時の変換予定の文字コードを指定。カンマ区切りで複数記述可。
 
-### vim 内部で使用される文字コードを確認
-```shell
+### vim 内部で使用される文字コードを確認shell
 :set encoding?
 ```
 or
@@ -191,9 +190,9 @@ or
 
 |改行コード|コマンドで指定する値|remarks|
 |---|---|---|
-|LF(Line Feed) ```\n`|`unix`|Unix, Linux, Mac(OS10以降), Android|
-|CR(Carriage Return) ```\r`|`mac`|古いMac(OS9以前)|
-|CRLF(Carriage Return/Line Feed) ```\r\n`|`dos`|Windows|
+|LF(Line Feed) `\n`|`unix`|Unix, Linux, Mac(OS10以降), Android|
+|CR(Carriage Return) `\r`|`mac`|古いMac(OS9以前)|
+|CRLF(Carriage Return/Line Feed) `\r\n`|`dos`|Windows|
 
 ### 改行コードを指定
 以下を実行後に `:w` で保存すること。
@@ -696,7 +695,7 @@ touch -t 202101012530.30 sample.txt
 
 ### `cat` コマンドとは
 ファイルを連結するためのコマンドだが、ファイルの内容を簡単に表示する際に使用されている。
-```cat``` = con```CAT```enate (つなぐ, 連結する)
+`cat` = con`CAT`enate (つなぐ, 連結する)
 
 ### ファイルの内容を行番号付きで表示
 ```shell
@@ -712,14 +711,14 @@ $ cat before1.txt before2.txt > after.txt
 ### `cat` コマンドの主なオプション
 |option|option|description|
 |---|---|---|
-|-n|--number|行番号を付与|
-|-b|--number-nonblank|行番号を付与(空白行以外)|
-|-s|-squeeze-blank|連続した空行を1行として表示|
-|-v|--show-nonprinting|タブ, 改行, 改ページ以外の非表示文字を表示|
-|-t||非表示文字を表示(タブを `^\|`, 用紙送りを `^L` として表示|
-|-E|--show-ends|行の最後に `$` を表示|
-|-A|--show-all|全ての非表示文字を表示(`-vET` と同じ)|
-|-e||タブを除く全ての非表示文字を表示(`-vE` と同じ)|
+|`-n`|`--number`|行番号を付与|
+|`-b`|`--number-nonblank`|行番号を付与(空白行以外)|
+|`-s`|`-squeeze-blank`|連続した空行を1行として表示|
+|`-v`|`--show-nonprinting`|タブ, 改行, 改ページ以外の非表示文字を表示|
+|`-t`||非表示文字を表示(タブを `^\|`, 用紙送りを `^L` として表示|
+|`-E`|`--show-ends`|行の最後に `$` を表示|
+|`-A`|`--show-all`|全ての非表示文字を表示(`-vET` と同じ)|
+|`-e`||タブを除く全ての非表示文字を表示(`-vE` と同じ)|
 
 ## `less` ファイル内容の表示
 
@@ -882,7 +881,7 @@ $ zipcloak -d -O decrypted_data.zip encrypted_data.zip
 |---|---|---|
 |`-d`|`--decrypt`|暗号を解除 (間違ったパスワードを入力した場合、```zip``` ファイルを元のまま上書き。|
 |`-O ZIPファイル名`|`--output-file ZIPファイル名`|暗号を解除したZIPファイルの保存先を指定。 (元のZIPファイルはそのまま残る。)|
-|`-b``` ```パス|--temp-path`|一時作業用のディレクトリを指定。|
+|`-b パス`|`--temp-path`|一時作業用のディレクトリを指定。|
 |`-q`|`--quiet`|動作中のメッセージを非表示。|
 
 ### `tar`コマンドでの圧縮
@@ -980,33 +979,33 @@ ls -l /etc/*release
 #### 集計
 |option|option|description|
 |---|---|---|
-|-S|--separate-dirs|サブディレクトリのサイズを含めずに集計|
-|-s|--summarize|指定したディレクトリの合計のみ表示(サブディレクトリの行は非表示)|
-|-d深さ|--max-depth=深さ|集計するディレクトリの深さを指定|
-|-P|--no-dereference|シンボリックをたどらずに集計(デフォルト)|
-|-L|--dereference|全てのシンボリックをたどって集計|
-|-D,-H|--dereference-args|コマンドラインで指定されたシンボリックのみたどって集計|
-|-x|--one-file-system|異なるファイルシステム(パーティーション)にあるディレクトリをスキップして集計|
-|-l|--count-links|ハードリンクがある場合、その個数分のサイズを数える|
-||--exclude=パターン|パターンと一致するファイルを除外して集計|
-|-Xファイル|--exclude-from=ファイル|ファイルに含まれるパターンに一致するファイルを除外して集計|
-||--files0-from=ファイル|ファイルに指定されたリスト(NULL区切り)を対象に集計、`-` を指定した場合は標準入力から読み込み|
+|`-S`|`--separate-dirs`|サブディレクトリのサイズを含めずに集計|
+|`-s`|`--summarize`|指定したディレクトリの合計のみ表示(サブディレクトリの行は非表示)|
+|`-d 深さ`|`--max-depth=深さ`|集計するディレクトリの深さを指定|
+|`-P`|`--no-dereference`|シンボリックをたどらずに集計(デフォルト)|
+|`-L`|--dereference`|全てのシンボリックをたどって集計|
+|`-D`, `-H`|--dereference-args|コマンドラインで指定されたシンボリックのみたどって集計|
+|`-x`|`--one-file-system`|異なるファイルシステム(パーティーション)にあるディレクトリをスキップして集計|
+|`-l`|`--count-links`|ハードリンクがある場合、その個数分のサイズを数える|
+||`--exclude=パターン`|パターンと一致するファイルを除外して集計|
+|`-X ファイル`|`--exclude-from=ファイル`|ファイルに含まれるパターンに一致するファイルを除外して集計|
+||`--files0-from=ファイル`|ファイルに指定されたリスト(NULL区切り)を対象に集計、`-` を指定した場合は標準入力から読み込み|
 
 #### 表示
 |option|option|description|
 |---|---|---|
-|-h|--human-readable|サイズに応じて人間が読みやすい単位に変換して表示|
-|-H|--si|イズに応じて人間が読みやすい単位に変換して表示、ただし 1024単位ではなく 1000単位の値を使用|
-|-Bサイズ|--block-size=サイズ|指定したサイズの倍数で表示、サイズは数値または単位で指定|
-|-k||--block-size=1K と同じ|
-|-m||--block-size=1M と同じ|
-||--apparent-size|ディスク使用量ではなく実際のサイズを表示|
-|-b|--bytes|実際のサイズをバイト単位で表示（ `--apparent-size` または `--block-size=1` に相当）|
-|-c|--total|全体の合計も表示|
-|-0|--null|改行ではなく NULL で区切って表示|
-||--time|集計対象となったファイルの最終更新時間を対象ごとに表示|
-||--time=表示|表示の値に指定した `atime` `access` `use` `ctime` `status` の時間を表示|
-||--time-style=スタイル|時間の表示スタイルとして `full-iso` `long-iso` `iso` `+FORMAT` を指定、`+FORMAT` は `date` コマンドのフォーマット指定と共通|
+|`-h`|`--human-readable`|サイズに応じて人間が読みやすい単位に変換して表示|
+|`-H`|`--si`|サイズに応じて人間が読みやすい単位に変換して表示、ただし 1024単位ではなく 1000単位の値を使用|
+|`-B サイズ`|`--block-size=サイズ`|指定したサイズの倍数で表示、サイズは数値または単位で指定|
+|`-k`||`--block-size=1K` と同じ|
+|`-m`||`--block-size=1M` と同じ|
+||`--apparent-size`|ディスク使用量ではなく実際のサイズを表示|
+|`-b`|`--bytes|実際のサイズをバイト単位で表示（ `--apparent-size` または `--block-size=1` に相当）|
+|`-c`|`--total`|全体の合計も表示|
+|`-0`|`--null`|改行ではなく NULL で区切って表示|
+||`--time`|集計対象となったファイルの最終更新時間を対象ごとに表示|
+||`--time=表示`|表示の値に指定した `atime` `access` `use` `ctime` `status` の時間を表示|
+||`--time-style=スタイル`|時間の表示スタイルとして `full-iso` `long-iso` `iso` `+FORMAT` を指定、`+FORMAT` は `date` コマンドのフォーマット指定と共通|
 
 ### 特定ディレクトリ配下でディスク使用量が大きい順に表示
 ```shell
