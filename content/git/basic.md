@@ -874,3 +874,4 @@ $ git --version
 * https://backlog.com/ja/git-tutorial/reference/
 * https://qiita.com/harukasan/items/9149542584385e8dea75
 * https://qiita.com/kawasaki_dev/items/41afaafe477b877b5b73
+* [GitのCommitユーザを修正する方法](https://qiita.com/y10exxx/items/dcea0e39788d649ca8ba)

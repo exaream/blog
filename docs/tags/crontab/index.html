@@ -13,7 +13,7 @@
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.a4660b744b1da3ec6edfb4881b99becb4a521570045b2bc0db851127d1501159.js integrity="sha256-pGYLdEsdo+xu37SIG5m+y0pSFXAEWyvA24URJ9FQEVk=" crossorigin=anonymous></script>
+<script defer src=/en.search.min.e6e6eb0de385009ca9cf2790870c1e95aeafd32b6055aacf361ac0448b159581.js integrity="sha256-5ubrDeOFAJypzyeQhwwela6v0ytgVarPNhrARIsVlYE=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-W638642WNE',{anonymize_ip:!1})}</script>
 <link rel=alternate type=application/rss+xml href=https://exaream.dev/tags/crontab/index.xml title=Tech>
@@ -403,7 +403,7 @@ crontab のコマンド実行時のカレントディレクトリは　ユーザ
 <a href=/tags/cron/>Cron</a>,
 <a href=/tags/crontab/>crontab</a>
 </div>
-<p>Cron # 日時・時刻・インターバルの指定 # 記述方法 # 時，日，月，曜日，実行コマンド 記号による指定 # 記号 内容 * 全範囲指定(ワイルドカード) - 範囲指定 / インターバル指定 , 区切り指定 曜日の指定 # 略語または数字での指定が可能 略語 数字 sun 0 mon 1 tue 2 wed 3 thu 4 fri 5 sat 6 月の指定 # 略語または数字での指定が可能 略語 数字 jan 1 feb 2 mar 3 apr 4 may 5 jun 6 jul 7 aug 8 sep 9 oct 10 nov 11 dec 12 注意事項 # 実行ディレクトリ # cron ジョブ実行時のカレントディレクトリ = ユーザのホームディレクトリ 実行コマンドの指定は「絶対パスを指定」または「実行ディレクトリにcdで移動」すること 環境変数 # cron ジョブ実行時は最低限の環境変数のみセットされた状態、パスが通っていないケースがあるため注意 shell内での指定と異なり、右辺の環境変数が展開されないため注意 # NG PATH=/usr/local/bin:$PATH # OK PATH=/usr/local/bin:/usr/bin:/bin 毎分指定 # 日次のバッチを誤って毎分実行しないよう注意 # NG * 5 * * * /path/to/backup.
+<p>Cron # 日時・時刻・インターバルの指定 # 記述方法 # 時，日，月，曜日，実行コマンド 記号による指定 # 記号 内容 * 全範囲指定(ワイルドカード) - 範囲指定 / インターバル指定 , 区切り指定 曜日の指定 # 略語または数字での指定が可能 略語 数字 sun 0 mon 1 tue 2 wed 3 thu 4 fri 5 sat 6 月の指定 # 略語または数字での指定が可能 略語 数字 jan 1 feb 2 mar 3 apr 4 may 5 jun 6 jul 7 aug 8 sep 9 oct 10 nov 11 dec 12 注意事項 # 実行ディレクトリ # cron ジョブ実行時のカレントディレクトリ = ユーザーのホームディレクトリ 実行コマンドの指定は「絶対パスを指定」または「実行ディレクトリにcdで移動」すること 環境変数 # cron ジョブ実行時は最低限の環境変数のみセットされた状態、パスが通っていないケースがあるため注意 shell内での指定と異なり、右辺の環境変数が展開されないため注意 # NG PATH=/usr/local/bin:$PATH # OK PATH=/usr/local/bin:/usr/bin:/bin 毎分指定 # 日次のバッチを誤って毎分実行しないよう注意 # NG * 5 * * * /path/to/backup.
 <a href=/cron/main/>...</a>
 </p>
 </article>
