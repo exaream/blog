@@ -55,3 +55,19 @@ https://support.apple.com/en-us/guide/preview/prvw15636/mac
 
 ## How to use two Mac apps side by side in Split View
 https://support.apple.com/en-us/HT204948
+
+## Port
+How to find a process on a specific port.
+```shell
+$ sudo lsof -i:<Port Number>
+```
+e.g.
+```shell
+$ sudo lsof -i:5432
+```
+
+How to kill the process running on the specific port.
+
+```shell
+$ kill -9 <PID>
+```
