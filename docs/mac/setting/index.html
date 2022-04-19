@@ -15,7 +15,7 @@
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.6cc78dfa5450bcaa4a4eb58f78801c4c106489e7c01ecfa96d043a2c43e46d12.js integrity="sha256-bMeN+lRQvKpKTrWPeIAcTBBkiefAHs+pbQQ6LEPkbRI=" crossorigin=anonymous></script>
+<script defer src=/en.search.min.0bbf509654f60ae368491c0187c5277457614f21379036a758580a6b9be971fe.js integrity="sha256-C79QllT2CuNoSRwBh8UndFdhTyE3kDanWFgKa5vpcf4=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-W638642WNE',{anonymize_ip:!1})}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
@@ -142,6 +142,7 @@ Menu
 </li>
 <li><a href=#preview>Preview</a></li>
 <li><a href=#how-to-use-two-mac-apps-side-by-side-in-split-view>How to use two Mac apps side by side in Split View</a></li>
+<li><a href=#port>Port</a></li>
 </ul>
 </nav>
 </aside>
@@ -244,7 +245,17 @@ How to use two Mac apps side by side in Split View
 <a class=anchor href=#how-to-use-two-mac-apps-side-by-side-in-split-view>#</a>
 </h2>
 <p><a href=https://support.apple.com/en-us/HT204948>https://support.apple.com/en-us/HT204948</a></p>
-</article>
+<h2 id=port>
+Port
+<a class=anchor href=#port>#</a>
+</h2>
+<p>How to find a process on a specific port.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo lsof -i:&lt;Port Number&gt;
+</code></pre></div><p>e.g.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo lsof -i:5432
+</code></pre></div><p>How to kill the process running on the specific port.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ kill -9 &lt;PID&gt;
+</code></pre></div></article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 </div>
@@ -274,6 +285,7 @@ How to use two Mac apps side by side in Split View
 </li>
 <li><a href=#preview>Preview</a></li>
 <li><a href=#how-to-use-two-mac-apps-side-by-side-in-split-view>How to use two Mac apps side by side in Split View</a></li>
+<li><a href=#port>Port</a></li>
 </ul>
 </nav>
 </div>
