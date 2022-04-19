@@ -9,6 +9,26 @@ tags: ["PostgreSQL", "SQL"]
 
 # PostgreSQL
 
+## How to change a port number of PostgreSQL on macOS
+Change the port number of PostgreSQL.  
+(Change the version number 13 to your PostgreSQL version in the following command.)
+```shell
+sudo vi Library/PostgreSQL/13/data/postgresql.conf
+```
+
+```shell
+port = 5433                             # (change requires restart)
+↓
+port = 5430                             # (change requires restart)
+```
+
+Restart PostgreSQL.  
+(Change the version number 13 to your PostgreSQL version in the following command.)
+```shell
+$ sudo launchctl stop com.edb.launchd.postgresql-13
+$ sudo launchctl start com.edb.launchd.postgresql-13
+```
+
 ## PostgreSQL's Information
 
 ### Table Schema
