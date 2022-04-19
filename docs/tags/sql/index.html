@@ -13,7 +13,7 @@
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.0bbf509654f60ae368491c0187c5277457614f21379036a758580a6b9be971fe.js integrity="sha256-C79QllT2CuNoSRwBh8UndFdhTyE3kDanWFgKa5vpcf4=" crossorigin=anonymous></script>
+<script defer src=/en.search.min.62cce1943cfa2c00f55d0977ce429cc5a7b0eea1a2d3b10b132e467ada3e3052.js integrity="sha256-YszhlDz6LAD1XQl3zkKcxaew7qGi07ELEy5Geto+MFI=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-W638642WNE',{anonymize_ip:!1})}</script>
 <link rel=alternate type=application/rss+xml href=https://exaream.dev/tags/sql/index.xml title=Tech>
@@ -399,7 +399,12 @@ Menu
 <a href=/tags/postgresql/>PostgreSQL</a>,
 <a href=/tags/sql/>SQL</a>
 </div>
-<p>PostgreSQL # PostgreSQL&rsquo;s Information # Table Schema # SELECT col.table_name, col.ordinal_position, -- No. col.column_name, col.data_type, col.character_maximum_length, -- 文字数(文字列型) col.character_octet_length, -- バイト数(文字列型) col.numeric_precision, -- 桁数(数値型) col.numeric_scale, -- 小数部(数値型) col.datetime_precision, -- ミリ秒以下(日付型) col.interval_type, -- インターバルの単位(日付型) col.is_nullable, -- NULLを許可するか否か col.column_default -- 初期値 FROM information_schema.columns col WHERE col.table_name = 'sample_table' -- 対象テーブル名を指定 ORDER BY col.table_name, col.ordinal_position
+<p>PostgreSQL # How to change a port number of PostgreSQL on macOS # Change the port number of PostgreSQL.
+(Change the version number 13 to your PostgreSQL version in the following command.)
+sudo vi Library/PostgreSQL/13/data/postgresql.conf port = 5433 # (change requires restart) ↓ port = 5430 # (change requires restart) Restart PostgreSQL.
+(Change the version number 13 to your PostgreSQL version in the following command.)
+$ sudo launchctl stop com.
+<a href=/sql/postgresql/>...</a>
 </p>
 </article>
 <article class="markdown book-post">
