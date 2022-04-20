@@ -763,6 +763,13 @@ $ git checkout <tag name> -b <branch name>
 
 ## トラブル対応
 
+### Error "would clobber existing tag"
+リモートとローカルのリポジトリのタグ名が重複していることが原因  
+リモート・リポジトリのタグでローカル・リポジトリのタグを上書きし解消
+```shell
+$ git fetch --tags -f
+```
+
 ### 過去のコミットの編集者(Author)とコミッター(Committer)を変更
 
 編集者(Author)とコミッター(Committer)のユーザー名とメールを確認

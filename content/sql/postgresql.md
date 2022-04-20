@@ -17,9 +17,9 @@ sudo vi Library/PostgreSQL/13/data/postgresql.conf
 ```
 
 ```shell
-port = 5433                             # (change requires restart)
+port = 5432                             # (change requires restart)
 ↓
-port = 5430                             # (change requires restart)
+port = 5433                             # (change requires restart)
 ```
 
 Restart PostgreSQL.  

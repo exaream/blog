@@ -15,7 +15,7 @@
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.62cce1943cfa2c00f55d0977ce429cc5a7b0eea1a2d3b10b132e467ada3e3052.js integrity="sha256-YszhlDz6LAD1XQl3zkKcxaew7qGi07ELEy5Geto+MFI=" crossorigin=anonymous></script>
+<script defer src=/en.search.min.034c2761d793b352cd952d21abaac1a62eb631e02d0f3c803305d9bfb918ad42.js integrity="sha256-A0wnYdeTs1LNlS0hq6rBpi62MeAtDzyAMwXZv7kYrUI=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-W638642WNE',{anonymize_ip:!1})}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
@@ -237,6 +237,7 @@ Menu
 </li>
 <li><a href=#トラブル対応>トラブル対応</a>
 <ul>
+<li><a href=#error-would-clobber-existing-tag>Error &ldquo;would clobber existing tag&rdquo;</a></li>
 <li><a href=#過去のコミットの編集者authorとコミッターcommitterを変更>過去のコミットの編集者(Author)とコミッター(Committer)を変更</a></li>
 </ul>
 </li>
@@ -1025,7 +1026,14 @@ $ git tag --delete &lt;tag name&gt;
 トラブル対応
 <a class=anchor href=#%e3%83%88%e3%83%a9%e3%83%96%e3%83%ab%e5%af%be%e5%bf%9c>#</a>
 </h2>
-<h3 id=過去のコミットの編集者authorとコミッターcommitterを変更>
+<h3 id=error-would-clobber-existing-tag>
+Error &ldquo;would clobber existing tag&rdquo;
+<a class=anchor href=#error-would-clobber-existing-tag>#</a>
+</h3>
+<p>リモートとローカルのリポジトリのタグ名が重複していることが原因<br>
+リモート・リポジトリのタグでローカル・リポジトリのタグを上書きし解消</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git fetch --tags -f
+</code></pre></div><h3 id=過去のコミットの編集者authorとコミッターcommitterを変更>
 過去のコミットの編集者(Author)とコミッター(Committer)を変更
 <a class=anchor href=#%e9%81%8e%e5%8e%bb%e3%81%ae%e3%82%b3%e3%83%9f%e3%83%83%e3%83%88%e3%81%ae%e7%b7%a8%e9%9b%86%e8%80%85author%e3%81%a8%e3%82%b3%e3%83%9f%e3%83%83%e3%82%bf%e3%83%bccommitter%e3%82%92%e5%a4%89%e6%9b%b4>#</a>
 </h3>
@@ -1256,6 +1264,7 @@ References
 </li>
 <li><a href=#トラブル対応>トラブル対応</a>
 <ul>
+<li><a href=#error-would-clobber-existing-tag>Error &ldquo;would clobber existing tag&rdquo;</a></li>
 <li><a href=#過去のコミットの編集者authorとコミッターcommitterを変更>過去のコミットの編集者(Author)とコミッター(Committer)を変更</a></li>
 </ul>
 </li>
