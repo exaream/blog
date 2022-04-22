@@ -10,24 +10,28 @@ tags: ["Go", "Golang", "Check List"]
 # Go Check Sheet
 
 ## 設計
-- パッケージ管理
-  - Go Modules (go.mod)
-  - Workspace mode https://zenn.dev/kimuson13/articles/go-workspace-mode-impressions
+### パッケージ管理
+- Go Modules (go.mod)
+- Workspace mode https://zenn.dev/kimuson13/articles/go-workspace-mode-impressions
+
+### 設計
 - 分割
   - ファイルを適切に分割
-    - main.go は極力薄くすること
   - パッケージを適切に分割
 - 命名
-  - 1単語
-  - アッパーキャメル、スネークなし
-  - 気持ちの良い命名は良い設計ができた証拠
-  - 長ったらしい説明有頂な名前は設計がうまくいっていない証拠
+  - 大文字なしの1単語
+    - `UpperCamelCase`, `snake_cake`, `chain-case` は NG
+  - 具体性のない命名は NG
+    - e.g. `common` や `util` など
+    - `fileutil` のように具体性がある命名は OK
+  - 標準/準標準パッケージと同じ名前は避けること
+  - 気持ちの良い名前は良い設計ができた証拠
+  - 冗長な名前は設計がうまくいっていない証拠
 - 適切に型定義すること
   - 多くの引数を引き回さないこと
   - 何でもかんでも構造体にしないこと
     - e.g. go/token.Pos int ソースコード上の場所を表す型　大小を演算子で比較できる
     　token.FileSet は構造体　構造体ではメソッド化が必要になるため面倒
-      
   - 型同士がお互いを知りすぎていると密結合になるため注意
 - 過度の抽象化をおこなわないこと
   - メソッドの数が多すぎるインターフェイス
@@ -56,6 +60,7 @@ tags: ["Go", "Golang", "Check List"]
 - DRY
   - 同じ処理を複数回かかないこと
   - 適切に関数に切り出していること
+- `main.go` はできるだけ薄くすること
 - 標準/準標準パッケージの機能を充分に活用
   - `bufio`
   - `bytes`
