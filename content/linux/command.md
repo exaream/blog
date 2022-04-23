@@ -9,17 +9,33 @@ tags: ["Linux","Command"]
 
 # Linux Command
 
-## 便利なコマンド
+## 画面の操作
 
-### 文字列の置換
+### ターミナル操作のショートカット
 
-ディレクトリ配下を再帰的に走査しファイルの文字列を置換  
-e.g. 拡張子が `.txt` のファイル内の文字列 Before を After に置換
-```shell
-LC_ALL=C find . -type f -name '*.txt' -exec sed -i '' s/Before/After/g {} +
-```
+|Mac|Windows|description|
+|---|---|---|
+|`control` + `a`|`ctrl` + `a`|カーソルを行頭へ移動|
+|`control` + `e`|`ctrl` + `e`|カーソルを行末へ移動|
+|`control` + `f`|`ctrl` + `f`|カーソルを前進(右へ移動)|
+|`control` + `b`|`ctrl` + `b`|カーソルを後退(左へ移動)|
+|`control` + `d`|`ctrl` + `d`|カーソル上の1文字削除|
+|`control` + `h`|`ctrl` + `h`|カーソル後方(左)の1文字削除|
+|`control` + `u`|`ctrl` + `u`|カーソルから行頭まで削除|
+|`control` + `k`|`ctrl` + `k`|カーソルから行末まで削除|
+|`control` + `w`|`ctrl` + `w`|カーソル上の単語1つ分削除|
+|`control` + `y`|`ctrl` + `y`|最後に削除した文字を貼り付け|
+|`control` + `p`|`ctrl` + `p`|1つ前のコマンド履歴を表示|
+|`control` + `n`|`ctrl` + `n`|1つ後のコマンド履歴を表示|
+|`control` + `s`|`ctrl` + `s`|画面をロック|
+|`control` + `q`|`ctrl` + `q`|画面のロックを解除|
+|`control` + `c`|`ctrl` + `c`|実行中のコマンドを強制終了|
+|`control` + `l(エル)`|`ctrl` + `l(エル)`|画面をクリア|
+|`tab`|`tab`|コマンド,ディレクトリ,ファイルの候補を補完|
 
-## コマンド入力履歴
+
+
+## `history`: コマンド入力履歴を操作
 
 ### `history` コマンドの主なオプション
 
@@ -72,261 +88,7 @@ e.g. `sample.txt` の内容を履歴として読み込み
 $ history -r sample.txt
 ```
 
-## 画面操作
-
-### ターミナル操作のショートカット
-
-|Mac|Windows|description|
-|---|---|---|
-|`control` + `a`|`ctrl` + `a`|カーソルを行頭へ移動|
-|`control` + `e`|`ctrl` + `e`|カーソルを行末へ移動|
-|`control` + `f`|`ctrl` + `f`|カーソルを前進(右へ移動)|
-|`control` + `b`|`ctrl` + `b`|カーソルを後退(左へ移動)|
-|`control` + `d`|`ctrl` + `d`|カーソル上の1文字削除|
-|`control` + `h`|`ctrl` + `h`|カーソル後方(左)の1文字削除|
-|`control` + `u`|`ctrl` + `u`|カーソルから行頭まで削除|
-|`control` + `k`|`ctrl` + `k`|カーソルから行末まで削除|
-|`control` + `w`|`ctrl` + `w`|カーソル上の単語1つ分削除|
-|`control` + `y`|`ctrl` + `y`|最後に削除した文字を貼り付け|
-|`control` + `p`|`ctrl` + `p`|1つ前のコマンド履歴を表示|
-|`control` + `n`|`ctrl` + `n`|1つ後のコマンド履歴を表示|
-|`control` + `s`|`ctrl` + `s`|画面をロック|
-|`control` + `q`|`ctrl` + `q`|画面のロックを解除|
-|`control` + `c`|`ctrl` + `c`|実行中のコマンドを強制終了|
-|`control` + `l(エル)`|`ctrl` + `l(エル)`|画面をクリア|
-|`tab`|`tab`|コマンド,ディレクトリ,ファイルの候補を補完|
-
-
-## 文字コード
-
-### 文字コードの値
-
-|文字コード|コマンドで指定する値|remarks|
-|---|---|---|
-|Shift_JIS|`cp932` or `sjis`|`cp932` には `sjis` に含まれていない文字（①, ②, Ⅰ, Ⅱ, ㍉, ㌍, 彅, 髙 etc.）を含む。|
-|EUC-JP|`euc-jp`|-|
-|UTF-8|`utf-8`|-|
-
-### 文字コードを設定
-
-`.vimrc`
-以下を記述し `:wq` で保存。
-```shell
-:set encoding=utf-8
-:set fileencodings=utf-8,cp932,sjis,euc-jp
-```
-
-|long|short|description|
-|---|---|---|
-|`encoding`|`enc`|`vim` の内部で使用されるエンコーディングを指定。|
-|`fileencoding`|`fenc`|編集時のバッファファイルのエンコーディングを指定。encodingと異なる値が設定されていた場合、ファイルの読み書き時に文字コードを変換。fenc が空の場合、変換なし。|
-|`fileencodings`|`fencs`|既存ファイル編集時の変換予定の文字コードを指定。カンマ区切りで複数記述可。
-
-### vim 内部で使用される文字コードを確認shell
-:set encoding?
-```
-or
-```shell
-:se enc?
-```
-
-### ファイルの文字コードを確認
-```shell
-:set fileencoding?
-```
-or
-```shell
-:se fenc?
-```
-
-### ファイルの文字コードの自動判別設定を確認
-```shell
-:set fileencodings?
-```
-or
-```shell
-:se fencs?
-```
-
-### 指定の文字コードでファイルを開き直し
-```shell
-:edit ++encoding=コマンドで指定する文字コードの値
-```
-or
-```shell
-:e ++enc=コマンドで指定する文字コードの値
-```
-
-### ファイルの文字コードを変換
-以下を実行後に `:w` で保存すること。
-```shell
-:set fileencoding=コマンドで指定する文字コードの値
-```
-or
-```shell
-:set fenc=コマンドで指定する文字コードの値
-```
-
-### ファイルの文字コードを変換し保存
-```shell
-:setlocal fileencoding=コマンドで指定する文字コードの値
-```
-or
-```shell
-:setl fenc=コマンドで指定する文字コードの値
-```
-
-## 改行コード
-
-### 改行コードの設定
-
-`.vimrc`
-以下を記述し `:wq` で保存。
-```shell
-:set fileformats=unix,dos,mac
-```
-
-### 改行コードの値
-
-|改行コード|コマンドで指定する値|remarks|
-|---|---|---|
-|LF(Line Feed) `\n`|`unix`|Unix, Linux, Mac(OS10以降), Android|
-|CR(Carriage Return) `\r`|`mac`|古いMac(OS9以前)|
-|CRLF(Carriage Return/Line Feed) `\r\n`|`dos`|Windows|
-
-### 改行コードを指定
-以下を実行後に `:w` で保存すること。
-```shell
-:set fileformat=コマンドで指定する改行コードの値
-```
-or
-```shell
-:se ff=コマンドで指定する改行コードの値
-```
-
-### 改行コードを指定し保存
-
-```shell
-:setlocal fileformat=コマンドで指定する改行コードの値
-```
-or
-```shell
-:setl ff=コマンドで指定する改行コードの値
-```
-
-## ディスク容量
-
-### `df` コマンドとは
-ディスクの空き領域(free スペース)のサイズを集計して表示
-
-### `df` コマンドの主なオプション
-
-|option|option|description|
-|---|---|---|
-|`-h`|`--human-readable`|サイズに応じて人間が読みやすい単位に変換して表示|
-|`-H`|`--si`|イズに応じて人間が読みやすい単位に変換して表示、ただし 1024単位ではなく 1000単位の値を使用|
-|`-Bサイズ`|`--block-size=サイズ`|指定したサイズの倍数で表示、サイズは数値または単位で指定|
-|`-k`||`--block-size=1K``` と同じ|
-|`-m`||`--block-size=1M``` と同じ|
-|`-P`|`--portability`|POSIX出力形式（サイズではなくブロックで表示）|
-|`-i`|`--inodes`|ブロック使用量の代わりにiノード情報を表示|
-|`-T`|`--print-type`|各ファイルシステムの種類を合わせて表示|
-|`-t種類`|`--type=種類`|対象とするフォーマットの種類を指定(e.g.「-txfs」でXFSフォーマットの場所のみ表示)|
-|`-x種類`|`--exclude-type=種類`|対象としないフォーマットの種類を指定|
-|`-a`|`--all`|ダミーファイルシステムを含めて表示|
-|`-l`|`--local`|ローカルファイルシステムのみを表示|
-||`--total`|全体の合計も表示|
-||`--sync`|使用量の情報を得る前にsyncを実行|
-||`--no-sync`|使用量の情報を得る前にsyncの実行なし（デフォルト）|
-
-### ディスクの空き容量を表示
-```shell
-df
-```
-メガ(1024×1024バイト)単位で表示
-```shell
-df -BM
-```
-
-メガ(1000×1000バイト)単位で表示
-```shell
-df -BMB
-```
-フォーマットの種類も合わせて表示
-```shell
-df -T
-```
-XFSでフォーマットされているパーティションの空き領域と合計を表示
-```shell
-df -txfs --total
-```
-### ディスクの空き容量を表示(場所を指定して集計)
-カレントディレクトリを含むパーティションの空き領域を表示
-```shell
-df .
-```
-`/usr` を含むパーティションの空き領域を表示
-```shell
-df /usr
-```
-
-### ディスクの空き容量を読みやすいサイズ表記で表示
-```shell
-df -h
-```
-空き領域の合計もあわせて表示
-```shell
-df -h --total
-```
-
-## 日付・時刻
-
-```shell
-TOMORROW=`date '+%Y%m%d' --date '1 day'`
-YESTERDAY=`date '+%Y%m%d' --date '-1 day'`
-echo ${TOMORROW}
-echo ${YESTERDAY}
-```
-### `date` コマンドの主なオプション
-
-|format|description|
-|---|---|
-|`%H`|時 (00～23)|
-|`%I`|時 (01～12)|
-|`%k`|時 ( 0～23)|
-|`%l`|時 ( 1～12)|
-|`%M`|分 (00～59)|
-|`%p`|AM あるいは PM のロケール(国や地域に合わせた文字列)|
-|`%r`|12時間形式の時刻 (HH:mm:ss [AP]M)|
-|`%s`|1970-01-01 00:00:00 UTC からの秒数|
-|`%S`|秒 (00～61)|
-|`%T`|24時間形式の時刻 (HH:mm:ss)|
-|`%a`|ロケールによる省略形の曜日の名前 (Sun～Sat)|
-|`%A`|ロケールによる完全に表記した曜日の名前(Sunday～Saturday)|
-|`%b`|ロケールによる省略形の月の名前 (Jan～Dec)|
-|`%B`|ロケールによる完全に表記した月の名前(January～December)|
-|`%c`|ロケールによる日付と時刻 (Sat Nov 04 12:02:33 EST 1989)|
-|`%d`|日(月内通算日数) (01～31)|
-|`%D`|日付 (MM/DD/YY)|
-|`%j`|年内通算日数 (001～366)|
-|`%m`|月 (01～12)|
-|`%w`|週のうちの曜日(0～6)で0が日曜日に対応|
-|`%x`|ロケールによる日付の表現 (MM/DD/YY)|
-|`%y`|西暦の下2けた (00～99)|
-|`%Y`|年 (1970～)|
-
-### タイムゾーンを確認
-
-```shell
-$ date +%Z
-JST
-```
-```shell
-$ date +"%Z %z"
-JST +0900
-```
-
-## 検索
+## `grep`/`find`: 検索
 
 ### `grep` コマンドの使用方法
 ```shell
@@ -373,7 +135,7 @@ grep -rn -e 'pattern' /dir/
 |`-C 行数`,`-行数`|`--context=行数`|一致した行の前後の行も表示|
 |`-r`|`--recursive`|ディレクトリを指定した場合はサブディレクトリ内のファイルも含め検索|
 
-### タイムスタンプでの検索
+### タイムスタンプで検索
 #### 現在〜2日前(48時間前)
 ```shell
 find ./ -mtime -2
@@ -406,7 +168,7 @@ find ./ -type f -name '*.csv' -mtime +30 | xargs rm -f
 |`-daystart`|00:00am 基準|
 
 
-## 一覧表示
+## `ls`: ディレクトリやファイルの一覧を表示
 
 ### タイムスタンプ降順で一覧表示(隠しファイル含む)
 ```shell
@@ -427,37 +189,103 @@ ls -altr
 |`-t`|タイムタンプ降順で表示|
 |`-tr`|タイムタンプ昇順で表示|
 
-## 移動・名称変更
 
-※ 基本的にファイルもディレクトリも操作は同じ
+## `tree`: ディレクトリやファイルの構成を表示
 
-### 1つのファイルを移動
-e.g) ファイル `sample.txt` を ディレクトリ `./dir/` に移動
+### tree コマンド のインストール (macOS)
 ```shell
-mv sample.txt ./dir/
-```
-### 複数のファイルを移動
-e.g) ファイル `sample1.txt` と `sample2.txt` を ディレクトリ `./dir/` に移動
-```shell
-mv sample1.txt sample2.txt ./dir/
-```
-### ファイルの名称を変更(リネーム)
-ファイル `before.txt` を `after.txt` に変更
-```shell
-mv before.txt after.txt
+$ brew install tree
 ```
 
-### `mv` コマンドの主なオプション
+### tree コマンドのバージョンを表示
+```shell
+$ tree --version
+```
+
+### 階層を指定
+e.g. カレントディレクトリ配下の3階層まで表示する場合
+```shell
+$ tree -L 3
+```
+
+### ファイル名のパターンを指定
+```shell
+$ tree -P '*.js'
+```
+
+### 除外するファイル名のパターンを指定
+```shell
+$ tree -I '*.log'
+```
+
+### ディレクトリのみを表示
+```shell
+$ tree -d
+```
+
+### `tree` コマンドの主なオプション
 |option|option|description|
 |---|---|---|
-|`-v`|`--verbose`|実行内容を表示|
-|`-i`|`--interactive`|移動元と移動先が同名の場合, 上書きする前に確認|
-|`-b`|`--backup=方法`|移動元と移動先が同名の場合, 上書きされるファイル(移動先)のバックアップを作成｜
-|`-S`|`--suffix=接尾語`|バックアップ作成時の接尾語を指定|
-|`-n`|`--noclobber`|移動元と移動先が同名の場合, 上書きせず停止|
-|`-u`|`--update`|移動元のファイルが移動先ファイルより新しいか新規ファイルの場合のみ上書き|
+|`-a`||ドット始まりのディレクトリを含めて表示|
+|`-d`||ディレクトリのみ表示|
+|`-l`||シンボリックをたどって表示|
+|`-f`||カレントディレクトリまたは指定したディレクトリからのパスをつけてファイルやディレクトリを表示|
+|`-L 整数`||表示するディレクトリの階層(深さ), 1以上の整数を指定|
+|`-N`||印字できない文字をそのまま出力(マルチバイトの文字化け防止)|
+|`-P パターン`||パターンにマッチしたファイルのみ表示|
+|`-l パターン`||パターンにマッチしないファイルのみ表示|
+||`--prune`|表示対象ファイルが存在しないディレクトリを除外して表示|
+||`--filelimit エントリ数`|指定した数を超えるエントリを持つディレクトリの内部は非表示(--filelimit 10 の場合, 表示内容が10イないのディレクトリの内部のみを表示)|
+|`-o ファイル名`||`tree`コマンドの結果を指定ファイルに出力|
 
-## 削除
+
+
+## `touch`: タイムスタンプを変更/ファイルを作成
+
+### ファイルのタイムスタンプを変更
+e.g) ファイルのタイムスタンプ(最終更新日)を「2021-01-01 01:25:30」に変更
+```shell
+touch --date="2021-01-01 01:25:30" sample.txt
+```
+or
+```shell
+touch -t 202101012530.30 sample.txt
+```
+
+### 空ファイルを作成
+```shell
+touch sample.txt
+```
+
+|short option|long option|description|
+|---|---|---|
+|`-t <time>`|-|[[CC]YY]MMDDhhmm[.ss] 形式で日時を指定|
+|`-d`|-date=日付文字列|文字列で日時を指定|
+|`-r`|--reference=ファイル名|指定したファイルと同じ日時を指定|
+
+
+## `mkdir`: ディレクトリを作成
+
+### 多階層のディレクトリを作成
+
+```shell
+mkdir -p /dir/subdir/{subsubdir-1,subsubdir-2,subsubdir-3}
+```
+```shell
+dir
+└── subdir
+    ├── subsubdir-1
+    ├── subsubdir-2
+    └── subsubdir-3
+```
+
+### 作成したディレクトリに作業場所を移動
+```shell
+mkdir -p /dir/subdir/subsubdir/ && cd $_
+```
+
+
+## `rm`: ディレクトリやファイルを削除
 
 ### 1ファイルを削除
 ```shell
@@ -486,7 +314,7 @@ $ rm -i *
 ||`--preserve-root`|`/` の削除なし (`/` を特別なものとして扱う, デフォルト)|
 ||`--no-preserve-root`|`/` の削除あり (`/` を特別なものとして扱わない)|
 
-## 空ディレクトリを削除
+## `rmdir`: 空ディレクトリを削除
 
 ```shell
 $ rmdir dir
@@ -505,7 +333,8 @@ $ rmdir -p dir1/dir2/dir3
 |`-p`|`--parents`|必要に応じて親ディレクトリも削除|
 |`-v`|`--verbose`|経過を表示|
 
-## コピー
+
+## `cp`: コピー
 
 ※ 基本的にファイルもディレクトリも操作は同じ
 
@@ -551,56 +380,37 @@ scp [option] [転送元ユーザー名@][転送元ホスト名:]転送元ファ�
 |`-P ポート番号`|転送先のポート番号を指定|
 |`-i 秘密鍵ファイル`|秘密鍵ファイルを指定|
 
+## `mv`: 移動または名称を変更
 
-## ディレクトリとファイルの構成を表示
+※ 基本的にファイルもディレクトリも操作は同じ
 
-### tree コマンド のインストール (macOS)
+### 1つのファイルを移動
+e.g) ファイル `sample.txt` を ディレクトリ `./dir/` に移動
 ```shell
-$ brew install tree
+mv sample.txt ./dir/
+```
+### 複数のファイルを移動
+e.g) ファイル `sample1.txt` と `sample2.txt` を ディレクトリ `./dir/` に移動
+```shell
+mv sample1.txt sample2.txt ./dir/
+```
+### ファイルの名称を変更(リネーム)
+ファイル `before.txt` を `after.txt` に変更
+```shell
+mv before.txt after.txt
 ```
 
-### tree コマンドのバージョンを確認
-```shell
-$ tree --version
-```
-
-### 階層を指定
-e.g. カレントディレクトリ配下の3階層まで表示する場合
-```shell
-$ tree -L 3
-```
-
-### ファイル名のパターンを指定
-```shell
-$ tree -P '*.js'
-```
-
-### 除外するファイル名のパターンを指定
-```shell
-$ tree -I '*.log'
-```
-
-### ディレクトリのみを表示
-```shell
-$ tree -d
-```
-
-### `tree` コマンドの主なオプション
+### `mv` コマンドの主なオプション
 |option|option|description|
 |---|---|---|
-|`-a`||ドット始まりのディレクトリを含めて表示|
-|`-d`||ディレクトリのみ表示|
-|`-l`||シンボリックをたどって表示|
-|`-f`||カレントディレクトリまたは指定したディレクトリからのパスをつけてファイルやディレクトリを表示|
-|`-L 整数`||表示するディレクトリの階層(深さ), 1以上の整数を指定|
-|`-N`||印字できない文字をそのまま出力(マルチバイトの文字化け防止)|
-|`-P パターン`||パターンにマッチしたファイルのみ表示|
-|`-l パターン`||パターンにマッチしないファイルのみ表示|
-||`--prune`|表示対象ファイルが存在しないディレクトリを除外して表示|
-||`--filelimit エントリ数`|指定した数を超えるエントリを持つディレクトリの内部は非表示(--filelimit 10 の場合, 表示内容が10イないのディレクトリの内部のみを表示)|
-|`-o ファイル名`||`tree`コマンドの結果を指定ファイルに出力|
+|`-v`|`--verbose`|実行内容を表示|
+|`-i`|`--interactive`|移動元と移動先が同名の場合, 上書きする前に確認|
+|`-b`|`--backup=方法`|移動元と移動先が同名の場合, 上書きされるファイル(移動先)のバックアップを作成｜
+|`-S`|`--suffix=接尾語`|バックアップ作成時の接尾語を指定|
+|`-n`|`--noclobber`|移動元と移動先が同名の場合, 上書きせず停止|
+|`-u`|`--update`|移動元のファイルが移動先ファイルより新しいか新規ファイルの場合のみ上書き|
 
-## `ln` ディレクトリやファイルのリンクを作成
+## `ln`: ディレクトリやファイルのリンクを作成
 
 ### ハードリンクとシンボリックリンク
 * シンボリックリンクでファイルの「別名」なら、ハードリンクはファイルの「本名」。
@@ -647,51 +457,8 @@ ln ファイル名 リンク名
 |`-S 接尾辞`|`--suffix=接尾辞`|バックアップファイル作成時にファイル末尾に付与する文字を指定(未指定の場合は ~ または環境変数 `SIMPLE_BACKUP_SUFFIX`)|
 |`-v`|`--verbose`|経過を表示|
 
-## `mkdir` ディレクトリの作成
 
-### 多階層のディレクトリを作成
-
-```shell
-mkdir -p /dir/subdir/{subsubdir-1,subsubdir-2,subsubdir-3}
-```
-```shell
-dir
-└── subdir
-    ├── subsubdir-1
-    ├── subsubdir-2
-    └── subsubdir-3
-```
-
-### 作成したディレクトリに作業場所を移動
-```shell
-mkdir -p /dir/subdir/subsubdir/ && cd $_
-```
-
-## ファイルの作成
-
-### 空ファイルを作成
-```shell
-touch sample.txt
-```
-
-### ファイルのタイムスタンプを変更
-e.g) ファイルのタイムスタンプ(最終更新日)を「2021-01-01 01:25:30」に変更
-```shell
-touch --date="2021-01-01 01:25:30" sample.txt
-```
-or
-```shell
-touch -t 202101012530.30 sample.txt
-```
-
-|short option|long option|description|
-|---|---|---|
-|`-t <time>`|-|[[CC]YY]MMDDhhmm[.ss] 形式で日時を指定|
-|`-d`|-date=日付文字列|文字列で日時を指定|
-|`-r`|--reference=ファイル名|指定したファイルと同じ日時を指定|
-
-
-## `cat` ファイル内容の表示
+## `cat`: ファイル内容を表示
 
 ### `cat` コマンドとは
 ファイルを連結するためのコマンドだが、ファイルの内容を簡単に表示する際に使用されている。
@@ -720,7 +487,7 @@ $ cat before1.txt before2.txt > after.txt
 |`-A`|`--show-all`|全ての非表示文字を表示(`-vET` と同じ)|
 |`-e`||タブを除く全ての非表示文字を表示(`-vE` と同じ)|
 
-## `less` ファイル内容の表示
+## `less`: ファイル内容を表示
 
 ### ファイル内容を1画面に表示(編集なし)
 
@@ -744,7 +511,7 @@ less -N sample.txt
 |`/`|前方(下方向)へ検索 (n 下方向, N 上方向)|
 |`?`|後方(上方向)へ検索 (n 下方向, N 上方向)|
 
-## ファイル内容の編集
+## `vim`: ファイル内容を編集
 ファイルの作成と編集
 `vi sample.txt`
 
@@ -778,40 +545,251 @@ less -N sample.txt
 |`:wq`|ファイルを保存して終了(閉じる)|
 |`:w`|ファイルを保存のみ(viは終了しない状態)|
 
-## ファイル内容の行数・並べ替え・重複
+## `vim`/`find`/`sed`: 文字の置換
+
+### ファイル内で置換
+* `:s` command: 'substitute'
+* `g` option: 'global'
+
+e.g. Change each 'foo' to 'bar' in the current line.
+```shell
+:s/foo/bar/g
+```
+
+e.g. Change each 'foo' to 'bar' in all lines.
+```shell
+:%s/foo/bar/g
+```
+e.g. Delete each 'foo' in all lines. 
+```shell
+:%s/foo//g
+```
+
+### 再帰的に走査し対象ファイル内で一括置換
+e.g. 拡張子が `.txt` のファイル内の文字列 'foo' を 'bar' に置換
+```shell
+LC_ALL=C find . -type f -name '*.txt' -exec sed -i '' s/foo/bar/g {} +
+```
+
+## `vim`: 文字コードを操作
+
+### 文字コードの値
+
+|文字コード|コマンドで指定する値|remarks|
+|---|---|---|
+|Shift_JIS|`cp932` or `sjis`|`cp932` には `sjis` に含まれていない文字（①, ②, Ⅰ, Ⅱ, ㍉, ㌍, 彅, 髙 etc.）を含む。|
+|EUC-JP|`euc-jp`|-|
+|UTF-8|`utf-8`|-|
+
+### 文字コードを設定
+
+`.vimrc`
+以下を記述し `:wq` で保存。
+```shell
+:set encoding=utf-8
+:set fileencodings=utf-8,cp932,sjis,euc-jp
+```
+
+|long|short|description|
+|---|---|---|
+|`encoding`|`enc`|`vim` の内部で使用されるエンコーディングを指定。|
+|`fileencoding`|`fenc`|編集時のバッファファイルのエンコーディングを指定。encodingと異なる値が設定されていた場合、ファイルの読み書き時に文字コードを変換。fenc が空の場合、変換なし。|
+|`fileencodings`|`fencs`|既存ファイル編集時の変換予定の文字コードを指定。カンマ区切りで複数記述可。
+
+### vim 内部で使用される文字コードを表示
+
+```shell
+:set encoding?
+```
+or
+```shell
+:se enc?
+```
+
+### ファイルの文字コードを表示
+```shell
+:set fileencoding?
+```
+or
+```shell
+:se fenc?
+```
+
+### ファイルの文字コードの自動判別設定を表示
+```shell
+:set fileencodings?
+```
+or
+```shell
+:se fencs?
+```
+
+### 指定の文字コードでファイルを開き直し
+```shell
+:edit ++encoding=コマンドで指定する文字コードの値
+```
+or
+```shell
+:e ++enc=コマンドで指定する文字コードの値
+```
+
+### ファイルの文字コードを変換
+以下を実行後に `:w` で保存すること。
+```shell
+:set fileencoding=コマンドで指定する文字コードの値
+```
+or
+```shell
+:set fenc=コマンドで指定する文字コードの値
+```
+
+### ファイルの文字コードを変換し保存
+```shell
+:setlocal fileencoding=コマンドで指定する文字コードの値
+```
+or
+```shell
+:setl fenc=コマンドで指定する文字コードの値
+```
+
+## `vim`: 改行コードを操作
+
+### 改行コードの設定
+
+`.vimrc`
+以下を記述し `:wq` で保存。
+```shell
+:set fileformats=unix,dos,mac
+```
+
+### 改行コードの値
+
+|改行コード|コマンドで指定する値|remarks|
+|---|---|---|
+|LF(Line Feed) `\n`|`unix`|Unix, Linux, Mac(OS10以降), Android|
+|CR(Carriage Return) `\r`|`mac`|古いMac(OS9以前)|
+|CRLF(Carriage Return/Line Feed) `\r\n`|`dos`|Windows|
+
+### 改行コードを指定
+以下を実行後に `:w` で保存すること。
+```shell
+:set fileformat=コマンドで指定する改行コードの値
+```
+or
+```shell
+:se ff=コマンドで指定する改行コードの値
+```
+
+### 改行コードを指定し保存
+
+```shell
+:setlocal fileformat=コマンドで指定する改行コードの値
+```
+or
+```shell
+:setl ff=コマンドで指定する改行コードの値
+```
+
+## `wc`/`grep`: ファイルの行数・単語数を表示
 
 ### ファイルの行数
-#### ファイルの行数を出力
+#### ファイルの行数を表示
 ```shell
 wc -l sample.txt
 ```
 
-#### ファイルの単語数を出力
+#### ファイルの単語数を表示
 ```shell
 wc -w sample.txt
 ```
 
-#### ファイルのバイト数を出力
+#### ファイルのバイト数を表示
 ```shell
 wc -c sample.txt
 ```
 
-#### ファイルの空行の行数を出力
+#### ファイルの空行の行数を表示
 ```shell
 grep -c '^$' sample.txt
 ```
 
-#### 指定した文字と一致しない行数を出力
+#### 指定した文字と一致しない行数を表示
 ```shell
 grep -c -v 'hoge' sample.txt
 ```
 
+### 正規表現と一致する行数を表示
+e.g.) 半角数字10桁のみの行数
+```shell
+grep -c -E '^[0-9]{10}$' sample.txt
+```
+
+## `uniq`: ファイル内容の重複を確認
+
+### 重複行は1行目のみを表示
+```shell
+uniq sample.txt
+```
+
+### 重複する行のみ出力
+```shell
+uniq -d sample.txt
+```
+
+## `sort`: 並べ替え
+
+テキストファイルを行単位で並べ替えるコマンド
+
+### `sort` コマンドの主なオプション
+
+#### 並べ替え関連
+|option|option|description|
+|---|---|---|
+|`-f`|`--ignore-case`|大文字／小文字を区別せずに並べ替え|
+|`-V`|`--version-sort`|自然な（バージョン）数字順で並べ替え|
+|`-n`|`--numeric-sort`|文字列を数値と見なして並べ替え|
+|`-h`|`--human-numeric-sort`|人が読むことのできる形式の数値で並べ替え(e.g. 5K, 1.2G etc.)|
+|`-g`|`--general-numeric-sort`|一般的な数値として並べ替え|
+|`-M`|`--month-sort`|月名で並べ替え|
+|`-d`|`--dictionary-order`|データが空白と英数字のみ含まれていると仮定して並べ替え|
+|`-b`|`--ignore-leading-blanks`|先頭の空白を無視して並べ替え|
+|`-i`|`--ignore-nonprinting`|表示可能な文字だけを対象に並べ替え|
+|`-R`|`--random-sort`|キーのランダムハッシュ順に並べ替え|
+||`--random-source=ファイル`|ランダムソースのファイルを設定|
+||`--sort=指定`|並べ替えの方法を指定 (general-numeric、human-numeric、month、numeric、random、version)|
+|`-r`|`--reverse`|逆順で並べ替え|
+|`-k 指定`|`--key=指定`|所と並べ替え種別を指定する (`-k 5`なら5列目、`-k 5n` なら5列目を数値として並べ替え。複数指定する場合は `-k` オプションを複数回指定)|
+|`-t 文字`|`--field-separator=文字`|フィールドの区切り文字を指定（デフォルトは空白文字）|
+
+#### その他
+|option|option|description|
+|---|---|---|
+|`-m`|`--merge`|並べ替えられたファイルをマージ (並べ替え自体は行わない)|
+|`-c`|`--check`, `--check=diagnose-first`|並べ替えられているかどうかを確認|
+|`-C`|`--check=quiet`, `--check=silent`|`-c` と同様だがメッセージは出力しない（スクリプト内の判定行などで使用）|
+|`-u`|`--unique`|同一行は1つ目だけを出力（`-c` と併せて使用した場合、厳密に順序を確認）|
+|`-z`|`--zero-terminated`|最後に NULL 文字を出力|
+|`-o ファイル名`|`--output=ファイル名`|結果を出力するファイル名を指定（デフォルトは標準出力）|
+||`--files0-from=F`|NULL文字で区切られたファイル名のリストを指定（`--files0-from=-` とした場合、ファイル名を標準入力から読み込み|
+||`--debug`|並べ替えに使用されている行の一部に注釈を付けて、不確かな使用方法について標準エラー出力に警告を表示|
+
+### 指定した列で並べ替え
+区切り文字を `,` として 5列目の項目で並べ替え
+```shell
+sort -k 5 -t , sample.csv
+```
+区切り文字を `,` として 5列目の項目を数字として並べ替え
+```shell
+sort -k 5n -t , sample.csv
+
+```
+
 ### ファイル内容の並べ替え
-#### 並べ替えた結果を出力
+#### 並べ替えた結果を表示
 ```shell
 sort sample.txt
 ```
-#### 並べ替え重複行は1行目のみを出力
+#### 並べ替え重複行は1行目のみを表示
 ```shell
 sort -u sample.txt
 ```
@@ -827,26 +805,7 @@ sort -c
 sort --check
 ```
 
-### ファイル内容の重複
-
-#### 重複行は1行目のみを出力
-```shell
-uniq sample.txt
-```
-
-#### 重複する行のみ出力
-```shell
-uniq -d sample.txt
-```
-
-### ファイル内容の正規表現での確認
-#### 正規表現と一致する行数を確認
-e.g.) 半角数字10桁のみの行数
-```shell
-grep -c -E '^[0-9]{10}$' sample.txt
-```
-
-## 圧縮・解凍・暗号解除
+## `zip`/`tar`: 圧縮・解凍・暗号解除
 
 ### `zip` コマンドでの圧縮
 
@@ -922,54 +881,123 @@ $ tar -xzvf sample.tar.gz
 |`-W`|`--verify`|アーカイブを書き出した後に検証。|
 |`-v`|`--verbose`|処理したファイルを詳しく出力。|
 
-## CSV
-### CSVファイルの各行のカラム数が指定した数(以下の例では 10)と一致しない行数を確認
+
+
+## `date`: 日付・時刻を表示
+
 ```shell
-cat sample.csv | awk -F ',' '{print NF}' | grep -c -v 10
+TOMORROW=`date '+%Y%m%d' --date '1 day'`
+YESTERDAY=`date '+%Y%m%d' --date '-1 day'`
+echo ${TOMORROW}
+echo ${YESTERDAY}
 ```
 
-### CSVファイルの特定のカラム(以下の例では10カラム目)のみを抽出
+### `date` コマンドの主なオプション
+
+|format|description|
+|---|---|
+|`%H`|時 (00～23)|
+|`%I`|時 (01～12)|
+|`%k`|時 ( 0～23)|
+|`%l`|時 ( 1～12)|
+|`%M`|分 (00～59)|
+|`%p`|AM あるいは PM のロケール(国や地域に合わせた文字列)|
+|`%r`|12時間形式の時刻 (HH:mm:ss [AP]M)|
+|`%s`|1970-01-01 00:00:00 UTC からの秒数|
+|`%S`|秒 (00～61)|
+|`%T`|24時間形式の時刻 (HH:mm:ss)|
+|`%a`|ロケールによる省略形の曜日の名前 (Sun～Sat)|
+|`%A`|ロケールによる完全に表記した曜日の名前(Sunday～Saturday)|
+|`%b`|ロケールによる省略形の月の名前 (Jan～Dec)|
+|`%B`|ロケールによる完全に表記した月の名前(January～December)|
+|`%c`|ロケールによる日付と時刻 (Sat Nov 04 12:02:33 EST 1989)|
+|`%d`|日(月内通算日数) (01～31)|
+|`%D`|日付 (MM/DD/YY)|
+|`%j`|年内通算日数 (001～366)|
+|`%m`|月 (01～12)|
+|`%w`|週のうちの曜日(0～6)で0が日曜日に対応|
+|`%x`|ロケールによる日付の表現 (MM/DD/YY)|
+|`%y`|西暦の下2けた (00～99)|
+|`%Y`|年 (1970～)|
+
+### タイムゾーンを表示
+
 ```shell
-cut -d ',' -f 10 sample.csv > specific_column.csv
+$ date +%Z
+JST
+```
+```shell
+$ date +"%Z %z"
+JST +0900
 ```
 
-## システム情報/バージョン
 
-### システム情報を確認
+## `df`: ディスク容量を表示
+
+### `df` コマンドとは
+* ディスクの空き領域(free スペース)のサイズを集計して表示
+
+### `df` コマンドの主なオプション
+
+|option|option|description|
+|---|---|---|
+|`-h`|`--human-readable`|サイズに応じて人間が読みやすい単位に変換して表示|
+|`-H`|`--si`|イズに応じて人間が読みやすい単位に変換して表示、ただし 1024単位ではなく 1000単位の値を使用|
+|`-Bサイズ`|`--block-size=サイズ`|指定したサイズの倍数で表示、サイズは数値または単位で指定|
+|`-k`||`--block-size=1K``` と同じ|
+|`-m`||`--block-size=1M``` と同じ|
+|`-P`|`--portability`|POSIX出力形式（サイズではなくブロックで表示）|
+|`-i`|`--inodes`|ブロック使用量の代わりにiノード情報を確認|
+|`-T`|`--print-type`|各ファイルシステムの種類を合わせて表示|
+|`-t種類`|`--type=種類`|対象とするフォーマットの種類を指定(e.g.「-txfs」でXFSフォーマットの場所のみ表示)|
+|`-x種類`|`--exclude-type=種類`|対象としないフォーマットの種類を指定|
+|`-a`|`--all`|ダミーファイルシステムを含めて表示|
+|`-l`|`--local`|ローカルファイルシステムのみを表示|
+||`--total`|全体の合計も表示|
+||`--sync`|使用量の情報を得る前にsyncを実行|
+||`--no-sync`|使用量の情報を得る前にsyncの実行なし（デフォルト）|
+
+### ディスクの空き容量を表示
 ```shell
-uname -a
+df
+```
+メガ(1024×1024バイト)単位で表示
+```shell
+df -BM
 ```
 
-### カーネルのバージョン情報を確認
+メガ(1000×1000バイト)単位で表示
 ```shell
-cat /proc/version
+df -BMB
+```
+フォーマットの種類も合わせて表示
+```shell
+df -T
+```
+XFSでフォーマットされているパーティションの空き領域と合計を表示
+```shell
+df -txfs --total
+```
+### ディスクの空き容量を表示(場所を指定して集計)
+カレントディレクトリを含むパーティションの空き領域を表示
+```shell
+df .
+```
+`/usr` を含むパーティションの空き領域を表示
+```shell
+df /usr
 ```
 
-### OSのバージョン情報を確認
+### ディスクの空き容量を読みやすいサイズ表記で表示
 ```shell
-cat /etc/os-release
+df -h
+```
+空き領域の合計もあわせて表示
+```shell
+df -h --total
 ```
 
-### OSのバージョン情報を確認(ディストリビューション別)
-※RHEL=Red Hat Enterprise Linux
-|command                      |RHEL※|CentOS|Fedora|Amazon Linux|Oracle Linux|Debian|Ubuntu   |SUSE Linux|
-|-----------------------------|-----|------|------|------------|------------|------|---------|----------|
-|`cat /etc/system-release`|Yes  |Yes   |Yes   |Yes         |Yes         |      |         |          |
-|`cat /etc/redhat-release`|Yes  |Yes   |Yes   |            |Yes         |      |         |          |
-|`cat /etc/centos-release`|     |Yes   |      |            |            |      |         |          |
-|`cat /etc/fedora-release`|     |      |Yes   |            |            |      |         |          |
-|`cat /etc/oracle-release`|     |      |      |            |Yes         |      |         |          |
-|`cat /etc/debian_version`|     |      |      |            |            |Yes   |Yes      |          |
-|`cat /etc/lsb-release`   |     |      |      |            |            |      |Yes      |          |
-|`cat /etc/SuSE-release`  |     |      |      |            |            |      |         |Yes       |
-
-
-### OSのバージョン情報確認コマンドを確認
-```shell
-ls -l /etc/*release
-```
-
-## ディスク使用量を確認
+## `du`: ディスク使用量を表示
 
 ### `du` コマンドとは
 * ディスク使用量を集計し表示
@@ -1025,56 +1053,7 @@ e.g. ルートディレクトリとその直下のディスク容量を1階層�
 $ du -d1 -x /
 ```
 
-## 並べ替え
-
-### `sort` コマンドとは
-* テキストファイルを行単位で並べ替えるコマンド
-
-### `sort` コマンドの主なオプション
-
-#### 並べ替え関連
-|option|option|description|
-|---|---|---|
-|`-f`|`--ignore-case`|大文字／小文字を区別せずに並べ替え|
-|`-V`|`--version-sort`|自然な（バージョン）数字順で並べ替え|
-|`-n`|`--numeric-sort`|文字列を数値と見なして並べ替え|
-|`-h`|`--human-numeric-sort`|人が読むことのできる形式の数値で並べ替え(e.g. 5K, 1.2G etc.)|
-|`-g`|`--general-numeric-sort`|一般的な数値として並べ替え|
-|`-M`|`--month-sort`|月名で並べ替え|
-|`-d`|`--dictionary-order`|データが空白と英数字のみ含まれていると仮定して並べ替え|
-|`-b`|`--ignore-leading-blanks`|先頭の空白を無視して並べ替え|
-|`-i`|`--ignore-nonprinting`|表示可能な文字だけを対象に並べ替え|
-|`-R`|`--random-sort`|キーのランダムハッシュ順に並べ替え|
-||`--random-source=ファイル`|ランダムソースのファイルを設定|
-||`--sort=指定`|並べ替えの方法を指定 (general-numeric、human-numeric、month、numeric、random、version)|
-|`-r`|`--reverse`|逆順で並べ替え|
-|`-k 指定`|`--key=指定`|所と並べ替え種別を指定する (`-k 5`なら5列目、`-k 5n` なら5列目を数値として並べ替え。複数指定する場合は `-k` オプションを複数回指定)|
-|`-t 文字`|`--field-separator=文字`|フィールドの区切り文字を指定（デフォルトは空白文字）|
-
-#### その他
-|option|option|description|
-|---|---|---|
-|`-m`|`--merge`|並べ替えられたファイルをマージ (並べ替え自体は行わない)|
-|`-c`|`--check`, `--check=diagnose-first`|並べ替えられているかどうかを確認|
-|`-C`|`--check=quiet`, `--check=silent`|`-c` と同様だがメッセージは出力しない（スクリプト内の判定行などで使用）|
-|`-u`|`--unique`|同一行は1つ目だけを出力（`-c` と併せて使用した場合、厳密に順序を確認）|
-|`-z`|`--zero-terminated`|最後に NULL 文字を出力|
-|`-o ファイル名`|`--output=ファイル名`|結果を出力するファイル名を指定（デフォルトは標準出力）|
-||`--files0-from=F`|NULL文字で区切られたファイル名のリストを指定（`--files0-from=-` とした場合、ファイル名を標準入力から読み込み|
-||`--debug`|並べ替えに使用されている行の一部に注釈を付けて、不確かな使用方法について標準エラー出力に警告を表示|
-
-### 指定した列で並べ替え
-区切り文字を `,` として 5列目の項目で並べ替え
-```shell
-sort -k 5 -t , sample.csv
-```
-区切り文字を `,` として 5列目の項目を数字として並べ替え
-```shell
-sort -k 5n -t , sample.csv
-
-```
-
-## 環境
+## `env`/`locale`: 環境変数を表示
 
 ### `env` コマンドとは
 環境変数を指定してコマンドを実行
@@ -1104,7 +1083,6 @@ $ env LANG=ja_JP.UTF-8 date
 $ env -i date
 ```
 
-
 ### `env` コマンドの主なオプション
 |option|option|description|
 |---|---|---|
@@ -1113,18 +1091,67 @@ $ env -i date
 |`0`|`--null`|改行せずに表示（出力行の末尾を改行文字ではなくNULL文字にする、一覧表示する際のみ指定可能）|
 
 
-### 指定可能なロケールを確認
+### 指定可能なロケールを表示
 ```shell
 $ locale -a
 ```
+
+
+## システム情報/バージョンを表示
+
+### システム情報を表示
+```shell
+uname -a
+```
+
+### カーネルのバージョン情報を表示
+```shell
+cat /proc/version
+```
+
+### OSのバージョン情報を表示
+```shell
+cat /etc/os-release
+```
+
+### OSのバージョン情報を表示(ディストリビューション別)
+※RHEL=Red Hat Enterprise Linux
+|command                      |RHEL※|CentOS|Fedora|Amazon Linux|Oracle Linux|Debian|Ubuntu   |SUSE Linux|
+|-----------------------------|-----|------|------|------------|------------|------|---------|----------|
+|`cat /etc/system-release`|Yes  |Yes   |Yes   |Yes         |Yes         |      |         |          |
+|`cat /etc/redhat-release`|Yes  |Yes   |Yes   |            |Yes         |      |         |          |
+|`cat /etc/centos-release`|     |Yes   |      |            |            |      |         |          |
+|`cat /etc/fedora-release`|     |      |Yes   |            |            |      |         |          |
+|`cat /etc/oracle-release`|     |      |      |            |Yes         |      |         |          |
+|`cat /etc/debian_version`|     |      |      |            |            |Yes   |Yes      |          |
+|`cat /etc/lsb-release`   |     |      |      |            |            |      |Yes      |          |
+|`cat /etc/SuSE-release`  |     |      |      |            |            |      |         |Yes       |
+
+
+### OSのバージョン情報確認コマンドを表示
+```shell
+ls -l /etc/*release
+```
+
+
 ## その他
 
-
-
-### ログイン中のユーザー
+### ログイン中のユーザーを表示
 ```shell
 LOGIN_USER=`who am i | awk -F ' ' '{print $1}'`
 echo $LOGIN_USER
+```
+
+### CSVの全行のカラム数の一致を確認
+e.g. カラム数が 10 と一致しない行の数を確認
+```shell
+cat sample.csv | awk -F ',' '{print NF}' | grep -c -v 10
+```
+
+### CSVの特定のカラムのみを抽出
+e.g. 10カラム目のみ抽出
+```shell
+cut -d ',' -f 10 sample.csv > specific_column.csv
 ```
 
 ## References
@@ -1139,3 +1166,5 @@ echo $LOGIN_USER
 * [gzip ファイルを操作](https://www.atmarkit.co.jp/ait/articles/1810/18/news014.html)
 * [【 env 】コマンド――環境変数を指定してコマンドを実行する](https://atmarkit.itmedia.co.jp/ait/articles/1801/18/news016.html)
 * [【 tree 】コマンド――ディレクトリをツリー状に表示する](https://atmarkit.itmedia.co.jp/ait/articles/1802/01/news025.html)
+
+
