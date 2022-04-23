@@ -15,7 +15,7 @@
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.bf517cba958f6603f93c6ddcbab851a54fcabdb2b2e44ed2a563785e5a21886c.js integrity="sha256-v1F8upWPZgP5PG3curhRpU/KvbKy5E7SpWN4XlohiGw=" crossorigin=anonymous></script>
+<script defer src=/en.search.min.3948d6ef1b7d59223ea6892f14a5111baa22a35ea34fb840c4008f3fe4df2ea5.js integrity="sha256-OUjW7xt9WSI+pokvFKURG6oio16jT7hAxACPP+TfLqU=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-W638642WNE',{anonymize_ip:!1})}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
@@ -176,8 +176,8 @@ Go Check Sheet
 <ul>
 <li>分割
 <ul>
-<li>ファイルを適切に分割</li>
 <li>パッケージを適切に分割</li>
+<li>ファイルを適切に分割</li>
 </ul>
 </li>
 <li>命名
@@ -189,13 +189,13 @@ Go Check Sheet
 </li>
 <li>具体性のない命名は NG
 <ul>
-<li>e.g. <code>common</code> や <code>util</code> など</li>
-<li><code>fileutil</code> のように具体性がある命名は OK</li>
+<li>e.g. <code>common</code> や <code>util</code> などは NG</li>
+<li><code>fileutil</code> のように具体性がある命名は許容範囲</li>
 </ul>
 </li>
 <li>標準/準標準パッケージと同じ名前は避けること</li>
-<li>気持ちの良い名前は良い設計ができた証拠</li>
-<li>冗長な名前は設計がうまくいっていない証拠</li>
+<li>気持ちの良い命名は良い設計ができた証拠</li>
+<li>冗長な命名は設計がうまくいっていない証拠</li>
 </ul>
 </li>
 <li>適切に型定義すること
@@ -216,12 +216,12 @@ Go Check Sheet
 <li>テストの事情を背負いすぎているインターフェイス</li>
 </ul>
 </li>
-<li>internal ディレクトリ
+<li><code>internal</code> ディレクトリ
 <ul>
 <li>公開したくない機能を隠蔽</li>
-<li>internal 以下は内部パッケージ</li>
-<li>internal ディレクトリ以下のパッケージのみ参照可</li>
-<li>internal 以下でエクスポートしても外のパッケージから参照不可</li>
+<li><code>internal</code> 以下は内部パッケージ</li>
+<li><code>internal</code> ディレクトリ以下のパッケージのみ参照可</li>
+<li><code>internal</code> 以下でエクスポートしても外のパッケージから参照不可</li>
 </ul>
 </li>
 <li>大規模データの入力を考慮
@@ -262,15 +262,7 @@ Go Check Sheet
 <li><code>main.go</code> はできるだけ薄くすること</li>
 <li>標準/準標準パッケージの機能を充分に活用
 <ul>
-<li><code>bufio</code></li>
-<li><code>bytes</code></li>
-<li><code>exec</code></li>
-<li><code>fmt</code></li>
-<li><code>fs</code></li>
-<li><code>io</code></li>
-<li><code>os</code></li>
-<li><code>path</code>, <code>filepath</code></li>
-<li><code>strings</code></li>
+<li><code>bufio</code>, <code>bytes</code>, <code>exec</code>, <code>fmt</code>, <code>fs</code>, <code>io</code>, <code>os</code>, <code>path</code>, <code>filepath</code>, <code>strings</code>, etc</li>
 </ul>
 </li>
 <li>ディレクトリ区切り

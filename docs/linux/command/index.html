@@ -15,7 +15,7 @@
 <link rel=icon href=/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/book.min.1082f0a175d348c228f5a490e115fbb59f7189d9b0187edfe0d26b7cf9db35e6.css integrity="sha256-EILwoXXTSMIo9aSQ4RX7tZ9xidmwGH7f4NJrfPnbNeY=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.bf517cba958f6603f93c6ddcbab851a54fcabdb2b2e44ed2a563785e5a21886c.js integrity="sha256-v1F8upWPZgP5PG3curhRpU/KvbKy5E7SpWN4XlohiGw=" crossorigin=anonymous></script>
+<script defer src=/en.search.min.3948d6ef1b7d59223ea6892f14a5111baa22a35ea34fb840c4008f3fe4df2ea5.js integrity="sha256-OUjW7xt9WSI+pokvFKURG6oio16jT7hAxACPP+TfLqU=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-W638642WNE',{anonymize_ip:!1})}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
@@ -128,12 +128,12 @@ Menu
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#便利なコマンド>便利なコマンド</a>
+<li><a href=#画面の操作>画面の操作</a>
 <ul>
-<li><a href=#文字列の置換>文字列の置換</a></li>
+<li><a href=#ターミナル操作のショートカット>ターミナル操作のショートカット</a></li>
 </ul>
 </li>
-<li><a href=#コマンド入力履歴>コマンド入力履歴</a>
+<li><a href=#history-コマンド入力履歴を操作><code>history</code>: コマンド入力履歴を操作</a>
 <ul>
 <li><a href=#history-コマンドの主なオプション><code>history</code> コマンドの主なオプション</a></li>
 <li><a href=#コマンド入力履歴を表示>コマンド入力履歴を表示</a></li>
@@ -142,70 +142,45 @@ Menu
 <li><a href=#履歴ファイルを読み込み>履歴ファイルを読み込み</a></li>
 </ul>
 </li>
-<li><a href=#画面操作>画面操作</a>
-<ul>
-<li><a href=#ターミナル操作のショートカット>ターミナル操作のショートカット</a></li>
-</ul>
-</li>
-<li><a href=#文字コード>文字コード</a>
-<ul>
-<li><a href=#文字コードの値>文字コードの値</a></li>
-<li><a href=#文字コードを設定>文字コードを設定</a></li>
-<li><a href=#vim-内部で使用される文字コードを確認shell>vim 内部で使用される文字コードを確認shell</a></li>
-<li><a href=#ファイルの文字コードを確認>ファイルの文字コードを確認</a></li>
-<li><a href=#ファイルの文字コードの自動判別設定を確認>ファイルの文字コードの自動判別設定を確認</a></li>
-<li><a href=#指定の文字コードでファイルを開き直し>指定の文字コードでファイルを開き直し</a></li>
-<li><a href=#ファイルの文字コードを変換>ファイルの文字コードを変換</a></li>
-<li><a href=#ファイルの文字コードを変換し保存>ファイルの文字コードを変換し保存</a></li>
-</ul>
-</li>
-<li><a href=#改行コード>改行コード</a>
-<ul>
-<li><a href=#改行コードの設定>改行コードの設定</a></li>
-<li><a href=#改行コードの値>改行コードの値</a></li>
-<li><a href=#改行コードを指定>改行コードを指定</a></li>
-<li><a href=#改行コードを指定し保存>改行コードを指定し保存</a></li>
-</ul>
-</li>
-<li><a href=#ディスク容量>ディスク容量</a>
-<ul>
-<li><a href=#df-コマンドとは><code>df</code> コマンドとは</a></li>
-<li><a href=#df-コマンドの主なオプション><code>df</code> コマンドの主なオプション</a></li>
-<li><a href=#ディスクの空き容量を表示>ディスクの空き容量を表示</a></li>
-<li><a href=#ディスクの空き容量を表示場所を指定して集計>ディスクの空き容量を表示(場所を指定して集計)</a></li>
-<li><a href=#ディスクの空き容量を読みやすいサイズ表記で表示>ディスクの空き容量を読みやすいサイズ表記で表示</a></li>
-</ul>
-</li>
-<li><a href=#日付時刻>日付・時刻</a>
-<ul>
-<li><a href=#date-コマンドの主なオプション><code>date</code> コマンドの主なオプション</a></li>
-<li><a href=#タイムゾーンを確認>タイムゾーンを確認</a></li>
-</ul>
-</li>
-<li><a href=#検索>検索</a>
+<li><a href=#grepfind-検索><code>grep</code>/<code>find</code>: 検索</a>
 <ul>
 <li><a href=#grep-コマンドの使用方法><code>grep</code> コマンドの使用方法</a></li>
 <li><a href=#grep-コマンドの主なオプション><code>grep</code> コマンドの主なオプション</a></li>
-<li><a href=#タイムスタンプでの検索>タイムスタンプでの検索</a></li>
+<li><a href=#タイムスタンプで検索>タイムスタンプで検索</a></li>
 <li><a href=#find-コマンドの主なオプション><code>find</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#一覧表示>一覧表示</a>
+<li><a href=#ls-ディレクトリやファイルの一覧を表示><code>ls</code>: ディレクトリやファイルの一覧を表示</a>
 <ul>
 <li><a href=#タイムスタンプ降順で一覧表示隠しファイル含む>タイムスタンプ降順で一覧表示(隠しファイル含む)</a></li>
 <li><a href=#タイムスタンプ昇順で一覧表示隠しファイル含む>タイムスタンプ昇順で一覧表示(隠しファイル含む)</a></li>
 <li><a href=#ls-コマンドの主なオプション><code>ls</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#移動名称変更>移動・名称変更</a>
+<li><a href=#tree-ディレクトリやファイルの構成を表示><code>tree</code>: ディレクトリやファイルの構成を表示</a>
 <ul>
-<li><a href=#1つのファイルを移動>1つのファイルを移動</a></li>
-<li><a href=#複数のファイルを移動>複数のファイルを移動</a></li>
-<li><a href=#ファイルの名称を変更リネーム>ファイルの名称を変更(リネーム)</a></li>
-<li><a href=#mv-コマンドの主なオプション><code>mv</code> コマンドの主なオプション</a></li>
+<li><a href=#tree-コマンド-のインストール-macos>tree コマンド のインストール (macOS)</a></li>
+<li><a href=#tree-コマンドのバージョンを表示>tree コマンドのバージョンを表示</a></li>
+<li><a href=#階層を指定>階層を指定</a></li>
+<li><a href=#ファイル名のパターンを指定>ファイル名のパターンを指定</a></li>
+<li><a href=#除外するファイル名のパターンを指定>除外するファイル名のパターンを指定</a></li>
+<li><a href=#ディレクトリのみを表示>ディレクトリのみを表示</a></li>
+<li><a href=#tree-コマンドの主なオプション><code>tree</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#削除>削除</a>
+<li><a href=#touch-タイムスタンプを変更ファイルを作成><code>touch</code>: タイムスタンプを変更/ファイルを作成</a>
+<ul>
+<li><a href=#ファイルのタイムスタンプを変更>ファイルのタイムスタンプを変更</a></li>
+<li><a href=#空ファイルを作成>空ファイルを作成</a></li>
+</ul>
+</li>
+<li><a href=#mkdir-ディレクトリを作成><code>mkdir</code>: ディレクトリを作成</a>
+<ul>
+<li><a href=#多階層のディレクトリを作成>多階層のディレクトリを作成</a></li>
+<li><a href=#作成したディレクトリに作業場所を移動>作成したディレクトリに作業場所を移動</a></li>
+</ul>
+</li>
+<li><a href=#rm-ディレクトリやファイルを削除><code>rm</code>: ディレクトリやファイルを削除</a>
 <ul>
 <li><a href=#1ファイルを削除>1ファイルを削除</a></li>
 <li><a href=#複数ファイルを削除>複数ファイルを削除</a></li>
@@ -213,12 +188,12 @@ Menu
 <li><a href=#rm-コマンドの主なオプション><code>rm</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#空ディレクトリを削除>空ディレクトリを削除</a>
+<li><a href=#rmdir-空ディレクトリを削除><code>rmdir</code>: 空ディレクトリを削除</a>
 <ul>
 <li><a href=#rmdir-コマンドの主なオプション><code>rmdir</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#コピー>コピー</a>
+<li><a href=#cp-コピー><code>cp</code>: コピー</a>
 <ul>
 <li><a href=#ファイルをコピー>ファイルをコピー</a></li>
 <li><a href=#ディレクトリごとファイルをコピー>ディレクトリごとファイルをコピー</a></li>
@@ -228,18 +203,15 @@ Menu
 <li><a href=#scp-コマンドの主なオプション><code>scp</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#ディレクトリとファイルの構成を表示>ディレクトリとファイルの構成を表示</a>
+<li><a href=#mv-移動または名称を変更><code>mv</code>: 移動または名称を変更</a>
 <ul>
-<li><a href=#tree-コマンド-のインストール-macos>tree コマンド のインストール (macOS)</a></li>
-<li><a href=#tree-コマンドのバージョンを確認>tree コマンドのバージョンを確認</a></li>
-<li><a href=#階層を指定>階層を指定</a></li>
-<li><a href=#ファイル名のパターンを指定>ファイル名のパターンを指定</a></li>
-<li><a href=#除外するファイル名のパターンを指定>除外するファイル名のパターンを指定</a></li>
-<li><a href=#ディレクトリのみを表示>ディレクトリのみを表示</a></li>
-<li><a href=#tree-コマンドの主なオプション><code>tree</code> コマンドの主なオプション</a></li>
+<li><a href=#1つのファイルを移動>1つのファイルを移動</a></li>
+<li><a href=#複数のファイルを移動>複数のファイルを移動</a></li>
+<li><a href=#ファイルの名称を変更リネーム>ファイルの名称を変更(リネーム)</a></li>
+<li><a href=#mv-コマンドの主なオプション><code>mv</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#ln-ディレクトリやファイルのリンクを作成><code>ln</code> ディレクトリやファイルのリンクを作成</a>
+<li><a href=#ln-ディレクトリやファイルのリンクを作成><code>ln</code>: ディレクトリやファイルのリンクを作成</a>
 <ul>
 <li><a href=#ハードリンクとシンボリックリンク>ハードリンクとシンボリックリンク</a></li>
 <li><a href=#ディレクトリのシンボリックリンクを作成>ディレクトリのシンボリックリンクを作成</a></li>
@@ -250,19 +222,7 @@ Menu
 <li><a href=#ln-コマンドの主なオプション><code>ln</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#mkdir-ディレクトリの作成><code>mkdir</code> ディレクトリの作成</a>
-<ul>
-<li><a href=#多階層のディレクトリを作成>多階層のディレクトリを作成</a></li>
-<li><a href=#作成したディレクトリに作業場所を移動>作成したディレクトリに作業場所を移動</a></li>
-</ul>
-</li>
-<li><a href=#ファイルの作成>ファイルの作成</a>
-<ul>
-<li><a href=#空ファイルを作成>空ファイルを作成</a></li>
-<li><a href=#ファイルのタイムスタンプを変更>ファイルのタイムスタンプを変更</a></li>
-</ul>
-</li>
-<li><a href=#cat-ファイル内容の表示><code>cat</code> ファイル内容の表示</a>
+<li><a href=#cat-ファイル内容を表示><code>cat</code>: ファイル内容を表示</a>
 <ul>
 <li><a href=#cat-コマンドとは><code>cat</code> コマンドとは</a></li>
 <li><a href=#ファイルの内容を行番号付きで表示>ファイルの内容を行番号付きで表示</a></li>
@@ -270,28 +230,65 @@ Menu
 <li><a href=#cat-コマンドの主なオプション><code>cat</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#less-ファイル内容の表示><code>less</code> ファイル内容の表示</a>
+<li><a href=#less-ファイル内容を表示><code>less</code>: ファイル内容を表示</a>
 <ul>
 <li><a href=#ファイル内容を1画面に表示編集なし>ファイル内容を1画面に表示(編集なし)</a></li>
 <li><a href=#ファイル内容表示時のショートカット>ファイル内容表示時のショートカット</a></li>
 </ul>
 </li>
-<li><a href=#ファイル内容の編集>ファイル内容の編集</a>
+<li><a href=#vim-ファイル内容を編集><code>vim</code>: ファイル内容を編集</a>
 <ul>
 <li><a href=#入力モードへの切り替え>入力モードへの切り替え</a></li>
 <li><a href=#入力モードからコマンドモードへの切り替え>入力モードからコマンドモードへの切り替え</a></li>
 <li><a href=#コマンドモードの操作>コマンドモードの操作</a></li>
 </ul>
 </li>
-<li><a href=#ファイル内容の行数並べ替え重複>ファイル内容の行数・並べ替え・重複</a>
+<li><a href=#vimfindsed-文字の置換><code>vim</code>/<code>find</code>/<code>sed</code>: 文字の置換</a>
 <ul>
-<li><a href=#ファイルの行数>ファイルの行数</a></li>
-<li><a href=#ファイル内容の並べ替え>ファイル内容の並べ替え</a></li>
-<li><a href=#ファイル内容の重複>ファイル内容の重複</a></li>
-<li><a href=#ファイル内容の正規表現での確認>ファイル内容の正規表現での確認</a></li>
+<li><a href=#ファイル内で置換>ファイル内で置換</a></li>
+<li><a href=#再帰的に走査し対象ファイル内で一括置換>再帰的に走査し対象ファイル内で一括置換</a></li>
 </ul>
 </li>
-<li><a href=#圧縮解凍暗号解除>圧縮・解凍・暗号解除</a>
+<li><a href=#vim-文字コードを操作><code>vim</code>: 文字コードを操作</a>
+<ul>
+<li><a href=#文字コードの値>文字コードの値</a></li>
+<li><a href=#文字コードを設定>文字コードを設定</a></li>
+<li><a href=#vim-内部で使用される文字コードを表示>vim 内部で使用される文字コードを表示</a></li>
+<li><a href=#ファイルの文字コードを表示>ファイルの文字コードを表示</a></li>
+<li><a href=#ファイルの文字コードの自動判別設定を表示>ファイルの文字コードの自動判別設定を表示</a></li>
+<li><a href=#指定の文字コードでファイルを開き直し>指定の文字コードでファイルを開き直し</a></li>
+<li><a href=#ファイルの文字コードを変換>ファイルの文字コードを変換</a></li>
+<li><a href=#ファイルの文字コードを変換し保存>ファイルの文字コードを変換し保存</a></li>
+</ul>
+</li>
+<li><a href=#vim-改行コードを操作><code>vim</code>: 改行コードを操作</a>
+<ul>
+<li><a href=#改行コードの設定>改行コードの設定</a></li>
+<li><a href=#改行コードの値>改行コードの値</a></li>
+<li><a href=#改行コードを指定>改行コードを指定</a></li>
+<li><a href=#改行コードを指定し保存>改行コードを指定し保存</a></li>
+</ul>
+</li>
+<li><a href=#wcgrep-ファイルの行数単語数を表示><code>wc</code>/<code>grep</code>: ファイルの行数・単語数を表示</a>
+<ul>
+<li><a href=#ファイルの行数>ファイルの行数</a></li>
+<li><a href=#正規表現と一致する行数を表示>正規表現と一致する行数を表示</a></li>
+</ul>
+</li>
+<li><a href=#uniq-ファイル内容の重複を確認><code>uniq</code>: ファイル内容の重複を確認</a>
+<ul>
+<li><a href=#重複行は1行目のみを表示>重複行は1行目のみを表示</a></li>
+<li><a href=#重複する行のみ出力>重複する行のみ出力</a></li>
+</ul>
+</li>
+<li><a href=#sort-並べ替え><code>sort</code>: 並べ替え</a>
+<ul>
+<li><a href=#sort-コマンドの主なオプション><code>sort</code> コマンドの主なオプション</a></li>
+<li><a href=#指定した列で並べ替え>指定した列で並べ替え</a></li>
+<li><a href=#ファイル内容の並べ替え>ファイル内容の並べ替え</a></li>
+</ul>
+</li>
+<li><a href=#ziptar-圧縮解凍暗号解除><code>zip</code>/<code>tar</code>: 圧縮・解凍・暗号解除</a>
 <ul>
 <li><a href=#zip-コマンドでの圧縮><code>zip</code> コマンドでの圧縮</a></li>
 <li><a href=#zip-コマンドでの展開><code>zip</code> コマンドでの展開</a></li>
@@ -303,22 +300,22 @@ Menu
 <li><a href=#tar-コマンドの共通のオプション><code>tar</code> コマンドの共通のオプション</a></li>
 </ul>
 </li>
-<li><a href=#csv>CSV</a>
+<li><a href=#date-日付時刻を表示><code>date</code>: 日付・時刻を表示</a>
 <ul>
-<li><a href=#csvファイルの各行のカラム数が指定した数以下の例では-10と一致しない行数を確認>CSVファイルの各行のカラム数が指定した数(以下の例では 10)と一致しない行数を確認</a></li>
-<li><a href=#csvファイルの特定のカラム以下の例では10カラム目のみを抽出>CSVファイルの特定のカラム(以下の例では10カラム目)のみを抽出</a></li>
+<li><a href=#date-コマンドの主なオプション><code>date</code> コマンドの主なオプション</a></li>
+<li><a href=#タイムゾーンを表示>タイムゾーンを表示</a></li>
 </ul>
 </li>
-<li><a href=#システム情報バージョン>システム情報/バージョン</a>
+<li><a href=#df-ディスク容量を表示><code>df</code>: ディスク容量を表示</a>
 <ul>
-<li><a href=#システム情報を確認>システム情報を確認</a></li>
-<li><a href=#カーネルのバージョン情報を確認>カーネルのバージョン情報を確認</a></li>
-<li><a href=#osのバージョン情報を確認>OSのバージョン情報を確認</a></li>
-<li><a href=#osのバージョン情報を確認ディストリビューション別>OSのバージョン情報を確認(ディストリビューション別)</a></li>
-<li><a href=#osのバージョン情報確認コマンドを確認>OSのバージョン情報確認コマンドを確認</a></li>
+<li><a href=#df-コマンドとは><code>df</code> コマンドとは</a></li>
+<li><a href=#df-コマンドの主なオプション><code>df</code> コマンドの主なオプション</a></li>
+<li><a href=#ディスクの空き容量を表示>ディスクの空き容量を表示</a></li>
+<li><a href=#ディスクの空き容量を表示場所を指定して集計>ディスクの空き容量を表示(場所を指定して集計)</a></li>
+<li><a href=#ディスクの空き容量を読みやすいサイズ表記で表示>ディスクの空き容量を読みやすいサイズ表記で表示</a></li>
 </ul>
 </li>
-<li><a href=#ディスク使用量を確認>ディスク使用量を確認</a>
+<li><a href=#du-ディスク使用量を表示><code>du</code>: ディスク使用量を表示</a>
 <ul>
 <li><a href=#du-コマンドとは><code>du</code> コマンドとは</a></li>
 <li><a href=#du-コマンドの主なオプション><code>du</code> コマンドの主なオプション</a></li>
@@ -327,23 +324,27 @@ Menu
 <li><a href=#集計するディレクトリの深さを指定>集計するディレクトリの深さを指定</a></li>
 </ul>
 </li>
-<li><a href=#並べ替え>並べ替え</a>
-<ul>
-<li><a href=#sort-コマンドとは><code>sort</code> コマンドとは</a></li>
-<li><a href=#sort-コマンドの主なオプション><code>sort</code> コマンドの主なオプション</a></li>
-<li><a href=#指定した列で並べ替え>指定した列で並べ替え</a></li>
-</ul>
-</li>
-<li><a href=#環境>環境</a>
+<li><a href=#envlocale-環境変数を表示><code>env</code>/<code>locale</code>: 環境変数を表示</a>
 <ul>
 <li><a href=#env-コマンドとは><code>env</code> コマンドとは</a></li>
 <li><a href=#env-コマンドの主なオプション><code>env</code> コマンドの主なオプション</a></li>
-<li><a href=#指定可能なロケールを確認>指定可能なロケールを確認</a></li>
+<li><a href=#指定可能なロケールを表示>指定可能なロケールを表示</a></li>
+</ul>
+</li>
+<li><a href=#システム情報バージョンを表示>システム情報/バージョンを表示</a>
+<ul>
+<li><a href=#システム情報を表示>システム情報を表示</a></li>
+<li><a href=#カーネルのバージョン情報を表示>カーネルのバージョン情報を表示</a></li>
+<li><a href=#osのバージョン情報を表示>OSのバージョン情報を表示</a></li>
+<li><a href=#osのバージョン情報を表示ディストリビューション別>OSのバージョン情報を表示(ディストリビューション別)</a></li>
+<li><a href=#osのバージョン情報確認コマンドを表示>OSのバージョン情報確認コマンドを表示</a></li>
 </ul>
 </li>
 <li><a href=#その他-1>その他</a>
 <ul>
-<li><a href=#ログイン中のユーザー>ログイン中のユーザー</a></li>
+<li><a href=#ログイン中のユーザーを表示>ログイン中のユーザーを表示</a></li>
+<li><a href=#csvの全行のカラム数の一致を確認>CSVの全行のカラム数の一致を確認</a></li>
+<li><a href=#csvの特定のカラムのみを抽出>CSVの特定のカラムのみを抽出</a></li>
 </ul>
 </li>
 <li><a href=#references>References</a></li>
@@ -366,98 +367,9 @@ Menu
 Linux Command
 <a class=anchor href=#linux-command>#</a>
 </h1>
-<h2 id=便利なコマンド>
-便利なコマンド
-<a class=anchor href=#%e4%be%bf%e5%88%a9%e3%81%aa%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89>#</a>
-</h2>
-<h3 id=文字列の置換>
-文字列の置換
-<a class=anchor href=#%e6%96%87%e5%ad%97%e5%88%97%e3%81%ae%e7%bd%ae%e6%8f%9b>#</a>
-</h3>
-<p>ディレクトリ配下を再帰的に走査しファイルの文字列を置換<br>
-e.g. 拡張子が <code>.txt</code> のファイル内の文字列 Before を After に置換</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>LC_ALL<span style=color:#f92672>=</span>C find . -type f -name <span style=color:#e6db74>&#39;*.txt&#39;</span> -exec sed -i <span style=color:#e6db74>&#39;&#39;</span> s/Before/After/g <span style=color:#f92672>{}</span> +
-</code></pre></div><h2 id=コマンド入力履歴>
-コマンド入力履歴
-<a class=anchor href=#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4>#</a>
-</h2>
-<h3 id=history-コマンドの主なオプション>
-<code>history</code> コマンドの主なオプション
-<a class=anchor href=#history-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
-</h3>
-<table>
-<thead>
-<tr>
-<th>option</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>整数値</code></td>
-<td>履歴の末尾から指定した行数分を表示</td>
-</tr>
-<tr>
-<td><code>-c</code></td>
-<td>履歴一覧から全ての項目を削除</td>
-</tr>
-<tr>
-<td><code>-d 番号</code></td>
-<td>指定した番号の履歴項目を削除</td>
-</tr>
-<tr>
-<td><code>-a</code></td>
-<td>履歴ファイルに現在のセッションの履歴を追加</td>
-</tr>
-<tr>
-<td><code>-n</code></td>
-<td>履歴ファイルからまだ読み込まれていない行を全て読み込み</td>
-</tr>
-<tr>
-<td><code>-r</code></td>
-<td>履歴ファイルを読み込み、内容を履歴一覧に追加</td>
-</tr>
-<tr>
-<td><code>-w</code></td>
-<td>現在の履歴を履歴ファイルに上書き</td>
-</tr>
-</tbody>
-</table>
-<h3 id=コマンド入力履歴を表示>
-コマンド入力履歴を表示
-<a class=anchor href=#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
-</h3>
-<p>履歴を末尾から10件分表示</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history <span style=color:#ae81ff>10</span>
-</code></pre></div><p>コマンドライン上で <code>!番号</code> と入力することで指定したコマンドを実行<br>
-e.g. 履歴の末尾から5件目のコマンドを実行する場合</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>!5
-</code></pre></div><p>履歴の件数が多い場合 <code>head</code> コマンドで冒頭のみ表示</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history | head
-</code></pre></div><h3 id=コマンド入力履歴を削除>
-コマンド入力履歴を削除
-<a class=anchor href=#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e5%89%8a%e9%99%a4>#</a>
-</h3>
-<p>指定した番号の履歴を削除<br>
-e.g. 5番の履歴を削除</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history -d <span style=color:#ae81ff>5</span>
-</code></pre></div><p>全ての履歴を削除</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history -c
-</code></pre></div><h3 id=現在のコマンド入力履歴を履歴ファイルに上書き>
-現在のコマンド入力履歴を履歴ファイルに上書き
-<a class=anchor href=#%e7%8f%be%e5%9c%a8%e3%81%ae%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e5%b1%a5%e6%ad%b4%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ab%e4%b8%8a%e6%9b%b8%e3%81%8d>#</a>
-</h3>
-<p>e.g. 現在の履歴を <code>sample.txt</code> に上書き</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history -w sample.txt
-</code></pre></div><h3 id=履歴ファイルを読み込み>
-履歴ファイルを読み込み
-<a class=anchor href=#%e5%b1%a5%e6%ad%b4%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e8%aa%ad%e3%81%bf%e8%be%bc%e3%81%bf>#</a>
-</h3>
-<p>e.g. <code>sample.txt</code> の内容を履歴として読み込み</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history -r sample.txt
-</code></pre></div><h2 id=画面操作>
-画面操作
-<a class=anchor href=#%e7%94%bb%e9%9d%a2%e6%93%8d%e4%bd%9c>#</a>
+<h2 id=画面の操作>
+画面の操作
+<a class=anchor href=#%e7%94%bb%e9%9d%a2%e3%81%ae%e6%93%8d%e4%bd%9c>#</a>
 </h2>
 <h3 id=ターミナル操作のショートカット>
 ターミナル操作のショートカット
@@ -559,426 +471,87 @@ e.g. 5番の履歴を削除</p>
 </tr>
 </tbody>
 </table>
-<h2 id=文字コード>
-文字コード
-<a class=anchor href=#%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89>#</a>
+<h2 id=history-コマンド入力履歴を操作>
+<code>history</code>: コマンド入力履歴を操作
+<a class=anchor href=#history-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e6%93%8d%e4%bd%9c>#</a>
 </h2>
-<h3 id=文字コードの値>
-文字コードの値
-<a class=anchor href=#%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%81%ae%e5%80%a4>#</a>
+<h3 id=history-コマンドの主なオプション>
+<code>history</code> コマンドの主なオプション
+<a class=anchor href=#history-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
 <tr>
-<th>文字コード</th>
-<th>コマンドで指定する値</th>
-<th>remarks</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Shift_JIS</td>
-<td><code>cp932</code> or <code>sjis</code></td>
-<td><code>cp932</code> には <code>sjis</code> に含まれていない文字（①, ②, Ⅰ, Ⅱ, ㍉, ㌍, 彅, 髙 etc.）を含む。</td>
-</tr>
-<tr>
-<td>EUC-JP</td>
-<td><code>euc-jp</code></td>
-<td>-</td>
-</tr>
-<tr>
-<td>UTF-8</td>
-<td><code>utf-8</code></td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<h3 id=文字コードを設定>
-文字コードを設定
-<a class=anchor href=#%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e8%a8%ad%e5%ae%9a>#</a>
-</h3>
-<p><code>.vimrc</code>
-以下を記述し <code>:wq</code> で保存。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set encoding<span style=color:#f92672>=</span>utf-8
-:set fileencodings<span style=color:#f92672>=</span>utf-8,cp932,sjis,euc-jp
-</code></pre></div><table>
-<thead>
-<tr>
-<th>long</th>
-<th>short</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>encoding</code></td>
-<td><code>enc</code></td>
-<td><code>vim</code> の内部で使用されるエンコーディングを指定。</td>
-</tr>
-<tr>
-<td><code>fileencoding</code></td>
-<td><code>fenc</code></td>
-<td>編集時のバッファファイルのエンコーディングを指定。encodingと異なる値が設定されていた場合、ファイルの読み書き時に文字コードを変換。fenc が空の場合、変換なし。</td>
-</tr>
-<tr>
-<td><code>fileencodings</code></td>
-<td><code>fencs</code></td>
-<td>既存ファイル編集時の変換予定の文字コードを指定。カンマ区切りで複数記述可。</td>
-</tr>
-</tbody>
-</table>
-<h3 id=vim-内部で使用される文字コードを確認shell>
-vim 内部で使用される文字コードを確認shell
-<a class=anchor href=#vim-%e5%86%85%e9%83%a8%e3%81%a7%e4%bd%bf%e7%94%a8%e3%81%95%e3%82%8c%e3%82%8b%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e7%a2%ba%e8%aa%8dshell>#</a>
-</h3>
-<p>:set encoding?</p>
-<pre tabindex=0><code>or
-```shell
-:se enc?
-</code></pre><h3 id=ファイルの文字コードを確認>
-ファイルの文字コードを確認
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fileencoding?
-</code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:se fenc?
-</code></pre></div><h3 id=ファイルの文字コードの自動判別設定を確認>
-ファイルの文字コードの自動判別設定を確認
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%81%ae%e8%87%aa%e5%8b%95%e5%88%a4%e5%88%a5%e8%a8%ad%e5%ae%9a%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fileencodings?
-</code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:se fencs?
-</code></pre></div><h3 id=指定の文字コードでファイルを開き直し>
-指定の文字コードでファイルを開き直し
-<a class=anchor href=#%e6%8c%87%e5%ae%9a%e3%81%ae%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%81%a7%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e9%96%8b%e3%81%8d%e7%9b%b4%e3%81%97>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:edit ++encoding<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
-</code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:e ++enc<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
-</code></pre></div><h3 id=ファイルの文字コードを変換>
-ファイルの文字コードを変換
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e5%a4%89%e6%8f%9b>#</a>
-</h3>
-<p>以下を実行後に <code>:w</code> で保存すること。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fileencoding<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
-</code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fenc<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
-</code></pre></div><h3 id=ファイルの文字コードを変換し保存>
-ファイルの文字コードを変換し保存
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e5%a4%89%e6%8f%9b%e3%81%97%e4%bf%9d%e5%ad%98>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:setlocal fileencoding<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
-</code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:setl fenc<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
-</code></pre></div><h2 id=改行コード>
-改行コード
-<a class=anchor href=#%e6%94%b9%e8%a1%8c%e3%82%b3%e3%83%bc%e3%83%89>#</a>
-</h2>
-<h3 id=改行コードの設定>
-改行コードの設定
-<a class=anchor href=#%e6%94%b9%e8%a1%8c%e3%82%b3%e3%83%bc%e3%83%89%e3%81%ae%e8%a8%ad%e5%ae%9a>#</a>
-</h3>
-<p><code>.vimrc</code>
-以下を記述し <code>:wq</code> で保存。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fileformats<span style=color:#f92672>=</span>unix,dos,mac
-</code></pre></div><h3 id=改行コードの値>
-改行コードの値
-<a class=anchor href=#%e6%94%b9%e8%a1%8c%e3%82%b3%e3%83%bc%e3%83%89%e3%81%ae%e5%80%a4>#</a>
-</h3>
-<table>
-<thead>
-<tr>
-<th>改行コード</th>
-<th>コマンドで指定する値</th>
-<th>remarks</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LF(Line Feed) <code>\n</code></td>
-<td><code>unix</code></td>
-<td>Unix, Linux, Mac(OS10以降), Android</td>
-</tr>
-<tr>
-<td>CR(Carriage Return) <code>\r</code></td>
-<td><code>mac</code></td>
-<td>古いMac(OS9以前)</td>
-</tr>
-<tr>
-<td>CRLF(Carriage Return/Line Feed) <code>\r\n</code></td>
-<td><code>dos</code></td>
-<td>Windows</td>
-</tr>
-</tbody>
-</table>
-<h3 id=改行コードを指定>
-改行コードを指定
-<a class=anchor href=#%e6%94%b9%e8%a1%8c%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
-</h3>
-<p>以下を実行後に <code>:w</code> で保存すること。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fileformat<span style=color:#f92672>=</span>コマンドで指定する改行コードの値
-</code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:se ff<span style=color:#f92672>=</span>コマンドで指定する改行コードの値
-</code></pre></div><h3 id=改行コードを指定し保存>
-改行コードを指定し保存
-<a class=anchor href=#%e6%94%b9%e8%a1%8c%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e6%8c%87%e5%ae%9a%e3%81%97%e4%bf%9d%e5%ad%98>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:setlocal fileformat<span style=color:#f92672>=</span>コマンドで指定する改行コードの値
-</code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:setl ff<span style=color:#f92672>=</span>コマンドで指定する改行コードの値
-</code></pre></div><h2 id=ディスク容量>
-ディスク容量
-<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e5%ae%b9%e9%87%8f>#</a>
-</h2>
-<h3 id=df-コマンドとは>
-<code>df</code> コマンドとは
-<a class=anchor href=#df-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a8%e3%81%af>#</a>
-</h3>
-<p>ディスクの空き領域(free スペース)のサイズを集計して表示</p>
-<h3 id=df-コマンドの主なオプション>
-<code>df</code> コマンドの主なオプション
-<a class=anchor href=#df-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
-</h3>
-<table>
-<thead>
-<tr>
-<th>option</th>
 <th>option</th>
 <th>description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>-h</code></td>
-<td><code>--human-readable</code></td>
-<td>サイズに応じて人間が読みやすい単位に変換して表示</td>
+<td><code>整数値</code></td>
+<td>履歴の末尾から指定した行数分を表示</td>
 </tr>
 <tr>
-<td><code>-H</code></td>
-<td><code>--si</code></td>
-<td>イズに応じて人間が読みやすい単位に変換して表示、ただし 1024単位ではなく 1000単位の値を使用</td>
+<td><code>-c</code></td>
+<td>履歴一覧から全ての項目を削除</td>
 </tr>
 <tr>
-<td><code>-Bサイズ</code></td>
-<td><code>--block-size=サイズ</code></td>
-<td>指定したサイズの倍数で表示、サイズは数値または単位で指定</td>
-</tr>
-<tr>
-<td><code>-k</code></td>
-<td></td>
-<td>`&ndash;block-size=1K``` と同じ</td>
-</tr>
-<tr>
-<td><code>-m</code></td>
-<td></td>
-<td>`&ndash;block-size=1M``` と同じ</td>
-</tr>
-<tr>
-<td><code>-P</code></td>
-<td><code>--portability</code></td>
-<td>POSIX出力形式（サイズではなくブロックで表示）</td>
-</tr>
-<tr>
-<td><code>-i</code></td>
-<td><code>--inodes</code></td>
-<td>ブロック使用量の代わりにiノード情報を表示</td>
-</tr>
-<tr>
-<td><code>-T</code></td>
-<td><code>--print-type</code></td>
-<td>各ファイルシステムの種類を合わせて表示</td>
-</tr>
-<tr>
-<td><code>-t種類</code></td>
-<td><code>--type=種類</code></td>
-<td>対象とするフォーマットの種類を指定(e.g.「-txfs」でXFSフォーマットの場所のみ表示)</td>
-</tr>
-<tr>
-<td><code>-x種類</code></td>
-<td><code>--exclude-type=種類</code></td>
-<td>対象としないフォーマットの種類を指定</td>
+<td><code>-d 番号</code></td>
+<td>指定した番号の履歴項目を削除</td>
 </tr>
 <tr>
 <td><code>-a</code></td>
-<td><code>--all</code></td>
-<td>ダミーファイルシステムを含めて表示</td>
+<td>履歴ファイルに現在のセッションの履歴を追加</td>
 </tr>
 <tr>
-<td><code>-l</code></td>
-<td><code>--local</code></td>
-<td>ローカルファイルシステムのみを表示</td>
+<td><code>-n</code></td>
+<td>履歴ファイルからまだ読み込まれていない行を全て読み込み</td>
 </tr>
 <tr>
-<td></td>
-<td><code>--total</code></td>
-<td>全体の合計も表示</td>
+<td><code>-r</code></td>
+<td>履歴ファイルを読み込み、内容を履歴一覧に追加</td>
 </tr>
 <tr>
-<td></td>
-<td><code>--sync</code></td>
-<td>使用量の情報を得る前にsyncを実行</td>
-</tr>
-<tr>
-<td></td>
-<td><code>--no-sync</code></td>
-<td>使用量の情報を得る前にsyncの実行なし（デフォルト）</td>
+<td><code>-w</code></td>
+<td>現在の履歴を履歴ファイルに上書き</td>
 </tr>
 </tbody>
 </table>
-<h3 id=ディスクの空き容量を表示>
-ディスクの空き容量を表示
-<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%81%ae%e7%a9%ba%e3%81%8d%e5%ae%b9%e9%87%8f%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+<h3 id=コマンド入力履歴を表示>
+コマンド入力履歴を表示
+<a class=anchor href=#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df
-</code></pre></div><p>メガ(1024×1024バイト)単位で表示</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -BM
-</code></pre></div><p>メガ(1000×1000バイト)単位で表示</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -BMB
-</code></pre></div><p>フォーマットの種類も合わせて表示</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -T
-</code></pre></div><p>XFSでフォーマットされているパーティションの空き領域と合計を表示</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -txfs --total
-</code></pre></div><h3 id=ディスクの空き容量を表示場所を指定して集計>
-ディスクの空き容量を表示(場所を指定して集計)
-<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%81%ae%e7%a9%ba%e3%81%8d%e5%ae%b9%e9%87%8f%e3%82%92%e8%a1%a8%e7%a4%ba%e5%a0%b4%e6%89%80%e3%82%92%e6%8c%87%e5%ae%9a%e3%81%97%e3%81%a6%e9%9b%86%e8%a8%88>#</a>
+<p>履歴を末尾から10件分表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history <span style=color:#ae81ff>10</span>
+</code></pre></div><p>コマンドライン上で <code>!番号</code> と入力することで指定したコマンドを実行<br>
+e.g. 履歴の末尾から5件目のコマンドを実行する場合</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>!5
+</code></pre></div><p>履歴の件数が多い場合 <code>head</code> コマンドで冒頭のみ表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history | head
+</code></pre></div><h3 id=コマンド入力履歴を削除>
+コマンド入力履歴を削除
+<a class=anchor href=#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e5%89%8a%e9%99%a4>#</a>
 </h3>
-<p>カレントディレクトリを含むパーティションの空き領域を表示</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df .
-</code></pre></div><p><code>/usr</code> を含むパーティションの空き領域を表示</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df /usr
-</code></pre></div><h3 id=ディスクの空き容量を読みやすいサイズ表記で表示>
-ディスクの空き容量を読みやすいサイズ表記で表示
-<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%81%ae%e7%a9%ba%e3%81%8d%e5%ae%b9%e9%87%8f%e3%82%92%e8%aa%ad%e3%81%bf%e3%82%84%e3%81%99%e3%81%84%e3%82%b5%e3%82%a4%e3%82%ba%e8%a1%a8%e8%a8%98%e3%81%a7%e8%a1%a8%e7%a4%ba>#</a>
+<p>指定した番号の履歴を削除<br>
+e.g. 5番の履歴を削除</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history -d <span style=color:#ae81ff>5</span>
+</code></pre></div><p>全ての履歴を削除</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history -c
+</code></pre></div><h3 id=現在のコマンド入力履歴を履歴ファイルに上書き>
+現在のコマンド入力履歴を履歴ファイルに上書き
+<a class=anchor href=#%e7%8f%be%e5%9c%a8%e3%81%ae%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%85%a5%e5%8a%9b%e5%b1%a5%e6%ad%b4%e3%82%92%e5%b1%a5%e6%ad%b4%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ab%e4%b8%8a%e6%9b%b8%e3%81%8d>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -h
-</code></pre></div><p>空き領域の合計もあわせて表示</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -h --total
-</code></pre></div><h2 id=日付時刻>
-日付・時刻
-<a class=anchor href=#%e6%97%a5%e4%bb%98%e6%99%82%e5%88%bb>#</a>
-</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>TOMORROW<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>date <span style=color:#e6db74>&#39;+%Y%m%d&#39;</span> --date <span style=color:#e6db74>&#39;1 day&#39;</span><span style=color:#e6db74>`</span>
-YESTERDAY<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>date <span style=color:#e6db74>&#39;+%Y%m%d&#39;</span> --date <span style=color:#e6db74>&#39;-1 day&#39;</span><span style=color:#e6db74>`</span>
-echo <span style=color:#e6db74>${</span>TOMORROW<span style=color:#e6db74>}</span>
-echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</span>
-</code></pre></div><h3 id=date-コマンドの主なオプション>
-<code>date</code> コマンドの主なオプション
-<a class=anchor href=#date-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+<p>e.g. 現在の履歴を <code>sample.txt</code> に上書き</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history -w sample.txt
+</code></pre></div><h3 id=履歴ファイルを読み込み>
+履歴ファイルを読み込み
+<a class=anchor href=#%e5%b1%a5%e6%ad%b4%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e8%aa%ad%e3%81%bf%e8%be%bc%e3%81%bf>#</a>
 </h3>
-<table>
-<thead>
-<tr>
-<th>format</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>%H</code></td>
-<td>時 (00～23)</td>
-</tr>
-<tr>
-<td><code>%I</code></td>
-<td>時 (01～12)</td>
-</tr>
-<tr>
-<td><code>%k</code></td>
-<td>時 ( 0～23)</td>
-</tr>
-<tr>
-<td><code>%l</code></td>
-<td>時 ( 1～12)</td>
-</tr>
-<tr>
-<td><code>%M</code></td>
-<td>分 (00～59)</td>
-</tr>
-<tr>
-<td><code>%p</code></td>
-<td>AM あるいは PM のロケール(国や地域に合わせた文字列)</td>
-</tr>
-<tr>
-<td><code>%r</code></td>
-<td>12時間形式の時刻 (HH:mm:ss [AP]M)</td>
-</tr>
-<tr>
-<td><code>%s</code></td>
-<td>1970-01-01 00:00:00 UTC からの秒数</td>
-</tr>
-<tr>
-<td><code>%S</code></td>
-<td>秒 (00～61)</td>
-</tr>
-<tr>
-<td><code>%T</code></td>
-<td>24時間形式の時刻 (HH:mm:ss)</td>
-</tr>
-<tr>
-<td><code>%a</code></td>
-<td>ロケールによる省略形の曜日の名前 (Sun～Sat)</td>
-</tr>
-<tr>
-<td><code>%A</code></td>
-<td>ロケールによる完全に表記した曜日の名前(Sunday～Saturday)</td>
-</tr>
-<tr>
-<td><code>%b</code></td>
-<td>ロケールによる省略形の月の名前 (Jan～Dec)</td>
-</tr>
-<tr>
-<td><code>%B</code></td>
-<td>ロケールによる完全に表記した月の名前(January～December)</td>
-</tr>
-<tr>
-<td><code>%c</code></td>
-<td>ロケールによる日付と時刻 (Sat Nov 04 12:02:33 EST 1989)</td>
-</tr>
-<tr>
-<td><code>%d</code></td>
-<td>日(月内通算日数) (01～31)</td>
-</tr>
-<tr>
-<td><code>%D</code></td>
-<td>日付 (MM/DD/YY)</td>
-</tr>
-<tr>
-<td><code>%j</code></td>
-<td>年内通算日数 (001～366)</td>
-</tr>
-<tr>
-<td><code>%m</code></td>
-<td>月 (01～12)</td>
-</tr>
-<tr>
-<td><code>%w</code></td>
-<td>週のうちの曜日(0～6)で0が日曜日に対応</td>
-</tr>
-<tr>
-<td><code>%x</code></td>
-<td>ロケールによる日付の表現 (MM/DD/YY)</td>
-</tr>
-<tr>
-<td><code>%y</code></td>
-<td>西暦の下2けた (00～99)</td>
-</tr>
-<tr>
-<td><code>%Y</code></td>
-<td>年 (1970～)</td>
-</tr>
-</tbody>
-</table>
-<h3 id=タイムゾーンを確認>
-タイムゾーンを確認
-<a class=anchor href=#%e3%82%bf%e3%82%a4%e3%83%a0%e3%82%be%e3%83%bc%e3%83%b3%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ date +%Z
-JST
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ date +<span style=color:#e6db74>&#34;%Z %z&#34;</span>
-JST +0900
-</code></pre></div><h2 id=検索>
-検索
-<a class=anchor href=#%e6%a4%9c%e7%b4%a2>#</a>
+<p>e.g. <code>sample.txt</code> の内容を履歴として読み込み</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ history -r sample.txt
+</code></pre></div><h2 id=grepfind-検索>
+<code>grep</code>/<code>find</code>: 検索
+<a class=anchor href=#grepfind-%e6%a4%9c%e7%b4%a2>#</a>
 </h2>
 <h3 id=grep-コマンドの使用方法>
 <code>grep</code> コマンドの使用方法
@@ -1131,9 +704,9 @@ JST +0900
 </tr>
 </tbody>
 </table>
-<h3 id=タイムスタンプでの検索>
-タイムスタンプでの検索
-<a class=anchor href=#%e3%82%bf%e3%82%a4%e3%83%a0%e3%82%b9%e3%82%bf%e3%83%b3%e3%83%97%e3%81%a7%e3%81%ae%e6%a4%9c%e7%b4%a2>#</a>
+<h3 id=タイムスタンプで検索>
+タイムスタンプで検索
+<a class=anchor href=#%e3%82%bf%e3%82%a4%e3%83%a0%e3%82%b9%e3%82%bf%e3%83%b3%e3%83%97%e3%81%a7%e6%a4%9c%e7%b4%a2>#</a>
 </h3>
 <h4 id=現在2日前48時間前>
 現在〜2日前(48時間前)
@@ -1194,9 +767,9 @@ JST +0900
 </tr>
 </tbody>
 </table>
-<h2 id=一覧表示>
-一覧表示
-<a class=anchor href=#%e4%b8%80%e8%a6%a7%e8%a1%a8%e7%a4%ba>#</a>
+<h2 id=ls-ディレクトリやファイルの一覧を表示>
+<code>ls</code>: ディレクトリやファイルの一覧を表示
+<a class=anchor href=#ls-%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%84%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e4%b8%80%e8%a6%a7%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h2>
 <h3 id=タイムスタンプ降順で一覧表示隠しファイル含む>
 タイムスタンプ降順で一覧表示(隠しファイル含む)
@@ -1242,32 +815,44 @@ JST +0900
 </tr>
 </tbody>
 </table>
-<h2 id=移動名称変更>
-移動・名称変更
-<a class=anchor href=#%e7%a7%bb%e5%8b%95%e5%90%8d%e7%a7%b0%e5%a4%89%e6%9b%b4>#</a>
+<h2 id=tree-ディレクトリやファイルの構成を表示>
+<code>tree</code>: ディレクトリやファイルの構成を表示
+<a class=anchor href=#tree-%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%84%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%a7%8b%e6%88%90%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h2>
-<p>※ 基本的にファイルもディレクトリも操作は同じ</p>
-<h3 id=1つのファイルを移動>
-1つのファイルを移動
-<a class=anchor href=#1%e3%81%a4%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e7%a7%bb%e5%8b%95>#</a>
+<h3 id=tree-コマンド-のインストール-macos>
+tree コマンド のインストール (macOS)
+<a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89-%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab-macos>#</a>
 </h3>
-<p>e.g) ファイル <code>sample.txt</code> を ディレクトリ <code>./dir/</code> に移動</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mv sample.txt ./dir/
-</code></pre></div><h3 id=複数のファイルを移動>
-複数のファイルを移動
-<a class=anchor href=#%e8%a4%87%e6%95%b0%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e7%a7%bb%e5%8b%95>#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ brew install tree
+</code></pre></div><h3 id=tree-コマンドのバージョンを表示>
+tree コマンドのバージョンを表示
+<a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
-<p>e.g) ファイル <code>sample1.txt</code> と <code>sample2.txt</code> を ディレクトリ <code>./dir/</code> に移動</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mv sample1.txt sample2.txt ./dir/
-</code></pre></div><h3 id=ファイルの名称を変更リネーム>
-ファイルの名称を変更(リネーム)
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e5%90%8d%e7%a7%b0%e3%82%92%e5%a4%89%e6%9b%b4%e3%83%aa%e3%83%8d%e3%83%bc%e3%83%a0>#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ tree --version
+</code></pre></div><h3 id=階層を指定>
+階層を指定
+<a class=anchor href=#%e9%9a%8e%e5%b1%a4%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
 </h3>
-<p>ファイル <code>before.txt</code> を <code>after.txt</code> に変更</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mv before.txt after.txt
-</code></pre></div><h3 id=mv-コマンドの主なオプション>
-<code>mv</code> コマンドの主なオプション
-<a class=anchor href=#mv-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+<p>e.g. カレントディレクトリ配下の3階層まで表示する場合</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ tree -L <span style=color:#ae81ff>3</span>
+</code></pre></div><h3 id=ファイル名のパターンを指定>
+ファイル名のパターンを指定
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%81%ae%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ tree -P <span style=color:#e6db74>&#39;*.js&#39;</span>
+</code></pre></div><h3 id=除外するファイル名のパターンを指定>
+除外するファイル名のパターンを指定
+<a class=anchor href=#%e9%99%a4%e5%a4%96%e3%81%99%e3%82%8b%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%81%ae%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ tree -I <span style=color:#e6db74>&#39;*.log&#39;</span>
+</code></pre></div><h3 id=ディレクトリのみを表示>
+ディレクトリのみを表示
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%81%bf%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ tree -d
+</code></pre></div><h3 id=tree-コマンドの主なオプション>
+<code>tree</code> コマンドの主なオプション
+<a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
@@ -1279,40 +864,127 @@ JST +0900
 </thead>
 <tbody>
 <tr>
-<td><code>-v</code></td>
-<td><code>--verbose</code></td>
-<td>実行内容を表示</td>
+<td><code>-a</code></td>
+<td></td>
+<td>ドット始まりのディレクトリを含めて表示</td>
 </tr>
 <tr>
-<td><code>-i</code></td>
-<td><code>--interactive</code></td>
-<td>移動元と移動先が同名の場合, 上書きする前に確認</td>
+<td><code>-d</code></td>
+<td></td>
+<td>ディレクトリのみ表示</td>
 </tr>
 <tr>
-<td><code>-b</code></td>
-<td><code>--backup=方法</code></td>
-<td>移動元と移動先が同名の場合, 上書きされるファイル(移動先)のバックアップを作成｜</td>
+<td><code>-l</code></td>
+<td></td>
+<td>シンボリックをたどって表示</td>
 </tr>
 <tr>
-<td><code>-S</code></td>
-<td><code>--suffix=接尾語</code></td>
-<td>バックアップ作成時の接尾語を指定</td>
+<td><code>-f</code></td>
+<td></td>
+<td>カレントディレクトリまたは指定したディレクトリからのパスをつけてファイルやディレクトリを表示</td>
 </tr>
 <tr>
-<td><code>-n</code></td>
-<td><code>--noclobber</code></td>
-<td>移動元と移動先が同名の場合, 上書きせず停止</td>
+<td><code>-L 整数</code></td>
+<td></td>
+<td>表示するディレクトリの階層(深さ), 1以上の整数を指定</td>
 </tr>
 <tr>
-<td><code>-u</code></td>
-<td><code>--update</code></td>
-<td>移動元のファイルが移動先ファイルより新しいか新規ファイルの場合のみ上書き</td>
+<td><code>-N</code></td>
+<td></td>
+<td>印字できない文字をそのまま出力(マルチバイトの文字化け防止)</td>
+</tr>
+<tr>
+<td><code>-P パターン</code></td>
+<td></td>
+<td>パターンにマッチしたファイルのみ表示</td>
+</tr>
+<tr>
+<td><code>-l パターン</code></td>
+<td></td>
+<td>パターンにマッチしないファイルのみ表示</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--prune</code></td>
+<td>表示対象ファイルが存在しないディレクトリを除外して表示</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--filelimit エントリ数</code></td>
+<td>指定した数を超えるエントリを持つディレクトリの内部は非表示(&ndash;filelimit 10 の場合, 表示内容が10イないのディレクトリの内部のみを表示)</td>
+</tr>
+<tr>
+<td><code>-o ファイル名</code></td>
+<td></td>
+<td><code>tree</code>コマンドの結果を指定ファイルに出力</td>
 </tr>
 </tbody>
 </table>
-<h2 id=削除>
-削除
-<a class=anchor href=#%e5%89%8a%e9%99%a4>#</a>
+<h2 id=touch-タイムスタンプを変更ファイルを作成>
+<code>touch</code>: タイムスタンプを変更/ファイルを作成
+<a class=anchor href=#touch-%e3%82%bf%e3%82%a4%e3%83%a0%e3%82%b9%e3%82%bf%e3%83%b3%e3%83%97%e3%82%92%e5%a4%89%e6%9b%b4%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e4%bd%9c%e6%88%90>#</a>
+</h2>
+<h3 id=ファイルのタイムスタンプを変更>
+ファイルのタイムスタンプを変更
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%82%bf%e3%82%a4%e3%83%a0%e3%82%b9%e3%82%bf%e3%83%b3%e3%83%97%e3%82%92%e5%a4%89%e6%9b%b4>#</a>
+</h3>
+<p>e.g) ファイルのタイムスタンプ(最終更新日)を「2021-01-01 01:25:30」に変更</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>touch --date<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;2021-01-01 01:25:30&#34;</span> sample.txt
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>touch -t 202101012530.30 sample.txt
+</code></pre></div><h3 id=空ファイルを作成>
+空ファイルを作成
+<a class=anchor href=#%e7%a9%ba%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e4%bd%9c%e6%88%90>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>touch sample.txt
+</code></pre></div><table>
+<thead>
+<tr>
+<th>short option</th>
+<th>long option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-t &lt;time></code></td>
+<td>-</td>
+<td>[[CC]YY]MMDDhhmm[.ss] 形式で日時を指定</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>-date=日付文字列</td>
+<td>文字列で日時を指定</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>&ndash;reference=ファイル名</td>
+<td>指定したファイルと同じ日時を指定</td>
+</tr>
+</tbody>
+</table>
+<h2 id=mkdir-ディレクトリを作成>
+<code>mkdir</code>: ディレクトリを作成
+<a class=anchor href=#mkdir-%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e4%bd%9c%e6%88%90>#</a>
+</h2>
+<h3 id=多階層のディレクトリを作成>
+多階層のディレクトリを作成
+<a class=anchor href=#%e5%a4%9a%e9%9a%8e%e5%b1%a4%e3%81%ae%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e4%bd%9c%e6%88%90>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mkdir -p /dir/subdir/<span style=color:#f92672>{</span>subsubdir-1,subsubdir-2,subsubdir-3<span style=color:#f92672>}</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>dir
+└── subdir
+    ├── subsubdir-1
+    ├── subsubdir-2
+    └── subsubdir-3
+</code></pre></div><h3 id=作成したディレクトリに作業場所を移動>
+作成したディレクトリに作業場所を移動
+<a class=anchor href=#%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9f%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ab%e4%bd%9c%e6%a5%ad%e5%a0%b4%e6%89%80%e3%82%92%e7%a7%bb%e5%8b%95>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mkdir -p /dir/subdir/subsubdir/ <span style=color:#f92672>&amp;&amp;</span> cd $_
+</code></pre></div><h2 id=rm-ディレクトリやファイルを削除>
+<code>rm</code>: ディレクトリやファイルを削除
+<a class=anchor href=#rm-%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%84%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e5%89%8a%e9%99%a4>#</a>
 </h2>
 <h3 id=1ファイルを削除>
 1ファイルを削除
@@ -1379,9 +1051,9 @@ JST +0900
 </tr>
 </tbody>
 </table>
-<h2 id=空ディレクトリを削除>
-空ディレクトリを削除
-<a class=anchor href=#%e7%a9%ba%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e5%89%8a%e9%99%a4>#</a>
+<h2 id=rmdir-空ディレクトリを削除>
+<code>rmdir</code>: 空ディレクトリを削除
+<a class=anchor href=#rmdir-%e7%a9%ba%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e5%89%8a%e9%99%a4>#</a>
 </h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ rmdir dir
 </code></pre></div><p>多階層の空ディレクトリを削除</p>
@@ -1416,9 +1088,9 @@ JST +0900
 </tr>
 </tbody>
 </table>
-<h2 id=コピー>
-コピー
-<a class=anchor href=#%e3%82%b3%e3%83%94%e3%83%bc>#</a>
+<h2 id=cp-コピー>
+<code>cp</code>: コピー
+<a class=anchor href=#cp-%e3%82%b3%e3%83%94%e3%83%bc>#</a>
 </h2>
 <p>※ 基本的にファイルもディレクトリも操作は同じ</p>
 <h3 id=ファイルをコピー>
@@ -1538,44 +1210,32 @@ JST +0900
 </tr>
 </tbody>
 </table>
-<h2 id=ディレクトリとファイルの構成を表示>
-ディレクトリとファイルの構成を表示
-<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%a8%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%a7%8b%e6%88%90%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+<h2 id=mv-移動または名称を変更>
+<code>mv</code>: 移動または名称を変更
+<a class=anchor href=#mv-%e7%a7%bb%e5%8b%95%e3%81%be%e3%81%9f%e3%81%af%e5%90%8d%e7%a7%b0%e3%82%92%e5%a4%89%e6%9b%b4>#</a>
 </h2>
-<h3 id=tree-コマンド-のインストール-macos>
-tree コマンド のインストール (macOS)
-<a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89-%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab-macos>#</a>
+<p>※ 基本的にファイルもディレクトリも操作は同じ</p>
+<h3 id=1つのファイルを移動>
+1つのファイルを移動
+<a class=anchor href=#1%e3%81%a4%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e7%a7%bb%e5%8b%95>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ brew install tree
-</code></pre></div><h3 id=tree-コマンドのバージョンを確認>
-tree コマンドのバージョンを確認
-<a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+<p>e.g) ファイル <code>sample.txt</code> を ディレクトリ <code>./dir/</code> に移動</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mv sample.txt ./dir/
+</code></pre></div><h3 id=複数のファイルを移動>
+複数のファイルを移動
+<a class=anchor href=#%e8%a4%87%e6%95%b0%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e7%a7%bb%e5%8b%95>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ tree --version
-</code></pre></div><h3 id=階層を指定>
-階層を指定
-<a class=anchor href=#%e9%9a%8e%e5%b1%a4%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
+<p>e.g) ファイル <code>sample1.txt</code> と <code>sample2.txt</code> を ディレクトリ <code>./dir/</code> に移動</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mv sample1.txt sample2.txt ./dir/
+</code></pre></div><h3 id=ファイルの名称を変更リネーム>
+ファイルの名称を変更(リネーム)
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e5%90%8d%e7%a7%b0%e3%82%92%e5%a4%89%e6%9b%b4%e3%83%aa%e3%83%8d%e3%83%bc%e3%83%a0>#</a>
 </h3>
-<p>e.g. カレントディレクトリ配下の3階層まで表示する場合</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ tree -L <span style=color:#ae81ff>3</span>
-</code></pre></div><h3 id=ファイル名のパターンを指定>
-ファイル名のパターンを指定
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%81%ae%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ tree -P <span style=color:#e6db74>&#39;*.js&#39;</span>
-</code></pre></div><h3 id=除外するファイル名のパターンを指定>
-除外するファイル名のパターンを指定
-<a class=anchor href=#%e9%99%a4%e5%a4%96%e3%81%99%e3%82%8b%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%81%ae%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ tree -I <span style=color:#e6db74>&#39;*.log&#39;</span>
-</code></pre></div><h3 id=ディレクトリのみを表示>
-ディレクトリのみを表示
-<a class=anchor href=#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e3%81%bf%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ tree -d
-</code></pre></div><h3 id=tree-コマンドの主なオプション>
-<code>tree</code> コマンドの主なオプション
-<a class=anchor href=#tree-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+<p>ファイル <code>before.txt</code> を <code>after.txt</code> に変更</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mv before.txt after.txt
+</code></pre></div><h3 id=mv-コマンドの主なオプション>
+<code>mv</code> コマンドの主なオプション
+<a class=anchor href=#mv-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
 <table>
 <thead>
@@ -1587,64 +1247,39 @@ tree コマンドのバージョンを確認
 </thead>
 <tbody>
 <tr>
-<td><code>-a</code></td>
-<td></td>
-<td>ドット始まりのディレクトリを含めて表示</td>
+<td><code>-v</code></td>
+<td><code>--verbose</code></td>
+<td>実行内容を表示</td>
 </tr>
 <tr>
-<td><code>-d</code></td>
-<td></td>
-<td>ディレクトリのみ表示</td>
+<td><code>-i</code></td>
+<td><code>--interactive</code></td>
+<td>移動元と移動先が同名の場合, 上書きする前に確認</td>
 </tr>
 <tr>
-<td><code>-l</code></td>
-<td></td>
-<td>シンボリックをたどって表示</td>
+<td><code>-b</code></td>
+<td><code>--backup=方法</code></td>
+<td>移動元と移動先が同名の場合, 上書きされるファイル(移動先)のバックアップを作成｜</td>
 </tr>
 <tr>
-<td><code>-f</code></td>
-<td></td>
-<td>カレントディレクトリまたは指定したディレクトリからのパスをつけてファイルやディレクトリを表示</td>
+<td><code>-S</code></td>
+<td><code>--suffix=接尾語</code></td>
+<td>バックアップ作成時の接尾語を指定</td>
 </tr>
 <tr>
-<td><code>-L 整数</code></td>
-<td></td>
-<td>表示するディレクトリの階層(深さ), 1以上の整数を指定</td>
+<td><code>-n</code></td>
+<td><code>--noclobber</code></td>
+<td>移動元と移動先が同名の場合, 上書きせず停止</td>
 </tr>
 <tr>
-<td><code>-N</code></td>
-<td></td>
-<td>印字できない文字をそのまま出力(マルチバイトの文字化け防止)</td>
-</tr>
-<tr>
-<td><code>-P パターン</code></td>
-<td></td>
-<td>パターンにマッチしたファイルのみ表示</td>
-</tr>
-<tr>
-<td><code>-l パターン</code></td>
-<td></td>
-<td>パターンにマッチしないファイルのみ表示</td>
-</tr>
-<tr>
-<td></td>
-<td><code>--prune</code></td>
-<td>表示対象ファイルが存在しないディレクトリを除外して表示</td>
-</tr>
-<tr>
-<td></td>
-<td><code>--filelimit エントリ数</code></td>
-<td>指定した数を超えるエントリを持つディレクトリの内部は非表示(&ndash;filelimit 10 の場合, 表示内容が10イないのディレクトリの内部のみを表示)</td>
-</tr>
-<tr>
-<td><code>-o ファイル名</code></td>
-<td></td>
-<td><code>tree</code>コマンドの結果を指定ファイルに出力</td>
+<td><code>-u</code></td>
+<td><code>--update</code></td>
+<td>移動元のファイルが移動先ファイルより新しいか新規ファイルの場合のみ上書き</td>
 </tr>
 </tbody>
 </table>
 <h2 id=ln-ディレクトリやファイルのリンクを作成>
-<code>ln</code> ディレクトリやファイルのリンクを作成
+<code>ln</code>: ディレクトリやファイルのリンクを作成
 <a class=anchor href=#ln-%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%84%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%b3%e3%82%af%e3%82%92%e4%bd%9c%e6%88%90>#</a>
 </h2>
 <h3 id=ハードリンクとシンボリックリンク>
@@ -1760,71 +1395,9 @@ tree コマンドのバージョンを確認
 </tr>
 </tbody>
 </table>
-<h2 id=mkdir-ディレクトリの作成>
-<code>mkdir</code> ディレクトリの作成
-<a class=anchor href=#mkdir-%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e4%bd%9c%e6%88%90>#</a>
-</h2>
-<h3 id=多階層のディレクトリを作成>
-多階層のディレクトリを作成
-<a class=anchor href=#%e5%a4%9a%e9%9a%8e%e5%b1%a4%e3%81%ae%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%82%92%e4%bd%9c%e6%88%90>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mkdir -p /dir/subdir/<span style=color:#f92672>{</span>subsubdir-1,subsubdir-2,subsubdir-3<span style=color:#f92672>}</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>dir
-└── subdir
-    ├── subsubdir-1
-    ├── subsubdir-2
-    └── subsubdir-3
-</code></pre></div><h3 id=作成したディレクトリに作業場所を移動>
-作成したディレクトリに作業場所を移動
-<a class=anchor href=#%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9f%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ab%e4%bd%9c%e6%a5%ad%e5%a0%b4%e6%89%80%e3%82%92%e7%a7%bb%e5%8b%95>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mkdir -p /dir/subdir/subsubdir/ <span style=color:#f92672>&amp;&amp;</span> cd $_
-</code></pre></div><h2 id=ファイルの作成>
-ファイルの作成
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e4%bd%9c%e6%88%90>#</a>
-</h2>
-<h3 id=空ファイルを作成>
-空ファイルを作成
-<a class=anchor href=#%e7%a9%ba%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e4%bd%9c%e6%88%90>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>touch sample.txt
-</code></pre></div><h3 id=ファイルのタイムスタンプを変更>
-ファイルのタイムスタンプを変更
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%82%bf%e3%82%a4%e3%83%a0%e3%82%b9%e3%82%bf%e3%83%b3%e3%83%97%e3%82%92%e5%a4%89%e6%9b%b4>#</a>
-</h3>
-<p>e.g) ファイルのタイムスタンプ(最終更新日)を「2021-01-01 01:25:30」に変更</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>touch --date<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;2021-01-01 01:25:30&#34;</span> sample.txt
-</code></pre></div><p>or</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>touch -t 202101012530.30 sample.txt
-</code></pre></div><table>
-<thead>
-<tr>
-<th>short option</th>
-<th>long option</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-t &lt;time></code></td>
-<td>-</td>
-<td>[[CC]YY]MMDDhhmm[.ss] 形式で日時を指定</td>
-</tr>
-<tr>
-<td><code>-d</code></td>
-<td>-date=日付文字列</td>
-<td>文字列で日時を指定</td>
-</tr>
-<tr>
-<td><code>-r</code></td>
-<td>&ndash;reference=ファイル名</td>
-<td>指定したファイルと同じ日時を指定</td>
-</tr>
-</tbody>
-</table>
-<h2 id=cat-ファイル内容の表示>
-<code>cat</code> ファイル内容の表示
-<a class=anchor href=#cat-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e8%a1%a8%e7%a4%ba>#</a>
+<h2 id=cat-ファイル内容を表示>
+<code>cat</code>: ファイル内容を表示
+<a class=anchor href=#cat-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h2>
 <h3 id=cat-コマンドとは>
 <code>cat</code> コマンドとは
@@ -1897,9 +1470,9 @@ tree コマンドのバージョンを確認
 </tr>
 </tbody>
 </table>
-<h2 id=less-ファイル内容の表示>
-<code>less</code> ファイル内容の表示
-<a class=anchor href=#less-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e8%a1%a8%e7%a4%ba>#</a>
+<h2 id=less-ファイル内容を表示>
+<code>less</code>: ファイル内容を表示
+<a class=anchor href=#less-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h2>
 <h3 id=ファイル内容を1画面に表示編集なし>
 ファイル内容を1画面に表示(編集なし)
@@ -1955,9 +1528,9 @@ tree コマンドのバージョンを確認
 </tr>
 </tbody>
 </table>
-<h2 id=ファイル内容の編集>
-ファイル内容の編集
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e7%b7%a8%e9%9b%86>#</a>
+<h2 id=vim-ファイル内容を編集>
+<code>vim</code>: ファイル内容を編集
+<a class=anchor href=#vim-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%82%92%e7%b7%a8%e9%9b%86>#</a>
 </h2>
 <p>ファイルの作成と編集
 <code>vi sample.txt</code></p>
@@ -2075,51 +1648,425 @@ tree コマンドのバージョンを確認
 </tr>
 </tbody>
 </table>
-<h2 id=ファイル内容の行数並べ替え重複>
-ファイル内容の行数・並べ替え・重複
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e8%a1%8c%e6%95%b0%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e9%87%8d%e8%a4%87>#</a>
+<h2 id=vimfindsed-文字の置換>
+<code>vim</code>/<code>find</code>/<code>sed</code>: 文字の置換
+<a class=anchor href=#vimfindsed-%e6%96%87%e5%ad%97%e3%81%ae%e7%bd%ae%e6%8f%9b>#</a>
+</h2>
+<h3 id=ファイル内で置換>
+ファイル内で置換
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e3%81%a7%e7%bd%ae%e6%8f%9b>#</a>
+</h3>
+<ul>
+<li><code>:s</code> command: &lsquo;substitute&rsquo;</li>
+<li><code>g</code> option: &lsquo;global&rsquo;</li>
+</ul>
+<p>e.g. Change each &lsquo;foo&rsquo; to &lsquo;bar&rsquo; in the current line.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:s/foo/bar/g
+</code></pre></div><p>e.g. Change each &lsquo;foo&rsquo; to &lsquo;bar&rsquo; in all lines.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:%s/foo/bar/g
+</code></pre></div><p>e.g. Delete each &lsquo;foo&rsquo; in all lines.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:%s/foo//g
+</code></pre></div><h3 id=再帰的に走査し対象ファイル内で一括置換>
+再帰的に走査し対象ファイル内で一括置換
+<a class=anchor href=#%e5%86%8d%e5%b8%b0%e7%9a%84%e3%81%ab%e8%b5%b0%e6%9f%bb%e3%81%97%e5%af%be%e8%b1%a1%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e3%81%a7%e4%b8%80%e6%8b%ac%e7%bd%ae%e6%8f%9b>#</a>
+</h3>
+<p>e.g. 拡張子が <code>.txt</code> のファイル内の文字列 &lsquo;foo&rsquo; を &lsquo;bar&rsquo; に置換</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>LC_ALL<span style=color:#f92672>=</span>C find . -type f -name <span style=color:#e6db74>&#39;*.txt&#39;</span> -exec sed -i <span style=color:#e6db74>&#39;&#39;</span> s/foo/bar/g <span style=color:#f92672>{}</span> +
+</code></pre></div><h2 id=vim-文字コードを操作>
+<code>vim</code>: 文字コードを操作
+<a class=anchor href=#vim-%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e6%93%8d%e4%bd%9c>#</a>
+</h2>
+<h3 id=文字コードの値>
+文字コードの値
+<a class=anchor href=#%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%81%ae%e5%80%a4>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>文字コード</th>
+<th>コマンドで指定する値</th>
+<th>remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shift_JIS</td>
+<td><code>cp932</code> or <code>sjis</code></td>
+<td><code>cp932</code> には <code>sjis</code> に含まれていない文字（①, ②, Ⅰ, Ⅱ, ㍉, ㌍, 彅, 髙 etc.）を含む。</td>
+</tr>
+<tr>
+<td>EUC-JP</td>
+<td><code>euc-jp</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>UTF-8</td>
+<td><code>utf-8</code></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id=文字コードを設定>
+文字コードを設定
+<a class=anchor href=#%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e8%a8%ad%e5%ae%9a>#</a>
+</h3>
+<p><code>.vimrc</code>
+以下を記述し <code>:wq</code> で保存。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set encoding<span style=color:#f92672>=</span>utf-8
+:set fileencodings<span style=color:#f92672>=</span>utf-8,cp932,sjis,euc-jp
+</code></pre></div><table>
+<thead>
+<tr>
+<th>long</th>
+<th>short</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>encoding</code></td>
+<td><code>enc</code></td>
+<td><code>vim</code> の内部で使用されるエンコーディングを指定。</td>
+</tr>
+<tr>
+<td><code>fileencoding</code></td>
+<td><code>fenc</code></td>
+<td>編集時のバッファファイルのエンコーディングを指定。encodingと異なる値が設定されていた場合、ファイルの読み書き時に文字コードを変換。fenc が空の場合、変換なし。</td>
+</tr>
+<tr>
+<td><code>fileencodings</code></td>
+<td><code>fencs</code></td>
+<td>既存ファイル編集時の変換予定の文字コードを指定。カンマ区切りで複数記述可。</td>
+</tr>
+</tbody>
+</table>
+<h3 id=vim-内部で使用される文字コードを表示>
+vim 内部で使用される文字コードを表示
+<a class=anchor href=#vim-%e5%86%85%e9%83%a8%e3%81%a7%e4%bd%bf%e7%94%a8%e3%81%95%e3%82%8c%e3%82%8b%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set encoding?
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:se enc?
+</code></pre></div><h3 id=ファイルの文字コードを表示>
+ファイルの文字コードを表示
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fileencoding?
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:se fenc?
+</code></pre></div><h3 id=ファイルの文字コードの自動判別設定を表示>
+ファイルの文字コードの自動判別設定を表示
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%81%ae%e8%87%aa%e5%8b%95%e5%88%a4%e5%88%a5%e8%a8%ad%e5%ae%9a%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fileencodings?
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:se fencs?
+</code></pre></div><h3 id=指定の文字コードでファイルを開き直し>
+指定の文字コードでファイルを開き直し
+<a class=anchor href=#%e6%8c%87%e5%ae%9a%e3%81%ae%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%81%a7%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e9%96%8b%e3%81%8d%e7%9b%b4%e3%81%97>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:edit ++encoding<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:e ++enc<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
+</code></pre></div><h3 id=ファイルの文字コードを変換>
+ファイルの文字コードを変換
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e5%a4%89%e6%8f%9b>#</a>
+</h3>
+<p>以下を実行後に <code>:w</code> で保存すること。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fileencoding<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fenc<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
+</code></pre></div><h3 id=ファイルの文字コードを変換し保存>
+ファイルの文字コードを変換し保存
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e6%96%87%e5%ad%97%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e5%a4%89%e6%8f%9b%e3%81%97%e4%bf%9d%e5%ad%98>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:setlocal fileencoding<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:setl fenc<span style=color:#f92672>=</span>コマンドで指定する文字コードの値
+</code></pre></div><h2 id=vim-改行コードを操作>
+<code>vim</code>: 改行コードを操作
+<a class=anchor href=#vim-%e6%94%b9%e8%a1%8c%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e6%93%8d%e4%bd%9c>#</a>
+</h2>
+<h3 id=改行コードの設定>
+改行コードの設定
+<a class=anchor href=#%e6%94%b9%e8%a1%8c%e3%82%b3%e3%83%bc%e3%83%89%e3%81%ae%e8%a8%ad%e5%ae%9a>#</a>
+</h3>
+<p><code>.vimrc</code>
+以下を記述し <code>:wq</code> で保存。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fileformats<span style=color:#f92672>=</span>unix,dos,mac
+</code></pre></div><h3 id=改行コードの値>
+改行コードの値
+<a class=anchor href=#%e6%94%b9%e8%a1%8c%e3%82%b3%e3%83%bc%e3%83%89%e3%81%ae%e5%80%a4>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>改行コード</th>
+<th>コマンドで指定する値</th>
+<th>remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LF(Line Feed) <code>\n</code></td>
+<td><code>unix</code></td>
+<td>Unix, Linux, Mac(OS10以降), Android</td>
+</tr>
+<tr>
+<td>CR(Carriage Return) <code>\r</code></td>
+<td><code>mac</code></td>
+<td>古いMac(OS9以前)</td>
+</tr>
+<tr>
+<td>CRLF(Carriage Return/Line Feed) <code>\r\n</code></td>
+<td><code>dos</code></td>
+<td>Windows</td>
+</tr>
+</tbody>
+</table>
+<h3 id=改行コードを指定>
+改行コードを指定
+<a class=anchor href=#%e6%94%b9%e8%a1%8c%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e6%8c%87%e5%ae%9a>#</a>
+</h3>
+<p>以下を実行後に <code>:w</code> で保存すること。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:set fileformat<span style=color:#f92672>=</span>コマンドで指定する改行コードの値
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:se ff<span style=color:#f92672>=</span>コマンドで指定する改行コードの値
+</code></pre></div><h3 id=改行コードを指定し保存>
+改行コードを指定し保存
+<a class=anchor href=#%e6%94%b9%e8%a1%8c%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e6%8c%87%e5%ae%9a%e3%81%97%e4%bf%9d%e5%ad%98>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:setlocal fileformat<span style=color:#f92672>=</span>コマンドで指定する改行コードの値
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>:setl ff<span style=color:#f92672>=</span>コマンドで指定する改行コードの値
+</code></pre></div><h2 id=wcgrep-ファイルの行数単語数を表示>
+<code>wc</code>/<code>grep</code>: ファイルの行数・単語数を表示
+<a class=anchor href=#wcgrep-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e8%a1%8c%e6%95%b0%e5%8d%98%e8%aa%9e%e6%95%b0%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h2>
 <h3 id=ファイルの行数>
 ファイルの行数
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e8%a1%8c%e6%95%b0>#</a>
 </h3>
-<h4 id=ファイルの行数を出力>
-ファイルの行数を出力
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e8%a1%8c%e6%95%b0%e3%82%92%e5%87%ba%e5%8a%9b>#</a>
+<h4 id=ファイルの行数を表示>
+ファイルの行数を表示
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e8%a1%8c%e6%95%b0%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>wc -l sample.txt
-</code></pre></div><h4 id=ファイルの単語数を出力>
-ファイルの単語数を出力
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e5%8d%98%e8%aa%9e%e6%95%b0%e3%82%92%e5%87%ba%e5%8a%9b>#</a>
+</code></pre></div><h4 id=ファイルの単語数を表示>
+ファイルの単語数を表示
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e5%8d%98%e8%aa%9e%e6%95%b0%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>wc -w sample.txt
-</code></pre></div><h4 id=ファイルのバイト数を出力>
-ファイルのバイト数を出力
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%90%e3%82%a4%e3%83%88%e6%95%b0%e3%82%92%e5%87%ba%e5%8a%9b>#</a>
+</code></pre></div><h4 id=ファイルのバイト数を表示>
+ファイルのバイト数を表示
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%90%e3%82%a4%e3%83%88%e6%95%b0%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>wc -c sample.txt
-</code></pre></div><h4 id=ファイルの空行の行数を出力>
-ファイルの空行の行数を出力
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e7%a9%ba%e8%a1%8c%e3%81%ae%e8%a1%8c%e6%95%b0%e3%82%92%e5%87%ba%e5%8a%9b>#</a>
+</code></pre></div><h4 id=ファイルの空行の行数を表示>
+ファイルの空行の行数を表示
+<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e7%a9%ba%e8%a1%8c%e3%81%ae%e8%a1%8c%e6%95%b0%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>grep -c <span style=color:#e6db74>&#39;^$&#39;</span> sample.txt
-</code></pre></div><h4 id=指定した文字と一致しない行数を出力>
-指定した文字と一致しない行数を出力
-<a class=anchor href=#%e6%8c%87%e5%ae%9a%e3%81%97%e3%81%9f%e6%96%87%e5%ad%97%e3%81%a8%e4%b8%80%e8%87%b4%e3%81%97%e3%81%aa%e3%81%84%e8%a1%8c%e6%95%b0%e3%82%92%e5%87%ba%e5%8a%9b>#</a>
+</code></pre></div><h4 id=指定した文字と一致しない行数を表示>
+指定した文字と一致しない行数を表示
+<a class=anchor href=#%e6%8c%87%e5%ae%9a%e3%81%97%e3%81%9f%e6%96%87%e5%ad%97%e3%81%a8%e4%b8%80%e8%87%b4%e3%81%97%e3%81%aa%e3%81%84%e8%a1%8c%e6%95%b0%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>grep -c -v <span style=color:#e6db74>&#39;hoge&#39;</span> sample.txt
+</code></pre></div><h3 id=正規表現と一致する行数を表示>
+正規表現と一致する行数を表示
+<a class=anchor href=#%e6%ad%a3%e8%a6%8f%e8%a1%a8%e7%8f%be%e3%81%a8%e4%b8%80%e8%87%b4%e3%81%99%e3%82%8b%e8%a1%8c%e6%95%b0%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<p>e.g.) 半角数字10桁のみの行数</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>grep -c -E <span style=color:#e6db74>&#39;^[0-9]{10}$&#39;</span> sample.txt
+</code></pre></div><h2 id=uniq-ファイル内容の重複を確認>
+<code>uniq</code>: ファイル内容の重複を確認
+<a class=anchor href=#uniq-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e9%87%8d%e8%a4%87%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+</h2>
+<h3 id=重複行は1行目のみを表示>
+重複行は1行目のみを表示
+<a class=anchor href=#%e9%87%8d%e8%a4%87%e8%a1%8c%e3%81%af1%e8%a1%8c%e7%9b%ae%e3%81%ae%e3%81%bf%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>uniq sample.txt
+</code></pre></div><h3 id=重複する行のみ出力>
+重複する行のみ出力
+<a class=anchor href=#%e9%87%8d%e8%a4%87%e3%81%99%e3%82%8b%e8%a1%8c%e3%81%ae%e3%81%bf%e5%87%ba%e5%8a%9b>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>uniq -d sample.txt
+</code></pre></div><h2 id=sort-並べ替え>
+<code>sort</code>: 並べ替え
+<a class=anchor href=#sort-%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88>#</a>
+</h2>
+<p>テキストファイルを行単位で並べ替えるコマンド</p>
+<h3 id=sort-コマンドの主なオプション>
+<code>sort</code> コマンドの主なオプション
+<a class=anchor href=#sort-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<h4 id=並べ替え関連>
+並べ替え関連
+<a class=anchor href=#%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e9%96%a2%e9%80%a3>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-f</code></td>
+<td><code>--ignore-case</code></td>
+<td>大文字／小文字を区別せずに並べ替え</td>
+</tr>
+<tr>
+<td><code>-V</code></td>
+<td><code>--version-sort</code></td>
+<td>自然な（バージョン）数字順で並べ替え</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td><code>--numeric-sort</code></td>
+<td>文字列を数値と見なして並べ替え</td>
+</tr>
+<tr>
+<td><code>-h</code></td>
+<td><code>--human-numeric-sort</code></td>
+<td>人が読むことのできる形式の数値で並べ替え(e.g. 5K, 1.2G etc.)</td>
+</tr>
+<tr>
+<td><code>-g</code></td>
+<td><code>--general-numeric-sort</code></td>
+<td>一般的な数値として並べ替え</td>
+</tr>
+<tr>
+<td><code>-M</code></td>
+<td><code>--month-sort</code></td>
+<td>月名で並べ替え</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td><code>--dictionary-order</code></td>
+<td>データが空白と英数字のみ含まれていると仮定して並べ替え</td>
+</tr>
+<tr>
+<td><code>-b</code></td>
+<td><code>--ignore-leading-blanks</code></td>
+<td>先頭の空白を無視して並べ替え</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td><code>--ignore-nonprinting</code></td>
+<td>表示可能な文字だけを対象に並べ替え</td>
+</tr>
+<tr>
+<td><code>-R</code></td>
+<td><code>--random-sort</code></td>
+<td>キーのランダムハッシュ順に並べ替え</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--random-source=ファイル</code></td>
+<td>ランダムソースのファイルを設定</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--sort=指定</code></td>
+<td>並べ替えの方法を指定 (general-numeric、human-numeric、month、numeric、random、version)</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td><code>--reverse</code></td>
+<td>逆順で並べ替え</td>
+</tr>
+<tr>
+<td><code>-k 指定</code></td>
+<td><code>--key=指定</code></td>
+<td>所と並べ替え種別を指定する (<code>-k 5</code>なら5列目、<code>-k 5n</code> なら5列目を数値として並べ替え。複数指定する場合は <code>-k</code> オプションを複数回指定)</td>
+</tr>
+<tr>
+<td><code>-t 文字</code></td>
+<td><code>--field-separator=文字</code></td>
+<td>フィールドの区切り文字を指定（デフォルトは空白文字）</td>
+</tr>
+</tbody>
+</table>
+<h4 id=その他>
+その他
+<a class=anchor href=#%e3%81%9d%e3%81%ae%e4%bb%96>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-m</code></td>
+<td><code>--merge</code></td>
+<td>並べ替えられたファイルをマージ (並べ替え自体は行わない)</td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td><code>--check</code>, <code>--check=diagnose-first</code></td>
+<td>並べ替えられているかどうかを確認</td>
+</tr>
+<tr>
+<td><code>-C</code></td>
+<td><code>--check=quiet</code>, <code>--check=silent</code></td>
+<td><code>-c</code> と同様だがメッセージは出力しない（スクリプト内の判定行などで使用）</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td><code>--unique</code></td>
+<td>同一行は1つ目だけを出力（<code>-c</code> と併せて使用した場合、厳密に順序を確認）</td>
+</tr>
+<tr>
+<td><code>-z</code></td>
+<td><code>--zero-terminated</code></td>
+<td>最後に NULL 文字を出力</td>
+</tr>
+<tr>
+<td><code>-o ファイル名</code></td>
+<td><code>--output=ファイル名</code></td>
+<td>結果を出力するファイル名を指定（デフォルトは標準出力）</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--files0-from=F</code></td>
+<td>NULL文字で区切られたファイル名のリストを指定（<code>--files0-from=-</code> とした場合、ファイル名を標準入力から読み込み</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--debug</code></td>
+<td>並べ替えに使用されている行の一部に注釈を付けて、不確かな使用方法について標準エラー出力に警告を表示</td>
+</tr>
+</tbody>
+</table>
+<h3 id=指定した列で並べ替え>
+指定した列で並べ替え
+<a class=anchor href=#%e6%8c%87%e5%ae%9a%e3%81%97%e3%81%9f%e5%88%97%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88>#</a>
+</h3>
+<p>区切り文字を <code>,</code> として 5列目の項目で並べ替え</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sort -k <span style=color:#ae81ff>5</span> -t , sample.csv
+</code></pre></div><p>区切り文字を <code>,</code> として 5列目の項目を数字として並べ替え</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sort -k 5n -t , sample.csv
+
 </code></pre></div><h3 id=ファイル内容の並べ替え>
 ファイル内容の並べ替え
 <a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88>#</a>
 </h3>
-<h4 id=並べ替えた結果を出力>
-並べ替えた結果を出力
-<a class=anchor href=#%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%81%9f%e7%b5%90%e6%9e%9c%e3%82%92%e5%87%ba%e5%8a%9b>#</a>
+<h4 id=並べ替えた結果を表示>
+並べ替えた結果を表示
+<a class=anchor href=#%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%81%9f%e7%b5%90%e6%9e%9c%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sort sample.txt
-</code></pre></div><h4 id=並べ替え重複行は1行目のみを出力>
-並べ替え重複行は1行目のみを出力
-<a class=anchor href=#%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e9%87%8d%e8%a4%87%e8%a1%8c%e3%81%af1%e8%a1%8c%e7%9b%ae%e3%81%ae%e3%81%bf%e3%82%92%e5%87%ba%e5%8a%9b>#</a>
+</code></pre></div><h4 id=並べ替え重複行は1行目のみを表示>
+並べ替え重複行は1行目のみを表示
+<a class=anchor href=#%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e9%87%8d%e8%a4%87%e8%a1%8c%e3%81%af1%e8%a1%8c%e7%9b%ae%e3%81%ae%e3%81%bf%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sort -u sample.txt
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sort --unique sample.txt
@@ -2129,33 +2076,9 @@ tree コマンドのバージョンを確認
 </h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sort -c
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sort --check
-</code></pre></div><h3 id=ファイル内容の重複>
-ファイル内容の重複
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e9%87%8d%e8%a4%87>#</a>
-</h3>
-<h4 id=重複行は1行目のみを出力>
-重複行は1行目のみを出力
-<a class=anchor href=#%e9%87%8d%e8%a4%87%e8%a1%8c%e3%81%af1%e8%a1%8c%e7%9b%ae%e3%81%ae%e3%81%bf%e3%82%92%e5%87%ba%e5%8a%9b>#</a>
-</h4>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>uniq sample.txt
-</code></pre></div><h4 id=重複する行のみ出力>
-重複する行のみ出力
-<a class=anchor href=#%e9%87%8d%e8%a4%87%e3%81%99%e3%82%8b%e8%a1%8c%e3%81%ae%e3%81%bf%e5%87%ba%e5%8a%9b>#</a>
-</h4>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>uniq -d sample.txt
-</code></pre></div><h3 id=ファイル内容の正規表現での確認>
-ファイル内容の正規表現での確認
-<a class=anchor href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%86%85%e5%ae%b9%e3%81%ae%e6%ad%a3%e8%a6%8f%e8%a1%a8%e7%8f%be%e3%81%a7%e3%81%ae%e7%a2%ba%e8%aa%8d>#</a>
-</h3>
-<h4 id=正規表現と一致する行数を確認>
-正規表現と一致する行数を確認
-<a class=anchor href=#%e6%ad%a3%e8%a6%8f%e8%a1%a8%e7%8f%be%e3%81%a8%e4%b8%80%e8%87%b4%e3%81%99%e3%82%8b%e8%a1%8c%e6%95%b0%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
-</h4>
-<p>e.g.) 半角数字10桁のみの行数</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>grep -c -E <span style=color:#e6db74>&#39;^[0-9]{10}$&#39;</span> sample.txt
-</code></pre></div><h2 id=圧縮解凍暗号解除>
-圧縮・解凍・暗号解除
-<a class=anchor href=#%e5%9c%a7%e7%b8%ae%e8%a7%a3%e5%87%8d%e6%9a%97%e5%8f%b7%e8%a7%a3%e9%99%a4>#</a>
+</code></pre></div><h2 id=ziptar-圧縮解凍暗号解除>
+<code>zip</code>/<code>tar</code>: 圧縮・解凍・暗号解除
+<a class=anchor href=#ziptar-%e5%9c%a7%e7%b8%ae%e8%a7%a3%e5%87%8d%e6%9a%97%e5%8f%b7%e8%a7%a3%e9%99%a4>#</a>
 </h2>
 <h3 id=zip-コマンドでの圧縮>
 <code>zip</code> コマンドでの圧縮
@@ -2321,157 +2244,260 @@ tree コマンドのバージョンを確認
 </tr>
 </tbody>
 </table>
-<h2 id=csv>
-CSV
-<a class=anchor href=#csv>#</a>
+<h2 id=date-日付時刻を表示>
+<code>date</code>: 日付・時刻を表示
+<a class=anchor href=#date-%e6%97%a5%e4%bb%98%e6%99%82%e5%88%bb%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h2>
-<h3 id=csvファイルの各行のカラム数が指定した数以下の例では-10と一致しない行数を確認>
-CSVファイルの各行のカラム数が指定した数(以下の例では 10)と一致しない行数を確認
-<a class=anchor href=#csv%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e5%90%84%e8%a1%8c%e3%81%ae%e3%82%ab%e3%83%a9%e3%83%a0%e6%95%b0%e3%81%8c%e6%8c%87%e5%ae%9a%e3%81%97%e3%81%9f%e6%95%b0%e4%bb%a5%e4%b8%8b%e3%81%ae%e4%be%8b%e3%81%a7%e3%81%af-10%e3%81%a8%e4%b8%80%e8%87%b4%e3%81%97%e3%81%aa%e3%81%84%e8%a1%8c%e6%95%b0%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>TOMORROW<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>date <span style=color:#e6db74>&#39;+%Y%m%d&#39;</span> --date <span style=color:#e6db74>&#39;1 day&#39;</span><span style=color:#e6db74>`</span>
+YESTERDAY<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>date <span style=color:#e6db74>&#39;+%Y%m%d&#39;</span> --date <span style=color:#e6db74>&#39;-1 day&#39;</span><span style=color:#e6db74>`</span>
+echo <span style=color:#e6db74>${</span>TOMORROW<span style=color:#e6db74>}</span>
+echo <span style=color:#e6db74>${</span>YESTERDAY<span style=color:#e6db74>}</span>
+</code></pre></div><h3 id=date-コマンドの主なオプション>
+<code>date</code> コマンドの主なオプション
+<a class=anchor href=#date-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cat sample.csv | awk -F <span style=color:#e6db74>&#39;,&#39;</span> <span style=color:#e6db74>&#39;{print NF}&#39;</span> | grep -c -v <span style=color:#ae81ff>10</span>
-</code></pre></div><h3 id=csvファイルの特定のカラム以下の例では10カラム目のみを抽出>
-CSVファイルの特定のカラム(以下の例では10カラム目)のみを抽出
-<a class=anchor href=#csv%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e7%89%b9%e5%ae%9a%e3%81%ae%e3%82%ab%e3%83%a9%e3%83%a0%e4%bb%a5%e4%b8%8b%e3%81%ae%e4%be%8b%e3%81%a7%e3%81%af10%e3%82%ab%e3%83%a9%e3%83%a0%e7%9b%ae%e3%81%ae%e3%81%bf%e3%82%92%e6%8a%bd%e5%87%ba>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cut -d <span style=color:#e6db74>&#39;,&#39;</span> -f <span style=color:#ae81ff>10</span> sample.csv &gt; specific_column.csv
-</code></pre></div><h2 id=システム情報バージョン>
-システム情報/バージョン
-<a class=anchor href=#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e6%83%85%e5%a0%b1%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3>#</a>
-</h2>
-<h3 id=システム情報を確認>
-システム情報を確認
-<a class=anchor href=#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e6%83%85%e5%a0%b1%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>uname -a
-</code></pre></div><h3 id=カーネルのバージョン情報を確認>
-カーネルのバージョン情報を確認
-<a class=anchor href=#%e3%82%ab%e3%83%bc%e3%83%8d%e3%83%ab%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e6%83%85%e5%a0%b1%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cat /proc/version
-</code></pre></div><h3 id=osのバージョン情報を確認>
-OSのバージョン情報を確認
-<a class=anchor href=#os%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e6%83%85%e5%a0%b1%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cat /etc/os-release
-</code></pre></div><h3 id=osのバージョン情報を確認ディストリビューション別>
-OSのバージョン情報を確認(ディストリビューション別)
-<a class=anchor href=#os%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e6%83%85%e5%a0%b1%e3%82%92%e7%a2%ba%e8%aa%8d%e3%83%87%e3%82%a3%e3%82%b9%e3%83%88%e3%83%aa%e3%83%93%e3%83%a5%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e5%88%a5>#</a>
-</h3>
-<p>※RHEL=Red Hat Enterprise Linux</p>
 <table>
 <thead>
 <tr>
-<th>command</th>
-<th>RHEL※</th>
-<th>CentOS</th>
-<th>Fedora</th>
-<th>Amazon Linux</th>
-<th>Oracle Linux</th>
-<th>Debian</th>
-<th>Ubuntu</th>
-<th>SUSE Linux</th>
+<th>format</th>
+<th>description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>cat /etc/system-release</code></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>%H</code></td>
+<td>時 (00～23)</td>
 </tr>
 <tr>
-<td><code>cat /etc/redhat-release</code></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td></td>
-<td>Yes</td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>%I</code></td>
+<td>時 (01～12)</td>
 </tr>
 <tr>
-<td><code>cat /etc/centos-release</code></td>
-<td></td>
-<td>Yes</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>%k</code></td>
+<td>時 ( 0～23)</td>
 </tr>
 <tr>
-<td><code>cat /etc/fedora-release</code></td>
-<td></td>
-<td></td>
-<td>Yes</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>%l</code></td>
+<td>時 ( 1～12)</td>
 </tr>
 <tr>
-<td><code>cat /etc/oracle-release</code></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>Yes</td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>%M</code></td>
+<td>分 (00～59)</td>
 </tr>
 <tr>
-<td><code>cat /etc/debian_version</code></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>Yes</td>
-<td>Yes</td>
-<td></td>
+<td><code>%p</code></td>
+<td>AM あるいは PM のロケール(国や地域に合わせた文字列)</td>
 </tr>
 <tr>
-<td><code>cat /etc/lsb-release</code></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>Yes</td>
-<td></td>
+<td><code>%r</code></td>
+<td>12時間形式の時刻 (HH:mm:ss [AP]M)</td>
 </tr>
 <tr>
-<td><code>cat /etc/SuSE-release</code></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>Yes</td>
+<td><code>%s</code></td>
+<td>1970-01-01 00:00:00 UTC からの秒数</td>
+</tr>
+<tr>
+<td><code>%S</code></td>
+<td>秒 (00～61)</td>
+</tr>
+<tr>
+<td><code>%T</code></td>
+<td>24時間形式の時刻 (HH:mm:ss)</td>
+</tr>
+<tr>
+<td><code>%a</code></td>
+<td>ロケールによる省略形の曜日の名前 (Sun～Sat)</td>
+</tr>
+<tr>
+<td><code>%A</code></td>
+<td>ロケールによる完全に表記した曜日の名前(Sunday～Saturday)</td>
+</tr>
+<tr>
+<td><code>%b</code></td>
+<td>ロケールによる省略形の月の名前 (Jan～Dec)</td>
+</tr>
+<tr>
+<td><code>%B</code></td>
+<td>ロケールによる完全に表記した月の名前(January～December)</td>
+</tr>
+<tr>
+<td><code>%c</code></td>
+<td>ロケールによる日付と時刻 (Sat Nov 04 12:02:33 EST 1989)</td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>日(月内通算日数) (01～31)</td>
+</tr>
+<tr>
+<td><code>%D</code></td>
+<td>日付 (MM/DD/YY)</td>
+</tr>
+<tr>
+<td><code>%j</code></td>
+<td>年内通算日数 (001～366)</td>
+</tr>
+<tr>
+<td><code>%m</code></td>
+<td>月 (01～12)</td>
+</tr>
+<tr>
+<td><code>%w</code></td>
+<td>週のうちの曜日(0～6)で0が日曜日に対応</td>
+</tr>
+<tr>
+<td><code>%x</code></td>
+<td>ロケールによる日付の表現 (MM/DD/YY)</td>
+</tr>
+<tr>
+<td><code>%y</code></td>
+<td>西暦の下2けた (00～99)</td>
+</tr>
+<tr>
+<td><code>%Y</code></td>
+<td>年 (1970～)</td>
 </tr>
 </tbody>
 </table>
-<h3 id=osのバージョン情報確認コマンドを確認>
-OSのバージョン情報確認コマンドを確認
-<a class=anchor href=#os%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e6%83%85%e5%a0%b1%e7%a2%ba%e8%aa%8d%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+<h3 id=タイムゾーンを表示>
+タイムゾーンを表示
+<a class=anchor href=#%e3%82%bf%e3%82%a4%e3%83%a0%e3%82%be%e3%83%bc%e3%83%b3%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ls -l /etc/*release
-</code></pre></div><h2 id=ディスク使用量を確認>
-ディスク使用量を確認
-<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ date +%Z
+JST
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ date +<span style=color:#e6db74>&#34;%Z %z&#34;</span>
+JST +0900
+</code></pre></div><h2 id=df-ディスク容量を表示>
+<code>df</code>: ディスク容量を表示
+<a class=anchor href=#df-%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e5%ae%b9%e9%87%8f%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h2>
+<h3 id=df-コマンドとは>
+<code>df</code> コマンドとは
+<a class=anchor href=#df-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a8%e3%81%af>#</a>
+</h3>
+<ul>
+<li>ディスクの空き領域(free スペース)のサイズを集計して表示</li>
+</ul>
+<h3 id=df-コマンドの主なオプション>
+<code>df</code> コマンドの主なオプション
+<a class=anchor href=#df-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>option</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-h</code></td>
+<td><code>--human-readable</code></td>
+<td>サイズに応じて人間が読みやすい単位に変換して表示</td>
+</tr>
+<tr>
+<td><code>-H</code></td>
+<td><code>--si</code></td>
+<td>イズに応じて人間が読みやすい単位に変換して表示、ただし 1024単位ではなく 1000単位の値を使用</td>
+</tr>
+<tr>
+<td><code>-Bサイズ</code></td>
+<td><code>--block-size=サイズ</code></td>
+<td>指定したサイズの倍数で表示、サイズは数値または単位で指定</td>
+</tr>
+<tr>
+<td><code>-k</code></td>
+<td></td>
+<td>`&ndash;block-size=1K``` と同じ</td>
+</tr>
+<tr>
+<td><code>-m</code></td>
+<td></td>
+<td>`&ndash;block-size=1M``` と同じ</td>
+</tr>
+<tr>
+<td><code>-P</code></td>
+<td><code>--portability</code></td>
+<td>POSIX出力形式（サイズではなくブロックで表示）</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td><code>--inodes</code></td>
+<td>ブロック使用量の代わりにiノード情報を確認</td>
+</tr>
+<tr>
+<td><code>-T</code></td>
+<td><code>--print-type</code></td>
+<td>各ファイルシステムの種類を合わせて表示</td>
+</tr>
+<tr>
+<td><code>-t種類</code></td>
+<td><code>--type=種類</code></td>
+<td>対象とするフォーマットの種類を指定(e.g.「-txfs」でXFSフォーマットの場所のみ表示)</td>
+</tr>
+<tr>
+<td><code>-x種類</code></td>
+<td><code>--exclude-type=種類</code></td>
+<td>対象としないフォーマットの種類を指定</td>
+</tr>
+<tr>
+<td><code>-a</code></td>
+<td><code>--all</code></td>
+<td>ダミーファイルシステムを含めて表示</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td><code>--local</code></td>
+<td>ローカルファイルシステムのみを表示</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--total</code></td>
+<td>全体の合計も表示</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--sync</code></td>
+<td>使用量の情報を得る前にsyncを実行</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--no-sync</code></td>
+<td>使用量の情報を得る前にsyncの実行なし（デフォルト）</td>
+</tr>
+</tbody>
+</table>
+<h3 id=ディスクの空き容量を表示>
+ディスクの空き容量を表示
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%81%ae%e7%a9%ba%e3%81%8d%e5%ae%b9%e9%87%8f%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df
+</code></pre></div><p>メガ(1024×1024バイト)単位で表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -BM
+</code></pre></div><p>メガ(1000×1000バイト)単位で表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -BMB
+</code></pre></div><p>フォーマットの種類も合わせて表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -T
+</code></pre></div><p>XFSでフォーマットされているパーティションの空き領域と合計を表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -txfs --total
+</code></pre></div><h3 id=ディスクの空き容量を表示場所を指定して集計>
+ディスクの空き容量を表示(場所を指定して集計)
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%81%ae%e7%a9%ba%e3%81%8d%e5%ae%b9%e9%87%8f%e3%82%92%e8%a1%a8%e7%a4%ba%e5%a0%b4%e6%89%80%e3%82%92%e6%8c%87%e5%ae%9a%e3%81%97%e3%81%a6%e9%9b%86%e8%a8%88>#</a>
+</h3>
+<p>カレントディレクトリを含むパーティションの空き領域を表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df .
+</code></pre></div><p><code>/usr</code> を含むパーティションの空き領域を表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df /usr
+</code></pre></div><h3 id=ディスクの空き容量を読みやすいサイズ表記で表示>
+ディスクの空き容量を読みやすいサイズ表記で表示
+<a class=anchor href=#%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%81%ae%e7%a9%ba%e3%81%8d%e5%ae%b9%e9%87%8f%e3%82%92%e8%aa%ad%e3%81%bf%e3%82%84%e3%81%99%e3%81%84%e3%82%b5%e3%82%a4%e3%82%ba%e8%a1%a8%e8%a8%98%e3%81%a7%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -h
+</code></pre></div><p>空き領域の合計もあわせて表示</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>df -h --total
+</code></pre></div><h2 id=du-ディスク使用量を表示>
+<code>du</code>: ディスク使用量を表示
+<a class=anchor href=#du-%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e4%bd%bf%e7%94%a8%e9%87%8f%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h2>
 <h3 id=du-コマンドとは>
 <code>du</code> コマンドとは
@@ -2648,178 +2674,9 @@ OSのバージョン情報確認コマンドを確認
 (他のパーティーションにあるファイルは対象外)<br>
 <code>-x</code> 1つのファイルシステムのみを集計</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ du -d1 -x /
-</code></pre></div><h2 id=並べ替え>
-並べ替え
-<a class=anchor href=#%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88>#</a>
-</h2>
-<h3 id=sort-コマンドとは>
-<code>sort</code> コマンドとは
-<a class=anchor href=#sort-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a8%e3%81%af>#</a>
-</h3>
-<ul>
-<li>テキストファイルを行単位で並べ替えるコマンド</li>
-</ul>
-<h3 id=sort-コマンドの主なオプション>
-<code>sort</code> コマンドの主なオプション
-<a class=anchor href=#sort-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e4%b8%bb%e3%81%aa%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3>#</a>
-</h3>
-<h4 id=並べ替え関連>
-並べ替え関連
-<a class=anchor href=#%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e9%96%a2%e9%80%a3>#</a>
-</h4>
-<table>
-<thead>
-<tr>
-<th>option</th>
-<th>option</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-f</code></td>
-<td><code>--ignore-case</code></td>
-<td>大文字／小文字を区別せずに並べ替え</td>
-</tr>
-<tr>
-<td><code>-V</code></td>
-<td><code>--version-sort</code></td>
-<td>自然な（バージョン）数字順で並べ替え</td>
-</tr>
-<tr>
-<td><code>-n</code></td>
-<td><code>--numeric-sort</code></td>
-<td>文字列を数値と見なして並べ替え</td>
-</tr>
-<tr>
-<td><code>-h</code></td>
-<td><code>--human-numeric-sort</code></td>
-<td>人が読むことのできる形式の数値で並べ替え(e.g. 5K, 1.2G etc.)</td>
-</tr>
-<tr>
-<td><code>-g</code></td>
-<td><code>--general-numeric-sort</code></td>
-<td>一般的な数値として並べ替え</td>
-</tr>
-<tr>
-<td><code>-M</code></td>
-<td><code>--month-sort</code></td>
-<td>月名で並べ替え</td>
-</tr>
-<tr>
-<td><code>-d</code></td>
-<td><code>--dictionary-order</code></td>
-<td>データが空白と英数字のみ含まれていると仮定して並べ替え</td>
-</tr>
-<tr>
-<td><code>-b</code></td>
-<td><code>--ignore-leading-blanks</code></td>
-<td>先頭の空白を無視して並べ替え</td>
-</tr>
-<tr>
-<td><code>-i</code></td>
-<td><code>--ignore-nonprinting</code></td>
-<td>表示可能な文字だけを対象に並べ替え</td>
-</tr>
-<tr>
-<td><code>-R</code></td>
-<td><code>--random-sort</code></td>
-<td>キーのランダムハッシュ順に並べ替え</td>
-</tr>
-<tr>
-<td></td>
-<td><code>--random-source=ファイル</code></td>
-<td>ランダムソースのファイルを設定</td>
-</tr>
-<tr>
-<td></td>
-<td><code>--sort=指定</code></td>
-<td>並べ替えの方法を指定 (general-numeric、human-numeric、month、numeric、random、version)</td>
-</tr>
-<tr>
-<td><code>-r</code></td>
-<td><code>--reverse</code></td>
-<td>逆順で並べ替え</td>
-</tr>
-<tr>
-<td><code>-k 指定</code></td>
-<td><code>--key=指定</code></td>
-<td>所と並べ替え種別を指定する (<code>-k 5</code>なら5列目、<code>-k 5n</code> なら5列目を数値として並べ替え。複数指定する場合は <code>-k</code> オプションを複数回指定)</td>
-</tr>
-<tr>
-<td><code>-t 文字</code></td>
-<td><code>--field-separator=文字</code></td>
-<td>フィールドの区切り文字を指定（デフォルトは空白文字）</td>
-</tr>
-</tbody>
-</table>
-<h4 id=その他>
-その他
-<a class=anchor href=#%e3%81%9d%e3%81%ae%e4%bb%96>#</a>
-</h4>
-<table>
-<thead>
-<tr>
-<th>option</th>
-<th>option</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-m</code></td>
-<td><code>--merge</code></td>
-<td>並べ替えられたファイルをマージ (並べ替え自体は行わない)</td>
-</tr>
-<tr>
-<td><code>-c</code></td>
-<td><code>--check</code>, <code>--check=diagnose-first</code></td>
-<td>並べ替えられているかどうかを確認</td>
-</tr>
-<tr>
-<td><code>-C</code></td>
-<td><code>--check=quiet</code>, <code>--check=silent</code></td>
-<td><code>-c</code> と同様だがメッセージは出力しない（スクリプト内の判定行などで使用）</td>
-</tr>
-<tr>
-<td><code>-u</code></td>
-<td><code>--unique</code></td>
-<td>同一行は1つ目だけを出力（<code>-c</code> と併せて使用した場合、厳密に順序を確認）</td>
-</tr>
-<tr>
-<td><code>-z</code></td>
-<td><code>--zero-terminated</code></td>
-<td>最後に NULL 文字を出力</td>
-</tr>
-<tr>
-<td><code>-o ファイル名</code></td>
-<td><code>--output=ファイル名</code></td>
-<td>結果を出力するファイル名を指定（デフォルトは標準出力）</td>
-</tr>
-<tr>
-<td></td>
-<td><code>--files0-from=F</code></td>
-<td>NULL文字で区切られたファイル名のリストを指定（<code>--files0-from=-</code> とした場合、ファイル名を標準入力から読み込み</td>
-</tr>
-<tr>
-<td></td>
-<td><code>--debug</code></td>
-<td>並べ替えに使用されている行の一部に注釈を付けて、不確かな使用方法について標準エラー出力に警告を表示</td>
-</tr>
-</tbody>
-</table>
-<h3 id=指定した列で並べ替え>
-指定した列で並べ替え
-<a class=anchor href=#%e6%8c%87%e5%ae%9a%e3%81%97%e3%81%9f%e5%88%97%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88>#</a>
-</h3>
-<p>区切り文字を <code>,</code> として 5列目の項目で並べ替え</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sort -k <span style=color:#ae81ff>5</span> -t , sample.csv
-</code></pre></div><p>区切り文字を <code>,</code> として 5列目の項目を数字として並べ替え</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sort -k 5n -t , sample.csv
-
-</code></pre></div><h2 id=環境>
-環境
-<a class=anchor href=#%e7%92%b0%e5%a2%83>#</a>
+</code></pre></div><h2 id=envlocale-環境変数を表示>
+<code>env</code>/<code>locale</code>: 環境変数を表示
+<a class=anchor href=#envlocale-%e7%92%b0%e5%a2%83%e5%a4%89%e6%95%b0%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h2>
 <h3 id=env-コマンドとは>
 <code>env</code> コマンドとは
@@ -2868,21 +2725,167 @@ Mon Jan <span style=color:#ae81ff>10</span> 10:30:00 JST <span style=color:#ae81
 </tr>
 </tbody>
 </table>
-<h3 id=指定可能なロケールを確認>
-指定可能なロケールを確認
-<a class=anchor href=#%e6%8c%87%e5%ae%9a%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%ad%e3%82%b1%e3%83%bc%e3%83%ab%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+<h3 id=指定可能なロケールを表示>
+指定可能なロケールを表示
+<a class=anchor href=#%e6%8c%87%e5%ae%9a%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%ad%e3%82%b1%e3%83%bc%e3%83%ab%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ locale -a
+</code></pre></div><h2 id=システム情報バージョンを表示>
+システム情報/バージョンを表示
+<a class=anchor href=#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e6%83%85%e5%a0%b1%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h2>
+<h3 id=システム情報を表示>
+システム情報を表示
+<a class=anchor href=#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e6%83%85%e5%a0%b1%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>uname -a
+</code></pre></div><h3 id=カーネルのバージョン情報を表示>
+カーネルのバージョン情報を表示
+<a class=anchor href=#%e3%82%ab%e3%83%bc%e3%83%8d%e3%83%ab%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e6%83%85%e5%a0%b1%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cat /proc/version
+</code></pre></div><h3 id=osのバージョン情報を表示>
+OSのバージョン情報を表示
+<a class=anchor href=#os%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e6%83%85%e5%a0%b1%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cat /etc/os-release
+</code></pre></div><h3 id=osのバージョン情報を表示ディストリビューション別>
+OSのバージョン情報を表示(ディストリビューション別)
+<a class=anchor href=#os%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e6%83%85%e5%a0%b1%e3%82%92%e8%a1%a8%e7%a4%ba%e3%83%87%e3%82%a3%e3%82%b9%e3%83%88%e3%83%aa%e3%83%93%e3%83%a5%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e5%88%a5>#</a>
+</h3>
+<p>※RHEL=Red Hat Enterprise Linux</p>
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>RHEL※</th>
+<th>CentOS</th>
+<th>Fedora</th>
+<th>Amazon Linux</th>
+<th>Oracle Linux</th>
+<th>Debian</th>
+<th>Ubuntu</th>
+<th>SUSE Linux</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cat /etc/system-release</code></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cat /etc/redhat-release</code></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cat /etc/centos-release</code></td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cat /etc/fedora-release</code></td>
+<td></td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cat /etc/oracle-release</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cat /etc/debian_version</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cat /etc/lsb-release</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cat /etc/SuSE-release</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id=osのバージョン情報確認コマンドを表示>
+OSのバージョン情報確認コマンドを表示
+<a class=anchor href=#os%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e6%83%85%e5%a0%b1%e7%a2%ba%e8%aa%8d%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ls -l /etc/*release
 </code></pre></div><h2 id=その他-1>
 その他
 <a class=anchor href=#%e3%81%9d%e3%81%ae%e4%bb%96-1>#</a>
 </h2>
-<h3 id=ログイン中のユーザー>
-ログイン中のユーザー
-<a class=anchor href=#%e3%83%ad%e3%82%b0%e3%82%a4%e3%83%b3%e4%b8%ad%e3%81%ae%e3%83%a6%e3%83%bc%e3%82%b6%e3%83%bc>#</a>
+<h3 id=ログイン中のユーザーを表示>
+ログイン中のユーザーを表示
+<a class=anchor href=#%e3%83%ad%e3%82%b0%e3%82%a4%e3%83%b3%e4%b8%ad%e3%81%ae%e3%83%a6%e3%83%bc%e3%82%b6%e3%83%bc%e3%82%92%e8%a1%a8%e7%a4%ba>#</a>
 </h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>LOGIN_USER<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>who am i | awk -F <span style=color:#e6db74>&#39; &#39;</span> <span style=color:#e6db74>&#39;{print $1}&#39;</span><span style=color:#e6db74>`</span>
 echo $LOGIN_USER
+</code></pre></div><h3 id=csvの全行のカラム数の一致を確認>
+CSVの全行のカラム数の一致を確認
+<a class=anchor href=#csv%e3%81%ae%e5%85%a8%e8%a1%8c%e3%81%ae%e3%82%ab%e3%83%a9%e3%83%a0%e6%95%b0%e3%81%ae%e4%b8%80%e8%87%b4%e3%82%92%e7%a2%ba%e8%aa%8d>#</a>
+</h3>
+<p>e.g. カラム数が 10 と一致しない行の数を確認</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cat sample.csv | awk -F <span style=color:#e6db74>&#39;,&#39;</span> <span style=color:#e6db74>&#39;{print NF}&#39;</span> | grep -c -v <span style=color:#ae81ff>10</span>
+</code></pre></div><h3 id=csvの特定のカラムのみを抽出>
+CSVの特定のカラムのみを抽出
+<a class=anchor href=#csv%e3%81%ae%e7%89%b9%e5%ae%9a%e3%81%ae%e3%82%ab%e3%83%a9%e3%83%a0%e3%81%ae%e3%81%bf%e3%82%92%e6%8a%bd%e5%87%ba>#</a>
+</h3>
+<p>e.g. 10カラム目のみ抽出</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cut -d <span style=color:#e6db74>&#39;,&#39;</span> -f <span style=color:#ae81ff>10</span> sample.csv &gt; specific_column.csv
 </code></pre></div><h2 id=references>
 References
 <a class=anchor href=#references>#</a>
@@ -2915,12 +2918,12 @@ References
 <h2>Table of Contents</h2>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#便利なコマンド>便利なコマンド</a>
+<li><a href=#画面の操作>画面の操作</a>
 <ul>
-<li><a href=#文字列の置換>文字列の置換</a></li>
+<li><a href=#ターミナル操作のショートカット>ターミナル操作のショートカット</a></li>
 </ul>
 </li>
-<li><a href=#コマンド入力履歴>コマンド入力履歴</a>
+<li><a href=#history-コマンド入力履歴を操作><code>history</code>: コマンド入力履歴を操作</a>
 <ul>
 <li><a href=#history-コマンドの主なオプション><code>history</code> コマンドの主なオプション</a></li>
 <li><a href=#コマンド入力履歴を表示>コマンド入力履歴を表示</a></li>
@@ -2929,70 +2932,45 @@ References
 <li><a href=#履歴ファイルを読み込み>履歴ファイルを読み込み</a></li>
 </ul>
 </li>
-<li><a href=#画面操作>画面操作</a>
-<ul>
-<li><a href=#ターミナル操作のショートカット>ターミナル操作のショートカット</a></li>
-</ul>
-</li>
-<li><a href=#文字コード>文字コード</a>
-<ul>
-<li><a href=#文字コードの値>文字コードの値</a></li>
-<li><a href=#文字コードを設定>文字コードを設定</a></li>
-<li><a href=#vim-内部で使用される文字コードを確認shell>vim 内部で使用される文字コードを確認shell</a></li>
-<li><a href=#ファイルの文字コードを確認>ファイルの文字コードを確認</a></li>
-<li><a href=#ファイルの文字コードの自動判別設定を確認>ファイルの文字コードの自動判別設定を確認</a></li>
-<li><a href=#指定の文字コードでファイルを開き直し>指定の文字コードでファイルを開き直し</a></li>
-<li><a href=#ファイルの文字コードを変換>ファイルの文字コードを変換</a></li>
-<li><a href=#ファイルの文字コードを変換し保存>ファイルの文字コードを変換し保存</a></li>
-</ul>
-</li>
-<li><a href=#改行コード>改行コード</a>
-<ul>
-<li><a href=#改行コードの設定>改行コードの設定</a></li>
-<li><a href=#改行コードの値>改行コードの値</a></li>
-<li><a href=#改行コードを指定>改行コードを指定</a></li>
-<li><a href=#改行コードを指定し保存>改行コードを指定し保存</a></li>
-</ul>
-</li>
-<li><a href=#ディスク容量>ディスク容量</a>
-<ul>
-<li><a href=#df-コマンドとは><code>df</code> コマンドとは</a></li>
-<li><a href=#df-コマンドの主なオプション><code>df</code> コマンドの主なオプション</a></li>
-<li><a href=#ディスクの空き容量を表示>ディスクの空き容量を表示</a></li>
-<li><a href=#ディスクの空き容量を表示場所を指定して集計>ディスクの空き容量を表示(場所を指定して集計)</a></li>
-<li><a href=#ディスクの空き容量を読みやすいサイズ表記で表示>ディスクの空き容量を読みやすいサイズ表記で表示</a></li>
-</ul>
-</li>
-<li><a href=#日付時刻>日付・時刻</a>
-<ul>
-<li><a href=#date-コマンドの主なオプション><code>date</code> コマンドの主なオプション</a></li>
-<li><a href=#タイムゾーンを確認>タイムゾーンを確認</a></li>
-</ul>
-</li>
-<li><a href=#検索>検索</a>
+<li><a href=#grepfind-検索><code>grep</code>/<code>find</code>: 検索</a>
 <ul>
 <li><a href=#grep-コマンドの使用方法><code>grep</code> コマンドの使用方法</a></li>
 <li><a href=#grep-コマンドの主なオプション><code>grep</code> コマンドの主なオプション</a></li>
-<li><a href=#タイムスタンプでの検索>タイムスタンプでの検索</a></li>
+<li><a href=#タイムスタンプで検索>タイムスタンプで検索</a></li>
 <li><a href=#find-コマンドの主なオプション><code>find</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#一覧表示>一覧表示</a>
+<li><a href=#ls-ディレクトリやファイルの一覧を表示><code>ls</code>: ディレクトリやファイルの一覧を表示</a>
 <ul>
 <li><a href=#タイムスタンプ降順で一覧表示隠しファイル含む>タイムスタンプ降順で一覧表示(隠しファイル含む)</a></li>
 <li><a href=#タイムスタンプ昇順で一覧表示隠しファイル含む>タイムスタンプ昇順で一覧表示(隠しファイル含む)</a></li>
 <li><a href=#ls-コマンドの主なオプション><code>ls</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#移動名称変更>移動・名称変更</a>
+<li><a href=#tree-ディレクトリやファイルの構成を表示><code>tree</code>: ディレクトリやファイルの構成を表示</a>
 <ul>
-<li><a href=#1つのファイルを移動>1つのファイルを移動</a></li>
-<li><a href=#複数のファイルを移動>複数のファイルを移動</a></li>
-<li><a href=#ファイルの名称を変更リネーム>ファイルの名称を変更(リネーム)</a></li>
-<li><a href=#mv-コマンドの主なオプション><code>mv</code> コマンドの主なオプション</a></li>
+<li><a href=#tree-コマンド-のインストール-macos>tree コマンド のインストール (macOS)</a></li>
+<li><a href=#tree-コマンドのバージョンを表示>tree コマンドのバージョンを表示</a></li>
+<li><a href=#階層を指定>階層を指定</a></li>
+<li><a href=#ファイル名のパターンを指定>ファイル名のパターンを指定</a></li>
+<li><a href=#除外するファイル名のパターンを指定>除外するファイル名のパターンを指定</a></li>
+<li><a href=#ディレクトリのみを表示>ディレクトリのみを表示</a></li>
+<li><a href=#tree-コマンドの主なオプション><code>tree</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#削除>削除</a>
+<li><a href=#touch-タイムスタンプを変更ファイルを作成><code>touch</code>: タイムスタンプを変更/ファイルを作成</a>
+<ul>
+<li><a href=#ファイルのタイムスタンプを変更>ファイルのタイムスタンプを変更</a></li>
+<li><a href=#空ファイルを作成>空ファイルを作成</a></li>
+</ul>
+</li>
+<li><a href=#mkdir-ディレクトリを作成><code>mkdir</code>: ディレクトリを作成</a>
+<ul>
+<li><a href=#多階層のディレクトリを作成>多階層のディレクトリを作成</a></li>
+<li><a href=#作成したディレクトリに作業場所を移動>作成したディレクトリに作業場所を移動</a></li>
+</ul>
+</li>
+<li><a href=#rm-ディレクトリやファイルを削除><code>rm</code>: ディレクトリやファイルを削除</a>
 <ul>
 <li><a href=#1ファイルを削除>1ファイルを削除</a></li>
 <li><a href=#複数ファイルを削除>複数ファイルを削除</a></li>
@@ -3000,12 +2978,12 @@ References
 <li><a href=#rm-コマンドの主なオプション><code>rm</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#空ディレクトリを削除>空ディレクトリを削除</a>
+<li><a href=#rmdir-空ディレクトリを削除><code>rmdir</code>: 空ディレクトリを削除</a>
 <ul>
 <li><a href=#rmdir-コマンドの主なオプション><code>rmdir</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#コピー>コピー</a>
+<li><a href=#cp-コピー><code>cp</code>: コピー</a>
 <ul>
 <li><a href=#ファイルをコピー>ファイルをコピー</a></li>
 <li><a href=#ディレクトリごとファイルをコピー>ディレクトリごとファイルをコピー</a></li>
@@ -3015,18 +2993,15 @@ References
 <li><a href=#scp-コマンドの主なオプション><code>scp</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#ディレクトリとファイルの構成を表示>ディレクトリとファイルの構成を表示</a>
+<li><a href=#mv-移動または名称を変更><code>mv</code>: 移動または名称を変更</a>
 <ul>
-<li><a href=#tree-コマンド-のインストール-macos>tree コマンド のインストール (macOS)</a></li>
-<li><a href=#tree-コマンドのバージョンを確認>tree コマンドのバージョンを確認</a></li>
-<li><a href=#階層を指定>階層を指定</a></li>
-<li><a href=#ファイル名のパターンを指定>ファイル名のパターンを指定</a></li>
-<li><a href=#除外するファイル名のパターンを指定>除外するファイル名のパターンを指定</a></li>
-<li><a href=#ディレクトリのみを表示>ディレクトリのみを表示</a></li>
-<li><a href=#tree-コマンドの主なオプション><code>tree</code> コマンドの主なオプション</a></li>
+<li><a href=#1つのファイルを移動>1つのファイルを移動</a></li>
+<li><a href=#複数のファイルを移動>複数のファイルを移動</a></li>
+<li><a href=#ファイルの名称を変更リネーム>ファイルの名称を変更(リネーム)</a></li>
+<li><a href=#mv-コマンドの主なオプション><code>mv</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#ln-ディレクトリやファイルのリンクを作成><code>ln</code> ディレクトリやファイルのリンクを作成</a>
+<li><a href=#ln-ディレクトリやファイルのリンクを作成><code>ln</code>: ディレクトリやファイルのリンクを作成</a>
 <ul>
 <li><a href=#ハードリンクとシンボリックリンク>ハードリンクとシンボリックリンク</a></li>
 <li><a href=#ディレクトリのシンボリックリンクを作成>ディレクトリのシンボリックリンクを作成</a></li>
@@ -3037,19 +3012,7 @@ References
 <li><a href=#ln-コマンドの主なオプション><code>ln</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#mkdir-ディレクトリの作成><code>mkdir</code> ディレクトリの作成</a>
-<ul>
-<li><a href=#多階層のディレクトリを作成>多階層のディレクトリを作成</a></li>
-<li><a href=#作成したディレクトリに作業場所を移動>作成したディレクトリに作業場所を移動</a></li>
-</ul>
-</li>
-<li><a href=#ファイルの作成>ファイルの作成</a>
-<ul>
-<li><a href=#空ファイルを作成>空ファイルを作成</a></li>
-<li><a href=#ファイルのタイムスタンプを変更>ファイルのタイムスタンプを変更</a></li>
-</ul>
-</li>
-<li><a href=#cat-ファイル内容の表示><code>cat</code> ファイル内容の表示</a>
+<li><a href=#cat-ファイル内容を表示><code>cat</code>: ファイル内容を表示</a>
 <ul>
 <li><a href=#cat-コマンドとは><code>cat</code> コマンドとは</a></li>
 <li><a href=#ファイルの内容を行番号付きで表示>ファイルの内容を行番号付きで表示</a></li>
@@ -3057,28 +3020,65 @@ References
 <li><a href=#cat-コマンドの主なオプション><code>cat</code> コマンドの主なオプション</a></li>
 </ul>
 </li>
-<li><a href=#less-ファイル内容の表示><code>less</code> ファイル内容の表示</a>
+<li><a href=#less-ファイル内容を表示><code>less</code>: ファイル内容を表示</a>
 <ul>
 <li><a href=#ファイル内容を1画面に表示編集なし>ファイル内容を1画面に表示(編集なし)</a></li>
 <li><a href=#ファイル内容表示時のショートカット>ファイル内容表示時のショートカット</a></li>
 </ul>
 </li>
-<li><a href=#ファイル内容の編集>ファイル内容の編集</a>
+<li><a href=#vim-ファイル内容を編集><code>vim</code>: ファイル内容を編集</a>
 <ul>
 <li><a href=#入力モードへの切り替え>入力モードへの切り替え</a></li>
 <li><a href=#入力モードからコマンドモードへの切り替え>入力モードからコマンドモードへの切り替え</a></li>
 <li><a href=#コマンドモードの操作>コマンドモードの操作</a></li>
 </ul>
 </li>
-<li><a href=#ファイル内容の行数並べ替え重複>ファイル内容の行数・並べ替え・重複</a>
+<li><a href=#vimfindsed-文字の置換><code>vim</code>/<code>find</code>/<code>sed</code>: 文字の置換</a>
 <ul>
-<li><a href=#ファイルの行数>ファイルの行数</a></li>
-<li><a href=#ファイル内容の並べ替え>ファイル内容の並べ替え</a></li>
-<li><a href=#ファイル内容の重複>ファイル内容の重複</a></li>
-<li><a href=#ファイル内容の正規表現での確認>ファイル内容の正規表現での確認</a></li>
+<li><a href=#ファイル内で置換>ファイル内で置換</a></li>
+<li><a href=#再帰的に走査し対象ファイル内で一括置換>再帰的に走査し対象ファイル内で一括置換</a></li>
 </ul>
 </li>
-<li><a href=#圧縮解凍暗号解除>圧縮・解凍・暗号解除</a>
+<li><a href=#vim-文字コードを操作><code>vim</code>: 文字コードを操作</a>
+<ul>
+<li><a href=#文字コードの値>文字コードの値</a></li>
+<li><a href=#文字コードを設定>文字コードを設定</a></li>
+<li><a href=#vim-内部で使用される文字コードを表示>vim 内部で使用される文字コードを表示</a></li>
+<li><a href=#ファイルの文字コードを表示>ファイルの文字コードを表示</a></li>
+<li><a href=#ファイルの文字コードの自動判別設定を表示>ファイルの文字コードの自動判別設定を表示</a></li>
+<li><a href=#指定の文字コードでファイルを開き直し>指定の文字コードでファイルを開き直し</a></li>
+<li><a href=#ファイルの文字コードを変換>ファイルの文字コードを変換</a></li>
+<li><a href=#ファイルの文字コードを変換し保存>ファイルの文字コードを変換し保存</a></li>
+</ul>
+</li>
+<li><a href=#vim-改行コードを操作><code>vim</code>: 改行コードを操作</a>
+<ul>
+<li><a href=#改行コードの設定>改行コードの設定</a></li>
+<li><a href=#改行コードの値>改行コードの値</a></li>
+<li><a href=#改行コードを指定>改行コードを指定</a></li>
+<li><a href=#改行コードを指定し保存>改行コードを指定し保存</a></li>
+</ul>
+</li>
+<li><a href=#wcgrep-ファイルの行数単語数を表示><code>wc</code>/<code>grep</code>: ファイルの行数・単語数を表示</a>
+<ul>
+<li><a href=#ファイルの行数>ファイルの行数</a></li>
+<li><a href=#正規表現と一致する行数を表示>正規表現と一致する行数を表示</a></li>
+</ul>
+</li>
+<li><a href=#uniq-ファイル内容の重複を確認><code>uniq</code>: ファイル内容の重複を確認</a>
+<ul>
+<li><a href=#重複行は1行目のみを表示>重複行は1行目のみを表示</a></li>
+<li><a href=#重複する行のみ出力>重複する行のみ出力</a></li>
+</ul>
+</li>
+<li><a href=#sort-並べ替え><code>sort</code>: 並べ替え</a>
+<ul>
+<li><a href=#sort-コマンドの主なオプション><code>sort</code> コマンドの主なオプション</a></li>
+<li><a href=#指定した列で並べ替え>指定した列で並べ替え</a></li>
+<li><a href=#ファイル内容の並べ替え>ファイル内容の並べ替え</a></li>
+</ul>
+</li>
+<li><a href=#ziptar-圧縮解凍暗号解除><code>zip</code>/<code>tar</code>: 圧縮・解凍・暗号解除</a>
 <ul>
 <li><a href=#zip-コマンドでの圧縮><code>zip</code> コマンドでの圧縮</a></li>
 <li><a href=#zip-コマンドでの展開><code>zip</code> コマンドでの展開</a></li>
@@ -3090,22 +3090,22 @@ References
 <li><a href=#tar-コマンドの共通のオプション><code>tar</code> コマンドの共通のオプション</a></li>
 </ul>
 </li>
-<li><a href=#csv>CSV</a>
+<li><a href=#date-日付時刻を表示><code>date</code>: 日付・時刻を表示</a>
 <ul>
-<li><a href=#csvファイルの各行のカラム数が指定した数以下の例では-10と一致しない行数を確認>CSVファイルの各行のカラム数が指定した数(以下の例では 10)と一致しない行数を確認</a></li>
-<li><a href=#csvファイルの特定のカラム以下の例では10カラム目のみを抽出>CSVファイルの特定のカラム(以下の例では10カラム目)のみを抽出</a></li>
+<li><a href=#date-コマンドの主なオプション><code>date</code> コマンドの主なオプション</a></li>
+<li><a href=#タイムゾーンを表示>タイムゾーンを表示</a></li>
 </ul>
 </li>
-<li><a href=#システム情報バージョン>システム情報/バージョン</a>
+<li><a href=#df-ディスク容量を表示><code>df</code>: ディスク容量を表示</a>
 <ul>
-<li><a href=#システム情報を確認>システム情報を確認</a></li>
-<li><a href=#カーネルのバージョン情報を確認>カーネルのバージョン情報を確認</a></li>
-<li><a href=#osのバージョン情報を確認>OSのバージョン情報を確認</a></li>
-<li><a href=#osのバージョン情報を確認ディストリビューション別>OSのバージョン情報を確認(ディストリビューション別)</a></li>
-<li><a href=#osのバージョン情報確認コマンドを確認>OSのバージョン情報確認コマンドを確認</a></li>
+<li><a href=#df-コマンドとは><code>df</code> コマンドとは</a></li>
+<li><a href=#df-コマンドの主なオプション><code>df</code> コマンドの主なオプション</a></li>
+<li><a href=#ディスクの空き容量を表示>ディスクの空き容量を表示</a></li>
+<li><a href=#ディスクの空き容量を表示場所を指定して集計>ディスクの空き容量を表示(場所を指定して集計)</a></li>
+<li><a href=#ディスクの空き容量を読みやすいサイズ表記で表示>ディスクの空き容量を読みやすいサイズ表記で表示</a></li>
 </ul>
 </li>
-<li><a href=#ディスク使用量を確認>ディスク使用量を確認</a>
+<li><a href=#du-ディスク使用量を表示><code>du</code>: ディスク使用量を表示</a>
 <ul>
 <li><a href=#du-コマンドとは><code>du</code> コマンドとは</a></li>
 <li><a href=#du-コマンドの主なオプション><code>du</code> コマンドの主なオプション</a></li>
@@ -3114,23 +3114,27 @@ References
 <li><a href=#集計するディレクトリの深さを指定>集計するディレクトリの深さを指定</a></li>
 </ul>
 </li>
-<li><a href=#並べ替え>並べ替え</a>
-<ul>
-<li><a href=#sort-コマンドとは><code>sort</code> コマンドとは</a></li>
-<li><a href=#sort-コマンドの主なオプション><code>sort</code> コマンドの主なオプション</a></li>
-<li><a href=#指定した列で並べ替え>指定した列で並べ替え</a></li>
-</ul>
-</li>
-<li><a href=#環境>環境</a>
+<li><a href=#envlocale-環境変数を表示><code>env</code>/<code>locale</code>: 環境変数を表示</a>
 <ul>
 <li><a href=#env-コマンドとは><code>env</code> コマンドとは</a></li>
 <li><a href=#env-コマンドの主なオプション><code>env</code> コマンドの主なオプション</a></li>
-<li><a href=#指定可能なロケールを確認>指定可能なロケールを確認</a></li>
+<li><a href=#指定可能なロケールを表示>指定可能なロケールを表示</a></li>
+</ul>
+</li>
+<li><a href=#システム情報バージョンを表示>システム情報/バージョンを表示</a>
+<ul>
+<li><a href=#システム情報を表示>システム情報を表示</a></li>
+<li><a href=#カーネルのバージョン情報を表示>カーネルのバージョン情報を表示</a></li>
+<li><a href=#osのバージョン情報を表示>OSのバージョン情報を表示</a></li>
+<li><a href=#osのバージョン情報を表示ディストリビューション別>OSのバージョン情報を表示(ディストリビューション別)</a></li>
+<li><a href=#osのバージョン情報確認コマンドを表示>OSのバージョン情報確認コマンドを表示</a></li>
 </ul>
 </li>
 <li><a href=#その他-1>その他</a>
 <ul>
-<li><a href=#ログイン中のユーザー>ログイン中のユーザー</a></li>
+<li><a href=#ログイン中のユーザーを表示>ログイン中のユーザーを表示</a></li>
+<li><a href=#csvの全行のカラム数の一致を確認>CSVの全行のカラム数の一致を確認</a></li>
+<li><a href=#csvの特定のカラムのみを抽出>CSVの特定のカラムのみを抽出</a></li>
 </ul>
 </li>
 <li><a href=#references>References</a></li>
