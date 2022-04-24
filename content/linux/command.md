@@ -223,6 +223,11 @@ $ tree -I '*.log'
 $ tree -d
 ```
 
+### Github と同じように構成を表示
+```shell
+$ tree --gitignore --dirsfirst
+```
+
 ### `tree` コマンドの主なオプション
 |option|option|description|
 |---|---|---|
