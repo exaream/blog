@@ -17,3 +17,10 @@ tags: ["Career", "Links"]
 * [Qiita](https://qiita.com/): 技術の記事
 * [Tech Feed](https://techfeed.io/): 技術の記事のフィード
 * [Twitter](https://twitter.com/)
+
+## Engineering Blog
+
+* [mercari engineering](https://engineering.mercari.com/blog/)
+* [LINE Engineering](https://engineering.linecorp.com/ja/blog/)
+* [M3 Tech Blog](https://www.m3tech.blog/)
+* [Yahoo! JAPAN Tech Blog](https://techblog.yahoo.co.jp/)
