@@ -9,6 +9,16 @@ tags: ["Go", "Golang", "Link"]
 
 # Go Link
 
+## Video
+### Go Conference
+* [2022 Spring Track A](https://www.youtube.com/watch?v=GZCr-Dbi0YM)
+* [2022 Spring Track B](https://www.youtube.com/watch?v=mknMioJ1hMk)
+* [2021 Autumn Track A](https://www.youtube.com/watch?v=EVUCSrj83uM)
+* [2021 Autumn Track B](https://www.youtube.com/watch?v=w2m4u3wruJY)
+* [2021 Spring Track A](https://www.youtube.com/watch?v=uqjujzH-XLE)
+* [2021 Spring Track B](https://www.youtube.com/watch?v=x4BE6txBIR4)
+
+## Article
 * [Go Github](https://github.com/golang/)
 * [Go Spec](https://golang.org/ref/spec/)
 * [Go Release](https://dev.golang.org/release/)
