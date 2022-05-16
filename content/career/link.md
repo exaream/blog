@@ -17,6 +17,7 @@ tags: ["Career", "Links"]
 * [Qiita](https://qiita.com/): 技術の記事
 * [Tech Feed](https://techfeed.io/): 技術の記事のフィード
 * [Twitter](https://twitter.com/)
+* [DeepL](https://www.deepl.com/translator): 翻訳ツール
 
 ## Blog
 
