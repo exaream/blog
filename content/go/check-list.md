@@ -9,10 +9,35 @@ tags: ["Go", "Golang", "Check List"]
 
 # Go Check Sheet
 
+## References
+- Style Guide
+  - [Effective Go](https://go.dev/doc/effective_go)
+  - [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
+  - [Uber Go Style Guide](https://github.com/uber-go/guide)
+- Testing
+  - [Advanced Testing with Go](https://speakerdeck.com/mitchellh/advanced-testing-with-go)
+  - [Goのテーブル駆動テストをわかりやすく書きたい](https://zenn.dev/kimuson13/articles/go_table_driven_test)
+- Knowledge
+  - [プログラミング言語Go完全入門](http://tenn.in/go)
+  - [よくわかるcontextの使い方](https://zenn.dev/hsaki/books/golang-context)
+  - [Goでの並行処理を徹底解剖！](https://zenn.dev/hsaki/books/golang-concurrency)
+  - [Goで時刻を扱うチートシート](https://zenn.dev/hsaki/articles/go-time-cheatsheet)
+  - [Goにおけるjsonの扱い方を整理・考察してみた ~ データスキーマを添えて](https://zenn.dev/hsaki/articles/go-convert-json-struct)
+  - [Go言語のジェネリクス入門(1)](https://zenn.dev/nobishii/articles/type_param_intro)
+  - [Go言語のジェネリクス入門(2) インスタンス化と型推論](https://zenn.dev/nobishii/articles/type_param_intro_2)
+  - [Workspace mode](https://zenn.dev/kimuson13/articles/go-workspace-mode-impressions)
+- Library
+  - [multierr](https://github.com/uber-go/multierr)
+- Static Analytics
+  - [goleak](https://github.com/uber-go/goleak)
+  - [errcheck](https://github.com/kisielk/errcheck)
+  - [gosec](https://github.com/securego/gosec)
+  - [tennvet](https://github.com/tenntenn/tennvet)
+  - [fieldalignment](https://mattn.kaoriya.net/software/lang/go/20220127151742.htm)
+
 ## 設計
 ### パッケージ管理
 - Go Modules (go.mod)
-- Workspace mode https://zenn.dev/kimuson13/articles/go-workspace-mode-impressions
 
 ### 設計
 - 分割
@@ -81,10 +106,7 @@ tags: ["Go", "Golang", "Check List"]
   - 通常のエラー処理は panic を使用せず error を複数戻り値で使用　https://github.com/golang/go/wiki/CodeReviewComments#dont-panic
 
 ## 解析
-- errcheck https://github.com/kisielk/errcheck
-- gosec https://github.com/securego/gosec
-- tennvet https://github.com/tenntenn/tennvet
-- fieldalignment https://mattn.kaoriya.net/software/lang/go/20220127151742.htm
+
 
 ## テスト
 - テーブル駆動テスト
@@ -130,6 +152,5 @@ tags: ["Go", "Golang", "Check List"]
   - `go test -v` は常時実行しないこと, CI等のノイズになるため, あくまでもオプション
 
 ## その他
-- ssh.IsTerminal
 - Timing-Dependent Tests https://speakerdeck.com/mitchellh/advanced-testing-with-go?slide=62
 - 1行で Go Playground のURLを生成 `tree -Ffi --gitignore --noreport -I TODO.md | grep -v /$ | xargs gp share`
