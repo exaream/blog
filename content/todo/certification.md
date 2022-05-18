@@ -21,6 +21,9 @@ draft: false
   - [ ] 基本情報処理技術者試験
   - [ ] 応用応報処理技術者試験
   - [ ] 情報処理安全確保支援士
+- [ ] [日商簿記](https://www.kentei.ne.jp/bookkeeping)
+  - [ ] [日商簿記3級](https://www.kentei.ne.jp/bookkeeping/class3)
+  - [ ] [日商簿記2級](https://www.kentei.ne.jp/bookkeeping/class2)
 - [ ] [Google](https://www.coursera.org/google-career-certificates)
   - [ ] Google IT Support Professional Certificate
   - [ ] Google IT Automation Professional Certificate
