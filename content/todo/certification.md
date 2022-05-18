@@ -5,11 +5,15 @@ title: Certification
 linkTitle: Certification
 description: Certification
 #tags: ["Certification"]
-draft: true
+draft: false
 ---
 
 # Certification
 - [ ] [edX](https://www.edx.org/)
+  - [ ] [LinuxFoundationX](https://www.edx.org/school/linuxfoundationx)
+    - [ ] [Introduction to Kubernetes](https://www.edx.org/course/introduction-to-kubernetes)
+    - [ ] [Introduction to Cloud Infrastructure Technologies](https://www.edx.org/course/introduction-to-cloud-infrastructure-technologies)
+    - [ ] [Introduction to Linux](https://www.edx.org/course/introduction-to-linux)
   - [ ] [Stanford ONLINE](https://www.edx.org/school/stanfordonline)
     - [ ] [Computer Science 101](https://www.edx.org/course/computer-science-101)
 - [ ] [IPA](https://www.jitec.ipa.go.jp/1_11seido/seido_gaiyo.html)
