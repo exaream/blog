@@ -9,7 +9,9 @@ draft: true
 ---
 
 # Certification
-
+- [ ] [edX](https://www.edx.org/)
+  - [ ] [Stanford ONLINE](https://www.edx.org/school/stanfordonline)
+    - [ ] [Computer Science 101](https://www.edx.org/course/computer-science-101)
 - [ ] [IPA](https://www.jitec.ipa.go.jp/1_11seido/seido_gaiyo.html)
   - [ ] IT Passport
   - [ ] 基本情報処理技術者試験
