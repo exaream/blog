@@ -63,4 +63,10 @@ draft: false
   - [ ] UoPeople, BSCS
   - [ ] Georgia Tech, MSCS
   - [ ] MIT Sloan Fellows, MBA
+
+## Udemy
+- [ ] Python
+  - [ ] [現役シリコンバレーエンジニアが教えるPython 3 入門 + 応用 +アメリカのシリコンバレー流コードスタイル](https://rakuten-tech.udemy.com/course/python-beginner/)
+  - [ ] [プログラミング初心者でも安心、Python/Django入門講座](https://rakuten-tech.udemy.com/course/pythondjango-a/)
+  - [ ] [【中級者向け】Django3でショッピングアプリ開発 - ECサイト構築で行うPython・WEBアプリケーション開発](https://rakuten-tech.udemy.com/course/django-ecweb-vegeket/)
   
