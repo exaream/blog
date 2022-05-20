@@ -8,3 +8,26 @@ description: Vagrant
 draft: true
 ---
 
+# Vagrant
+
+## Basic
+
+start/create
+```shell
+vagrant up
+```
+```shell
+vagrant up sample
+```
+connect
+```shell
+vagrant ssh sample
+```
+stop
+```shell
+vagrant halt sample
+```
+delete
+```shell
+vagrant destroy sample
+```
