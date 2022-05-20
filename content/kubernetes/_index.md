@@ -10,7 +10,26 @@ draft: true
 
 # Kuberntes
 
+## Install
+
+### macOS
+```shell
+brew install kubectl
+```
+
+```shell
+brew install minikube
+```
+
 ## Basics
+
+```shell
+kubectl version
+```
+
+```shell
+kubectl version --client
+```
 
 ```shell
 kubectl create -f <nanifest file(s)>
@@ -37,13 +56,17 @@ kubectl get <ObjectType> <ObjectName>
 ```
 
 ```shell
+kubectl cluster-info
+```
+
+```shell
+kubectl cluster-info dump
+```
+
+```shell
 minikube start --driver=docker
 ```
 
 ```shell
 minikube status
-```
-
-```shell
-kubectl version
 ```
