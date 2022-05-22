@@ -36,6 +36,7 @@ headless: true
   - [iTerm2]({{< ref "mac/iterm2" >}})
 * **[Tool]({{< ref "tool" >}})**
   - [Hugo]({{< ref "tool/hugo" >}})
+  - [Jenkins]({{< ref "tool/jenkins" >}})
   - [VS Code]({{< ref "tool/vscode" >}})
   - [Excel]({{< ref "tool/excel" >}})
   - [MailCatcher]({{< ref "tool/mailcatcher" >}})
