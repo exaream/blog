@@ -45,12 +45,15 @@ $ git secrets --register-aws
 ```
 
 ## git-split-diffs
-* Display the results of the `git diff` command side by side like Github.
+- Display the results of the `git diff` command side by side like Github.
 
-## Precondition
-* `npm` or `yarn`
+### References
+- https://genzouw.com/entry/2021/05/24/104932/2640/
 
-## Install git-split-diffs
+### Precondition
+- `npm` or `yarn`
+
+### Install
 If you use `npm`
 ```shell
 $ npm install -g git-split-diffs
@@ -88,6 +91,3 @@ Adjust the minimum display width if you want to display the difference side by s
 ```shell
 $ git config --global split-diffs.min-line-width 40
 ```
-
-## References
-* https://genzouw.com/entry/2021/05/24/104932/2640/
