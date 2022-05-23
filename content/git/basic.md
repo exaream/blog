@@ -875,38 +875,7 @@ $ ls -la /usr/local/bin/git
 $ git --version
 ```
 
-## Security
 
-### git-secrets
-- https://github.com/awslabs/git-secrets
-- https://blog.katsubemakito.net/git/git-secrets
-
-#### Install
-macOS
-```shell
-$ brew install git-secrets
-```
-
-```shell
-$ git clone https://github.com/awslabs/git-secrets.git
-$ cd git-secrets
-$ make install
-```
-
-#### Basic usage
-Set git-secrets to a git repository
-```shell
-$ git init
-$ git secrets --install
-```
-Check commit history
-```shell
-$ git secrets --scan-history
-```
-For AWS
-```shell
-$ git secrets --register-aws
-```
 ## References
 * https://qiita.com/gold-kou/items/7f6a3b46e2781b0dd4a0
 * https://qiita.com/jesus_isao/items/63557eba36819faa4ad9
