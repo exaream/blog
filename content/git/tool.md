@@ -9,6 +9,41 @@ tags: ["Git","git-split-diffs","Tool"]
 
 # Git Tool
 
+## git-secrets
+
+- `git-secrets` scans a git repository, finds credential information and prevents them from being committed.
+
+### References
+- https://github.com/awslabs/git-secrets
+- https://blog.katsubemakito.net/git/git-secrets
+
+### Install
+macOS
+```shell
+$ brew install git-secrets
+```
+
+```shell
+$ git clone https://github.com/awslabs/git-secrets.git
+$ cd git-secrets
+$ make install
+```
+
+### Basic usage
+Set git-secrets to a git repository
+```shell
+$ git init
+$ git secrets --install
+```
+Check commit history
+```shell
+$ git secrets --scan-history
+```
+For AWS
+```shell
+$ git secrets --register-aws
+```
+
 ## git-split-diffs
 * Display the results of the `git diff` command side by side like Github.
 
