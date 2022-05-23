@@ -4,7 +4,7 @@ lastmod: ["lastmod"]
 title: Git Tool
 linkTitle: Tool
 description: Git Tool
-tags: ["Git","git-split-diffs","Tool"]
+tags: ["Git","git-split-diffs","git-secrets", "Tool"]
 ---
 
 # Git Tool
