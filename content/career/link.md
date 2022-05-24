@@ -18,6 +18,7 @@ tags: ["Career", "Links"]
 * [Tech Feed](https://techfeed.io/): 技術の記事のフィード
 * [Twitter](https://twitter.com/)
 * [DeepL](https://www.deepl.com/translator): 翻訳ツール
+* [Mentimeter](https://www.menti.com/): Easy-to-build presentations, interactive Polls, Quizzes, and Word Clouds
 
 ## Blog
 
