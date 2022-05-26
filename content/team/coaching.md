@@ -15,6 +15,14 @@ draft: true
 - [Listening Skills](https://www.thebalancecareers.com/listening-skills-524853)
 - [The Art of the One-on-One Meeting](https://fellow.app/blog/meetings/one-on-one-meeting-definitive-guide/)
 
+
+## What is Coaching
+
+- Helping others lean for themselves
+- Continuous and collaborative
+- Coach is a facilitator and feedback provider
+- Coach is a mirror
+
 ## 7 Ways to Improve Your Listening Skills
 - Maintain Eye Contact
 - Avoid Interrupting
