@@ -69,4 +69,8 @@ draft: false
   - [ ] [現役シリコンバレーエンジニアが教えるPython 3 入門 + 応用 +アメリカのシリコンバレー流コードスタイル](https://rakuten-tech.udemy.com/course/python-beginner/)
   - [ ] [プログラミング初心者でも安心、Python/Django入門講座](https://rakuten-tech.udemy.com/course/pythondjango-a/)
   - [ ] [【中級者向け】Django3でショッピングアプリ開発 - ECサイト構築で行うPython・WEBアプリケーション開発](https://rakuten-tech.udemy.com/course/django-ecweb-vegeket/)
-  
+
+## Book
+- [ ] PostgreSQL
+  - [ ] [SQL実践入門 ──高速でわかりやすいクエリの書き方](https://gihyo.jp/dp/ebook/2015/978-4-7741-7325-2)
+  - [ ] [内部構造から学ぶPostgreSQL 設計・運用計画の鉄則](https://gihyo.jp/dp/ebook/2018/978-4-297-10090-2)
