@@ -79,11 +79,12 @@ https://golangci-lint.run/
 $ brew install golangci-lint
 $ brew upgrade golangci-lint
 or
-$ go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.42.0
+$ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 ```
 ```shell
-$ golangci-lint run ./...
-$ golangci-lint run dir1 dir2/... dir3/file1.go
+$ golangci-lint run ./... --go=1.18
+WARN [linters context] structcheck is disabled because of go1.18. You can track the evolution of the go1.18 support by following the https://github.com/golangci/golangci-lint/issues/2649. 
+$ golangci-lint run ./... --go=1.18 --disable=structcheck
 ```
 
 ### reviewdog
