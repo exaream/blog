@@ -26,6 +26,7 @@ draft: true
     * リソース効率性とフロー効率性について言及
 * SQL
   * [MySQLとインデックスとPHPer](https://speakerdeck.com/yoku0825/mysqltoindetukusutophper)
+  * [SQLの歴史を振り返る](https://qiita.com/murata0531/items/f2b0f1bb204a8e603ae7)
 * Container
   * [インフラが苦手でも大丈夫！紙芝居Kubernetes](https://speakerdeck.com/aoi1/inhuragaku-shou-demoda-zhang-fu-zhi-zhi-ju-kubernetes)
   * [Macで使うVS CodeとRemote Containerの性能を大幅改善](https://www.keisuke69.net/entry/2021/09/15/104532)
