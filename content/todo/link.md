@@ -45,6 +45,8 @@ draft: true
   * [PHPのリリース日とサポート期限](https://qiita.com/bezeklik/items/72d1ff8393f66673e2bc)
 * Python
   * [Python Data Science Handbook 無料公開](https://jakevdp.github.io/PythonDataScienceHandbook/)
+* Elasticsearch
+  * [Elasticsearchを使うときの注意点](https://www.slideshare.net/ssuser91c7c7/elasticsearch-57588384?msclkid=0c4d371dc60411ec8a5d9276fb60e190)
 * Git
   * [大きなGitリポジトリをクローンするときの工夫を図解します](https://swet.dena.com/entry/2021/07/12/120000)
 * Test
