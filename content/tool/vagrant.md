@@ -14,20 +14,23 @@ draft: true
 
 start/create
 ```shell
-vagrant up
+$ vagrant up
 ```
 ```shell
-vagrant up sample
+$ vagrant up sample
 ```
 connect
 ```shell
-vagrant ssh sample
+$ vagrant ssh sample
 ```
 stop
 ```shell
-vagrant halt sample
+$ vagrant halt sample
 ```
 delete
 ```shell
-vagrant destroy sample
+$ ls -A
+.vagrant	Vagrantfile
+$ vagrant destroy -f
+$ rm -rf Vagrantfile .vagrant
 ```
