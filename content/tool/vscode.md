@@ -20,6 +20,23 @@ tags: ["Visual Studio Code","VS Code","Shortcut"]
 ### プロジェクトを常に新しいウィンドウで開く方法
 * window.openFoldersInNewWindow を検索し on を選択
 
+
+## `code` command
+
+### How to enable `code` command
+- Use shortcut `⇧ ⌘ p` (shift + command + p)
+- Select `Shell Command: Install command from PATH`
+
+### High use commands
+
+|Description|Command|
+|---|---|
+|Start VS Code|`code`|
+|Open a directory with VS Code|`code .`|
+|Open a file with VS Code|`code foo.txt`|
+|Compare 2 files with VS Code|`code -d foo.txt bar.txt`|
+|Display help|`code -h`|
+
 ## ショートカット
 
 ### 開く・閉じる
