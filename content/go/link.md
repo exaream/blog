@@ -43,6 +43,9 @@ tags: ["Go", "Golang", "Link"]
 * [Context](https://go.dev/blog/context)
 * [go-safeweb](https://github.com/google/go-safeweb) SQL Injection, XSS, XSRF etc.
 
+## Sample
+* [Slice and Map](https://gotipplay.golang.org/p/ifloU6kyjMt)
+
 ## Book
 
 * [エキスパートたちのGo言語 一流のコードから応用力を学ぶ](https://www.amazon.co.jp/dp/4297125196)
