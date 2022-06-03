@@ -4,8 +4,8 @@ lastmod: ["lastmod"]
 title: Golang Installation
 linkTitle: Installation
 description: Golang Installation
-#tags: ["Go", "Golang", "Installation"]
-#draft: true
+tags: ["Go", "Golang", "Installation"]
+draft: true
 ---
 
 # Golang Installation
