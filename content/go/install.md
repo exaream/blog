@@ -5,15 +5,18 @@ title: Golang Installation
 linkTitle: Installation
 description: Golang Installation
 #tags: ["Go", "Golang", "Installation"]
-draft: true
+#draft: true
 ---
 
-# Golang latest version
+# Golang Installation
+
+## Release history
+
+- [Release History](https://go.dev/doc/devel/release)
 
 ## Install old version
-https://go.dev/doc/tutorial/generics
 
-```shell {hl_lines=[3,4,6]}
+```shell
 $ go version
 go version go1.18.2 darwin/amd64
 $ go install golang.org/dl/go1.17@latest
