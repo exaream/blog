@@ -37,7 +37,7 @@ $ source ~/.bash_profile
 ### Check that the latest version is available
 ```shell
 $ python --version
-Python 3.9.7
+Python 3.9.13
 $ which python
 /usr/local/opt/python/libexec/bin/python
 ```
@@ -54,19 +54,164 @@ $ brew upgrade python
 ### Terminal
 ```shell
 $ python --version
-Python 3.9.6
+Python 3.9.13
 ```
 Short option of ```--version```
 ```shell
 $ python -V
-Python 3.9.6
+Python 3.9.13
 ```
 
 More detailed information
 ```shell
 $ python -VV
-Python 3.9.6 (default, Jul 22 2021, 15:16:20) 
-[GCC 8.3.0]
+Python 3.9.13 (main, May 24 2022, 21:28:31)
+[Clang 13.1.6 (clang-1316.0.21.2)]
+```
+
+```shell
+$ python
+>>> print("Hi", "Mike")
+Hi Mike
+>>> print("Hi", "Mike", sep=", ", end=".\n")
+Hi, Mike.
+>>> 2 + 2
+4
+>>> type(1)
+<class 'int'>
+>>> type(1.0)
+<class 'float'>
+>>> .1
+0.1
+>>> 17 / 2
+8.5
+>>> 17 / 5
+3.4
+>>> 19 / 3
+6.333333333333333
+>>> 19 // 3
+6
+>>> 4 * 4 * 4
+64
+>>> 4 ** 3
+64
+>>> pie = 3.14159265359
+>>> pie
+3.14159265359
+>>> round(pie, 2)
+3.14
+>>> import math
+>>> math.sqrt(25)
+5.0
+>>> help(math)
+```
+
+```shell
+$ python
+>>> print('c:\name')
+c:
+ame
+>>> print('c:\\name')
+c:\name
+>>> print(r'c:\name')
+c:\name
+>>> print("""
+... aaa
+... bbb
+... ccc
+... """)
+
+aaa
+bbb
+ccc
+
+>>>
+>>> print('Hello, ' * 2 + 'Mark')
+Hello, Hello, Mark
+>>> str = ('aaaaaa''bbbbbb')
+>>> str
+'aaaaaabbbbbb'
+>>> str = ('aaaaaa'
+... 'bbbbbb')
+>>> str
+'aaaaaabbbbbb'
+>>> 
+>>> str = 'python'
+>>> str[0]
+'p'
+>>> str[1]
+'y'
+>>> str[2]
+'t'
+>>> str[-1]
+'n'
+>>> str[0:2]
+'py'
+>>> str[:2]
+'py'
+>>> str[2:]
+'thon'
+>>> 'J' + str[1:]
+'Jython'
+>>> str[:]
+'Jython'
+>>> n = len(str)
+>>> n
+6
+>>> 
+>>> s = 'My name is Alice. Hi, Alice.'
+>>> s
+'My name is Alice. Hi, Alice.'
+>>> 
+>>> is_start = s.startswith('My')
+>>> is_start
+True
+>>> 
+>>> s.find('Alice')
+11
+>>> 
+>>> s.rfind('Alice')
+22
+>>> 
+>>> s.count('Alice')
+2
+>>> 
+>>> s.capitalize()
+'My name is alice. hi, alice.'
+>>> 
+>>> s.title()
+'My Name Is Alice. Hi, Alice.'
+>>> 
+>>> s.upper()
+'MY NAME IS ALICE. HI, ALICE.'
+>>> 
+>>> s.lower()
+'my name is alice. hi, alice.'
+>>> 
+>>> s.replace('Alice', 'Bob')
+'My name is Bob. Hi, Bob.'
+>>> 
+>>> 'My name is {}.'.format('Chris')
+'My name is Chris.'
+>>> 
+>>> "My name is {}. I'm a {}.".format('Chris', 'student')
+"My name is Chris. I'm a student."
+>>>
+>>> "My family name is {1}, my first name is {0}.".format('John', 'Smith')
+'My family name is Smith, my first name is John.'
+>>> 
+>>> "My family name is {family_name}, my first name is {first_name}.".format(first_name='John', family_name='Smith')
+'My family name is Smith, my first name is John.'
+>>>
+>>> x = str(1)
+>>> type(x)
+<class 'str'>
+>>> 
+>>> first_name = 'John'
+>>> family_name = 'Smith'
+>>> print(f'My name is {first_name} {family_name}.')
+My name is John Smith.
+>>> 
 ```
 
 ### Source code
@@ -76,8 +221,8 @@ Python 3.9.6 (default, Jul 22 2021, 15:16:20)
 import sys
 
 print(sys.version)
-# 3.9.6 (default, Jul 22 2021, 15:16:20) 
-# [GCC 8.3.0]
+# Python 3.9.13 (main, May 24 2022, 21:28:31)
+# [Clang 13.1.6 (clang-1316.0.21.2)]
 print(type(sys.version))
 # <class 'str'>
 
@@ -91,14 +236,14 @@ print(sys.version_info[0])
 print(sys.version_info[1])
 # 9
 print(sys.version_info[2])
-# 6
+# 13
 
 print(sys.version_info.major)
 # 3
 print(sys.version_info.minor)
 # 9
 print(sys.version_info.micro)
-# 6
+# 13
 ```
 
 #### ```platform```
@@ -107,11 +252,11 @@ print(sys.version_info.micro)
 import platform
 
 print(platform.python_version())
-# 3.9.6
+# 3.9.13
 print(type(platform.python_version()))
 # <class 'str'>
 print(platform.python_version_tuple())
-# ('3', '9', '6')
+# ('3', '9', '13')
 print(type(platform.python_version_tuple()))
 # <class 'tuple'>
 ```
