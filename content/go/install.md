@@ -18,7 +18,7 @@ draft: true
 
 ```shell
 $ go version
-go version go1.18.2 darwin/amd64
+go version go1.18.3 darwin/amd64
 $ go install golang.org/dl/go1.17@latest
 $ go1.17 download
 $ go1.17 version
