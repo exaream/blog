@@ -52,23 +52,19 @@ $ brew upgrade python
 ## Version
 
 ### Terminal
+Version
 ```shell
 $ python --version
 Python 3.9.13
-```
-Short option of ```--version```
-```shell
+
 $ python -V
 Python 3.9.13
-```
 
-More detailed information
-```shell
 $ python -VV
 Python 3.9.13 (main, May 24 2022, 21:28:31)
 [Clang 13.1.6 (clang-1316.0.21.2)]
 ```
-
+Integer/Float etc.
 ```shell
 $ python
 >>> print("Hi", "Mike")
@@ -105,7 +101,7 @@ Hi, Mike.
 5.0
 >>> help(math)
 ```
-
+String
 ```shell
 $ python
 >>> print('c:\name')
@@ -211,6 +207,55 @@ True
 >>> family_name = 'Smith'
 >>> print(f'My name is {first_name} {family_name}.')
 My name is John Smith.
+>>> 
+```
+
+List
+```shell
+$ python
+>>> l = [1, 20, 300, 4000, 50000]
+>>> l[0]
+1
+>>> l[1]
+20
+>>> l[-1]
+50000
+>>> l[0:2]
+[1, 20]
+>>> l[2:4]
+[300, 4000]
+>>> l[2:]
+[300, 4000, 50000]
+>>> l[:]
+[1, 20, 300, 4000, 50000]
+>>> len(l)
+5
+>>> type(l)
+<class 'list'>
+>>> 
+>>> list('abc')
+['a', 'b', 'c']
+>>> l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> l[::2]
+[1, 3, 5, 7, 9]
+>>> l[1::2]
+[2, 4, 6, 8, 10]
+>>> l[::-1]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+>>> x = ['a', 'b', 'c']
+>>> y = ['e', 'f', 'g']
+>>> z = [x, y]
+>>> z
+[['a', 'b', 'c'], ['e', 'f', 'g']]
+>>> z[0]
+['a', 'b', 'c']
+>>> z[0][0]
+'a'
+>>> z[1][2]
+'g'
+>>> zz = x + y
+>>> zz
+['a', 'b', 'c', 'e', 'f', 'g']
 >>> 
 ```
 
