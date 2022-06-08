@@ -272,7 +272,7 @@ print(type(sys.version))
 # <class 'str'>
 
 print(sys.version_info)
-# sys.version_info(major=3, minor=9, micro=6, releaselevel='final', serial=0)
+# sys.version_info(major=3, minor=9, micro=13, releaselevel='final', serial=0)
 print(type(sys.version_info))
 # <class 'sys.version_info'>
 
