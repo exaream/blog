@@ -104,7 +104,13 @@ tags: ["Go", "Golang", "Check List"]
     - 先頭は小文字
     - 終端は句読点なし
   - 通常のエラー処理は panic を使用せず error を複数戻り値で使用　https://github.com/golang/go/wiki/CodeReviewComments#dont-panic
-
+- 並行処理
+  - 並行処理での競合を回避するためにパッケージ変数は基本的に使用せず不変なものにのみ使用すること
+  - `context` のキーは 空の構造体（empty struct）を使用（メモリ消費なし）
+  ```go
+  type ctxKey struct{}
+  var a ctxKey
+  ```
 ## 解析
 
 
