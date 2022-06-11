@@ -1,3 +1,12 @@
+---
+date: 2022-06-01
+lastmod: ["lastmod"]
+title: English
+linkTitle: English
+description: English
+tags: ["English", "Language"]
+---
+
 # English
 
 |Sentence|Translation|Remarks|
@@ -20,3 +29,8 @@
 |In my view|私の判断では|-|
 |If you ask me|私の意見では|-|
 |As far as I'm concerned|私に関する限り|-|
+
+|Sentence|Translation|Remarks|
+|---|---|---|
+|Let me know if you have any questions.|何か質問があれば私に知らせてください。|"Do you understand?" は角が立つため、こちらがお勧め。|
+|Let me know what you think.|意見を聞かせてください。|-|

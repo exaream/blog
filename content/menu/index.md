@@ -40,4 +40,6 @@ headless: true
   - [VS Code]({{< ref "tool/vscode" >}})
   - [Excel]({{< ref "tool/excel" >}})
   - [MailCatcher]({{< ref "tool/mailcatcher" >}})
+* **[Lang]({{< ref "lang">}})**
+  - [English]({{< ref "lang/english">}})
 
