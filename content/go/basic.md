@@ -87,7 +87,24 @@ WARN [linters context] structcheck is disabled because of go1.18. You can track 
 $ golangci-lint run ./... --go=1.18 --disable=structcheck
 ```
 
+### fieldalignment
+- 構造体のフィールドの並び順を自動で整えるツール
+- https://mattn.kaoriya.net/software/lang/go/20220127151742.htm
+
+Install
+```shell
+$ go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@latest
+```
+Check
+```shell
+$ fieldalignment ./...
+```
+Fix automatically
+```shell
+$ fieldalignment -fix ./...
+```
 ### reviewdog
+https://github.com/reviewdog/reviewdog  
 PRレビューで静的解析ツールを使用
 
 ```shell
