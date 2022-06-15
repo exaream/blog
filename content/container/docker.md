@@ -92,6 +92,37 @@ $ docker inspect --format='{{range .Config.Env}}{{println .}}{{end}}' <CONTAINER
 $ docker inspect --format='{{json .Mounts}}' <CONTAINER ID|NAME> | jq
 ```
 
+## Network
+
+List networks
+```shell
+$ docker network ls
+```
+Create a network
+```shell
+$ docker network create <NETWORK NAME>
+```
+Connect a container to a network
+```shell
+$ docker network connect <CONTAINER ID|NAME>
+```
+Disconnect a container from a network
+```shell
+$ docker network disconnect <CONTAINER ID|NAME>
+```
+Display detailed information on one or more networks
+```shell
+$ docker network inspect <NETWORK NAME>
+```
+Remove all unused networks
+```shell
+$ docker network prune <NETWORK NAME>
+```
+Remove one or more networks
+```shell
+$ docker network rm <NETWORK NAME>
+```
+
 ## Stop
 
 ### Stop all containers
