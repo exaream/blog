@@ -94,6 +94,19 @@ $ docker inspect --format='{{json .Mounts}}' <CONTAINER ID|NAME> | jq
 
 ## Network
 
+https://docs.docker.com/network/
+
+- `none`
+  - ネットワーク接続なし
+- `host`
+  - ホストのネットワークを直接利用
+- `bridge`
+  - ホスト上に別のネットワークを構築して利用
+- `overlay`
+  - Swarmサービスが互いに通信できるよう、複数の Docker デーモンを一緒に接続
+  - Swarmサービスとスタンドアロンコンテナ、または  
+    異なるDockerデーモン上の2つのスタンドアロンコンテナの通信を容易化
+
 List networks
 ```shell
 $ docker network ls
