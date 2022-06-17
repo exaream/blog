@@ -34,3 +34,4 @@ tags: ["English", "Language"]
 |---|---|---|
 |Let me know if you have any questions.|何か質問があれば私に知らせてください。|"Do you understand?" は角が立つため、こちらがお勧め。|
 |Let me know what you think.|意見を聞かせてください。|-|
+|Let me know when you get ready to start.|用意ができたら教えてください。|-|
