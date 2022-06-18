@@ -9,6 +9,8 @@ tags: ["Career", "Links"]
 
 # Link
 
+## Tool
+
 * [LinkedIn](https://www.linkedin.com/): 人脈構築
 * [connpass](https://connpass.com/): イベント
 * [Github](https://github.com/): ポートフォリオ
@@ -31,7 +33,12 @@ tags: ["Career", "Links"]
 * [RAKUS Developers Blog](https://tech-blog.rakus.co.jp/)
 * [MEDLEY Tech Blog](https://developer.medley.jp/entries)
 
-# Training
+## Job
+* [japan-dev](https://japan-dev.com/)
+* [TokyoDev](https://www.tokyodev.com/)
+* [levels.fyi](https://www.levels.fyi/leaderboard/Software-Engineer/All-Levels/country/United-States/)
+
+## Training
 * cybozu
  * [New Grads Training 2021](https://blog.cybozu.io/entry/2021/07/20/100000)
 * mixi
