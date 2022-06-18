@@ -109,6 +109,15 @@ Success.
 All done! 
 ```
 
+## 設定ファイル
+
+設定ファイル `my.cnf` のパス、適用範囲、読み込み順序
+|#|Path|Scope|
+|---|---|---|
+|1|`/etc/my.cnf`|グローバル|
+|2|`/etc/mysql/my.cnf`|グローバル|
+|3|`~/my.cnf`|ユーザー固有|
+
 ## ログイン
 
 e.g) rootユーザーでのログイン
@@ -117,25 +126,70 @@ $ mysql -uroot -p
 Enter password: ### 設定したパスワードを入力
 ```
 
-## MySQLの情報
-
-### バージョン
+## バージョン
 ```mysql
 SELECT VERSION();
 ```
 
-### タイムゾーン
+## タイムゾーン
 ```mysql
 SHOW VARIABLES LIKE '%time_zone%';
 ```
 
-### 文字コード
+## 文字コードと照合順序
+文字コード
 ```mysql
 SHOW VARIABLES LIKE '%character\_set\_%';
 ```
+照合順序(ソート順)
 ```mysql
 SHOW VARIABLES LIKE 'collation%';
 ```
+
+### サーバ全体
+サーバの文字コードの確認
+```mysql
+SHOW GLOBAL VARIABLES LIKE 'character_set_server';
+```
+サーバの照合順序(ソート順)の確認
+```mysql
+SHOW GLOBAL VARIABLES LIKE 'collation_server';
+```
+### DB単位
+DB作成時に文字コードと照合順序(ソート順)を設定
+```mysql
+CREATE DATABASE `sample_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+```
+DBの文字コードの確認
+```mysql
+SHOW GLOBAL VARIABLES LIKE 'character_set_database';
+```
+DBの照合順序(ソート順)の確認
+```mysql
+SHOW GLOBAL VARIABLES LIKE 'collation_database';
+```
+### カラム単位
+サーバやDBと異なる文字コードや照合順序(ソート順)を設定する方法
+```mysql {hl_lines=[3],linenostart=1}
+CREATE TABLE tbl1 (
+    id bigint NOT NULL,
+    col1 varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_ci NOT NULL
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8mb4_general_ci;
+```
+
+### 照合順序が異なるカラムで結合
+```mysql {hl_lines=[3],linenostart=1}
+SELECT * FROM sample_table_1 a
+INNER JOIN sample_table_2 b
+ON a.name = b.name COLLATE utf8mb4_0900_as_ci;
+```
+
+### 文字コード `utf8mb4` のデフォルトの照合順序のMySQLバージョンごとの違い
+|Version|Character Set(文字コード)|Collation(照合順序=ソート順)|
+|---|---|---|
+|>= 8.0|`utf8mb4`|`utf8mb4_general_ci`|
+|<= 5.7|`utf8mb4`|`utf8mb4_0900_ai_ci`|
 
 ## データベース/テーブル/カラムの一覧
 
