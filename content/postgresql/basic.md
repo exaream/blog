@@ -1,13 +1,13 @@
 ---
 date: 2020-01-01
 lastmod: ["lastmod"]
-title: PostgreSQL
-LinkTitle: PostgreSQL
-description: PostgreSQL
+title: PostgreSQL Basic
+LinkTitle: Basic
+description: PostgreSQL Basic
 tags: ["PostgreSQL", "SQL"]
 ---
 
-# PostgreSQL
+# PostgreSQL Basic
 
 ## How to change a port number of PostgreSQL on macOS
 Change the port number of PostgreSQL.  
