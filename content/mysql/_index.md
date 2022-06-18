@@ -10,4 +10,3 @@ tags: ["MySQL"]
 # MySQL
 
 - [MySQL Basic]({{< ref "mysql/basic" >}})
-- [MySQL Error]({{< ref "mysql/basic" >}})
