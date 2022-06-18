@@ -10,9 +10,10 @@ headless: true
   - [Docker]({{< ref "container/docker" >}})
   - [Docker Compose]({{< ref "container/docker-compose" >}})
   - [Docker Swarm]({{< ref "container/docker-swarm" >}})
-* **[SQL]({{< ref "sql" >}})**
-  - [MySQL]({{< ref "sql/mysql" >}})
-  - [PostgreSQL]({{< ref "sql/postgresql" >}})
+* **[MySQL]({{< ref "mysql" >}})**
+  - [MySQL Basic]({{< ref "mysql/basic" >}})
+* **[PostgreSQL]({{< ref "mysql" >}})**
+  - [PostgreSQL Basic]({{< ref "postgresql/basic" >}})
 * **[Go]({{< ref "go" >}})**
   - [Go Check List]({{< ref "go/check-list" >}})
   - [Go Test]({{< ref "go/test">}})

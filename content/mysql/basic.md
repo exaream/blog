@@ -1304,6 +1304,91 @@ SET
 
 ## VIEW
 
+### VIEW の概要
+- VIEW（ビュー）とはテーブルから取得したいデータの条件を定義し、あたかも独立したテーブルのように扱うためのもの。
+- VIEWそのものはデータを持たず、元になったテーブルからデータを参照。
+- VIEWだけ閲覧できるよう権限を設定することも可能。
+- 参照: [ビューの作成](https://www.dbonline.jp/mysql/view/)
+
+### VIEWの作成
+
+```mysql
+CREATE VIEW view_name AS select_statement
+```
+or 
+```mysql
+CREATE VIEW view_name (sample_column_1, sample_column_2) AS select_statement
+```
+
+e.g.
+```mysql
+CREATE VIEW sales_report AS
+SELECT
+    DATE_FORMAT(receipt_date, '%Y%m') AS month,
+    id AS product_id,
+    SUM(amount) AS total_number,
+    SUM(amount * price) AS total_amount
+FROM
+    orders
+ORDER BY
+    month, product_id;
+
+SELECT * FROM sales_report;
+```
+or
+```mysql
+CREATE VIEW sales_report (month, product_id, total_number, total_amount) AS
+SELECT
+    DATE_FORMAT(receipt_date, '%Y%m') AS sales_month,
+    id,
+    SUM(amount),
+    SUM(amount * price)
+FROM
+    orders
+ORDER BY
+    sales_month, id;
+
+SELECT * FROM sales_report;
+```
+
+### VIEW の変更
+
+```mysql
+CREATE OR REPLACE VIEW sample_view AS select_statement;
+```
+or
+```mysql
+ALTER VIEW view_name AS select_statement
+```
+or 
+```mysql
+ALTER VIEW view_name (sample_column_1, sample_column_2) AS select_statement
+```
+
+
+### VIEWのCREATE文の確認
+
+```mysql
+SHOW CREATE VIEW sample_view;
+```
+
+### VIEW を削除
+
+```mysql
+DROP VIEW sample_view;
+```
+or
+```mysql
+DROP VIEW IF EXISTS sample_view;
+```
+
+削除前後の確認
+```mysql
+SHOW TABLES;
+```
+
+
+
 ### VIEWの一括DROP文
 
 ```mysql

@@ -10,7 +10,7 @@ home: true
 # Home
 
 ## Most useful articles
-- [MySQL]({{< ref "sql/mysql" >}})
+- [MySQL]({{< ref "mysql/basic" >}})
 - [Linux Command]({{< ref "linux/command" >}})
 - [Git Basic]({{< ref "git/basic" >}})
 - [PHPUnit]({{< ref "php/phpunit" >}})
