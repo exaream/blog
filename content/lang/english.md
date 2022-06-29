@@ -11,6 +11,7 @@ tags: ["English", "Language"]
 
 |Sentence|Translation|Remarks|
 |---|---|---|
+|I'll leave work.|退勤します。|-|
 |I'll leave my desk.|離席します。|-|
 |I'm back.|戻りました。|離席していた場合など。|
 
@@ -35,3 +36,14 @@ tags: ["English", "Language"]
 |Let me know if you have any questions.|何か質問があれば私に知らせてください。|"Do you understand?" は角が立つため、こちらがお勧め。|
 |Let me know what you think.|意見を聞かせてください。|-|
 |Let me know when you get ready to start.|用意ができたら教えてください。|-|
+
+|Word|Translation|Remarks|
+|---|---|---|
+|communicate|通信する|-|
+|organize|体系づける, まとめる|-|
+|synchronous|同期|-|
+|asynchronous|非同期|-|
+|compatibility|互換性|-|
+|consistent|一貫性のある|-|
+|analogy|類推|-|
+|statistical|統計の|-|
