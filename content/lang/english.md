@@ -25,6 +25,14 @@ tags: ["English", "Language"]
 
 |Sentence|Translation|Remarks|
 |---|---|---|
+|make it more compact|もっと簡潔にする||
+|make it more structured|より構造化する||
+|be interactive with your audience|視聴者と双方向で||
+|ask for feedback|フィードバックを求める||
+
+
+|Sentence|Translation|Remarks|
+|---|---|---|
 |From my point of view|私の見解では|-|
 |In my opinion|私の見解では|-|
 |In my view|私の判断では|-|
@@ -47,3 +55,8 @@ tags: ["English", "Language"]
 |consistent|一貫性のある|-|
 |analogy|類推|-|
 |statistical|統計の|-|
+|storyline|(話の)筋||
+|takeaway|持ち帰り||
+|abbreviation|略語||
+|monotone voice|単調な声||
+
