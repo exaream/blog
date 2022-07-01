@@ -47,6 +47,7 @@ tags: ["English", "Language"]
 
 |Word|Translation|Remarks|
 |---|---|---|
+|distributed transaction|分散トランザクション|-|
 |communicate|通信する|-|
 |organize|体系づける, まとめる|-|
 |synchronous|同期|-|
