@@ -12,7 +12,7 @@ tags: ["English", "Language"]
 |Sentence|Translation|Remarks|
 |---|---|---|
 |I'll leave work.|退勤します。|-|
-|I'll leave my desk.|離席します。|-|
+|I'm leaving my desk.|離席します。|-|
 |I'm back.|戻りました。|離席していた場合など。|
 
 |Sentence|Translation|Remarks|
