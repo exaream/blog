@@ -25,11 +25,14 @@ tags: ["English", "Language"]
 
 |Sentence|Translation|Remarks|
 |---|---|---|
+|Do you have any questions so far?|ここまでで何か質問はありますか？||
+|Does it make sense so far?|ここまで理解できましたか？|部下や同僚に理解度を確認|
+|It makes sense to xxx|xxxするのは合理的ですね||
+|It does not make sense|よくわからない、理解できない||
 |make it more compact|もっと簡潔にする||
 |make it more structured|より構造化する||
 |be interactive with your audience|視聴者と双方向で||
 |ask for feedback|フィードバックを求める||
-
 
 |Sentence|Translation|Remarks|
 |---|---|---|
