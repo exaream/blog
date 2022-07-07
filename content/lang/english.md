@@ -25,6 +25,8 @@ tags: ["English", "Language"]
 
 |Sentence|Translation|Remarks|
 |---|---|---|
+|Can I ask you a favor?|ちょっとお願いがあるのですが|個人的なカジュアルな依頼|
+|I have something I need you to help with.|ちょっとお願いがあるのですが|ビジネスで依頼する際の前置き|
 |Do you have any questions so far?|ここまでで何か質問はありますか？||
 |Does it make sense so far?|ここまで理解できましたか？|部下や同僚に理解度を確認|
 |It makes sense to xxx|xxxするのは合理的ですね||
