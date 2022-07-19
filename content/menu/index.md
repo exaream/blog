@@ -3,8 +3,6 @@ headless: true
 ---
 
 ### Menu
-* **[Career]({{< ref "career" >}})**
-  - [Job Interview]({{< ref "career/job-interview" >}})
 * **[Git]({{< ref "git" >}})**
   - [Git Basic]({{< ref "git/basic" >}})
   - [Git Tool]({{< ref "git/tool" >}})
@@ -45,4 +43,3 @@ headless: true
   - [MailCatcher]({{< ref "tool/mailcatcher" >}})
 * **[Language]({{< ref "lang">}})**
   - [English]({{< ref "lang/english">}})
-
