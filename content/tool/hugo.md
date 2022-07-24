@@ -489,6 +489,25 @@ Write the following in `<head>` of HTML.
 {{ partial "analytics" . }}
 ```
 
+## Enable a line break in a table cell when using markdown
+
+Add the following to `config/_default/config.toml`.
+```toml
+[markup]
+    defaultMarkdownHandler = "goldmark"
+	
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+```
+
+Can use `<br>` as a line break in your article.
+```md
+|Language|Sentence|
+|---|---|
+|English|Hello,<br>world|
+```
+
 ## References
 
 * https://gohugo.io/about/
