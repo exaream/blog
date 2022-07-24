@@ -12,6 +12,7 @@ tags: ["PostgreSQL", "SQL"]
 ## `psql` command
 
 ### Usage
+Overview
 ```shell
 psql [OPTION]... [DBNAME [USERNAME]]
 ```
@@ -20,7 +21,7 @@ Access DB
 ```shell
 $ psql -h sample_hostname -p sample_portnumber -U sampleuser sample_db
 ```
-Run SQL
+Import SQL file
 ```shell
 $ psql --file=/path/to/sample.sql
 ```
@@ -28,7 +29,7 @@ $ psql --file=/path/to/sample.sql
 ### Options
 
 
-|option|short|description|
+|option|option|description|
 |---|---|---|
 |`-h`|`--host=HOSTNAME`|database server host or socket directory (default: "local socket")|
 |`-p`|`--port=PORT`|database server port (default: "5432")|
@@ -47,32 +48,27 @@ $ psql --file=/path/to/sample.sql
 |-|`--help=commands`|list backslash commands, then exit|
 |-|`--help=variables`|list special variables, then exit|
 
-## PostgreSQL's Command
+## `\ (backslash)` command
 
-|Description|Command|
-|---|---|
-|Help|`\?`|
-|Show DBs|`\l`|
-|Switch DB|`\c sample_db`|
-|Show tables|`\d`, `\dt`, `\d+`, `\dt+`|
-|Describe table definition|`\d sample_tbl`|
-|Show `CREATE TABLE`|`pg_dump sample_db -U sampleuser -s -t sample_tbl`|
-|Show indexs|`\d sample_tbl`|
-|Swich display mode|<span class="code">\x<br>SELECT * FROM sample_tbl;</span>|
-|Run SQL file|`\i /path/to/sample.sql`|
-|Inport TSVfrom |`COPY sample_tbl '/absolute/path/to/sample.tsv' (delimiter '', format csv, header true);`|
-|Measure SQL time|`\time on`|
-|Begin log output|`\o sample.log`|
-|End log output|`\o`|
-|Copy definitions & Create table|`CREATE TABLE copy_tbl (LIKE org_tbl)`|
-|Show execution plan|Add `EXPLAIN ` before SQL|
-|Check server info|`\conninfo`<br>You are connected to database "sample_db" as user "sampleuser" on host "sample_host" (address "XXX.XXX.XXX.XXX") at port "XXXX".|
-|Check process|`SELECT * FROM pg_stat_activity;`|
+|Command|Description|Remarks|
+|---|---|---|
+|`\?`|Help|-|
+|`\l`|Show DBs|-|
+|`\c sample_db`|Switch DB|-|
+|`\d`, `\dt`, `\d+`, `\dt+`|Show tables|-|
+|`\d sample_tbl`|Describe table definition|-|
+|`\d sample_tbl`|Show indexs|-|
+|`\x`|Swich display mode|<span class="code">\x<br>SELECT * FROM sample_tbl;</span>|
+|`\i sample.sql`|Run SQL file|-|
+|`\time on`|Measure SQL time|-|
+|`\o sample.log`|Begin log output|-|
+|`\o`|End log output|-|
+|`\conninfo`|Check server info|-|
 
-## PostgreSQL's Information
+## PostgreSQL's Info
 
-### Default Connection Information
-- Set values of connection information as an environment variable.
+### Default Connection Info
+- Set values of connection info as an environment variable.
 - Can also set the password on `~/.pgpass`
 ```shell
 export PGDATABASE=sample_db
@@ -118,7 +114,18 @@ ORDER BY
     col.ordinal_position
 ```
 
-## Backup & Restore
+### Process List
+```postgresql
+SELECT * FROM pg_stat_activity;
+```
+
+## `pg_dump` command
+
+### Show info related `CREATE TABLE`, `CREATE TRIGGER`
+
+```shell
+$ pg_dump sample_db -U sampleuser -s -t sample_tbl
+```
 
 ### Backup one DB
 
@@ -134,9 +141,17 @@ $ pg_dump -U sampleuser --format=plain sample_db > /path/to/sample.sql
 $ pg_dump -U sampleuser --format=tar --file=/path/to/sample.sql sample_db
 ```
 
-### Backup all DBs and related info
-- Can NOT specify the format when using `pg_dumpall`.
+### Restore
+- Can restore with `psql` command if the dump file is in plain text format.
+```shell
+$ psql --file=/path/to/sample.sql
+```
+
+## `pg_dumpall` command
+
+### Backup all DBs
 - All dumps are in plain text format.
+- Can NOT specify the format when using `pg_dumpall`.
 ```shell
 $ sudo -i -u sampleuser
 
@@ -145,16 +160,20 @@ or
 $ pg_dumpall > all.sql
 ```
 
-### Restore
-- Can restore with `psql` command if the dump file is in plain text format.
-```shell
-$ psql --file=/path/to/sample.sql
+## `EXPLAIN` (Execution Plan)
+- Add `EXPLAIN` before SQL
+```postgresql
+EXPLAIN SELECT * FROM sample_tbl WHERE id = XXXXX;
 ```
 
+## `CREATE TABLE`
 
-## CREATE TABLE
+### Copy definitions & Create table
 
-### id, created_at, updated_at
+```postgresql
+CREATE TABLE copy_tbl (LIKE org_tbl);
+```
+### Define id and timestamp
 - Use UUID as the primary key.
 #### Simple Version
 
@@ -221,7 +240,7 @@ $$ LANGUAGE plpgsql;
 ### Check current timezone
 
 ```shell
-$ SHOW TIMEZONE;
+SHOW TIMEZONE;
 ```
 
 ### Check timezones that can be set
@@ -236,6 +255,48 @@ ALTER DATABASE exsampledb SET timezone TO 'Asia/Tokyo';
 ### Apply the change
 ```shell
 SELECT pg_reload_conf();
+```
+
+## Export
+
+### Export to CSV file
+- Use tab as a delimiter. `DELIMITER ','`
+- Enclose all fields in quote. `FORCE QUOTE *`
+- Output field names as header. `HEADER`
+- Change NULL to '' (empty string). `NULL AS ''`
+```postgresql
+COPY sample_tbl FROM '/absolute/path/to/sample.tsv' WITH CSV DELIMITER ',' FORCE QUOTE * NULL AS '' HEADER;
+```
+or
+```shell
+$ psql sample_db -c "SELECT * FROM sample_tbl" -A -F, > sample.csv
+```
+
+
+### Export to TSV file
+- Use tab as a delimiter. `DELIMITER E'\t'`
+- Enclose all fields in quote. `FORCE QUOTE *`
+- Output field names as header. `HEADER`
+- Change NULL to '' (empty string). `NULL AS ''`
+```postgresql
+COPY sample_tbl FROM '/absolute/path/to/sample.tsv' WITH CSV DELIMITER E'\t' FORCE QUOTE * NULL AS '' HEADER;
+```
+or
+```shell
+$ psql sample_db -c "SELECT * FROM sample_tbl" -A -F $'\t' > sample.tsv
+```
+## Import
+
+### Import from CSV file
+
+```postgresql
+COPY sample_tbl FROM '/absolute/path/to/sample.tsv' WITH CSV DELIMITER ',';
+```
+
+### Import from TSV file
+
+```postgresql
+COPY sample_tbl FROM '/absolute/path/to/sample.tsv' WITHC CSV DELIMITER E'\t';
 ```
 
 ## Trouble Shooting
