@@ -10,6 +10,13 @@ pluralizeListTitles = false
 
 googleAnalytics = ""
 
+[markup]
+  defaultMarkdownHandler = "goldmark"
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 #[languages]
 #  [languages.en]
 #    languageName = "English"
