@@ -19,11 +19,22 @@ psql [OPTION]... [DBNAME [USERNAME]]
 
 Access DB
 ```shell
+$ psql --host=sample_hostname --port=sample_portnumber --username=sampleuser sample_db
+or
 $ psql -h sample_hostname -p sample_portnumber -U sampleuser sample_db
 ```
-Import SQL file
+Run SQL file
 ```shell
 $ psql --file=/path/to/sample.sql
+or
+$ psql -f /path/to/sample.sql
+```
+
+Check Version
+```shell
+$ psql --version
+or
+$ psql -V
 ```
 
 ### Options
