@@ -12,7 +12,6 @@ tags: ["PostgreSQL", "SQL"]
 ## `psql` command
 
 ### Usage
-Overview
 ```shell
 psql [OPTION]... [DBNAME [USERNAME]]
 ```
@@ -59,7 +58,7 @@ $ psql -V
 |-|`--help=commands`|list backslash commands, then exit|
 |-|`--help=variables`|list special variables, then exit|
 
-## `\ (backslash)` command
+## Commands using `\(backslash)`
 
 |Command|Description|Remarks|
 |---|---|---|
@@ -75,6 +74,7 @@ $ psql -V
 |`\o sample.log`|Begin log output|-|
 |`\o`|End log output|-|
 |`\conninfo`|Check server info|-|
+|`\q`|Quit||
 
 ## PostgreSQL's Info
 
@@ -340,3 +340,7 @@ $ sudo launchctl start com.edb.launchd.postgresql-13
 - [Postgres と MySQL における id, created_at, updated_at に関するベストプラクティス](https://zenn.dev/mpyw/articles/rdb-ids-and-timestamps-best-practices)
 - [MySQLとPostgreSQLコマンド比較表](https://qiita.com/aosho235/items/c657e2fcd15fa0647471)
 - [PostgreSQL - タイムゾーンをDBに設定する](https://qiita.com/zkangaroo/items/93be2d4504c3d1d5f185)
+
+### TODO
+- [PostgreSQL Isolation について](https://www.kimullaa.com/entry/2020/03/14/134232)
+- [【PostgreSQL】 jsonb型カラムをSQLで検索・集計したい](https://blog.serverworks.co.jp/postgres_jsonb_search)
