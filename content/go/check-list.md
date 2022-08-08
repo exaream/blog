@@ -14,9 +14,6 @@ tags: ["Go", "Golang", "Check List"]
   - [Effective Go](https://go.dev/doc/effective_go)
   - [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
   - [Uber Go Style Guide](https://github.com/uber-go/guide)
-- Testing
-  - [Advanced Testing with Go](https://speakerdeck.com/mitchellh/advanced-testing-with-go)
-  - [Goのテーブル駆動テストをわかりやすく書きたい](https://zenn.dev/kimuson13/articles/go_table_driven_test)
 - Knowledge
   - [プログラミング言語Go完全入門](http://tenn.in/go)
   - [よくわかるcontextの使い方](https://zenn.dev/hsaki/books/golang-context)
@@ -26,8 +23,12 @@ tags: ["Go", "Golang", "Check List"]
   - [Go言語のジェネリクス入門(1)](https://zenn.dev/nobishii/articles/type_param_intro)
   - [Go言語のジェネリクス入門(2) インスタンス化と型推論](https://zenn.dev/nobishii/articles/type_param_intro_2)
   - [Workspace mode](https://zenn.dev/kimuson13/articles/go-workspace-mode-impressions)
+- Testing
+  - [Advanced Testing with Go](https://speakerdeck.com/mitchellh/advanced-testing-with-go)
+  - [Goのテーブル駆動テストをわかりやすく書きたい](https://zenn.dev/kimuson13/articles/go_table_driven_test)
 - Library
   - [multierr](https://github.com/uber-go/multierr)
+  - [testscript](https://github.com/rogpeppe/go-internal/tree/master/testscript)
 - Static Analytics
   - [goleak](https://github.com/uber-go/goleak)
   - [errcheck](https://github.com/kisielk/errcheck)
