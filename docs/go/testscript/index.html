@@ -1,5 +1,5 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Go TestScript"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="Go TestScript"><meta property="og:description" content="Go TestScript"><meta property="og:type" content="article"><meta property="og:url" content="https://exaream.dev/go/testscript/"><meta property="article:section" content="go"><meta property="article:published_time" content="2022-08-07T00:00:00+00:00"><meta property="article:modified_time" content="2022-08-07T00:00:00+00:00"><title>Go TestScript | Tech</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.2b9def0b82f295c61d95e813d7070b9c83cd9011237c3ecb1f095bb48d628476.css integrity="sha256-K53vC4LylcYdlegT1wcLnIPNkBEjfD7LHwlbtI1ihHY=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.e683e4df988a969b72f1133a76cb0901e81b2f4f4206bf0837a88e40e7b26d7a.js integrity="sha256-5oPk35iKlpty8RM6dssJAegbL09CBr8IN6iOQOeybXo=" crossorigin=anonymous></script>
+<script defer src=/en.search.min.d06ff39121d0c293a41abba0265624c307fca860b18a1e96821d90b235da978d.js integrity="sha256-0G/zkSHQwpOkGrugJlYkwwf8qGCxih6Wgh2QsjXal40=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-W638642WNE",{anonymize_ip:!1})}</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-W638642WNE")</script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
@@ -51,11 +51,11 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>scriptDir</span> = <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Join</span>(<span style=color:#e6db74>&#34;testdata&#34;</span>, <span style=color:#e6db74>&#34;script&#34;</span>)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex;background-color:#3c3d38><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>TestMain</span>(<span style=color:#a6e22e>m</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>testing</span>.<span style=color:#a6e22e>M</span>) {
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>TestMain</span>(<span style=color:#a6e22e>m</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>testing</span>.<span style=color:#a6e22e>M</span>) {
 </span></span><span style=display:flex;background-color:#3c3d38><span>	<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Exit</span>(<span style=color:#a6e22e>testscript</span>.<span style=color:#a6e22e>RunMain</span>(<span style=color:#a6e22e>m</span>, <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>func</span>() <span style=color:#66d9ef>int</span>{
 </span></span><span style=display:flex;background-color:#3c3d38><span>		<span style=color:#e6db74>&#34;mycat&#34;</span>: <span style=color:#a6e22e>mycat</span>,
 </span></span><span style=display:flex;background-color:#3c3d38><span>	}))
-</span></span><span style=display:flex;background-color:#3c3d38><span>}
+</span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>TestFoo</span>(<span style=color:#a6e22e>t</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>testing</span>.<span style=color:#a6e22e>T</span>) {
 </span></span><span style=display:flex><span>	<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Parallel</span>()
@@ -63,6 +63,31 @@
 </span></span><span style=display:flex><span>		<span style=color:#a6e22e>Dir</span>:         <span style=color:#a6e22e>filepath</span>.<span style=color:#a6e22e>Join</span>(<span style=color:#a6e22e>scriptDir</span>, <span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Name</span>()),
 </span></span><span style=display:flex><span>		<span style=color:#a6e22e>WorkdirRoot</span>: <span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>TempDir</span>(),
 </span></span><span style=display:flex><span>	})
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// mycat behaves like cat command.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// Do NOT use *testing.T as an argument because we use mycat in testscript.RunMain().
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>mycat</span>() <span style=color:#66d9ef>int</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> len(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Args</span>) <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>io</span>.<span style=color:#a6e22e>Copy</span>(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stdout</span>, <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stdin</span>)
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>fname</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Args</span>[<span style=color:#ae81ff>1</span>:] {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>f</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Open</span>(<span style=color:#a6e22e>fname</span>)
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>io</span>.<span style=color:#a6e22e>Copy</span>(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stdout</span>, <span style=color:#a6e22e>f</span>)
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><h2 id=references>References
 <a class=anchor href=#references>#</a></h2><ul><li><a href=https://cs.opensource.google/go/go/+/master:src/cmd/go/testdata/script/>https://cs.opensource.google/go/go/+/master:src/cmd/go/testdata/script/</a></li><li><a href="https://cs.opensource.google/search?q=testscript&ss=go%2Fgo:src%2F">https://cs.opensource.google/search?q=testscript&ss=go%2Fgo:src%2F</a></li><li><a href=https://pkg.go.dev/github.com/rogpeppe/go-internal/testscript>https://pkg.go.dev/github.com/rogpeppe/go-internal/testscript</a></li><li><a href=https://encore.dev/blog/testscript-hidden-testing-gem>https://encore.dev/blog/testscript-hidden-testing-gem</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><h2>Tags</h2><ul class=tags><li><a href=/tags/go>Go</a><li><a href=/tags/golang>Golang</a><li><a href=/tags/testscript>TestScript</a></ul><h2>Table of Contents</h2><nav id=TableOfContents><ul><li><a href=#概要>概要</a></li><li><a href=#テストコードの書き方>テストコードの書き方</a><ul><li><a href=#定義済コマンドをテストで使用>定義済コマンドをテストで使用</a></li><li><a href=#独自のコマンドを作成してテストで使用>独自のコマンドを作成してテストで使用</a></li></ul></li><li><a href=#references>References</a></li></ul></nav></div></aside></main></body></html>

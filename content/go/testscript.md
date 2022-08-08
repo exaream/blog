@@ -70,7 +70,7 @@ hello
 world!
 ```
 sample_test.go
-```go {hl_lines="13-17",linenostart=1}
+```go {hl_lines="14-16",linenostart=1}
 package sample_test
 
 import (
@@ -96,6 +96,32 @@ func TestFoo(t *testing.T) {
 		WorkdirRoot: t.TempDir(),
 	})
 }
+
+// mycat behaves like cat command.
+// Do NOT use *testing.T as an argument because we use mycat in testscript.RunMain().
+func mycat() int {
+	if len(os.Args) == 1 {
+		_, err := io.Copy(os.Stdout, os.Stdin)
+		if err != nil {
+			return 1
+		}
+		return 0
+	}
+
+	for _, fname := range os.Args[1:] {
+		f, err := os.Open(fname)
+		if err != nil {
+			return 1
+		}
+
+		_, err = io.Copy(os.Stdout, f)
+		if err != nil {
+			return 1
+		}
+	}
+	return 0
+}
+
 ```
 
 ## References
