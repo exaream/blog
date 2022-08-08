@@ -1,5 +1,5 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="TestScript"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://exaream.dev/tags/testscript/"><title>TestScript | Tech</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.2b9def0b82f295c61d95e813d7070b9c83cd9011237c3ecb1f095bb48d628476.css integrity="sha256-K53vC4LylcYdlegT1wcLnIPNkBEjfD7LHwlbtI1ihHY=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
-<script defer src=/en.search.min.0a5de7015abf6749950f1f43e78425c0c0c458d9662ecffa2c8e5fc0e2c1e17a.js integrity="sha256-Cl3nAVq/Z0mVDx9D54QlwMDEWNlmLs/6LI5fwOLB4Xo=" crossorigin=anonymous></script>
+<script defer src=/en.search.min.e683e4df988a969b72f1133a76cb0901e81b2f4f4206bf0837a88e40e7b26d7a.js integrity="sha256-5oPk35iKlpty8RM6dssJAegbL09CBr8IN6iOQOeybXo=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-W638642WNE",{anonymize_ip:!1})}</script><link rel=alternate type=application/rss+xml href=https://exaream.dev/tags/testscript/index.xml title=Tech><script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-W638642WNE")</script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
@@ -72,11 +72,14 @@
 <span>1</span></li><li class="flex justify-between"><a href=/tags/%E7%94%A8%E8%AA%9E%E9%9B%86/>用語集</a>
 <span>1</span></li></ul></li></ul></nav></aside></header><ol class=breadcrumb><li><a href=https://exaream.dev/>Home</a></li><li><a href=https://exaream.dev/tags/>Tags</a></li><li class=active><a href=https://exaream.dev/tags/testscript/>TestScript</a></li></ol><article class="markdown book-post"><h2><a href=/go/testscript/>Go TestScript</a></h2><h5>August 7, 2022</h5><div><a href=/tags/go/>Go</a>,
 <a href=/tags/golang/>Golang</a>,
-<a href=/tags/testscript/>TestScript</a></div><p>Go TestScript # 概要 # TestScript は 元々 Go のコンパイラをテストするために作成されたもの。 ShellScript のように記述でき、ファイルシステム上で動作するものをテストできる。 コンパイル時に使用される TestScript は以下で確認できる。
-https://cs.opensource.google/go/go/+/master:src/cmd/go/testdata/script/ txtar (テキストベースのアーカイブ形式) によって表現されている。 Go 内部のテストコードを使用できるよう、再構成されたものが以下で公開されている。
-https://github.com/rogpeppe/go-internal/tree/master/testscript 定義済コマンド # テストコードの書き方 # 定義済コマンド一覧 # cd, chmod, cp, env, exec, go, grep, mkdir, mv, rm exists, skip, sleep, stderr, stdout, stop, symlink, wait etc https://cs.opensource.google/go/go/+/release-branch.go1.19:src/cmd/go/script_test.go 定義済コマンドをテストで使用 # testdata/script/sample.txt
-exec cat hello.text stdout 'hello world\n' ! stderr . -- hello.txt -- hello world sample_test.go
-package sample_test import "github.
+<a href=/tags/testscript/>TestScript</a></div><p>Go TestScript # 概要 # TestScript は元々 Go のコンパイラをテストするために作成されたもの。
+https://cs.opensource.google/go/go/+/release-branch.go1.19:src/cmd/go/script_test.go シェルスクリプトのように記述でき、ファイルシステム上で動作するものをテストできる。 定義済のコマンドは以下で確認できる。
+https://cs.opensource.google/go/go/+/release-branch.go1.19:src/cmd/go/script_test.go 独自のコマンドを追加することができる。 Go のコンパイル時に使用される TestScript は以下で確認できる。
+https://cs.opensource.google/go/go/+/master:src/cmd/go/testdata/script/ TestScript は txtar (テキストベースのアーカイブ形式) によって表現されている。
+https://pkg.go.dev/golang.org/x/tools/txtar Go 内部のテストコードを使用できるよう、再構成されたものが以下で公開されている。
+https://github.com/rogpeppe/go-internal/tree/master/testscript テストコードの書き方 # 定義済コマンドをテストで使用 # testdata/script/TestFoo/hello-world.txt
+exec echo 'hello world!' stdout 'hello world!\n' sample_test.go
+package sample_test import ( "path/filepath" "testing" "github.com/rogpeppe/go-internal/testscript" ) var scriptDir = filepath.Join("testdata", "script") func TestFoo(t *testing.T) { t.Parallel() testscript.Run(t, testscript.Params{ Dir: filepath.Join(scriptDir, t.Name()), WorkdirRoot: t.TempDir(), }) } 独自のコマンドを作成してテストで使用 # testdata/script/TestFoo/hello-world.
 <a href=/go/testscript/>...</a></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav><ul><li class=book-section-flat><strong>Categories</strong><ul></ul></li><li class=book-section-flat><strong>Tags</strong><ul><li class="flex justify-between"><a href=/tags/go/>Go</a>
 <span>6</span></li><li class="flex justify-between"><a href=/tags/golang/>Golang</a>
 <span>5</span></li><li class="flex justify-between"><a href=/tags/testscript/>TestScript</a>
