@@ -17,6 +17,7 @@ headless: true
 * **[Go]({{< ref "go" >}})**
   - [Go Check List]({{< ref "go/check-list" >}})
   - [Go Test]({{< ref "go/test">}})
+  - [Go TestScript]({{< ref "go/testscript">}})
   - [Go Link]({{< ref "go/link">}})
 * **[Linux]({{< ref "linux" >}})**
   - [Linux Command]({{< ref "linux/command" >}})

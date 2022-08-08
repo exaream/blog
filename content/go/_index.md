@@ -11,4 +11,5 @@ tags: ["Go"]
 
 - [Go Check List]({{< ref "go/check-list" >}})
 - [Go Test]({{< ref "go/test">}})
+- [Go TestScript]({{< ref "go/testscript">}})
 - [Go Link]({{< ref "go/link">}})
