@@ -35,9 +35,12 @@ tags: ["Go", "Golang", "TestScript"]
 
 testdata/script/sample.txt
 ```txt
-exec echo 'hello world\n'
+exec cat hello.text
 stdout 'hello world\n'
-! stderr 'wrong sentence'
+! stderr .
+
+-- hello.txt --
+hello world
 ```
 
 sample_test.go
