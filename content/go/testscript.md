@@ -52,7 +52,7 @@ import "github.com/rogpeppe/go-internal/testscript"
 func TestFoo(t *testing.T) {
 	testscript.Run(t, testscript.Params{
 		Dir:         "testdata/script",
-		WorkdirRoot: "testdata/script",
+		WorkdirRoot: t.TempDir(),
 	})
 }
 ```
