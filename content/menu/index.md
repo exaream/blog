@@ -36,6 +36,7 @@ headless: true
 * **[Mac]({{< ref "mac" >}})**
   - [Mac Setting]({{< ref "mac/setting" >}})
   - [iTerm2]({{< ref "mac/iterm2" >}})
+  - [Homebrew]({{< ref "mac/brew" >}})
 * **[Tool]({{< ref "tool" >}})**
   - [Hugo]({{< ref "tool/hugo" >}})
   - [Jenkins]({{< ref "tool/jenkins" >}})
