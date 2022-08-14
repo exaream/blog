@@ -9,16 +9,6 @@ tags: ["Node.js", "nodebrew", "Homebrew"]
 
 # Node.js
 
-## Install Homebrew
-* Homebrew is the package manager for macOS.
-* https://docs.brew.sh/Installation
-```shell
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-$ brew -v
-Homebrew 3.2.13
-...
-```
-
 ## Install nodebrew (using Homebrew)
 * nodebrew is the package manager for Node.js.
 * You can install multiple versions of Node.js and switch between them etc.

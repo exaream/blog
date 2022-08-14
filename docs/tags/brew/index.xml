@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>brew on Tech</title><link>https://exaream.dev/tags/brew/</link><description>Recent content in brew on Tech</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>exaream</copyright><lastBuildDate>Wed, 10 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://exaream.dev/tags/brew/index.xml" rel="self" type="application/rss+xml"/><item><title>Homebrew</title><link>https://exaream.dev/mac/brew/</link><pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate><guid>https://exaream.dev/mac/brew/</guid><description>Overview # Homebrew is a package maneger for macOS.
+Install # /bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34; Command # Show help.
+brew help Update Homebrew itself.
+brew update Update packages.
+brew upgrade Install a package.
+brew install &amp;lt;package name&amp;gt; e.g.
+brew install wget Search a package.
+brew search &amp;lt;package name&amp;gt; brew search /regex/ List all installed packages.
+brew list List all installed packages with parent directories
+brew list -v Uninstall an package.</description></item></channel></rss>
