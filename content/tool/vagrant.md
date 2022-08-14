@@ -63,3 +63,6 @@ Remove the following directory.
 ```
 C:\Users\YourUsername\.vagrant.d
 ```
+
+## References
+- [Uninstalling Vagrant](https://www.vagrantup.com/docs/installation/uninstallation)
