@@ -11,6 +11,7 @@ tags: ["Job Interview", "Career"]
 ## Key Points
 - All answers connect to "Why should they hire you?"
 - https://grow.google/certificates/interview-warmup/
+- https://github.com/Twipped/InterviewThis
 
 ## Candidate
 - Tell me about yourself?
