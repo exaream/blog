@@ -11,7 +11,8 @@ tags: ["Speaker", "Conference"]
 
 ## References
 
+- [tiwtter.com/tenntenn](https://twitter.com/tenntenn/status/1113254427488509954)
 - [初めて海外カンファレンス登壇するためにやったこと](https://blog.monochromegane.com/blog/2019/08/11/toward_the_oversea_conference/)
-- [monochromegane/conference-proposals](https://github.com/monochromegane/conference-proposalsd)
+- [monochromegane/conference-proposals](https://github.com/monochromegane/conference-proposals)
 - [Go Conference 2022 Spring で採択されたプロポーザル（CfP）](https://yoheimuta.hatenablog.com/entry/2022/05/04/111034)
 - [PaperCall](https://www.papercall.io/)
