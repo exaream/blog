@@ -94,7 +94,7 @@ class ClassATest extends TestCase
      * @covers ::method1  カバレッジを算出する際に使用。テスト対象のクラス名（名前空間を含む）とメソッド名を記載。
      * @return void
      */
-    public function testMethod1ExpectedValue(): void // メソッド名の命名規則：lowerCamelCase  test[TargetFunctionName][Description|ExpectedValue]
+    public function testMethod1ExpectedValue(): void // メソッド名の命名規則：lowerCamelCase  test[TargetMethodName][Description|ExpectedValue]
     {
         $classA = new ClassA();
         $actualValue = $classA->method1();
@@ -627,6 +627,91 @@ public function testSampleMethod(): void
     $classA->method1ClassA(); 
 }
 ```
+
+## `private` や `public` のメソッドやプロパティを扱う便利クラス
+
+```php
+<?php
+
+namespace Foo\Bar\Tests;
+
+use PHPUnit\Framework\TestCase;
+use ReflectionClass;
+use ReflectionMethod;
+
+/**
+ * Base class for unit tests
+ */
+class BaseTestCase extends TestCase
+{
+    /* Run a private or protected function with params.
+    *
+    * @param  object $instance
+    * @param  string $name
+    * @param  array  $params
+    * @return mixed
+    */
+    protected function runNonPublicMethod(object $instance, string $name, array $params = []): mixed
+    {
+        $method = $this->enableNonPublicMethod($instance, $name);
+        return $method->invokeArgs($instance, $params);
+    }
+ 
+    /* Enable a private or protected function
+    *
+    * @param  object $instance
+    * @param  string $name
+    * @return ReflectionMethod $method
+    */
+    protected function enableNonPublicMethod(object $instance, string $name): ReflectionMethod
+    {
+        $reflection = new ReflectionClass($instance);
+        $method = $reflection->getMethod($name);
+        $method->setAccessible(true);
+        return $method;
+    }
+ 
+    /* Get a private or protected property
+    *
+    * @param  object $instance
+    * @param  string $name
+    * @return mixed
+    */
+    protected function getNonPublicProperty(object $instance, string $name): mixed
+    {
+        $property = $this->enableNonPublicProperty($instance, $name);
+        return $property->getValue($instance);
+    }
+ 
+    /* Set a private or protected property
+    *
+    * @param  object $instance
+    * @param  string $name
+    * @param  mixed  $value
+    * @return mixed
+    */
+    protected function setNonPublicProperty(object $instance, string $name, $value): void
+    {
+        $property = $this->enableNonPublicProperty($instance, $name);
+        $property->setValue($instance, $value);
+    }
+ 
+    /* Enable a private or protected property
+    *
+    * @param  object $instance
+    * @param  string $name
+    * @return object
+    */
+    protected function enableNonPublicProperty(object $instance, string $name): ReflectionProperty
+    {
+        $reflectionClass = new ReflectionClass($instance);
+        $property = $reflectionClass->getProperty($name);
+        $property->setAccessible(true);
+        return $property;
+    }
+}
+```
+
 
 ## その他
 

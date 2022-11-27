@@ -102,4 +102,6 @@ func TestSample(t *testing.T) {
 ```
 
 ## References
-* [非公開（unexported）な機能を使ったテスト](https://engineering.mercari.com/blog/entry/2018-08-08-080000/)
+- [非公開（unexported）な機能を使ったテスト](https://engineering.mercari.com/blog/entry/2018-08-08-080000/)
+- [go-cmpを使う理由とTipsの紹介](https://tutuz-tech.hatenablog.com/entry/2020/12/07/220236)
+- [クロージャ内では(*testing.T).Fatalメソッドの呼び出しを避ける理由](https://zenn.dev/tenntenn/articles/cadd13074e6d61)
