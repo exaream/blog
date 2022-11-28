@@ -11,5 +11,6 @@ tags: ["PHP"]
 # PHP
 
 - [PHPUnit]({{< ref "php/phpunit" >}})
+- [PHP Upgrade]({{< ref "php/upgrade" >}})
 - [PhpMetrics]({{< ref "php/phpmetrics" >}})
 - [PHP Command Line]({{< ref "php/command-line" >}})

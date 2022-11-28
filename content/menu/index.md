@@ -27,6 +27,7 @@ headless: true
   - [Python OCR]({{< ref "python/ocr" >}})
 * **[PHP]({{< ref "php" >}})**
   - [PHPUnit]({{< ref "php/phpunit" >}})
+  - [PHP Upgrade]({{< ref "php/upgrade" >}})
   - [PhpMetrics]({{< ref "php/phpmetrics" >}})
   - [PHP Command Line]({{< ref "php/command-line" >}})
 * **[JavaScript]({{< ref "javascript" >}})**
