@@ -9,6 +9,10 @@ tags: ["PHP", "Rector", "Laravel", "Upgrade", "Refactoring"]
 
 # PHP Upgrade
 
+## Supported Versions
+- https://www.php.net/supported-versions.php
+- https://qiita.com/bezeklik/items/72d1ff8393f66673e2bc
+
 ## Rector
 
 ### Overview
@@ -25,7 +29,7 @@ $ vendor/bin/rector init
 $ vi rector.php
 ```
 
-```php {hl_lines=[12,17,22,29],linenostart=1}
+```php {hl_lines=[12,17,22,"29-39"],linenostart=1}
 <?php
 
 declare(strict_types=1);
@@ -54,6 +58,16 @@ return static function (RectorConfig $rectorConfig): void {
 
     // define sets of rules
     $rectorConfig->sets([
+        // LevelSetList::UP_TO_PHP_54,
+        // LevelSetList::UP_TO_PHP_55, 
+        // LevelSetList::UP_TO_PHP_56, 
+        // LevelSetList::UP_TO_PHP_70, 
+        // LevelSetList::UP_TO_PHP_71, 
+        // LevelSetList::UP_TO_PHP_72,
+        // LevelSetList::UP_TO_PHP_73,
+        LevelSetList::UP_TO_PHP_74,
+        LevelSetList::UP_TO_PHP_80,
+        LevelSetList::UP_TO_PHP_81,
         LevelSetList::UP_TO_PHP_82,
     ]);
 };
@@ -62,7 +76,7 @@ return static function (RectorConfig $rectorConfig): void {
 ### Run
 ```shell
 $ vendor/bin/rector --help
-$ vendor/bin/rector process src --dry-run
+$ vendor/bin/rector process src --config=rector.php --dry-run 
 $ vendor/bin/rector process src --config=rector.php
 ```
 
@@ -98,11 +112,12 @@ $ vendor/bin/rector init
 $ vi rector.php
 ```
 
-```php {hl_lines=[7,30],linenostart=1}
+```php {hl_lines=[8,"42-53"],linenostart=1}
 <?php
 
 declare(strict_types=1);
 
+// use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\LevelSetList;
 use RectorLaravel\Set\LaravelSetList;
@@ -125,16 +140,47 @@ return static function (RectorConfig $rectorConfig): void {
     // register a single rule
     // $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
 
-    // define sets of rules
+    // define sets of rules 
     $rectorConfig->sets([
+        // LevelSetList::UP_TO_PHP_54,
+        // LevelSetList::UP_TO_PHP_55, 
+        // LevelSetList::UP_TO_PHP_56, 
+        // LevelSetList::UP_TO_PHP_70, 
+        // LevelSetList::UP_TO_PHP_71, 
+        // LevelSetList::UP_TO_PHP_72,
+        // LevelSetList::UP_TO_PHP_73,
+        LevelSetList::UP_TO_PHP_74,
+        LevelSetList::UP_TO_PHP_80,
+        LevelSetList::UP_TO_PHP_81,
         LevelSetList::UP_TO_PHP_82,
+
+        // LaravelSetList::LARAVEL_51,
+        // LaravelSetList::LARAVEL_52,
+        // LaravelSetList::LARAVEL_53,
+        // LaravelSetList::LARAVEL_54,
+        // LaravelSetList::LARAVEL_55,
+        // LaravelSetList::LARAVEL_56,
+        // LaravelSetList::LARAVEL_57,
+        // LaravelSetList::LARAVEL_58,
+        LaravelSetList::LARAVEL_60,
+        LaravelSetList::LARAVEL_70,
+        LaravelSetList::LARAVEL_80,
         LaravelSetList::LARAVEL_90,
-    ]);
+    ]); 
 };
 
 ```
 
+### Run
+
+```shell
+$ vendor/bin/rector process src --config=rector.php --dry-run
+$ vendor/bin/rector process src --config=rector.php
+```
+
 ## References
+- https://www.php.net/supported-versions.php
+- https://qiita.com/bezeklik/items/72d1ff8393f66673e2bc
 - https://github.com/rectorphp/rector
 - https://github.com/driftingly/rector-laravel
 - https://spatie.be/courses/front-line-php/automatically-upgrading-your-code-to-php-8-using-rector
