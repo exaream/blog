@@ -9,6 +9,8 @@ home: true
 
 # Home
 
+## Profile
+- [LeetCode](https://leetcode.com/exaream/)
 ## Most useful articles
 - [Linux Command]({{< ref "linux/command" >}})
 - [MySQL]({{< ref "mysql/basic" >}})
