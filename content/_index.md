@@ -13,7 +13,8 @@ home: true
 - [LeetCode](https://leetcode.com/exaream/)
 ## Most useful articles
 - [Linux Command]({{< ref "linux/command" >}})
-- [MySQL]({{< ref "mysql/basic" >}})
+- [MySQL Basic]({{< ref "mysql/basic" >}})
+- [MySQL EXPLAIN]({{< ref "mysql/explain">}})
 - [PostgreSQL]({{< ref "postgresql/basic" >}})
 - [Git]({{< ref "git/basic" >}})
 - [PHPUnit]({{< ref "php/phpunit" >}})

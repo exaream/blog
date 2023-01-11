@@ -12,6 +12,7 @@ headless: true
   - [Docker Swarm]({{< ref "container/docker-swarm" >}})
 * **[MySQL]({{< ref "mysql" >}})**
   - [MySQL Basic]({{< ref "mysql/basic" >}})
+  - [MySQL EXPLAIN]({{< ref "mysql/explain">}})
 * **[PostgreSQL]({{< ref "mysql" >}})**
   - [PostgreSQL Basic]({{< ref "postgresql/basic" >}})
 * **[Go]({{< ref "go" >}})**
