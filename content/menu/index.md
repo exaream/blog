@@ -3,6 +3,8 @@ headless: true
 ---
 
 ### Menu
+* **[English]({{< ref "english">}})**
+  - [TOEIC]({{< ref "english/toeic">}})
 * **[Git]({{< ref "git" >}})**
   - [Git Basic]({{< ref "git/basic" >}})
   - [Git Tool]({{< ref "git/tool" >}})
@@ -45,5 +47,4 @@ headless: true
   - [VS Code]({{< ref "tool/vscode" >}})
   - [Excel]({{< ref "tool/excel" >}})
   - [MailCatcher]({{< ref "tool/mailcatcher" >}})
-* **[Language]({{< ref "lang">}})**
-  - [English]({{< ref "lang/english">}})
+

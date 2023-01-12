@@ -1,13 +1,13 @@
 ---
 date: 2021-07-01
 lastmod: ["lastmod"]
-title: English
-linkTitle: English
-description: English
+title: English Sentence
+linkTitle: English Sentence
+description: English Sentence
 tags: ["English", "Language"]
 ---
 
-# English
+# English Sentence
 
 |Sentence|Translation|Remarks|
 |---|---|---|
