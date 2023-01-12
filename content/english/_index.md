@@ -10,4 +10,4 @@ tags: ["English"]
 # English
 
 - [TOEIC]({{< ref "english/toeic" >}})
-- [English Words]({{< ref "english/sentence" >}})
+- [English Sentence]({{< ref "english/sentence" >}})

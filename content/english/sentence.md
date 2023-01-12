@@ -2,7 +2,7 @@
 date: 2021-07-01
 lastmod: ["lastmod"]
 title: English Sentence
-linkTitle: English Sentence
+linkTitle: Sentence
 description: English Sentence
 tags: ["English", "Language"]
 ---
