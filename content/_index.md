@@ -15,6 +15,7 @@ home: true
 - [TOEIC]({{< ref "english/toeic" >}})
 - [Linux Command]({{< ref "linux/command" >}})
 - [MySQL Basic]({{< ref "mysql/basic" >}})
+- [MySQL EXPLAIN]({{< ref "mysql/explain">}})
 - [PostgreSQL]({{< ref "postgresql/basic" >}})
 - [Git]({{< ref "git/basic" >}})
 - [PHPUnit]({{< ref "php/phpunit" >}})
