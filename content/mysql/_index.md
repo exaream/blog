@@ -10,3 +10,4 @@ tags: ["MySQL"]
 # MySQL
 
 - [MySQL Basic]({{< ref "mysql/basic" >}})
+- [MySQL Explain]({{< ref "mysql/explain" >}})
