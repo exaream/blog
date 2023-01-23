@@ -15,15 +15,14 @@ tags: ["GitHub","Multiple Account","Configuration"]
 
 ディレクトリ構成
 ```text
-.
-└── source
-    └── github
-        ├── account1
-		│   ├── repository1
-		│   └── repository2
-        └── account2
-		    ├── repository3
-		    └── repository4
+~/source
+└── github
+    ├── account1
+	│   ├── repository1
+	│   └── repository2
+    └── account2
+	    ├── repository3
+	    └── repository4
 ```
 
 ## 1. 公開鍵と秘密鍵を作成
