@@ -83,10 +83,48 @@ Project FooProject was created. Node Sources can be added to define project node
 ||`Include Servder Node`を選択|
 ||`Require File Exists`を選択|
 ||`Writeable`を選択|
+
+
 1. `Save` ボタン押下。
 1. `Save` ボタン押下。(ノード編集画面)
 1. `Edit` タブを選択し、`Modify` ボタンを押下。
 1. 下記内容を入力。
+
+
+```text
+├── .ssh
+│   ├── .gitignore
+│   └── config
+├── context
+│   ├── .gitignore
+│   ├── private_key.yml
+│   └── rundeck-team-incoming-webhook-plugin-0.6.jar
+├── .env
+├── .gitignore
+└── docker-compose.yml
+```
+
+.ssh/.gitignore
+```text
+*
+!.gitignore
+!config
+```
+.ssh/config
+```text
+Host github.com
+   HostName github.com
+   identityFile ~/.ssh/id_ed25519
+	User git
+	IdentitiesOnly yes
+	Port 22
+	TCPKeepAlive yes
+```
+context/.gitignore
+```text
+id_ed25519*
+```
+context/private_key.xml
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
@@ -96,19 +134,110 @@ Project FooProject was created. Node Sources can be added to define project node
         hostname="foo_batch:22"
         username="rundeck"
         ssh-authentication="privateKey"
-        ssh-key-passphrase-storage-path="keys/project/FooProject/id_rsa"
+        ssh-key-passphrase-storage-path="keys/project/FooProject/id_ed25519"
         />
 </project>
 ```
-1. `保存` ボタン押下。
 
-`ssh-key-passphrase-storage-path` の確認
-1. 画面左下の `PROJECT SETTINGS` > `KEY STORAGE`。
-1. `Storage path` 欄に以下があることを確認。  
-   `keys/project/FooProject/id_rsa`
+.env
+```text
+# rundeck
+JVM_MAX_RAM_PERCENTAGE=75
+RUNDECK_DATABASE_DRIVER=org.mariadb.jdbc.Driver
+RUNDECK_DATABASE_USERNAME=rundeck
+RUNDECK_DATABASE_PASSWORD=rundeck
+RUNDECK_DATABASE_URL=jdbc:mysql://rundeck_mysql/rundeck?autoReconnect=true&useSSL=false
+RUNDECK_GRAILS_URL=http://localhost:4440
+RUNDECK_MAIL_SMTP_HOST=mailcatcher
+RUNDECK_MAIL_SMTP_PORT=1025
+RUNDECK_MAIL_SMTP_USERNAME=null
+RUNDECK_MAIL_SMTP_PASSWORD=null
+RUNDECK_MAIL_FROM=mailcatcher@example.com
+TZ=Asia/Tokyo
 
-### その他
-- ログのマスキング：ログ・フィルターを使用した場合、Rundeck 側に保存されたログ・ファイル自体がマスキングされるため注意。
-- チャット通知用のプラグイン
-  - Microsoft Teams notification Plugin (ジョブ名が日本語の場合も文字化けなし)
+# rundeck_mysql
+MYSQL_ROOT_PASSWORD=環境変数を設定
+MYSQL_DATABASE=環境変数を設定
+MYSQL_USER=環境変数を設定
+MYSQL_PASSWORD=環境変数を設定
+```
 
+.gitignore
+```text
+/dbdata
+```
+
+docker-compose.yaml
+```yaml
+version: '3'
+
+services:
+
+  rundeck:
+    container_name: rundeck
+    image: rundeck/rundeck:4.0.0
+    environment:
+      - JVM_MAX_RAM_PERCENTAGE
+      - RUNDECK_DATABASE_DRIVER
+      - RUNDECK_DATABASE_USERNAME
+      - RUNDECK_DATABASE_PASSWORD
+      - RUNDECK_DATABASE_URL
+      - RUNDECK_GRAILS_URL
+      - RUNDECK_MAIL_SMTP_HOST
+      - RUNDECK_MAIL_SMTP_PORT
+      - RUNDECK_MAIL_SMTP_USERNAME
+      - RUNDECK_MAIL_SMTP_PASSWORD
+      - RUNDECK_MAIL_FROM
+      - TZ
+    volumes:
+      - ${RUNDECK_LICENSE_FILE:-/dev/null}:/home/rundeck/etc/rundeckpro-license.key
+      - ./context/id_ed25519:/home/rundeck/.ssh/id_ed25519
+      - ./context/id_ed25519.pub:/home/rundeck/.ssh/id_ed25519.pub
+      - ./context/private_key.xml:/home/rundeck/home/rundeck/private_key.xml
+      - ./context/rundeck-team-incoming-webhook-plugin-0.6.jar:/home/rundeck/libext/rundeck-team-incoming-webhook-plugin-0.6.jar
+    depends_on:
+      - rundeck_mysql
+    ports:
+      - 4440:4440
+    networks:
+      - container-link
+
+  rundeck_mysql:
+    container_name: rundeck-mysql
+    image: mysql:5.7
+    expose:
+      - 3306
+    environment:
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+    volumes:
+      - ./dbdata:/var/lib/mysql
+    networks:
+      - container-link
+
+networks:
+  # Prevent generating "default" network automatically.
+  default:
+    external: true
+    name: bridge
+  # Network segment of inter-container communication.
+  container-link:
+    name: sample_network
+```
+
+
+Memo
+```shell
+docker exec -it rundeck sh
+sudo apt-get update # TODO Move to Dockerfile
+sudo apt-get install ssh-copy-id # TODO Move to Dockerfile
+# Register the public key
+ssh-copy-id rundeck@[Target Container Name] # TODO Move to Dockerfile
+```
+```shell
+ssh rundeck@Target Container Name]
+```
+
+Access http://localhost:4440/user/login
