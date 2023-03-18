@@ -12,3 +12,4 @@ tags: ["Mac"]
 - [Mac Setting]({{< ref "mac/setting" >}})
 - [iTerm2]({{< ref "mac/iterm2" >}})
 - [Homebrew]({{< ref "mac/brew" >}})
+- [zsh]({{< ref "mac/zsh" >}})
