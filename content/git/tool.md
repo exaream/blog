@@ -45,7 +45,7 @@ $ git secrets --register-aws
 ```
 
 ## git-split-diffs
-- Display the results of the `git diff` command side by side like Github.
+- Display the results of the `git diff` command side by side like GitHub.
 
 ### References
 - https://genzouw.com/entry/2021/05/24/104932/2640/

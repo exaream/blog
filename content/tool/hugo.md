@@ -15,7 +15,7 @@ https://gohugo.io/about/
 
 ## Preparation
 
-### Create a git repository using Github
+### Create a git repository using GitHub
 
 1. Repositories > New
 2. Repository name: sample
@@ -143,12 +143,12 @@ Access the following URL using a browser.
 $ echo http://localhost:3000/${GIT_REPOSITORY}/hello-world/
 ```
 
-### Push to Github
+### Push to GitHub
 ```shell
 $ git push -u origin main
 ```
 
-## Github Pages
+## GitHub Pages
 Access the following URL using a browser.
 ```shell
 $ echo https://github.com/${GITHUB_USERNAME}/${GIT_REPOSITORY}/settings/pages
