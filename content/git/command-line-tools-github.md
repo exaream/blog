@@ -11,6 +11,8 @@ tags: ["gh", "ghq", "GitHub"]
 
 ## `gh` command
 
+`gh` is the official command-line tool for GitHub. It provides an easy-to-use interface for managing pull requests, issues, repositories, and more. 
+
 ### Get token on GitHub
 
 1. Access https://github.com/settings/tokens
@@ -42,6 +44,7 @@ The minimum required scopes are 'repo', 'read:org', 'workflow'.
 ```
 
 ### Update `~/.zshrc`
+
 ```shell
 % echo '# gh' >> ~/.zshrc 
 % echo 'eval "$(gh completion -s zsh)"' >> ~/.zshrc
@@ -69,4 +72,36 @@ gh repo create sample-repo --public -d 'Sample Repository'
 Create a pull request
 ```shell
 gh pr create -w 
+```
+
+## `ghq` command
+
+`ghq` is a command-line tool for managing local clones of Git repositories.
+
+### Install `ghq`
+
+```shell
+% brew install ghq
+```
+### Configure
+
+```shell
+% ghq root /path/to/your/dir/
+% git config --global ghq.root /path/to/your/dir/
+```
+
+### How to use `ghq` command
+
+List repositories
+```shell
+ghq list
+```
+Clone a repository
+```shell
+ghq get github.com/foo/bar
+```
+
+Delete a repository
+```shell
+ghq delete github.com/foo/bar
 ```

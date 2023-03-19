@@ -8,6 +8,8 @@ headless: true
 * **[Git]({{< ref "git" >}})**
   - [Git Basic]({{< ref "git/basic" >}})
   - [Git Tool]({{< ref "git/tool" >}})
+  - [Multiple GitHub Account on 1 PC]({{< ref "git/multiple-github-account" >}})
+  - [Command-line tools of GitHub]({{< ref "git/command-line-tools-github">}})
 * **[Container]({{< ref "container" >}})**
   - [Docker]({{< ref "container/docker" >}})
   - [Docker Compose]({{< ref "container/docker-compose" >}})
