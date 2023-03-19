@@ -2,4 +2,4 @@
 $ brew install git-secrets $ git clone https://github.com/awslabs/git-secrets.git $ cd git-secrets $ make install Basic usage # Set git-secrets to a git repository
 $ git init $ git secrets --install Check commit history
 $ git secrets --scan-history For AWS
-$ git secrets --register-aws git-split-diffs # Display the results of the git diff command side by side like Github.</description></item></channel></rss>
+$ git secrets --register-aws git-split-diffs # Display the results of the git diff command side by side like GitHub.</description></item></channel></rss>

@@ -23,7 +23,7 @@ tags: ["Go", "Golang", "Link"]
 * [2021 Spring Track B](https://www.youtube.com/watch?v=x4BE6txBIR4)
 
 ## Article
-* [Go Github](https://github.com/golang/)
+* [Go GitHub](https://github.com/golang/)
 * [Go Spec](https://golang.org/ref/spec/)
 * [Go Release](https://dev.golang.org/release/)
 * [Go Download](https://golang.org/dl/)
