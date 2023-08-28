@@ -125,6 +125,35 @@ ORDER BY
     col.ordinal_position
 ```
 
+### Index List
+
+```postgresql
+SELECT
+  schemaname AS schema_name,
+  tablename AS table_name,
+  indexname AS index_name,
+  indexdef AS index_definition
+FROM
+  pg_indexes
+ORDER BY
+  schemaname,
+  tablename,
+  indexname;
+```
+
+### Number of records in each table
+
+```postgresql
+SELECT
+  pg_class.relname,
+  (pg_class.reltuples / 1) AS count
+FROM
+  pg_stat_user_tables
+  INNER JOIN pg_class ON pg_stat_user_tables.relname = pg_class.relname
+ORDER BY
+  CAST(pg_class.reltuples AS numeric) DESC;
+```
+
 ### Process List
 ```postgresql
 SELECT * FROM pg_stat_activity;
