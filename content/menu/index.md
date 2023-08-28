@@ -26,6 +26,7 @@ headless: true
   - [Go Test]({{< ref "go/test">}})
   - [Go TestScript]({{< ref "go/testscript">}})
   - [Go Link]({{< ref "go/link">}})
+  - [Go Downgrade]({{< ref "go/downgrade-version">}})
 * **[Linux]({{< ref "linux" >}})**
   - [Linux Command]({{< ref "linux/command" >}})
   - [Ubuntu]({{< ref "linux/ubuntu" >}})

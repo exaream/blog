@@ -13,3 +13,4 @@ tags: ["Go"]
 - [Go Test]({{< ref "go/test">}})
 - [Go TestScript]({{< ref "go/testscript">}})
 - [Go Link]({{< ref "go/link">}})
+- [Go Downgrade]({{< ref "go/downgrade-version">}})
