@@ -1,0 +1,144 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="localstack"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="localstack"><meta property="og:description" content="localstack"><meta property="og:type" content="article"><meta property="og:url" content="https://exaream.dev/aws/localstack/"><meta property="article:section" content="aws"><meta property="article:published_time" content="2023-08-29T00:00:00+00:00"><meta property="article:modified_time" content="2023-08-29T00:00:00+00:00"><title>localstack | Tech</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.41cfbac41cf36bc51c4b896ea95767163d1a67286b1954fc062d3e1ceb332bec.css integrity="sha256-Qc+6xBzza8UcS4luqVdnFj0aZyhrGVT8Bi0+HOszK+w=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.024ab943ca5ff74d9919c86bbdcd7b87755467b852ed6ab691786ce4d25fd81c.js integrity="sha256-Akq5Q8pf902ZGchrvc17h3VUZ7hS7Wq2kXhs5NJf2Bw=" crossorigin=anonymous></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-W638642WNE",{anonymize_ip:!1})}</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-W638642WNE"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-W638642WNE")</script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Tech</span></a></h2><h3 id=menu>Menu
+<a class=anchor href=#menu>#</a></h3><ul><li><strong><a href=https://exaream.dev/english/>English</a></strong><ul><li><a href=https://exaream.dev/english/toeic/>TOEIC</a></li></ul></li><li><strong><a href=https://exaream.dev/git/>Git</a></strong><ul><li><a href=https://exaream.dev/git/basic/>Git Basic</a></li><li><a href=https://exaream.dev/git/tool/>Git Tool</a></li><li><a href=https://exaream.dev/git/multiple-github-account/>Multiple GitHub Account on 1 PC</a></li><li><a href=https://exaream.dev/git/gh/>gh</a></li><li><a href=https://exaream.dev/git/ghq/>ghq</a></li></ul></li><li><strong><a href=https://exaream.dev/container/>Container</a></strong><ul><li><a href=https://exaream.dev/container/docker/>Docker</a></li><li><a href=https://exaream.dev/container/docker-compose/>Docker Compose</a></li><li><a href=https://exaream.dev/container/docker-swarm/>Docker Swarm</a></li><li><a href=https://exaream.dev/container/docker-apple-silicon-mac/>Docker on Apple Silicon Mac</a></li></ul></li><li><strong><a href=https://exaream.dev/mysql/>MySQL</a></strong><ul><li><a href=https://exaream.dev/mysql/basic/>MySQL Basic</a></li><li><a href=https://exaream.dev/mysql/explain/>MySQL EXPLAIN</a></li></ul></li><li><strong><a href=https://exaream.dev/mysql/>PostgreSQL</a></strong><ul><li><a href=https://exaream.dev/postgresql/basic/>PostgreSQL Basic</a></li></ul></li><li><strong><a href=https://exaream.dev/go/>Go</a></strong><ul><li><a href=https://exaream.dev/go/check-list/>Go Check List</a></li><li><a href=https://exaream.dev/go/test/>Go Test</a></li><li><a href=https://exaream.dev/go/testscript/>Go TestScript</a></li><li><a href=https://exaream.dev/go/link/>Go Link</a></li><li><a href=https://exaream.dev/go/downgrade-version/>Go Downgrade</a></li></ul></li><li><strong><a href=https://exaream.dev/linux/>Linux</a></strong><ul><li><a href=https://exaream.dev/linux/command/>Linux Command</a></li><li><a href=https://exaream.dev/linux/ubuntu/>Ubuntu</a></li></ul></li><li><strong><a href=https://exaream.dev/python/>Python</a></strong><ul><li><a href=https://exaream.dev/python/basic/>Python Basic</a></li><li><a href=https://exaream.dev/python/ocr/>Python OCR</a></li></ul></li><li><strong><a href=https://exaream.dev/php/>PHP</a></strong><ul><li><a href=https://exaream.dev/php/phpunit/>PHPUnit</a></li><li><a href=https://exaream.dev/php/upgrade/>PHP Upgrade</a></li><li><a href=https://exaream.dev/php/phpmetrics/>PhpMetrics</a></li><li><a href=https://exaream.dev/php/command-line/>PHP Command Line</a></li></ul></li><li><strong><a href=https://exaream.dev/javascript/>JavaScript</a></strong><ul><li><a href=https://exaream.dev/javascript/nodejs/>Node.js</a></li></ul></li><li><strong><a href=https://exaream.dev/shellscript/>Shellscript</a></strong><ul><li><a href=https://exaream.dev/shellscript/memo/>Shellscript Memo</a></li></ul></li><li><strong><a href=https://exaream.dev/aws/>AWS</a></strong><ul><li><a href=https://exaream.dev/aws/localstack/>localstack</a></li></ul></li><li><strong><a href=https://exaream.dev/mac/>Mac</a></strong><ul><li><a href=https://exaream.dev/mac/setting/>Mac Setting</a></li><li><a href=https://exaream.dev/mac/iterm2/>iTerm2</a></li><li><a href=https://exaream.dev/mac/brew/>Homebrew</a></li></ul></li><li><strong><a href=https://exaream.dev/tool/>Tool</a></strong><ul><li><a href=https://exaream.dev/tool/hugo/>Hugo</a></li><li><a href=https://exaream.dev/tool/jenkins/>Jenkins</a></li><li><a href=https://exaream.dev/tool/vscode/>VS Code</a></li><li><a href=https://exaream.dev/tool/excel/>Excel</a></li><li><a href=https://exaream.dev/tool/mailcatcher/>MailCatcher</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>localstack</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><h2>Tags</h2><ul class=tags><li><a href=/tags/localstack>localstack</a><li><a href=/tags/aws>AWS</a></ul><h2>Table of Contents</h2><nav id=TableOfContents><ul><li><a href=#install>Install</a></li><li><a href=#handle-queue>Handle queue</a></li><li><a href=#references>References</a></li></ul></nav></aside></header><ol class=breadcrumb><li><a href=https://exaream.dev/>Home</a></li><li><a href=https://exaream.dev/aws/>AWS</a></li><li class=active><a href=https://exaream.dev/aws/localstack/>Localstack</a></li></ol><article class=markdown><h1 id=localstack-on-mac>localstack on Mac
+<a class=anchor href=#localstack-on-mac>#</a></h1><h2 id=install>Install
+<a class=anchor href=#install>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>% brew install localstack/tap/localstack-cli
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>% localstack start -d
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>     __                     _______ __             __
+</span></span><span style=display:flex><span>    / /   ____  _________ _/ / ___// /_____ ______/ /__
+</span></span><span style=display:flex><span>   / /   / __ <span style=color:#ae81ff>\/</span> ___/ __ <span style=color:#e6db74>`</span>/ /<span style=color:#ae81ff>\_</span>_ <span style=color:#ae81ff>\/</span> __/ __ <span style=color:#e6db74>`</span>/ ___/ //_/
+</span></span><span style=display:flex><span>  / /___/ /_/ / /__/ /_/ / /___/ / /_/ /_/ / /__/ ,&lt;
+</span></span><span style=display:flex><span> /_____/<span style=color:#ae81ff>\_</span>___/<span style=color:#ae81ff>\_</span>__/<span style=color:#ae81ff>\_</span>_,_/_//____/<span style=color:#ae81ff>\_</span>_/<span style=color:#ae81ff>\_</span>_,_/<span style=color:#ae81ff>\_</span>__/_/|_|
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> 💻 LocalStack CLI 2.2.0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>22:13:25<span style=color:#f92672>]</span> starting LocalStack in Docker mode 🐳                                                       localstack.py:409
+</span></span><span style=display:flex><span>           preparing environment                                                                        bootstrap.py:623
+</span></span><span style=display:flex><span>LocalStack container named <span style=color:#e6db74>&#34;localstack_main&#34;</span> is already running
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>% localstack status services
+</span></span><span style=display:flex><span>┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+</span></span><span style=display:flex><span>┃ Service                  ┃ Status      ┃
+</span></span><span style=display:flex><span>┡━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+</span></span><span style=display:flex><span>│ acm                      │ ✔ available │
+</span></span><span style=display:flex><span>│ apigateway               │ ✔ available │
+</span></span><span style=display:flex><span>│ cloudformation           │ ✔ available │
+</span></span><span style=display:flex><span>│ cloudwatch               │ ✔ running   │
+</span></span><span style=display:flex><span>│ config                   │ ✔ available │
+</span></span><span style=display:flex><span>│ dynamodb                 │ ✔ available │
+</span></span><span style=display:flex><span>│ dynamodbstreams          │ ✔ available │
+</span></span><span style=display:flex><span>│ ec2                      │ ✔ available │
+</span></span><span style=display:flex><span>│ es                       │ ✔ available │
+</span></span><span style=display:flex><span>│ events                   │ ✔ available │
+</span></span><span style=display:flex><span>│ firehose                 │ ✔ available │
+</span></span><span style=display:flex><span>│ iam                      │ ✔ available │
+</span></span><span style=display:flex><span>│ kinesis                  │ ✔ available │
+</span></span><span style=display:flex><span>│ kms                      │ ✔ available │
+</span></span><span style=display:flex><span>│ lambda                   │ ✔ available │
+</span></span><span style=display:flex><span>│ logs                     │ ✔ available │
+</span></span><span style=display:flex><span>│ opensearch               │ ✔ available │
+</span></span><span style=display:flex><span>│ redshift                 │ ✔ available │
+</span></span><span style=display:flex><span>│ resource-groups          │ ✔ available │
+</span></span><span style=display:flex><span>│ resourcegroupstaggingapi │ ✔ available │
+</span></span><span style=display:flex><span>│ route53                  │ ✔ available │
+</span></span><span style=display:flex><span>│ route53resolver          │ ✔ available │
+</span></span><span style=display:flex><span>│ s3                       │ ✔ available │
+</span></span><span style=display:flex><span>│ s3control                │ ✔ available │
+</span></span><span style=display:flex><span>│ scheduler                │ ✔ available │
+</span></span><span style=display:flex><span>│ secretsmanager           │ ✔ available │
+</span></span><span style=display:flex><span>│ ses                      │ ✔ available │
+</span></span><span style=display:flex><span>│ sns                      │ ✔ available │
+</span></span><span style=display:flex><span>│ sqs                      │ ✔ running   │
+</span></span><span style=display:flex><span>│ ssm                      │ ✔ available │
+</span></span><span style=display:flex><span>│ stepfunctions            │ ✔ available │
+</span></span><span style=display:flex><span>│ sts                      │ ✔ available │
+</span></span><span style=display:flex><span>│ support                  │ ✔ available │
+</span></span><span style=display:flex><span>│ swf                      │ ✔ available │
+</span></span><span style=display:flex><span>│ transcribe               │ ✔ available │
+</span></span><span style=display:flex><span>└──────────────────────────┴─────────────┘
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>% brew install awscli
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>% which aws
+</span></span><span style=display:flex><span>/usr/local/bin/aws
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>% aws --version
+</span></span><span style=display:flex><span>aws-cli/2.13.13 Python/3.11.5 Darwin/21.6.0 source/x86_64 prompt/off
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>% aws configure --profile localstack
+</span></span><span style=display:flex><span>AWS Access Key ID <span style=color:#f92672>[</span>None<span style=color:#f92672>]</span>: dummy
+</span></span><span style=display:flex><span>AWS Secret Access Key <span style=color:#f92672>[</span>None<span style=color:#f92672>]</span>: dummy
+</span></span><span style=display:flex><span>Default region name <span style=color:#f92672>[</span>None<span style=color:#f92672>]</span>: us-east-1
+</span></span><span style=display:flex><span>Default output format <span style=color:#f92672>[</span>None<span style=color:#f92672>]</span>: json
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>% cat ~/.aws/credentials
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>localstack<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>aws_access_key_id <span style=color:#f92672>=</span> dummy
+</span></span><span style=display:flex><span>aws_secret_access_key <span style=color:#f92672>=</span> dummy
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>% cat ~/.aws/config
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>profile localstack<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>region <span style=color:#f92672>=</span> us-east-1
+</span></span><span style=display:flex><span>output <span style=color:#f92672>=</span> text
+</span></span></code></pre></div><h2 id=handle-queue>Handle queue
+<a class=anchor href=#handle-queue>#</a></h2><p>SQSキューの作成</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>% aws sqs create-queue --queue-name test-queue --endpoint-url http://localhost:4566 --profile localstack 
+</span></span></code></pre></div><p>SQSキューの一覧</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>% aws sqs list-queues --endpoint-url http://localhost:4566 --profile localstack
+</span></span><span style=display:flex><span><span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;QueueUrl&#34;</span>: <span style=color:#e6db74>&#34;http://localhost:4566/000000000000/test-queue&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><p>SQSキューの属性</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>SQSキューの属性
+</span></span><span style=display:flex><span>% aws sqs get-queue-attributes --queue-url http://localhost:4566/000000000000/test-queue --attribute-names All --endpoint-url http://localhost:4566 --profile localstack
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;Attributes&#34;</span>: <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;ApproximateNumberOfMessages&#34;</span>: <span style=color:#e6db74>&#34;0&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;ApproximateNumberOfMessagesNotVisible&#34;</span>: <span style=color:#e6db74>&#34;0&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;ApproximateNumberOfMessagesDelayed&#34;</span>: <span style=color:#e6db74>&#34;0&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;CreatedTimestamp&#34;</span>: <span style=color:#e6db74>&#34;1693055519&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;DelaySeconds&#34;</span>: <span style=color:#e6db74>&#34;0&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;LastModifiedTimestamp&#34;</span>: <span style=color:#e6db74>&#34;1693055519&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;MaximumMessageSize&#34;</span>: <span style=color:#e6db74>&#34;262144&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;MessageRetentionPeriod&#34;</span>: <span style=color:#e6db74>&#34;345600&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;QueueArn&#34;</span>: <span style=color:#e6db74>&#34;arn:aws:sqs:us-east-1:000000000000:test-queue&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;ReceiveMessageWaitTimeSeconds&#34;</span>: <span style=color:#e6db74>&#34;0&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;VisibilityTimeout&#34;</span>: <span style=color:#e6db74>&#34;30&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;SqsManagedSseEnabled&#34;</span>: <span style=color:#e6db74>&#34;false&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><p>SQSキューへメッセージを送信</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>%  aws sqs send-message --queue-url <span style=color:#e6db74>&#34;http://localhost:4566/000000000000/test-queue&#34;</span> --message-body <span style=color:#e6db74>&#34;hello sqs&#34;</span> --endpoint-url http://localhost:4566 --profile localstack
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;MD5OfMessageBody&#34;</span>: <span style=color:#e6db74>&#34;3b7bef57d06c0021d0aafe8f6d587241&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;MessageId&#34;</span>: <span style=color:#e6db74>&#34;24b091c2-63fa-4814-bb84-30ff1930f5fd&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><p>SQSキューの現在のメッセージ数を確認</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>% aws sqs get-queue-attributes --queue-url <span style=color:#e6db74>&#39;http://localhost:4566/000000000000/test-queue&#39;</span> --attribute-names ApproximateNumberOfMessages --query <span style=color:#e6db74>&#39;Attributes.ApproximateNumberOfMessages&#39;</span> --endpoint-url http://localhost:4566 --profile localstack
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;1&#34;</span>
+</span></span></code></pre></div><p>SQSキューの消費</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>% aws sqs receive-message --queue-url <span style=color:#e6db74>&#39;http://localhost:4566/000000000000/test-queue&#39;</span> --endpoint-url http://localhost:4566 --profile localstack
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;Messages&#34;</span>: <span style=color:#f92672>[</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;MessageId&#34;</span>: <span style=color:#e6db74>&#34;24b091c2-63fa-4814-bb84-30ff1930f5fd&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;ReceiptHandle&#34;</span>: <span style=color:#e6db74>&#34;YzNjMDIzZTEtNTBkZC00NmE5LTg3NmItYTYxOTI3YzE3MWIzIGFybjphd3M6c3FzOnVzLWVhc3QtMTowMDAwMDAwMDAwMDA6dGVzdC1xdWV1ZSAyNGIwOTFjMi02M2ZhLTQ4MTQtYmI4NC0zMGZmMTkzMGY1ZmQgMTY5MzA1NTk5MC42ODAyMTQ2&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;MD5OfBody&#34;</span>: <span style=color:#e6db74>&#34;3b7bef57d06c0021d0aafe8f6d587241&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;Body&#34;</span>: <span style=color:#e6db74>&#34;hello sqs&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><p>SQSキューのメッセージを削除</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>% aws sqs delete-message --queue-url <span style=color:#e6db74>&#39;http://localhost:4566/000000000000/test-queue&#39;</span> --receipt-handle <span style=color:#e6db74>&#34;YzNjMDIzZTEtNTBkZC00NmE5LTg3NmItYTYxOTI3YzE3MWIzIGFybjphd3M6c3FzOnVzLWVhc3QtMTowMDAwMDAwMDAwMDA6dGVzdC1xdWV1ZSAyNGIwOTFjMi02M2ZhLTQ4MTQtYmI4NC0zMGZmMTkzMGY1ZmQgMTY5MzA1NTk5MC42ODAyMTQ2&#34;</span> --endpoint-url http://localhost:4566 --profile localstack
+</span></span></code></pre></div><p>SQSキューのメッセージ数を確認</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>% aws sqs get-queue-attributes --queue-url <span style=color:#e6db74>&#39;http://localhost:4566/000000000000/test-queue&#39;</span> --attribute-names ApproximateNumberOfMessages --query <span style=color:#e6db74>&#39;Attributes.ApproximateNumberOfMessages&#39;</span> --endpoint-url http://localhost:4566 --profile localstack
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;0&#34;</span>
+</span></span></code></pre></div><h2 id=references>References
+<a class=anchor href=#references>#</a></h2><ul><li><a href=https://docs.aws.amazon.com/ja_jp/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html>https://docs.aws.amazon.com/ja_jp/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html</a></li><li><a href=https://qiita.com/KWS_0901/items/bb0d3c8319cbb1e64217>https://qiita.com/KWS_0901/items/bb0d3c8319cbb1e64217</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><h2>Tags</h2><ul class=tags><li><a href=/tags/localstack>localstack</a><li><a href=/tags/aws>AWS</a></ul><h2>Table of Contents</h2><nav id=TableOfContents><ul><li><a href=#install>Install</a></li><li><a href=#handle-queue>Handle queue</a></li><li><a href=#references>References</a></li></ul></nav></div></aside></main></body></html>

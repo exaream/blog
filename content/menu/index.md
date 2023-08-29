@@ -42,6 +42,8 @@ headless: true
   - [Node.js]({{< ref "javascript/nodejs">}})
 * **[Shellscript]({{< ref "shellscript" >}})**
   - [Shellscript Memo]({{< ref "shellscript/memo">}})
+* **[AWS]({{< ref "AWS" >}})**
+  - [localstack]({{< ref "aws/localstack" >}})
 * **[Mac]({{< ref "mac" >}})**
   - [Mac Setting]({{< ref "mac/setting" >}})
   - [iTerm2]({{< ref "mac/iterm2" >}})
