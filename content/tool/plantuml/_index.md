@@ -90,8 +90,8 @@ deactivate App
 
 ## jQuery and HTML
   
-No need to install above.  
-Download the following files instead.  
+No need to install above if you use jQuery and HTML.  
+Download the files below instead.  
 - <a href="jquery.js" target="_blank">jquery.js</a>
 - <a href="jquery_plantuml.js" target="_blank">jquery_plantuml.js</a>
 - <a href="rawdeflate.js" target="_blank">rawdeflate.js</a>
