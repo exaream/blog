@@ -35,3 +35,4 @@ googleAnalytics = ""
 
 [params]
   BookMenuBundle = '/menu'
+  BookSearch = false
