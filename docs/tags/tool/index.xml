@@ -2,4 +2,4 @@
 $ brew install git-secrets $ git clone https://github.com/awslabs/git-secrets.git $ cd git-secrets $ make install Basic usage # Set git-secrets to a git repository
 $ git init $ git secrets --install Check commit history
 $ git secrets --scan-history For AWS
-$ git secrets --register-aws git-split-diffs # Display the results of the git diff command side by side like GitHub.</description></item><item><title>Tool</title><link>https://exaream.dev/tool/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://exaream.dev/tool/</guid><description> Tool # Hugo Jenkins VS Code Excel MailCatcher</description></item></channel></rss>
+$ git secrets --register-aws git-split-diffs # Display the results of the git diff command side by side like GitHub.</description></item><item><title>Tool</title><link>https://exaream.dev/tool/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://exaream.dev/tool/</guid><description> Tool # localstack PlantUML Hugo Jenkins VS Code Excel MailCatcher</description></item></channel></rss>

@@ -42,13 +42,13 @@ headless: true
   - [Node.js]({{< ref "javascript/nodejs">}})
 * **[Shellscript]({{< ref "shellscript" >}})**
   - [Shellscript Memo]({{< ref "shellscript/memo">}})
-* **[AWS]({{< ref "AWS" >}})**
-  - [localstack]({{< ref "aws/localstack" >}})
 * **[Mac]({{< ref "mac" >}})**
   - [Mac Setting]({{< ref "mac/setting" >}})
   - [iTerm2]({{< ref "mac/iterm2" >}})
   - [Homebrew]({{< ref "mac/brew" >}})
 * **[Tool]({{< ref "tool" >}})**
+  - [localstack]({{< ref "tool/localstack" >}})
+  - [PlantUML]({{< ref "tool/plantuml" >}})
   - [Hugo]({{< ref "tool/hugo" >}})
   - [Jenkins]({{< ref "tool/jenkins" >}})
   - [VS Code]({{< ref "tool/vscode" >}})
