@@ -135,6 +135,12 @@ SELECT VERSION();
 ```mysql
 SHOW VARIABLES LIKE '%time_zone%';
 ```
+タイムゾーンの変換
+
+```mysql
+-- CONVERT_TZ(datetime, before_time_zone, after_time_zone)
+SELECT CONVERT_TZ(NOW(), 'UTC', 'Asia/Tokyo');
+```
 
 ## 文字コードと照合順序
 文字コード
