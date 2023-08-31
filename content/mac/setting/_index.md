@@ -14,28 +14,28 @@ tags: ["Mac", "Setting", "macOS"]
 ### Empty Caches
 
 1. `Safari` > `Preferences`  
-  ![This is a image](../static/safari-preferences.png)
+  ![This is a image](safari-preferences.png)
 2. `Advanced`
 3. Check `Show Develop menu in menu bar`
-  ![This is a image](../static/safari-develop-menu.png)
+  ![This is a image](safari-develop-menu.png)
 4. `Develop` > `Empty caches`  
-  ![This is a image](../static/safari-empty-caches.png)
+  ![This is a image](safari-empty-caches.png)
 
 ### Proxy Settings
 Switch On
 1. `Safari` > `Preferences`  
-  ![This is a image](../static/safari-preferences.png)
+  ![This is a image](safari-preferences.png)
 2. `Advanced`  
 3. `Change Settings...`
-  ![This is a image](../static/safari-change-settings.png)
+  ![This is a image](safari-change-settings.png)
 4. Select `Proxies` tab
     1. Check `Web Proxy (HTTP)` and enter `proxy domain` : `proxy port`
     2. Check `Secure Web Proxy (HTTP)` and enter `proxy domain` : `proxy port`
     3. Click `OK`
-    ![This is a image](../static/mac-proxy-settings.png)
+    ![This is a image](mac-proxy-settings.png)
 
 5. Click `Apply`  
-  ![This is a image](../static/mac-proxy-apply.png)
+  ![This is a image](mac-proxy-apply.png)
 6. Restart `Safari`  
   (It will take some time for the change to take effect)
 

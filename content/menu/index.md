@@ -43,7 +43,7 @@ headless: true
 * **[Shellscript]({{< ref "shellscript" >}})**
   - [Shellscript Memo]({{< ref "shellscript/memo">}})
 * **[Mac]({{< ref "mac" >}})**
-  - [Mac Setting]({{< ref "mac/setting" >}})
+  - [Setting]({{< ref "mac/setting" >}})
   - [iTerm2]({{< ref "mac/iterm2" >}})
   - [Homebrew]({{< ref "mac/brew" >}})
 * **[Tool]({{< ref "tool" >}})**

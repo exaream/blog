@@ -119,7 +119,7 @@ SELECT
 FROM
     information_schema.columns
 WHERE
-    table_name = 'sample_table' -- 対象テーブル名を指定
+    table_name = 'sample_tbl' -- 対象テーブル名を指定
 ORDER BY
     table_name,
     ordinal_position
@@ -208,11 +208,18 @@ EXPLAIN SELECT * FROM sample_tbl WHERE id = XXXXX;
 
 ## `CREATE TABLE`
 
+
 ### Copy definitions & Create table
 
 ```postgresql
 CREATE TABLE copy_tbl (LIKE org_tbl);
 ```
+
+### `WITHOUT OIDS`
+- オブジェクト識別子(OID)は PostgreSQLの内部で様々なシステムテーブルのプライマリキーとして使用される。
+- `default_with_oids` 設定が `false` の場合、または、テーブル作成時に `WITHOUT OIDS` を指定しない場合は、自動でテーブルに追加される。
+- 符号なし4バイト整数。大規模なデータに対しては十分な大きさではないため要注意。
+
 ### Define id and timestamp
 - Use UUID as the primary key.
 #### Simple Version
@@ -222,7 +229,7 @@ CREATE TABLE sample_tbl (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP -- Update by program
-);
+) WITHOUT OIDS;
 ```
 
 #### More Accurate Version
@@ -232,7 +239,7 @@ CREATE TABLE sample_tbl (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
+) WITHOUT OIDS;
 
 CREATE TRIGGER refresh_users_updated_at_step1
     BEFORE UPDATE ON users FOR EACH ROW
@@ -273,6 +280,30 @@ BEGIN
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
+```
+
+### Partition
+
+```postgresql
+CREATE TABLE sample_tbl (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP -- Update by program
+) PARTITION BY RANGE (created_at) WITHOUT OIDS;
+
+SELECT create_parent(
+    p_parent_table => concat(current_schema(), '.sample_tbl'),
+    p_control => 'created_at',
+    p_type => 'native',
+    p_interval=> 'monthly'
+);
+```
+
+## CREATE INDEX
+
+```postgresql
+-- CREATE INDEX index_name ON table_name(column_name, ...)
+CREATE INDEX sample_tbl_idx_01 ON sample_tbl(sample_column_1, sample_column_2);
 ```
 
 ## Timezone
