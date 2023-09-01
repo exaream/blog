@@ -32,6 +32,7 @@ tags: ["gh", "GitHub"]
 ### Log in on the terminal
 
 ```shell
+# Login to Github
 % gh auth login
 ? What account do you want to log into? GitHub.com
 ? What is your preferred protocol for Git operations? HTTPS
@@ -43,6 +44,8 @@ The minimum required scopes are 'repo', 'read:org', 'workflow'.
 - gh config set -h github.com git_protocol https
 ✓ Configured git protocol
 ✓ Logged in as exaream
+# Set up git authentication via gh
+% gh auth setup-git
 ```
 
 ## Configure
@@ -50,82 +53,73 @@ The minimum required scopes are 'repo', 'read:org', 'workflow'.
 ### Update `~/.zshrc`
 
 ```shell
-% echo '# gh' >> ~/.zshrc 
-% echo 'eval "$(gh completion -s zsh)"' >> ~/.zshrc
+% echo '# gh\neval "$(gh completion -s zsh)"' >> ~/.zshrc
+
+% tail -n 2 ~/.zshrc
+# gh
+eval "$(gh completion -s zsh)"
+
 % source ~/.zshrc
 ```
 
 ## How to use
 
+### Get a token if necessary
+
+```shell
+% gh auth token
+```
+
 ### Manage pull requsts using `gh pr`
-List pull requests
+
 ```shell
+# List pull requests
 % gh pr list
-```
-
-List pull requests for merge to `main` branch
-```shell
+# List pull requests for merge to `main` branch
 % gh pr list -B main
-```
-
-List pull requests related to your account
-```shell
+# List pull requests related to your account
 % gh pr list -s all -a your-account-name
-```
-
-Create an alias to list yoru pull requests
-```shell
+# Create an alias to list yoru pull requests
 % gh alias set mypr "pr list -s all -a your-account-name"
 % gh mypr
 ```
 
-Create a pull request from current branch to default branch
 ```shell
+#Create a pull request from current branch to default branch
 % gh pr create
-```
-
-Create a pull request from dev to main
-```shell
+# Create a pull request from dev to main
 % gh pr create -H dev -B main
-```
-
-Create a pull request and view on web
-```shell
+# Create a pull request and view on web
 % gh pr create -w 
 ```
 
-Merge a pull request that belongs to the current branch
 ```shell
-# Confirm the number of target pull request
-% gh pr list
-# Merge
-% gh pr merge 3
+# Confirm a pull request
+% gh pr view 111
+% gh pr diff 111
+# Merge a pull request that belongs to the current branch
+% gh pr merge 111
 ```
 
 ### Manage repositories using `gh repo`
 
-Create a repository
+
 ```shell
+# List repositories
+% gh repo list
+# Create a repository
 % mkdir sample-repo
 % gh repo create
-```
-Confirm a created repository
-```shell
+# Confirm a created repository
 % git remote -v
-```
-
-Create a public repository with specified name
-```shell
+# Create a public repository with specified name
 % gh repo create sample-public-repo --public -d 'Sample public repository'
-```
-
-Create a private repository with specified name
-```shell
+# Create a private repository with specified name
 % gh repo create sample-private-repo --private -d 'Sample private repository'
 ```
 
-View the info of a repository in current directory on your local environment
 ```shell
+# View the info of a repository in current directory on your local environment
 % gh repo view
 ```
 
@@ -133,3 +127,12 @@ View a repository's information
 ```shell
 % gh repo view foo/bar
 ```
+
+### Manage issues using `gh issue`
+
+```shell
+% gh issue list
+```
+
+## References
+- https://qiita.com/yuhei3017/items/2c1a152a406c6e368c03
