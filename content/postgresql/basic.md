@@ -35,7 +35,7 @@ psql (PostgreSQL) 15.4 (Homebrew)
 (3 rows)
 
 # Login to PostgreSQL
-% psql -h localhost -p 5432 -U zer0 -d postgres
+% psql -h localhost -p 5432 -U your_username -d postgres
 psql (15.4 (Homebrew))
 Type "help" for help.
 
