@@ -92,7 +92,7 @@ aws_secret_access_key = dummy
 % cat ~/.aws/config
 [profile localstack]
 region = us-east-1
-output = text
+output = json
 ```
 
 ## Handle queue

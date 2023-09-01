@@ -87,7 +87,7 @@
 </span></span><span style=display:flex><span>% cat ~/.aws/config
 </span></span><span style=display:flex><span><span style=color:#f92672>[</span>profile localstack<span style=color:#f92672>]</span>
 </span></span><span style=display:flex><span>region <span style=color:#f92672>=</span> us-east-1
-</span></span><span style=display:flex><span>output <span style=color:#f92672>=</span> text
+</span></span><span style=display:flex><span>output <span style=color:#f92672>=</span> json
 </span></span></code></pre></div><h2 id=handle-queue>Handle queue
 <a class=anchor href=#handle-queue>#</a></h2><p>SQSキューの作成</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>% aws sqs create-queue --queue-name test-queue --endpoint-url http://localhost:4566 --profile localstack 
 </span></span></code></pre></div><p>SQSキューの一覧</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>% aws sqs list-queues --endpoint-url http://localhost:4566 --profile localstack
