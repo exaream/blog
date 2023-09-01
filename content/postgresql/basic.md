@@ -9,6 +9,48 @@ tags: ["PostgreSQL", "SQL"]
 
 # PostgreSQL Basic
 
+## Install
+
+```shell
+% brew update
+% brew search postgresql
+% brew install postgresql@15
+% echo 'export PATH="/usr/local/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
+% source ~/.zshrc
+% psql --version
+psql (PostgreSQL) 15.4 (Homebrew)
+% brew services start postgresql@15
+==> Successfully started `postgresql@15` (label: homebrew.mxcl.postgresql@15)
+
+# **** is default user name
+% psql -l
+                                         List of databases
+   Name    | Owner | Encoding | Collate | Ctype | ICU Locale | Locale Provider | Access privileges
+-----------+-------+----------+---------+-------+------------+-----------------+-------------------
+ postgres  | ****  | UTF8     | C       | C     |            | libc            |
+ template0 | ****  | UTF8     | C       | C     |            | libc            | =c/****          +
+           |       |          |         |       |            |                 | ****=CTc/****
+ template1 | ****  | UTF8     | C       | C     |            | libc            | =c/****          +
+           |       |          |         |       |            |                 | ****=CTc/****
+(3 rows)
+
+# Login to PostgreSQL
+% psql -h localhost -p 5432 -U zer0 -d postgres
+psql (15.4 (Homebrew))
+Type "help" for help.
+
+postgres=#
+
+# Exit PostgreSQL
+postgres=# \q
+```
+
+Config files
+```shell
+% ls -la /usr/local/Cellar/postgresql@15/15.4/share/postgresql@15
+```
+
+
 ## `psql` command
 
 ### Usage
