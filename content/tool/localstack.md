@@ -10,8 +10,14 @@ tags: ["localstack", "AWS"]
 # localstack on Mac
 
 ## Install
+
+https://docs.localstack.cloud/getting-started/installation/
+
 ```shell
 % brew install localstack/tap/localstack-cli
+
+% localstack --version
+2.3.2
 
 % localstack start -d
 
@@ -21,12 +27,13 @@ tags: ["localstack", "AWS"]
   / /___/ /_/ / /__/ /_/ / /___/ / /_/ /_/ / /__/ ,<
  /_____/\____/\___/\__,_/_//____/\__/\__,_/\___/_/|_|
 
- 💻 LocalStack CLI 2.2.0
+ 💻 LocalStack CLI 2.3.2
 
-[22:13:25] starting LocalStack in Docker mode 🐳                                                       localstack.py:409
-           preparing environment                                                                        bootstrap.py:623
-LocalStack container named "localstack_main" is already running
-
+[10:57:13] starting LocalStack in Docker mode 🐳                localstack.py:495
+           preparing environment                                bootstrap.py:1206
+[10:57:14] configuring container                                bootstrap.py:1214
+[10:57:19] starting container                                   bootstrap.py:1224
+[10:58:15] detaching                                            bootstrap.py:122
 
 % localstack status services
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
@@ -35,7 +42,7 @@ LocalStack container named "localstack_main" is already running
 │ acm                      │ ✔ available │
 │ apigateway               │ ✔ available │
 │ cloudformation           │ ✔ available │
-│ cloudwatch               │ ✔ running   │
+│ cloudwatch               │ ✔ available │
 │ config                   │ ✔ available │
 │ dynamodb                 │ ✔ available │
 │ dynamodbstreams          │ ✔ available │
@@ -49,6 +56,7 @@ LocalStack container named "localstack_main" is already running
 │ lambda                   │ ✔ available │
 │ logs                     │ ✔ available │
 │ opensearch               │ ✔ available │
+│ ram                      │ ✔ available │
 │ redshift                 │ ✔ available │
 │ resource-groups          │ ✔ available │
 │ resourcegroupstaggingapi │ ✔ available │
@@ -60,7 +68,7 @@ LocalStack container named "localstack_main" is already running
 │ secretsmanager           │ ✔ available │
 │ ses                      │ ✔ available │
 │ sns                      │ ✔ available │
-│ sqs                      │ ✔ running   │
+│ sqs                      │ ✔ available │
 │ ssm                      │ ✔ available │
 │ stepfunctions            │ ✔ available │
 │ sts                      │ ✔ available │
@@ -69,14 +77,13 @@ LocalStack container named "localstack_main" is already running
 │ transcribe               │ ✔ available │
 └──────────────────────────┴─────────────┘
 
-
 % brew install awscli
 
 % which aws
 /usr/local/bin/aws
 
 % aws --version
-aws-cli/2.13.13 Python/3.11.5 Darwin/21.6.0 source/x86_64 prompt/off
+aws-cli/2.13.32 Python/3.11.6 Darwin/21.6.0 source/x86_64 prompt/off
 
 % aws configure --profile localstack
 AWS Access Key ID [None]: dummy
@@ -95,7 +102,14 @@ region = us-east-1
 output = json
 ```
 
-## Handle queue
+
+## SQS (Simple Queue Service)
+
+- 概要
+  - システムからメッセージを受け取り、一時的に保存した上で処理
+  - 大量のメッセージを平準化して(均等な作業量で)処理するためのバッファ(緩衝材)として  
+    または、Microservice間のタスクの非同期処理として使用
+  - FIFO (First-In-First-Out)キューを使用するとメッセージの順序や一貫性を保証
 
 SQSキューの作成
 ```shell
@@ -176,6 +190,62 @@ SQSキューのメッセージ数を確認
 % aws sqs get-queue-attributes --queue-url 'http://localhost:4566/000000000000/test-queue' --attribute-names ApproximateNumberOfMessages --query 'Attributes.ApproximateNumberOfMessages' --endpoint-url http://localhost:4566 --profile localstack
 
 "0"
+```
+
+## SNS
+
+- 概要
+  - 通知の発行者からメッセージを受け取り、購読者(サブスクライバー)に配信
+  - 複数のエンドポイント(SQSキュー、Lambda関数、メール、SMS、HTTP/HTTPS etc)に送信可
+  - システム間の非同期のメッセージの交換、イベント駆動型のワークフロー(データの登録・変更等の  
+    特定のイベントが発生した際、メッセージを送信し、受け取ったシステムが処理を実行する等)を実現
+
+SNSトピックの作成
+```shell
+% aws sns create-topic --name test-topic --endpoint-url=http://localhost:4566 --profile localstack
+{
+    "TopicArn": "arn:aws:sns:us-east-1:000000000000:test-topic"
+}
+```
+
+SQSキューの作成
+```shell
+% aws sqs create-queue --queue-name test-queue --endpoint-url=http://localhost:4566 --profile localstack
+{
+    "QueueUrl": "http://localhost:4566/000000000000/test-queue"
+}
+```
+
+SNSトピックをSQSキューで購読し、SNSトピックに対してメッセージが発行されたら SQSに自動送信されるよう設定
+```shell
+% aws sns subscribe --topic-arn arn:aws:sns:us-east-1:000000000000:test-topic --protocol sqs --notification-endpoint arn:aws:sqs:us-east-1:000000000000:test-queue --endpoint-url=http://localhost:4566 --profile localstack
+{
+    "SubscriptionArn": "arn:aws:sns:us-east-1:000000000000:test-topic:7284befa-eb97-4f8e-a76e-63891be75bd3"
+}
+```
+
+SNSトピックへのメッセージを発行
+```shell
+% aws sns publish --topic-arn arn:aws:sns:us-east-1:000000000000:test-topic --message 'Hello, world!' --endpoint-url http://localhost:4566 --profile localstack
+{
+    "MessageId": "63af4d31-59c3-4222-bc73-1ad0724592f4"
+}
+```
+
+SNSトピックを購読しているSQSキューからメッセージを受信できることを確認
+(ここでは上記のMessageId `63af4d31-59c3-4222-bc73-1ad0724592f4` が `Body` に含まれていることを確認)
+```shell
+% aws sqs receive-message --queue-url http://localhost:4566/000000000000/test-queue --endpoint-url http://localhost:4566 --profile localstack
+{
+    "Messages": [
+        {
+            "MessageId": "10ba045a-6c00-44b2-b3df-6774eacd97a2",
+            "ReceiptHandle": "MjM5OTk2ZjctMzJhNC00OTRkLWJjZTYtMDgyMzEwYTA5M2EwIGFybjphd3M6c3FzOnVzLWVhc3QtMTowMDAwMDAwMDAwMDA6dGVzdC1xdWV1ZSAxMGJhMDQ1YS02YzAwLTQ0YjItYjNkZi02Nzc0ZWFjZDk3YTIgMTY5OTA2NDYyOS42ODU2NzQ=",
+            "MD5OfBody": "095875699e9fdb2ea41cf6385f0ea1e9",
+            "Body": "{\"Type\": \"Notification\", \"MessageId\": \"63af4d31-59c3-4222-bc73-1ad0724592f4\", \"TopicArn\": \"arn:aws:sns:us-east-1:000000000000:test-topic\", \"Message\": \"Hello, world!\", \"Timestamp\": \"2023-11-04T02:20:13.239Z\", \"SignatureVersion\": \"1\", \"Signature\": \"EXAMPLEpH+..\", \"SigningCertURL\": \"https://sns.us-east-1.amazonaws.com/SimpleNotificationService-0000000000000000000000.pem\", \"UnsubscribeURL\": \"http://localhost:4566/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:000000000000:test-topic:7284befa-eb97-4f8e-a76e-63891be75bd3\"}"
+        }
+    ]
+}
 ```
 
 ## References
