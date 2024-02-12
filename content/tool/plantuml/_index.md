@@ -49,7 +49,10 @@ Dot version: dot - graphviz version 8.1.0 (20230707.0739)
 Installation seems OK. File generation OK
 ```
 
-### VSCode Extension
+## VSCode
+
+
+### Extension
 
 ![This is a image](vscode-plantuml.png)
 
@@ -87,6 +90,12 @@ deactivate App
 
 @enduml
 ```
+
+### Shortcuts
+
+|command|description|
+|--|--|
+|`alt`+`D`|Preview|
 
 ## jQuery and HTML
   
